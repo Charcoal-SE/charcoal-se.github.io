@@ -86,7 +86,6 @@ a:hover, a:active {
 
 .navigation div {
   display: inline-block;
-  width: 160px;
   border-right: 2px solid #6B1A00;
   line-height: 100%;
 }
@@ -99,7 +98,7 @@ a:hover, a:active {
   text-decoration: none;
   font-variant: small-caps;
   color: #333;
-  margin: 0 10px;
+  margin: 0 30px;
   transition: all 0.2s ease;
   font-size: 1.6em;
 }
@@ -108,7 +107,7 @@ a:hover, a:active {
   font-weight: bold;
   font-variant: small-caps;
   color: #6B1A00;
-  margin: 0 10px;
+  margin: 0 30px;
   transition: all 0.2s ease;
   font-size: 1.6em;
 }
