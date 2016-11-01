@@ -84,6 +84,17 @@ a:hover, a:active {
   text-decoration: underline;
 }
 
+.navigation div {
+  display: inline-block;
+  width: 160px;
+  border-right: 2px solid #6B1A00;
+  line-height: 100%;
+}
+
+.navigation div:last-child {
+  border-right: none;
+}
+
 .navigation a, .navigation a:visited {
   text-decoration: none;
   font-variant: small-caps;
@@ -101,3 +112,4 @@ a:hover, a:active {
   transition: all 0.2s ease;
   font-size: 1.6em;
 }
+
