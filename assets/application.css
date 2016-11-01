@@ -99,7 +99,7 @@ a:hover, a:active {
   text-decoration: none;
   font-variant: small-caps;
   color: #333;
-  margin: 0 20px;
+  margin: 0 15px;
   transition: all 0.2s ease;
   font-size: 1.6em;
 }
@@ -108,7 +108,7 @@ a:hover, a:active {
   font-weight: bold;
   font-variant: small-caps;
   color: #6B1A00;
-  margin: 0 20px;
+  margin: 0 15px;
   transition: all 0.2s ease;
   font-size: 1.6em;
 }
