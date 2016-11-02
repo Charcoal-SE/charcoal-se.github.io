@@ -101,14 +101,16 @@ a:hover, a:active {
   margin: 0 30px;
   transition: all 0.2s ease;
   font-size: 1.6em;
+  letter-spacing: 0.03em;
 }
 
 .navigation a:hover, .navigation a:active {
-  font-weight: bold;
+  /* Hack courtsey of http://stackoverflow.com/a/14978871/4622463 */
+  text-shadow: 1px 0 0 #6B1A00;
+  letter-spacing: 0.03em;
   font-variant: small-caps;
   color: #6B1A00;
   margin: 0 30px;
   transition: all 0.2s ease;
   font-size: 1.6em;
 }
-
