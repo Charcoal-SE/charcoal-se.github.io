@@ -114,3 +114,9 @@ a:hover, a:active {
   transition: all 0.2s ease;
   font-size: 1.6em;
 }
+
+.footer {
+  font-size: 0.8em;
+  color: #555;
+  margin-top: 30px;
+}
