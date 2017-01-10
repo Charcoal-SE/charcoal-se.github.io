@@ -53,6 +53,24 @@ h1 {
   font-size: 0.6em;
 }
 
+.alert {
+  border: 1px solid #6F1A09;
+  border-radius: 3px;
+  background: #ffc3b7;
+  color: #6F1A09;
+  padding: 7px;
+}
+
+.alert p {
+  margin: 7px;
+  padding: 0;
+}
+
+.alert a {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .body-container {
   width: 70%;
   min-width: 978px;
