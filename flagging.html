@@ -51,12 +51,12 @@
         trust the host.</p>
       <p>The other concern is making sure users are aware that autoflags aren't a get-out-of-jail-free card: flags cast on a Stack Exchange account are the responsiblity
         of the account holder, whether they were cast by an automated system or not, and bad flagging may result in moderators getting involved. This is partially
-        mitigated by mandating accuracy in the system - while users are given some leeway to what the system can flag with their account, a 99% accuracy ratio over a
+        mitigated by mandating accuracy in the system - while users are given some leeway to what the system can flag with their account, a 99.9% accuracy ratio over a
         sample of 1000 posts is mandatory. There is also another disclaimer used to detail the relevant concerns before users sign up for autoflagging.</p>
 
       <h2 id="any-good">Is it any good? <span class="small"><a href="#any-good"><i class="fa fa-link" aria-hidden="true"></i></a></span></h2>
       <p>Yep. As mentioned previously, users are given some leeway to choose how accurate they want autoflags cast using their account to be, but all autoflags must
-        be cast under a policy that is at least 99% accurate over a sample of 1000 posts. The suggested flag policy (also known as a flag condition) has an accuracy of
+        be cast under a policy that is at least 99.9% accurate over a sample of 1000 posts. The suggested flag policy (also known as a flag condition) has an accuracy of
         99.98%.</p>
 
       <h2 id="technical">How does it work? <span class="small"><a href="#technical"><i class="fa fa-link" aria-hidden="true"></i></a></span></h2>
@@ -69,7 +69,7 @@
         equal to its percentage accuracy to the nearest integer.</p>
       <p>When users sign up for autoflagging, they are asked to create conditions that govern which posts their account can flag. This is done in terms of a minimum total
         reason weight, a maximum author reputation, and a minimum number of reasons. These are checked against the database of posts and feedback to work out how accurate
-        the condition is, which is how we ensure conditions are at least 99% accurate.</p>
+        the condition is, which is how we ensure conditions are at least 99.9% accurate.</p>
       <p>When a post is sent to metasmoke, the system works out if any conditions allow it to flag the post. If they do, the condition owner's account is used to cast a
         spam flag, and this process is repeated until the post reaches a maximum number of flags cast.</p>
     </div>
