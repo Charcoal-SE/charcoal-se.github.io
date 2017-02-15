@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis:300,500|Source+Sans+Pro');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css');
 
 body {
   margin: 0;
@@ -141,4 +142,12 @@ a:hover, a:active {
   font-size: 0.8em;
   color: #555;
   margin-top: 30px;
+}
+
+#instantclick {
+  display: none;
+}
+
+.highlight {
+  background: #FFCDBF;
 }
