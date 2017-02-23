@@ -1,3 +1,4 @@
 title: Charcoal
 kramdown:
   auto_ids: false
+  parse_block_html: true
