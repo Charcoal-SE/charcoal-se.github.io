@@ -3,18 +3,24 @@
 <head>
   <title>{% if page.fullTitle and !page.fullTitle.empty? %}{{ page.fullTitle }}{% elsif page.title and !page.title.empty? %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <link rel="stylesheet" type="text/css" href="/assets/application.css" />
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/instantclick/3.0.1/instantclick.min.js" data-no-instant></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js" integrity="sha256-GaKOLXTn7uJXFuWp57ukQZGuKK2gWZWlEH16hc6jBU8=" crossorigin="anonymous"></script>
   <script type="application/javascript" src="/assets/application.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
   <div class="body-container">
     <div class="header">
       <div class="header-icon text-center">
-        <a href="/"><img src="/assets/images/charcoal.png" height="64" title="Charcoal: spam-crusaders of the Internet" /></a>
+        <a href="/">
+          <img src="/assets/images/charcoal.png" height="64" title="Charcoal: spam-crusaders of the Internet" />
+          Charcoal
+        </a>
+        <label class="nav-toggle-icon fa fa-bars fa-lg" for="nav-toggle"></label>
       </div>
+      <input type="checkbox" id="nav-toggle">
       <div class="navigation text-center">
         <div><a href="/">home</a></div><div>
         <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">charcoal chat</a></div><div>
