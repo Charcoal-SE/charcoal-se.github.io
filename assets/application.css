@@ -199,6 +199,15 @@ a:hover, a:active {
     height: 32px;
     margin-right: 0.5em
   }
+  .header-icon span {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.9;
+  }
+  .header-icon span small {
+    font-size: 0.5em;
+    opacity: 0.75;
+  }
   .nav-toggle-icon {
     visibility: visible;
   }
