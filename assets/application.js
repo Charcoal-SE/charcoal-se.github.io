@@ -20,6 +20,11 @@ $(document).ready(function() {
     }
   })
   InstantClick.on('change', function() {
+    $('h1,h2,h3,h4,h5,h6').filter('[id]').filter(function () {
+      return !$(this).find('.small').length
+    }).each(function () {
+      $(this).append(' ').append($('<span class="small">').append($('<a />').attr('href', '#' + this.id).append($('<i class="fa fa-link" />'))))
+    })
     setTimeout(NProgress.done)
   });
   InstantClick.init();

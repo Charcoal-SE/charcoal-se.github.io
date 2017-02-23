@@ -15,6 +15,7 @@ h1 {
   font-size: 3.0em;
   letter-spacing: 20px;
   font-variant: small-caps;
+  text-align: center;
 }
 
 h4 {
@@ -64,6 +65,7 @@ h4 {
   background: #ffc3b7;
   color: #6F1A09;
   padding: 7px;
+  margin: 0;
 }
 
 .alert p {
