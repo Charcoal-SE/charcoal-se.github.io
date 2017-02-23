@@ -23,37 +23,8 @@ h4 {
   margin-bottom: 0px;
 }
 
-.text-left {
-  text-align: left;
-}
-
 .text-center {
   text-align: center;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.vcenter {
-  display: flex;
-  align-items: center;
-}
-
-.pull-left {
-  float: left;
-}
-
-.pull-right {
-  float: right;
-}
-
-.clearfix {
-  clear: both;
-}
-
-.inline {
-  display: inline-block;
 }
 
 .small {
@@ -118,12 +89,7 @@ h4 {
   display: none;
 }
 
-a, a:visited {
-  color: #6B1A00;
-  text-decoration: underline;
-}
-
-a:hover, a:active {
+a, a:visited, a:hover, a:active {
   color: #6B1A00;
   text-decoration: underline;
 }
