@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>{% if page.fullTitle and !page.fullTitle.empty? %}{{ page.fullTitle }}{% elsif page.title and !page.title.empty? %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <title>{% if page.fullTitle.size > 0 %}{{ page.fullTitle }}{% elsif page.title.size > 0 %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <link rel="stylesheet" type="text/css" href="/assets/css/application.css" />
   <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
