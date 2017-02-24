@@ -53,7 +53,7 @@ h4 {
 
 .body-container {
   width: 70%;
-  min-width: 978px;
+  min-width: 768px;
   background: white;
   padding: 30px;
   margin-left: auto;
@@ -62,6 +62,13 @@ h4 {
   flex-direction: column;
   min-height: 100vh;
   box-sizing: border-box;
+}
+
+@media (max-width: 1567px) {
+  .body-container {
+    width: 100%;
+    max-width: 1100px;
+  }
 }
 
 .header {
@@ -98,6 +105,10 @@ a, a:visited, a:hover, a:active {
   text-decoration: underline;
 }
 
+.navigation {
+  margin-left: -30px;
+  margin-right: -30px;
+}
 .navigation div {
   display: inline-block;
   border: 0 solid #6B1A00;
@@ -111,11 +122,10 @@ a, a:visited, a:hover, a:active {
 
 .navigation a, .navigation a:visited {
   text-decoration: none;
-  font-variant: small-caps;
+  text-transform: uppercase;
   color: #333;
   margin: 0 30px;
   transition: all 0.2s ease;
-  font-size: 1.6em;
   letter-spacing: 0.03em;
 }
 
@@ -123,11 +133,7 @@ a, a:visited, a:hover, a:active {
   /* Hack courtsey of http://stackoverflow.com/a/14978871/4622463 */
   text-shadow: 1px 0 0 #6B1A00;
   letter-spacing: 0.03em;
-  font-variant: small-caps;
   color: #6B1A00;
-  margin: 0 30px;
-  transition: all 0.2s ease;
-  font-size: 1.6em;
 }
 
 .footer {
