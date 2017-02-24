@@ -1,16 +1,13 @@
 $(document).ready(function() {
+  var navTimeout = null
+  NProgress.configure({ parent: 'html' });
 
-  function handleHash() {
+  $(document).on('turbolinks:load', function() {
     $('.highlight').removeClass('highlight')
     if (location.hash && location.hash != "") {
       $(location.hash).parent().addClass('highlight');
     }
-  }
 
-  var navTimeout = null
-  NProgress.configure({ parent: 'html' });
-  $(document).on('turbolinks:load', function() {
-    handleHash()
     $('h1,h2,h3,h4,h5,h6').filter('[id]').filter(function () {
       return !$(this).find('.small').length
     }).each(function () {
@@ -23,5 +20,7 @@ $(document).ready(function() {
   }).on('turbolinks:request-end', function () {
     clearTimeout(navTimeout)
     NProgress.done()
+  }).on('click', '.link.alert', function () {
+    Turbolinks.visit($(this).find('a').attr('href'))
   });
 });

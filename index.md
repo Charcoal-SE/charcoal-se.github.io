@@ -7,7 +7,7 @@ title: ''
 > **Autoflagging**
 >
 > Charcoal are currently running an autoflagging initiative, to flag spam posts automatically based on past collected data. To find out more, go to [Autoflagging](/flagging).
-{: .alert}
+{: .alert.link}
 
 [Charcoal](http://chat.stackexchange.com/rooms/11540) are the people behind [SmokeDetector](https://github.com/Charcoal-SE/SmokeDetector), a community bot to detect spam on the [Stack Exchange network](http://stackexchange.com).
 

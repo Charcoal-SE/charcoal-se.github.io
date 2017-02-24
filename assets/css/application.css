@@ -39,6 +39,9 @@ h4 {
   padding: 7px;
   margin: 0;
 }
+.link.alert {
+  cursor: pointer;
+}
 
 .alert p {
   margin: 7px;
