@@ -45,7 +45,7 @@ $('input').on('input', function () {
     clearTimeout(timeout)
   }
   timeout = setTimeout(function () {
-    $.get('https://metasmoke.erwaysoftware.com/api/posts/urls?key=d897aa9f315174f081309cef13dfd7caa4ddfec1c2f8641204506636751392a4&urls=' + url, function (data) {
+    $.get('https://metasmoke.erwaysoftware.com/api/posts/urls?key=1658080a59604fa5386e39290dd415ed5270dc6f12fab053cd4cc3d32cb154d4&filter=%00%00%00%00%00%00%00%02%00%00%00%00%00%00%00%00&urls=' + url, function (data) {
       if (data.items.length) {
         var actualURL = 'https://metasmoke.erwaysoftware.com/post/' + data.items[0].id
         $('section div').text('— or —')
