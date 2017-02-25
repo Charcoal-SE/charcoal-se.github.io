@@ -12,7 +12,7 @@ title: ''
 [Charcoal](http://chat.stackexchange.com/rooms/11540) are the people behind [SmokeDetector](https://github.com/Charcoal-SE/SmokeDetector), a community bot to detect spam on the [Stack Exchange network](http://stackexchange.com).
 
 <section>
-## What is SmokeDetector? {#whats-smokey}
+## What is SmokeDetector? {#whats-smokey} {#ws}
 
 SmokeDetector is a headless chatbot, written in Python, that scans all new and updated content across the Stack Exchange network to try to detect spam. And by 'everything', we mean 'everything' - that's every new post, on every SE site, plus every edit and other update. If it appears on the Stack Exchange-wide [real-time page](http://stackexchange.com/questions?tab=realtime), Smokey has seen it. That's about 100,000 posts scanned every day. Also, the bot is pretty accurate these days - some of the reasons that trip our filters have an accuracy of over 99%.
 
