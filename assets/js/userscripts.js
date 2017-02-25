@@ -5,6 +5,17 @@ function fail() {
 }
 (function _f() {
   if (window.userscriptParser && window.listify && window.fileSize) {
+    $.get('https://img.shields.io/travis/Charcoal-SE/userscripts.json', function (reply) {
+      $('.build span').text(reply.value)
+    })
+    $.get({
+      url: 'https://api.travis-ci.org/repos/Charcoal-SE/userscripts',
+      headers: {
+        Accept: 'application/vnd.travis-ci.2+json'
+      }
+    }).done(function (res) {
+      $('.build a').attr('href', 'https://travis-ci.org/Charcoal-SE/userscripts/builds/' + res.repo.last_build_id)
+    })
     $.get("https://api.github.com/repos/charcoal-se/userscripts/git/trees/master?recursive=1", initUserscripts).fail(function () {
       setTimeout(_f, 1000)
       fail.apply(this, arguments)
