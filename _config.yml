@@ -1,4 +1,8 @@
 title: Charcoal
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
 kramdown:
   auto_ids: false
   parse_block_html: true
