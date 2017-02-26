@@ -1,6 +1,5 @@
 language: ruby
 rvm: 2.2
-cache: bundler
 install:
   - git clone https://github.com/j-f1/charcoal-jekyll-theme .tmp
   - cp -r .tmp/* ./
