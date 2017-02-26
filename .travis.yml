@@ -9,8 +9,8 @@ script:
   - git clone --depth 1 -qb master "https://$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG" _site
   - bundle exec jekyll build
   - cd _site
-  - git add .
-  - ./push.sh
+  - git add --all .
+  - ../push.sh
 branches:
   only:
     - site
