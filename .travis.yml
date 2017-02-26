@@ -1,0 +1,17 @@
+language: ruby
+rvm: 2.2
+cache: bundler
+install:
+  - git clone https://github.com/j-f1/charcoal-jekyll-theme .tmp
+  - cp -r .tmp/* ./
+  - bundle install
+script:
+  - git clone --depth 1 -qb master "https://$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG"
+  _site
+  - bundle exec jekyll build
+  - cd _site
+  - git add .
+  - ./push.sh
+env:
+  global:
+    secure: '09hOB6wsP2Db9ZyTDTdbizkffZAy2PMkVE3ctMSUZwJw1dc4fwFXeYVkl8jPj9aYNNXucTLun3mPNFlq4jdyCYHQPug2c03CihUlUMxI/x0OCcvYjnr5vZ3UWupHsWXN6POl/lIXyDe/bz98aZXjGMe2Ipl2O8Dqabf7RuDYVgvV2JsUZIr2o5wQ3Y5Ufx6YFV5j7JBINlm1rZOwHj6vC5peuvfHgWNoKNjJ6Z9ZoN8LIiyeQSrAIQfxrpQDDnOTJRnPZ8kv1efnw6KEo9bdocDKO/0FRjVFP3EzxJ3bEcysmJi0tGyx+ThmIgrNhg99BugD+IUasWmZNZyjJ1iD/NYM9HnGstwqmaA341Wz25IV+xf2U1jrIO0wsrNVAW3pVyK2CtZs4mBdkmlWZlP3qy/IfecvJ5aKFczmGZAj1KtP1H0aZiMj0bngOz73aPAcCPf/rLepppQEFMFejQWHWhkAZaORPjx37NLZ3n5/pq+CHbT8DfDYVC35yZvIngR9g/Bf5MCW+klpN0eUuNKZ11v4nsQNtgu8LNrFM5mrgtNFr6zQZZ4yArG4LnT2dls2ko9Vmd9GjUaysExb5P8kt9clgposwDhckBFclhZadFiUpCx0EVOYxDq/KnBGX4fGNhOkQvXpDNJDCpJemc63lUEl+cE5FgEZm8KIyr8dwMQ='
