@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>State of the Project | Charcoal</title>
+  <link rel="stylesheet" type="text/css" href="/assets/css/application.css" />
+  <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.0.0/turbolinks.min.js" integrity="sha256-HUtkNsGc3BlCNQTNPUr5JsjW0wQFeU4nfYOEuUcxptU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js" integrity="sha256-GaKOLXTn7uJXFuWp57ukQZGuKK2gWZWlEH16hc6jBU8=" crossorigin="anonymous"></script>
+  <script type="application/javascript" src="/assets/js/application.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="body-container">
+    <div class="header">
+      <div class="header-icon text-center">
+        <a href="/">
+          <img src="/assets/images/charcoal.png" height="64" title="Charcoal: spam-crusaders of the Internet" />
+          <span>
+            Charcoal<br>
+            <small>spam-crusaders of the Internet</small>
+          </span>
+        </a>
+        <label class="nav-toggle-icon fa fa-bars fa-lg" for="nav-toggle"></label>
+      </div>
+      <input type="checkbox" id="nav-toggle">
+      <div class="navigation text-center">
+        <div><a href="/">home</a></div><div>
+        <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">charcoal chat</a></div><div>
+        <a href="https://metasmoke.erwaysoftware.com/">metasmoke</a></div><div>
+        <a href="/userscripts">userscripts</a></div><div>
+        <a href="/blaze" data-turbolinks="false">blaze</a></div><div>
+        <a href="https://github.com/Charcoal-SE">github</a></div><div>
+        <a href="/smokey">wiki</a></div><div>
+        <a href="/ms/API-Documentation">api</a></div><div>
+        <a href="/ms-urls">convert url</a></div>
+      </div>
+    </div>
+    <div class="body">
+      <h1 id="state-of-the-project">State of the Project</h1>
+
+<blockquote>
+  <p>Caution: At this point in time, this page is an ad-hoc summary of work in progress. Autoflagging is preliminarily enabled right now, only casting a single spam flag per eligible post, to be expanded in the future (Stack Exchange permitting).</p>
+</blockquote>
+
+<p>We are looking into automating flags from Smokey.  Basically, it will look as if though Smokey clicks “flag” → “spam” as soon as Smoke Detector reports a post (though not all reported posts are eligible; see the Spam weight section for details.).</p>
+
+<p>We are working out the specifics of the system right now, so the details are still in flux.</p>
+
+<p>To participate in the development of this feature, please show up in <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">the Charcoal HQ chat room</a> and wait for a good moment to bring up your topic (afternoon UTC seems to be a fairly busy time in the room).</p>
+
+<p>The main dashboard (status, statistics, etc) is at https://metasmoke.erwaysoftware.com/flagging</p>
+
+<h1 id="technical-details-and-spam-weight">Technical details and spam weight</h1>
+
+<p>Every time a post is reported, it triggers a <a href="https://metasmoke.erwaysoftware.com/dashboard">variety of different reasons</a> for being reported (such as bad keyword, blacklisted website, etc). Each of these reasons (also known as “heuristics”) contributes to the post’s weight. The formula that determines how much weight each reason contributes is as follows:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[Number of True Positives caught by reason] / [Total posts caught by the reason] * 100
+</code></pre>
+</div>
+
+<p>In our current preliminary testing, the threshold that was set for posts to be flagged automatically is at a weight of 280. In our database of over 50,000 records, this score threshold has a predictive accuracy of 99.98% (meaning of all posts hitting 280 score caught by Smokey, 99.98% were true positives).</p>
+
+<p>As with any other projection, you need to understand that past performance is no guarantee for the future.</p>
+
+<p>The flagging is done by Metasmoke (the back end component) using the credentials of users who have signed up to allow the system to cast flags on their behalf.</p>
+
+<h1 id="opting-in">Opting In</h1>
+
+<p>There is a separate page about <a href="Set-Up-Autoflagging">Setting up Autoflagging</a>.  This brief section is a quick FAQ-like summary.</p>
+
+<p>There is a “big red button” which you can click.  Please be patient and try again until it actually sticks!  This is a known issue which of course we hope to resolve eventually.</p>
+
+<p>Once <a href="https://metasmoke.erwaysoftware.com/flagging/preferences">your flagging status</a> shows as active (the button stays checked if you navigate away from the page and come back again) and your conditions are met, you are eligible to be drawn randomly when a flag is about to be raised.  This is a random selection out of the list of users whose conditions allow flagging at the given weight on the given site.</p>
+
+<p>You can review the flags cast on your behalf at a URL like <code class="highlighter-rouge">https://metasmoke.erwaysoftware.com/flagging/users/XX/logs</code> (for example, <a href="https://metasmoke.erwaysoftware.com/flagging/users/1/logs">Undo’s log</a>).  There is a number of other useful links on the personal flagging dashboard where you can tweak conditions or turn off autoflagging.</p>
+
+    </div>
+    <div class="footer text-center">
+      Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.
+    </div>
+  </div>
+</body>
+</html>

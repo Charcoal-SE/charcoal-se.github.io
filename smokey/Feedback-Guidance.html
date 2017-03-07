@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Charcoal</title>
+  <link rel="stylesheet" type="text/css" href="/assets/css/application.css" />
+  <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.0.0/turbolinks.min.js" integrity="sha256-HUtkNsGc3BlCNQTNPUr5JsjW0wQFeU4nfYOEuUcxptU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js" integrity="sha256-GaKOLXTn7uJXFuWp57ukQZGuKK2gWZWlEH16hc6jBU8=" crossorigin="anonymous"></script>
+  <script type="application/javascript" src="/assets/js/application.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="body-container">
+    <div class="header">
+      <div class="header-icon text-center">
+        <a href="/">
+          <img src="/assets/images/charcoal.png" height="64" title="Charcoal: spam-crusaders of the Internet" />
+          <span>
+            Charcoal<br>
+            <small>spam-crusaders of the Internet</small>
+          </span>
+        </a>
+        <label class="nav-toggle-icon fa fa-bars fa-lg" for="nav-toggle"></label>
+      </div>
+      <input type="checkbox" id="nav-toggle">
+      <div class="navigation text-center">
+        <div><a href="/">home</a></div><div>
+        <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">charcoal chat</a></div><div>
+        <a href="https://metasmoke.erwaysoftware.com/">metasmoke</a></div><div>
+        <a href="/userscripts">userscripts</a></div><div>
+        <a href="/blaze" data-turbolinks="false">blaze</a></div><div>
+        <a href="https://github.com/Charcoal-SE">github</a></div><div>
+        <a href="/smokey">wiki</a></div><div>
+        <a href="/ms/API-Documentation">api</a></div><div>
+        <a href="/ms-urls">convert url</a></div>
+      </div>
+    </div>
+    <div class="body">
+      <p>Some aspects of feedback to SmokeDetector have historically caused confusion. This page is intended to address some of those confusions.</p>
+
+<h3 id="generic-guidance">Generic Guidance</h3>
+<p>In very general terms, the litmus test for whether you should use <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/Commands#silent-mode-and-aliases"><code class="highlighter-rouge">k</code></a> or <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/Commands#silent-mode-and-aliases"><code class="highlighter-rouge">f</code></a> is this:</p>
+
+<blockquote>
+  <p>If SmokeDetector was implemented as a system-level block, would we want to catch this type of activity?</p>
+</blockquote>
+
+<p>If the answer to that question is <em>yes</em>, you should mark the post <code class="highlighter-rouge">k</code>. There are a few types of activity we have specific guidelines for, as outlined below.</p>
+
+<h3 id="disclosed-affiliation">Disclosed affiliation</h3>
+<p>It’s fine to promote your own product or service on Stack Exchange, <em>as long as</em>:</p>
+
+<ul>
+  <li>you’re not doing it excessively</li>
+  <li>you disclose your affiliation</li>
+  <li>you only do so where relevant</li>
+</ul>
+
+<p>If all of those conditions are true, then self-promotion is not spam and therefore <code class="highlighter-rouge">f</code> and not <code class="highlighter-rouge">k</code> (unless it doesn’t answer the question, in which case it’s <code class="highlighter-rouge">n</code>). If any of them are false, self-promotion is <code class="highlighter-rouge">k</code>.</p>
+
+<h3 id="self-vandalism">Self-vandalism</h3>
+<p>Self-vandalism is where a user vandalises their own post by replacing all its useful content with something like “xxxxxxxxxxxxxxxxxxxxxxxx”, or “deleted deleted deleted”. For self-vandalism, use <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/Commands#privileged-commands-as-reply"><code class="highlighter-rouge">tp-</code></a> (or one of its aliases, such as <code class="highlighter-rouge">v</code>, <code class="highlighter-rouge">vand</code> or <code class="highlighter-rouge">vandalism</code>). At a system level, we’d want to catch and block people doing this, but it’s not worth blacklisting the user because it’s usually a one-time incident. Most users, when warned, don’t do it again.</p>
+
+<h3 id="foreign-language-posts-on-english-sites-or-vice-versa">Foreign-language posts on English sites (or vice versa)</h3>
+<p>Treat these as you would an English post. If it’s spam, offensive, etc., then mark it as <code class="highlighter-rouge">k</code>; otherwise use <code class="highlighter-rouge">f</code> or <code class="highlighter-rouge">n</code>. Particularly, answers in the wrong language for the target site are NAA, so <code class="highlighter-rouge">n</code>. Being in the wrong language for the site <em>alone</em> doesn’t make a post <code class="highlighter-rouge">k</code>-able.</p>
+
+<h3 id="plagiarism">Plagiarism</h3>
+<p>Plagiarism - copying without attribution from another source such as someone else’s answer or another website - is not always easy to spot. If you do spot it in an answer, then mark it as <code class="highlighter-rouge">k</code> - you may wish to explain to other users in the chatroom why you’ve done that, to avoid arguments about what the feedback should be.</p>
+
+<p>If you get to a post before it’s deleted, an easy way to spot plagiarism is to check the other posts on the same page for similar content.</p>
+
+<p>However, while plagiarism should be marked as <code class="highlighter-rouge">k</code>, the <code class="highlighter-rouge">!!/report</code> command shouldn’t be used to report plagiarism - catching plagiarism is a bonus if we do, but we’re not aiming to catch it.</p>
+
+<h3 id="naa-feedback">NAA feedback</h3>
+<p>NAA feedback has sometimes been a little confusing. Using <code class="highlighter-rouge">n</code> as your feedback should, in general, be done if:</p>
+
+<ul>
+  <li>the post is not spam, abusive, offensive etc. (use <code class="highlighter-rouge">k</code>)</li>
+  <li>you would flag the post as Not An Answer on the site itself</li>
+</ul>
+
+    </div>
+    <div class="footer text-center">
+      Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.
+    </div>
+  </div>
+</body>
+</html>

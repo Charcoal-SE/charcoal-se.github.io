@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>What the website blacklist does: | Charcoal</title>
+  <link rel="stylesheet" type="text/css" href="/assets/css/application.css" />
+  <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.0.0/turbolinks.min.js" integrity="sha256-HUtkNsGc3BlCNQTNPUr5JsjW0wQFeU4nfYOEuUcxptU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js" integrity="sha256-GaKOLXTn7uJXFuWp57ukQZGuKK2gWZWlEH16hc6jBU8=" crossorigin="anonymous"></script>
+  <script type="application/javascript" src="/assets/js/application.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="body-container">
+    <div class="header">
+      <div class="header-icon text-center">
+        <a href="/">
+          <img src="/assets/images/charcoal.png" height="64" title="Charcoal: spam-crusaders of the Internet" />
+          <span>
+            Charcoal<br>
+            <small>spam-crusaders of the Internet</small>
+          </span>
+        </a>
+        <label class="nav-toggle-icon fa fa-bars fa-lg" for="nav-toggle"></label>
+      </div>
+      <input type="checkbox" id="nav-toggle">
+      <div class="navigation text-center">
+        <div><a href="/">home</a></div><div>
+        <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">charcoal chat</a></div><div>
+        <a href="https://metasmoke.erwaysoftware.com/">metasmoke</a></div><div>
+        <a href="/userscripts">userscripts</a></div><div>
+        <a href="/blaze" data-turbolinks="false">blaze</a></div><div>
+        <a href="https://github.com/Charcoal-SE">github</a></div><div>
+        <a href="/smokey">wiki</a></div><div>
+        <a href="/ms/API-Documentation">api</a></div><div>
+        <a href="/ms-urls">convert url</a></div>
+      </div>
+    </div>
+    <div class="body">
+      <h2 id="what-the-website-blacklist-does">What the website blacklist does:</h2>
+
+<p>The website blacklist is one of the filters used by the spam detection bot SmokeDetector. It consists of a list of websites associated with known spam that automatically raise suspicion when posted anywhere on Stack Exchange.</p>
+
+<p>Blacklisting a website makes SmokeDetector report every post that is posted or modified with a link to the website (formatted as a link or otherwise) in its text. The website blacklist is maintained in the <a href="https://github.com/Charcoal-SE/SmokeDetector">SmokeDetector GitHub repository</a>, specifically in the file <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/blacklisted_websites.txt">blacklisted_websites.txt</a>.</p>
+
+<h2 id="when-to-blacklist-a-website">When to blacklist a website:</h2>
+
+<p>Generally, it makes sense to blacklist a website if all of the following criteria are met:</p>
+
+<ul>
+  <li>
+    <p>Website has been used in <strong>at least</strong> 2 confirmed instances (tp fed back reports) of spam (You can use https://metasmoke.erwaysoftware.com/search to find other instances of a website being used for spam).</p>
+  </li>
+  <li>
+    <p>Website is not used legitimately in other posts on Stack Exchange.</p>
+  </li>
+  <li>
+    <p>Website is not currently caught in either of these filters:</p>
+    <ul>
+      <li>bad keyword in body</li>
+      <li>blacklisted website</li>
+      <li>pattern matching website</li>
+    </ul>
+  </li>
+</ul>
+
+<p>You can test this by using the **!!/test <string to="" test="">** command. (or **!!/test-a <string to="" test="">** to test as an answer).</string></string></p>
+
+<h2 id="how-to-blacklist-a-website">How to blacklist a website:</h2>
+
+<p>Everyone with SmokeDetector privileges (if you don’t have those and would like them, read up on <a href="Privileges">how to get them</a>) can blacklist a website, though the action will require admin-approval for most people. Additions to the blacklist (via both methods) must be valid regular expressions (regex). In reality that means for largely exact matches (like the website blacklist) that you ensure that special characters (like <code class="highlighter-rouge">.</code>) are escaped. (Example: <code class="highlighter-rouge">thisisspam\.com</code>)</p>
+
+<p>There are 2 methods to add a website to the blacklist:</p>
+
+<ul>
+  <li>
+    <p>Propose a change to the <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/blacklisted_websites.txt">blacklisted_websites.txt</a> file on GitHub and create a pull request specifying why you want to blacklist the website.</p>
+  </li>
+  <li>
+    <p>Use the “!!/blacklist-website <regex string="">" command in any of the Smoke Detector chatrooms. This will create a pull request containing your change for you.</regex></p>
+  </li>
+</ul>
+
+    </div>
+    <div class="footer text-center">
+      Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.
+    </div>
+  </div>
+</body>
+</html>

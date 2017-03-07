@@ -8,11 +8,12 @@ $(document).ready(function() {
       $(location.hash).parent().addClass('highlight');
     }
 
-    $('h1,h2,h3,h4,h5,h6').filter('[id]').filter(function () {
+    $('h2,h3,h4,h5,h6').filter('[id]').filter(function () {
       return !$(this).find('.small').length
     }).each(function () {
       $(this).append(' ').append($('<span class="small">').append($('<a />').attr('href', '#' + this.id).append($('<i class="fa fa-link" />'))))
     })
+    $('.footer-insert').remove().children().prependTo($('.body + .footer'))
   }).on('turbolinks:request-start', function () {
     clearTimeout(navTimeout)
     NProgress.start()

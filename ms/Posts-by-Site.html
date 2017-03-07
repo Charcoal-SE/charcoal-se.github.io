@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>404 Not Found | Charcoal</title>
+  <title>Charcoal</title>
   <link rel="stylesheet" type="text/css" href="/assets/css/application.css" />
   <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
@@ -37,17 +37,21 @@
       </div>
     </div>
     <div class="body">
-      <h1 id="404-not-found">404 Not Found</h1>
+      <h3 id="route-name">Route Name</h3>
+<p>Posts by Site</p>
 
-<p class="text-center">That page couldn’t be found <span class="more"></span><br />
-Go <a href="/">home</a>?</p>
+<h3 id="route-url">Route URL</h3>
 
-<script>
-if (document.referrer) {
-  $('span').text('(You came from ' + document.referrer + ')')
-}
-</script>
+<div class="highlighter-rouge"><pre class="highlight"><code>/api/posts/site
+</code></pre>
+</div>
 
+<h3 id="description--usage">Description &amp; Usage</h3>
+<p>This route allows you to fetch posts based on the Stack Exchange site they were posted on. Use the <code class="highlighter-rouge">site</code> query string parameter to specify which site you want to check: this parameter should be filled with a valid URL to the Stack Exchange site in question (such as <code class="highlighter-rouge">//stackoverflow.com/</code>, or <code class="highlighter-rouge">//drupal.stackexchange.com/</code>.</p>
+
+<p>You can use the <code class="highlighter-rouge">per_page</code> query string parameter to adjust how many results you get, up to a maximum of 100.</p>
+
+<p>The <code class="highlighter-rouge">has_more</code> field in the response indicates if there are more results available than have been returned in this result set; use the <code class="highlighter-rouge">page</code> query string parameter to get the next page of results. <code class="highlighter-rouge">?page=1</code> will return the first page; <code class="highlighter-rouge">?page=2</code> the second, and so on.</p>
 
     </div>
     <div class="footer text-center">

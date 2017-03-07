@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Intro | Charcoal</title>
+  <link rel="stylesheet" type="text/css" href="/assets/css/application.css" />
+  <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.0.0/turbolinks.min.js" integrity="sha256-HUtkNsGc3BlCNQTNPUr5JsjW0wQFeU4nfYOEuUcxptU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js" integrity="sha256-GaKOLXTn7uJXFuWp57ukQZGuKK2gWZWlEH16hc6jBU8=" crossorigin="anonymous"></script>
+  <script type="application/javascript" src="/assets/js/application.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="body-container">
+    <div class="header">
+      <div class="header-icon text-center">
+        <a href="/">
+          <img src="/assets/images/charcoal.png" height="64" title="Charcoal: spam-crusaders of the Internet" />
+          <span>
+            Charcoal<br>
+            <small>spam-crusaders of the Internet</small>
+          </span>
+        </a>
+        <label class="nav-toggle-icon fa fa-bars fa-lg" for="nav-toggle"></label>
+      </div>
+      <input type="checkbox" id="nav-toggle">
+      <div class="navigation text-center">
+        <div><a href="/">home</a></div><div>
+        <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">charcoal chat</a></div><div>
+        <a href="https://metasmoke.erwaysoftware.com/">metasmoke</a></div><div>
+        <a href="/userscripts">userscripts</a></div><div>
+        <a href="/blaze" data-turbolinks="false">blaze</a></div><div>
+        <a href="https://github.com/Charcoal-SE">github</a></div><div>
+        <a href="/smokey">wiki</a></div><div>
+        <a href="/ms/API-Documentation">api</a></div><div>
+        <a href="/ms-urls">convert url</a></div>
+      </div>
+    </div>
+    <div class="body">
+      <h1 id="intro">Intro</h1>
+
+<p><sup><strong>Note</strong>: All JSON is formatted here. Where JSON is contained as a string value of a key, it is formatted. This is not the actual data sent.</sup></p>
+
+<ol>
+  <li>Connect to <code class="highlighter-rouge">wss://metasmoke.erwaysoftware.com/cable</code></li>
+  <li>When the socket is opened, you can send <a href="#subscriptions">subscriptions</a></li>
+</ol>
+
+<h1 id="messages-received-from-metasmoke">Messages Received from metasmoke</h1>
+
+<h2 id="welcome">Welcome</h2>
+
+<p>This is sent when the socket is first opened.</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"welcome"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h2 id="confirm-subscription">Confirm Subscription</h2>
+
+<p>This is sent when a channel has been subscribed to.</p>
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirm_subscription"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;subscription&gt;"</span><span class="p">,</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h2 id="ping">Ping</h2>
+
+<p>This is sent every 3 seconds to keep the socket alive.
+<code class="highlighter-rouge">message</code> is the current Unix time.</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ping"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345678</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h2 id="feedback">Feedback</h2>
+
+<p>The <code class="highlighter-rouge">post_link</code> is the one that can be sent to the metasmoke API.
+<code class="highlighter-rouge">user_name</code> is the user’s <strong>metasmoke</strong> display name.
+<code class="highlighter-rouge">app_name</code> is the name of the app used to send the feedback (example: <code class="highlighter-rouge">"FDSC"</code>)
+<code class="highlighter-rouge">symbol</code> is a HTML representation of the appropriate symbol to display.</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;identifier&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"feedback"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"post_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//stackoverflow.com/a/12345"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"feedback_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fp-"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"J F"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"app_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"\u0026#x2717;"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<h1 id="messages-sent-to-metasmoke">Messages Sent to metasmoke</h1>
+
+<h2 id="subscription">Subscription</h2>
+
+<p>The <code class="highlighter-rouge">identifier</code> is sent as the <code class="highlighter-rouge">identifier</code> of all messages coming from this channel.</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscribe"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{
+    \"channel\": \"&lt;channel&gt;\",
+    \"key\": \"&lt;API Key&gt;\"
+  }"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+<h3 id="channels">Channels</h3>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">ApiChannel</code>: This is the one you probably want.</p>
+
+    <p>example:</p>
+    <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"channel\":\"ApiChannel\",\"key\":\"&lt;metasmoke API key&gt;\"}"</span><span class="p">,</span><span class="w"> </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscribe"</span><span class="p">}</span><span class="w">
+</span></code></pre>
+    </div>
+  </li>
+</ul>
+
+    </div>
+    <div class="footer text-center">
+      Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.
+    </div>
+  </div>
+</body>
+</html>

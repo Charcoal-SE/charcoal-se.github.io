@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Charcoal</title>
+  <link rel="stylesheet" type="text/css" href="/assets/css/application.css" />
+  <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.0.0/turbolinks.min.js" integrity="sha256-HUtkNsGc3BlCNQTNPUr5JsjW0wQFeU4nfYOEuUcxptU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js" integrity="sha256-GaKOLXTn7uJXFuWp57ukQZGuKK2gWZWlEH16hc6jBU8=" crossorigin="anonymous"></script>
+  <script type="application/javascript" src="/assets/js/application.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="body-container">
+    <div class="header">
+      <div class="header-icon text-center">
+        <a href="/">
+          <img src="/assets/images/charcoal.png" height="64" title="Charcoal: spam-crusaders of the Internet" />
+          <span>
+            Charcoal<br>
+            <small>spam-crusaders of the Internet</small>
+          </span>
+        </a>
+        <label class="nav-toggle-icon fa fa-bars fa-lg" for="nav-toggle"></label>
+      </div>
+      <input type="checkbox" id="nav-toggle">
+      <div class="navigation text-center">
+        <div><a href="/">home</a></div><div>
+        <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">charcoal chat</a></div><div>
+        <a href="https://metasmoke.erwaysoftware.com/">metasmoke</a></div><div>
+        <a href="/userscripts">userscripts</a></div><div>
+        <a href="/blaze" data-turbolinks="false">blaze</a></div><div>
+        <a href="https://github.com/Charcoal-SE">github</a></div><div>
+        <a href="/smokey">wiki</a></div><div>
+        <a href="/ms/API-Documentation">api</a></div><div>
+        <a href="/ms-urls">convert url</a></div>
+      </div>
+    </div>
+    <div class="body">
+      <p>SmokeDetector is a headless chatbot that detects spam and posts it to chatrooms.<br />
+It uses <a href="https://github.com/Manishearth/ChatExchange">ChatExchange</a> and takes questions from <a href="http://stackexchange.com/questions?tab=realtime">the Stack Exchange realtime tab</a>. For more information on how it works, see our website at <a href="http://charcoal-se.org/">charcoal-se.org</a>.</p>
+
+<hr />
+
+<h3 id="user-information">User information</h3>
+
+<ul>
+  <li>
+    <p>You can find a list of <strong>SmokeDetector’s commands</strong> on <a href="Commands">the Commands wiki page</a>.</p>
+  </li>
+  <li>
+    <p>Find a list of <strong>chatrooms that SmokeDetector interacts with</strong> on <a href="Chat-Rooms">the Chat Rooms wiki page</a>.</p>
+  </li>
+  <li>
+    <p>If you’re thinking about <strong>asking for privileges</strong>, take a look at the <a href="Privileges">Privileges</a> page.</p>
+  </li>
+  <li>
+    <p>If you’re looking for <strong>guidance on feeding back to SmokeDetector</strong>, read <a href="Feedback-Guidance">Feedback Guidance</a>.</p>
+  </li>
+  <li>
+    <p>If you want to know <strong>when it is appropriate to blacklist a website</strong>, check out <a href="Guidance-for-Blacklisting-Websites">Guidance for Blacklisting Websites</a>.</p>
+  </li>
+</ul>
+
+<h3 id="developer-information">Developer information</h3>
+
+<ul>
+  <li>
+    <p>For information on <strong>how to write a new check for spam</strong>, see <a href="Docs:-Creating-new-spam-checks">Docs: Creating new spam checks</a>.</p>
+  </li>
+  <li>
+    <p>If you wish to <strong>integrate with Smokey</strong> and Metasmoke via our API, see the <a href="//github.com/Charcoal-SE/metasmoke/API-Documentation">API Docs</a>.</p>
+  </li>
+</ul>
+
+<hr />
+<h3 id="glossary">Glossary:</h3>
+
+<ul>
+  <li>
+    <p><strong>Blacklist</strong> - list of users whose every question or answer will be posted to the appropriate chatrooms. This should be used <strong>only for spammers or</strong> for users whose posts merit <strong>abusive/offensive flags.</strong></p>
+  </li>
+  <li>
+    <p><strong>Whitelist</strong> - list of users which are free from username checks on their posts. Title and body will still be checked.</p>
+  </li>
+</ul>
+
+    </div>
+    <div class="footer text-center">
+      Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.
+    </div>
+  </div>
+</body>
+</html>

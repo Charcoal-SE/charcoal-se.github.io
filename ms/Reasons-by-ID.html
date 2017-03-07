@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Charcoal</title>
+  <link rel="stylesheet" type="text/css" href="/assets/css/application.css" />
+  <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.0.0/turbolinks.min.js" integrity="sha256-HUtkNsGc3BlCNQTNPUr5JsjW0wQFeU4nfYOEuUcxptU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js" integrity="sha256-GaKOLXTn7uJXFuWp57ukQZGuKK2gWZWlEH16hc6jBU8=" crossorigin="anonymous"></script>
+  <script type="application/javascript" src="/assets/js/application.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="body-container">
+    <div class="header">
+      <div class="header-icon text-center">
+        <a href="/">
+          <img src="/assets/images/charcoal.png" height="64" title="Charcoal: spam-crusaders of the Internet" />
+          <span>
+            Charcoal<br>
+            <small>spam-crusaders of the Internet</small>
+          </span>
+        </a>
+        <label class="nav-toggle-icon fa fa-bars fa-lg" for="nav-toggle"></label>
+      </div>
+      <input type="checkbox" id="nav-toggle">
+      <div class="navigation text-center">
+        <div><a href="/">home</a></div><div>
+        <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">charcoal chat</a></div><div>
+        <a href="https://metasmoke.erwaysoftware.com/">metasmoke</a></div><div>
+        <a href="/userscripts">userscripts</a></div><div>
+        <a href="/blaze" data-turbolinks="false">blaze</a></div><div>
+        <a href="https://github.com/Charcoal-SE">github</a></div><div>
+        <a href="/smokey">wiki</a></div><div>
+        <a href="/ms/API-Documentation">api</a></div><div>
+        <a href="/ms-urls">convert url</a></div>
+      </div>
+    </div>
+    <div class="body">
+      <h3 id="route-name">Route Name</h3>
+<p>Reasons by ID</p>
+
+<h3 id="route-url">Route URL</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/api/reasons/:ids
+</code></pre>
+</div>
+
+<h3 id="description--usage">Description &amp; Usage</h3>
+<p>This route allows you to get data about reasons by specifying their IDs. Replace <code class="highlighter-rouge">:ids</code> in the URL with a semicolon-delimited list of metasmoke reason IDs (which can be found on the metasmoke dashboard - look in the link to each reason), and all database fields on each reason will be returned.</p>
+
+<p>You can use the <code class="highlighter-rouge">per_page</code> query string parameter to adjust how many results you get, up to a maximum of 100.</p>
+
+<p>The <code class="highlighter-rouge">has_more</code> field in the response indicates if there are more results available than have been returned in this result set; use the <code class="highlighter-rouge">page</code> query string parameter to get the next page of results. <code class="highlighter-rouge">?page=1</code> will return the first page; <code class="highlighter-rouge">?page=2</code> the second, and so on.</p>
+
+<h3 id="example">Example</h3>
+<p><strong>Request:</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP/1.1 GET /api/reasons/47;67
+</code></pre>
+</div>
+
+<p><strong>Response:</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"items"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">47</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"reason_name"</span><span class="p">:</span><span class="s2">"Phone number detected in title"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"last_post_title"</span><span class="p">:</span><span class="s2">"1.8.0.0. .8.4.1. 6.4.3.6. N.e.t.f.l.i.x C.u.s.t.o.me.r. S.u.p.po.r.t P.h.on.e N.u.mb.e.r"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"inactive"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">67</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"reason_name"</span><span class="p">:</span><span class="s2">"Black magic in title"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"last_post_title"</span><span class="p">:</span><span class="s2">"black magic Specialist 9928749449"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"inactive"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"has_more"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+    </div>
+    <div class="footer text-center">
+      Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.
+    </div>
+  </div>
+</body>
+</html>

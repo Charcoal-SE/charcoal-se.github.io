@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Charcoal</title>
+  <link rel="stylesheet" type="text/css" href="/assets/css/application.css" />
+  <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.0.0/turbolinks.min.js" integrity="sha256-HUtkNsGc3BlCNQTNPUr5JsjW0wQFeU4nfYOEuUcxptU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js" integrity="sha256-GaKOLXTn7uJXFuWp57ukQZGuKK2gWZWlEH16hc6jBU8=" crossorigin="anonymous"></script>
+  <script type="application/javascript" src="/assets/js/application.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="body-container">
+    <div class="header">
+      <div class="header-icon text-center">
+        <a href="/">
+          <img src="/assets/images/charcoal.png" height="64" title="Charcoal: spam-crusaders of the Internet" />
+          <span>
+            Charcoal<br>
+            <small>spam-crusaders of the Internet</small>
+          </span>
+        </a>
+        <label class="nav-toggle-icon fa fa-bars fa-lg" for="nav-toggle"></label>
+      </div>
+      <input type="checkbox" id="nav-toggle">
+      <div class="navigation text-center">
+        <div><a href="/">home</a></div><div>
+        <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">charcoal chat</a></div><div>
+        <a href="https://metasmoke.erwaysoftware.com/">metasmoke</a></div><div>
+        <a href="/userscripts">userscripts</a></div><div>
+        <a href="/blaze" data-turbolinks="false">blaze</a></div><div>
+        <a href="https://github.com/Charcoal-SE">github</a></div><div>
+        <a href="/smokey">wiki</a></div><div>
+        <a href="/ms/API-Documentation">api</a></div><div>
+        <a href="/ms-urls">convert url</a></div>
+      </div>
+    </div>
+    <div class="body">
+      <p>This document provides instructions on how to set up your account to cast automatic flags via the SmokeDetector/metasmoke system.  The facility is described in brief on the <a href="Autoflagging">Autoflagging</a> wiki page.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before running through the rest of these instructions, ensure that:</p>
+
+<ul>
+  <li>You have an account on metasmoke. You can get one of those <a href="https://metasmoke.erwaysoftware.com/users/sign_up">here</a>, if you don’t have one.</li>
+  <li>Your metasmoke account has the “flagger” permission. You can check that <a href="https://metasmoke.erwaysoftware.com/users">here</a>: find your username, and look for the “flagger” role. Ask an admin about this if you don’t have it.</li>
+  <li>Autoflagging and registrations are enabled. You can check these under <a href="https://metasmoke.erwaysoftware.com/flagging/settings">system settings</a>; verify that the <code class="highlighter-rouge">flagging_enabled</code> and <code class="highlighter-rouge">registration_enabled</code> settings have a value of <code class="highlighter-rouge">1</code>.</li>
+  <li>Your metasmoke account is write-access authenticated. If you don’t know whether it is or not, it’s probably not - visit the <a href="https://metasmoke.erwaysoftware.com/authentication/status">authentication status page</a> to authenticate.</li>
+</ul>
+
+<h2 id="set-up-autoflagging">Set Up Autoflagging</h2>
+<ol>
+  <li><strong>Enable flags on your account.</strong><br />
+Visit <a href="https://metasmoke.erwaysoftware.com/flagging/preferences">your preferences page</a>, and read through the red-boxed disclaimer. If you’re happy with that, tick the box to enable flags on your account.</li>
+  <li><strong>Set up preferences.</strong><br />
+On the same preferences page, click “Set up preferences” near the bottom of the page. The page you’re taken to lets you set up your preferences, which govern how many of your flags the system can use on any particular site or group of sites. Fill in the maximum number you’d like to allocate, select the sites you want that number to apply to, and click Save. You can repeat this process to have different maxima for different groups of sites.</li>
+  <li><strong>Set up conditions.</strong><br />
+Visit the <a href="https://metasmoke.erwaysoftware.com/flagging/conditions/new">flag conditions setup</a> page. This page lets you set up combinations of conditions governing how certain you want the system to be that a post is spam before using your account to flag it. The minimum weight controls the minimum cumulative weight of all the reasons a post was caught by (the maximum weight a reason can have is 100; we suggest 280 is a good value for this field). The maximum poster rep controls the most reputation a post author can have. The minimum reason count controls how many reasons you want a post to have been caught by - this performs a <em>similar</em> function to minimum weight. Fill in some values, and click Save. Again, you can repeat this process to have different accuracies for different groups of sites.</li>
+</ol>
+
+<blockquote>
+  <p><strong>N.B.</strong> There’s a threshold of accuracy that all flagging conditions must meet before they’re used to cast flags automatically. Currently, this is 99.9% - if you want to get the current value of this threshold, it’s stored as the <code class="highlighter-rouge">min_accuracy</code> system setting. You can use the Preview button during condition setup to find out how accurate your proposed parameters are.</p>
+</blockquote>
+
+<p>At this point, you should be set up and your account will be used to cast spam flags according to the parameters you’ve specified. If you’ve found any bugs, or have feedback on the system, let us know. If you’ve found a security bug, please email it to someone rather than posting publicly.</p>
+
+    </div>
+    <div class="footer text-center">
+      Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.
+    </div>
+  </div>
+</body>
+</html>

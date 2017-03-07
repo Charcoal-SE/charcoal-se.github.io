@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Charcoal</title>
+  <link rel="stylesheet" type="text/css" href="/assets/css/application.css" />
+  <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.0.0/turbolinks.min.js" integrity="sha256-HUtkNsGc3BlCNQTNPUr5JsjW0wQFeU4nfYOEuUcxptU=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js" integrity="sha256-GaKOLXTn7uJXFuWp57ukQZGuKK2gWZWlEH16hc6jBU8=" crossorigin="anonymous"></script>
+  <script type="application/javascript" src="/assets/js/application.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="body-container">
+    <div class="header">
+      <div class="header-icon text-center">
+        <a href="/">
+          <img src="/assets/images/charcoal.png" height="64" title="Charcoal: spam-crusaders of the Internet" />
+          <span>
+            Charcoal<br>
+            <small>spam-crusaders of the Internet</small>
+          </span>
+        </a>
+        <label class="nav-toggle-icon fa fa-bars fa-lg" for="nav-toggle"></label>
+      </div>
+      <input type="checkbox" id="nav-toggle">
+      <div class="navigation text-center">
+        <div><a href="/">home</a></div><div>
+        <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">charcoal chat</a></div><div>
+        <a href="https://metasmoke.erwaysoftware.com/">metasmoke</a></div><div>
+        <a href="/userscripts">userscripts</a></div><div>
+        <a href="/blaze" data-turbolinks="false">blaze</a></div><div>
+        <a href="https://github.com/Charcoal-SE">github</a></div><div>
+        <a href="/smokey">wiki</a></div><div>
+        <a href="/ms/API-Documentation">api</a></div><div>
+        <a href="/ms-urls">convert url</a></div>
+      </div>
+    </div>
+    <div class="body">
+      <blockquote>
+  <p>This document covers how to create a new spam check, which essentially turns out to be a guide on <code class="highlighter-rouge">findspam.py</code>.</p>
+</blockquote>
+
+<h2 id="1-the-bareear-necessities">1. The <code class="highlighter-rouge">B(are|ear)</code> Necessities</h2>
+<p>The <em>very first</em> thing you need to do before creating a new spam check is test if it’s actually necessary.</p>
+
+<ul>
+  <li>What is your proposed check designed to catch?</li>
+  <li>Is it something that’s caught by existing checks? This includes regex-based pattern checks, blacklists, and check methods. Use the various <code class="highlighter-rouge">!!/test</code> commands to check this.</li>
+  <li>Is it something <em>we want to catch</em>? Remember that Smokey is designed to catch spam and/or abuse - anything else (low quality posts, not-an-answers, etc) is out of scope. There are plenty more moderation bots around the network that might want that kind of check, though.</li>
+</ul>
+
+<h2 id="2-write-a-check">2. Write a Check</h2>
+<p>…preferably addressed to me, with plenty of money involved. (Ha! Spelling jokes!)</p>
+
+<p>If you’ve determined that a new check is necessary, now you need to actually write it. The preferred way of doing this is a regex - these are (usually) simpler and easier to maintain than the alternatives. Writing a regex check is pretty easy: just write the regex. You can use regex-checking websites like <a href="http://regex101.com">regex101</a> to check if you’ve written it right - doing this is encouraged, because regex is not an easy language to speak.</p>
+
+<p>The alternative, which should only be used if a regex doesn’t do the job, is to write a check method. This is done by writing a new method in <code class="highlighter-rouge">findspam.py</code>, which takes two parameters: <code class="highlighter-rouge">s</code> and <code class="highlighter-rouge">site</code>. <code class="highlighter-rouge">s</code> is a string of stuff that you need to check (like the title, username, or post body), and <code class="highlighter-rouge">site</code> is the site that the post is on. Give your method a descriptive name, so that its purpose can be judged at a glance.</p>
+
+<p>Your method should return a pair of values. The first is a boolean, indicating whether or not you think the post is spam. The second is a string, which is the <code class="highlighter-rouge">why</code> data for the post (and if you don’t know what that means, you should probably be letting someone more experienced write the check - or go learn about it).</p>
+
+<p>Here’s an example check method. This method will say that any <code class="highlighter-rouge">s</code> longer than 3 characters is spam.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>def ridiculous_spam_check(s, site):
+    if len(s) &gt; 3:
+        return True, "Length is greater than 3 characters"
+    else:
+        return False, ""
+</code></pre>
+</div>
+
+<h2 id="3-endless-lists">3. Endless Lists</h2>
+<p>Checks are our ammunition against spam; now you need a gun to fire it from. In our case, it’s a GLOCK - a Giant List of Checks and Keywords.</p>
+
+<p>Scroll to the <code class="highlighter-rouge">rules</code> array, which is <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/findspam.py#L312">somewhere around line 312 in <code class="highlighter-rouge">findspam.py</code></a>. This structure describes all the checks that SmokeDetector runs, and how to apply them. (N.B.: It’s not actually JSON, don’t make that mistake - it’s Python dicts.)</p>
+
+<p>You need to add a new entry to this array that describes your check. The general format of this dictionary is:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="err">'regex':</span><span class="w"> </span><span class="err">r</span><span class="nt">"Include your regex here if it's a regex-based check"</span><span class="err">,</span><span class="w">
+    </span><span class="err">'method'</span><span class="p">:</span><span class="w"> </span><span class="err">method_name</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">Pass</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">name</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">method</span><span class="w"> </span><span class="err">here</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">it's</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">method-based</span><span class="w"> </span><span class="err">check,</span><span class="w">
+    </span><span class="err">'all'</span><span class="p">:</span><span class="w"> </span><span class="err">True</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">True</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">want</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">scan</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">sites</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">network,</span><span class="w"> </span><span class="err">False</span><span class="w"> </span><span class="err">otherwise,</span><span class="w">
+    </span><span class="err">'sites'</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">`all`</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">true,</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">sites</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">excluded;</span><span class="w"> </span><span class="err">otherwise,</span><span class="w"> </span><span class="err">they</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">sites</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">get</span><span class="w"> </span><span class="err">scanned</span><span class="w">
+    </span><span class="err">'reason'</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name of the reason you're categorising these posts as (bad keyword, link at end of body, etc)"</span><span class="p">,</span><span class="w">
+    </span><span class="err">'title'</span><span class="p">:</span><span class="w"> </span><span class="err">False</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">True</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">want</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">scan</span><span class="w"> </span><span class="err">post</span><span class="w"> </span><span class="err">titles,</span><span class="w"> </span><span class="err">False</span><span class="w"> </span><span class="err">otherwise</span><span class="w">
+    </span><span class="err">'body'</span><span class="p">:</span><span class="w"> </span><span class="err">True</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">True</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">want</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">scan</span><span class="w"> </span><span class="err">post</span><span class="w"> </span><span class="err">bodies,</span><span class="w"> </span><span class="err">False</span><span class="w"> </span><span class="err">otherwise</span><span class="w">
+    </span><span class="err">'username'</span><span class="p">:</span><span class="w"> </span><span class="err">False</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">True</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">want</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">scan</span><span class="w"> </span><span class="err">owner</span><span class="w"> </span><span class="err">usernames,</span><span class="w"> </span><span class="err">False</span><span class="w"> </span><span class="err">otherwise</span><span class="w">
+    </span><span class="err">'body_summary'</span><span class="p">:</span><span class="w"> </span><span class="err">False</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">True</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">want</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">scan</span><span class="w"> </span><span class="err">body</span><span class="w"> </span><span class="err">summaries,</span><span class="w"> </span><span class="err">False</span><span class="w"> </span><span class="err">otherwise</span><span class="w">
+    </span><span class="err">'stripcodeblocks'</span><span class="p">:</span><span class="w"> </span><span class="err">False</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">True</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">want</span><span class="w"> </span><span class="err">code</span><span class="w"> </span><span class="err">removed</span><span class="w"> </span><span class="err">before</span><span class="w"> </span><span class="err">getting</span><span class="w"> </span><span class="err">passed</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">check</span><span class="w">
+    </span><span class="err">'max_rep'</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">Posts</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">users</span><span class="w"> </span><span class="err">above</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">reputation</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">scanned</span><span class="w">
+    </span><span class="err">'max_score'</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">Posts</span><span class="w"> </span><span class="err">scoring</span><span class="w"> </span><span class="err">above</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">scanned</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>You should only include <em>one</em> of <code class="highlighter-rouge">regex</code> or <code class="highlighter-rouge">method</code> - checks should not be both at the same time.</p>
+
+    </div>
+    <div class="footer text-center">
+      Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.
+    </div>
+  </div>
+</body>
+</html>

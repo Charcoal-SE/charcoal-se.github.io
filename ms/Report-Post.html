@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>404 Not Found | Charcoal</title>
+  <title>Charcoal</title>
   <link rel="stylesheet" type="text/css" href="/assets/css/application.css" />
   <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
@@ -37,17 +37,32 @@
       </div>
     </div>
     <div class="body">
-      <h1 id="404-not-found">404 Not Found</h1>
+      <h3 id="route-name">Route Name</h3>
+<p>Report Post</p>
 
-<p class="text-center">That page couldn’t be found <span class="more"></span><br />
-Go <a href="/">home</a>?</p>
+<h3 id="route-url">Route URL</h3>
 
-<script>
-if (document.referrer) {
-  $('span').text('(You came from ' + document.referrer + ')')
-}
-</script>
+<div class="highlighter-rouge"><pre class="highlight"><code>/api/w/post/report
+</code></pre>
+</div>
 
+<h3 id="description--usage">Description &amp; Usage</h3>
+<p>Use this route to report a post as spam to SmokeDetector. This functions the same as the <code class="highlighter-rouge">!!/report</code> command for SmokeDetector in chat, and is implemented by simply sending the details of the report across a websocket connection to SmokeDetector for it to deal with the reporting itself. Use the <code class="highlighter-rouge">post_link</code> query string parameter to specify a link to the post you want to report.</p>
+
+<p>Since we have no way of knowing the final status of the sent data, this route <em>always</em> returns 201 Created and the plaintext response <code class="highlighter-rouge">OK</code>.</p>
+
+<h3 id="example">Example</h3>
+<p><strong>Request</strong> (key and token omitted):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>POST /api/w/post/report?post_link=//drupal.stackexchange.com/q/433924 HTTP/1.1
+</code></pre>
+</div>
+
+<p><strong>Response</strong> (status 201):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>OK
+</code></pre>
+</div>
 
     </div>
     <div class="footer text-center">
