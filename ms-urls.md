@@ -14,5 +14,5 @@ title: Convert URLs
   <a class="real"></a>
 </section>
 
-<script src="/assets/js/ms-urls.js"></script>
-<link rel="stylesheet" href="/assets/css/ms-urls.css">
+<script src="{{ site.baseurl }}/assets/js/ms-urls.js"></script>
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/ms-urls.css">
