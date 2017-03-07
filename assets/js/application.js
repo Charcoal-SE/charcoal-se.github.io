@@ -13,6 +13,7 @@ $(document).ready(function() {
     }).each(function () {
       $(this).append(' ').append($('<span class="small">').append($('<a />').attr('href', '#' + this.id).append($('<i class="fa fa-link" />'))))
     })
+    $('.footer-insert').remove().children().prependTo($('.body + .footer'))
   }).on('turbolinks:request-start', function () {
     clearTimeout(navTimeout)
     NProgress.start()
