@@ -8,8 +8,7 @@ script:
   - git clone --depth 1 -q -b master "https://$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG" _site
   - git clone --depth 1 -b master "https://github.com/Charcoal-SE/metasmoke.wiki" ms
   - git clone --depth 1 -b master "https://github.com/Charcoal-SE/SmokeDetector.wiki" smokey
-  - mv ms/Home.md ms/index.md
-  - mv smokey/Home.md smokey/index.md
+  - ./add-front-matter.rb
   - bundle exec jekyll build
   - cd _site
   - git add --all .
