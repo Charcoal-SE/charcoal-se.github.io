@@ -5,7 +5,6 @@ exclude:
   - README.md
   - push.sh
 kramdown:
-  auto_ids: false
   parse_block_html: true
 gems:
   - jekyll-redirect-from
