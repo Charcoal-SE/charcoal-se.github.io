@@ -8,4 +8,4 @@ kramdown:
   parse_block_html: true
 gems:
   - jekyll-redirect-from
-baseurl: 'https://j-f1.github.io/charcoal-se.github.io'
+baseurl: '/charcoal-se.github.io'
