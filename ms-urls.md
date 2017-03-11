@@ -6,7 +6,7 @@ title: Convert URLs
 ## Convert Stack Exchange URLs to metasmoke URLs
 {: .text-center}
 
-<input placeholder="paste link">
+<input placeholder="paste link" class="big-input">
 
 <section>
   <a class="by-url"></a>
