@@ -1,6 +1,8 @@
 language: ruby
 rvm: 2.2
-cache: bundler
+cache:
+  directories:
+  - vendor/bundle
 bundler_args: --deployment
 install: script/install
 script: script/build
