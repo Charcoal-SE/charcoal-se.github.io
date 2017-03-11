@@ -1,20 +1,8 @@
 language: ruby
 rvm: 2.2
 cache: bundler
-install:
-  - git config --global push.default matching
-  - git clone https://github.com/j-f1/charcoal-jekyll-theme .tmp
-  - cp -r .tmp/* ./
-  - bundle install
-script:
-  - git clone --depth 1 -q -b master "https://$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG" _site
-  - git clone --depth 1 -b master "https://github.com/Charcoal-SE/metasmoke.wiki" ms
-  - git clone --depth 1 -b master "https://github.com/Charcoal-SE/SmokeDetector.wiki" smokey
-  - ./add-front-matter.rb ms/** smokey/**
-  - bundle exec jekyll build
-  - cd _site
-  - git add --all .
-  - ../push.sh
+install: script/install
+script: script/build
 branches:
   only:
     - site
