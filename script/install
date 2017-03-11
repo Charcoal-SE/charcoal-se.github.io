@@ -1,0 +1,4 @@
+git config --global push.default matching
+git clone https://github.com/j-f1/charcoal-jekyll-theme .tmp
+cp -r .tmp/* ./
+bundle install
