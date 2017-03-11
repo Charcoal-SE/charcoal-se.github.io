@@ -3,7 +3,11 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
-  - push.sh
+  - '*.sh'
+  - script/*
+  - '*.rb'
+  - Gemfile*
+  - vendor/bundle
 kramdown:
   parse_block_html: true
 gems:
