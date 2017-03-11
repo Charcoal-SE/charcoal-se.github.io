@@ -12,6 +12,21 @@
 </head>
 <body>
   <div class="body-container">
+    {% if jekyll.environment == 'development' %}
+      <style>
+        .dev-warning {
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: #6B1A00;
+          color: white;
+          width: 100px;
+          font-size: 2em;
+          text-align: center;
+        }
+      </style>
+      <div class="dev-warning">Dev!</div>
+    {% endif %}
     <div class="header">
       <div class="header-icon text-center">
         <a href="{{ site.baseurl }}/">
