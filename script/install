@@ -1,4 +1,21 @@
+for i in "$@"
+do
+case $i in
+    --deploy)
+    DEPLOY=YES
+    shift # past argument with no value
+    ;;
+    *)
+            # unknown option
+    ;;
+esac
+done
+
 git config --global push.default matching
 git clone https://github.com/j-f1/charcoal-jekyll-theme .tmp
 cp -r .tmp/* ./
-bundle install
+if [[ $DEPLOY ]]; then
+  bundle install --deployment
+else
+  bundle install
+fi

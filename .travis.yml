@@ -4,7 +4,7 @@ cache:
   directories:
   - vendor/bundle
 bundler_args: --deployment
-install: script/install
+install: script/install --deploy
 script: script/build
 branches:
   only:
