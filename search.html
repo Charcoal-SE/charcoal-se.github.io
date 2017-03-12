@@ -1,0 +1,31 @@
+---
+layout: default
+---
+<p style="font-size: 2em">
+  <input type="text" placeholder="Search…" autofocus class="search-query big-input" autocomplete="off">
+</p>
+<ul class="search-results"></ul>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/1.0.0/lunr.min.js" charset="utf-8"></script>
+<script>
+window.store = {
+  {% for page in site.pages %}
+    {% unless page contains '.html' or page.no_search %}
+      "{{ page.url | slugify }}": {
+        "title": "{% if page.search_title.size > 0 %}{{ page.search_title }}{% elsif page.title.size > 0 %}{{ page.title | xml_escape }}{% else %}{{ page.name|replace:'.md',''|replace:'.html',''|replace:'-',' ' }}{% endif %}",
+        "content": {{ page.content | strip_html | strip_newlines | jsonify }},
+        "url": "{{ page.url | replace: '.html', '' | xml_escape }}"
+      },
+    {% endunless %}
+  {% endfor %}
+}
+</script>
+<style>
+  .search-results {
+    padding: 0;
+    text-align: center;
+    list-style-type: none;
+    font-size: 1.5em;
+  }
+</style>
+<script src="{{ site.baseurl }}/assets/js/search.js" charset="utf-8"></script>

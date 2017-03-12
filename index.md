@@ -1,5 +1,6 @@
 ---
 title: ''
+search_title: Home
 ---
 
 # we are charcoal
