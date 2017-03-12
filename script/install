@@ -12,7 +12,7 @@ esac
 done
 
 git config --global push.default matching
-git clone https://github.com/j-f1/charcoal-jekyll-theme .tmp
+git clone https://github.com/Charcoal-SE/charcoal-jekyll-theme .tmp
 cp -r .tmp/* ./
 if [[ $DEPLOY ]]; then
   bundle install --deployment
