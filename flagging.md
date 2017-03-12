@@ -2,6 +2,7 @@
 ---
 
 # Autoflagging
+
 <section>
 ## What is autoflagging? {#whats-flagging}
 
