@@ -8,13 +8,8 @@
       {% if page.layout == 'wiki' %}{{ page.name|replace:'.md',''|replace:'-',' ' }} | {% endif %}{{ site.title }}
     {% endif %}
   </title>
-  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/assets/css/application.css" />
-  <script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/1.0.0/lunr.min.js" integrity="sha256-pFs1YPpT5gvlVt91nLsJiVFDFo67ly0bWUp4AM356/k=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.0.0/turbolinks.min.js" integrity="sha256-HUtkNsGc3BlCNQTNPUr5JsjW0wQFeU4nfYOEuUcxptU=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js" integrity="sha256-GaKOLXTn7uJXFuWp57ukQZGuKK2gWZWlEH16hc6jBU8=" crossorigin="anonymous"></script>
-  <script type="application/javascript" src="{{ site.baseurl }}/assets/js/application.js"></script>
+  {% css application %}
+  {% js application %}
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -37,7 +32,7 @@
     <div class="header">
       <div class="header-icon text-center">
         <a href="{{ site.baseurl }}/">
-          <img src="{{ site.baseurl }}/assets/images/charcoal.png" height="64" title="Charcoal: spam-crusaders of the Internet" />
+          {% img charcoal.png height:"64" width title="Charcoal: spam-crusaders of the Internet" %}
           <span>
             Charcoal<br>
             <small>spam-crusaders of the Internet</small>

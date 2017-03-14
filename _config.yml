@@ -8,8 +8,12 @@ exclude:
   - '*.rb'
   - Gemfile*
   - vendor/bundle
+  - .asset-cache
 kramdown:
   parse_block_html: true
+assets:
+  features:
+    integrity: true
 gems:
   - jekyll-redirect-from
 baseurl: '/charcoal-se.github.io'
