@@ -1,5 +1,33 @@
 #= require vendor/lunr
-$ ->
+$(document).on 'ready turbolinks:load', ->
+  search = (term) ->
+    unless term.length
+      $('.search-results').empty()
+      return
+
+    results = index.search term
+    if results.length
+      content = results.map (res) ->
+        info = window.store[res.ref]
+        return $('<li/>').append $('<p/>').append $('<a/>').attr('href', info.url).text info.title
+    else
+      content = $('<li/>').append $('<em/>').text 'No results'
+
+    $('.search-results').empty().append content
+    $('.search .link').attr 'href', '/search?q=' + encodeURIComponent(term).replace /%20/g, '+'
+
+  openSearch = () ->
+    $('.search').fadeIn 'fast'
+    $('.search-query').focus()
+    $(document).on 'keyup', _closeIfNeeded
+
+  closeSearch = () ->
+    $('.search').fadeOut 'fast'
+    $(document).off 'keyup', _closeIfNeeded
+
+  _closeIfNeeded = (e) ->
+    closeSearch() if e.which == 27
+
   $('.search-link').click (e) ->
     openSearch()
     e.preventDefault()
@@ -28,31 +56,3 @@ $ ->
 
   $('.search-query').on 'keyup', ->
     search $('.search-query').val()
-
-  search = (term) ->
-    unless term.length
-      $('.search-results').empty()
-      return
-
-    results = index.search term
-    if results.length
-      content = results.map (res) ->
-        info = window.store[res.ref]
-        return $('<li/>').append $('<p/>').append $('<a/>').attr('href', info.url).text info.title
-    else
-      content = $('<li/>').append $('<em/>').text 'No results'
-
-    $('.search-results').empty().append content
-    $('.search .link').attr 'href', '/search?q=' + encodeURIComponent(term).replace /%20/g, '+'
-
-  openSearch = () ->
-    $('.search').fadeIn 'fast'
-    $('.search-query').focus()
-    $(document).on 'keyup', _closeIfNeeded
-
-  closeSearch = () ->
-    $('.search').fadeOut 'fast'
-    $(document).off 'keyup', _closeIfNeeded
-
-  _closeIfNeeded = (e) ->
-    closeSearch() if e.which == 27
