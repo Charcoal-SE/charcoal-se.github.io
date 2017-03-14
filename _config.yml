@@ -23,4 +23,4 @@ assets:
     - branding.scss
 gems:
   - jekyll-redirect-from
-baseurl: '/charcoal-se.github.io'
+baseurl: //charcoal-se.org
