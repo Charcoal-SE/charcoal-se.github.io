@@ -65,5 +65,6 @@ preload = (event) ->
           Turbolinks.controller.cache.put("prefetch" + location, request)
           request.send()
 
-document.addEventListener("touchstart", preload)
-document.addEventListener("mouseover", preload)
+window.addEventListener 'load', ->
+  document.addEventListener("touchstart", preload)
+  document.addEventListener("mouseover", preload)
