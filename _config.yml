@@ -16,8 +16,11 @@ assets:
     browsers:
       - "last 2 versions"
       - "> 1%"
+  digest: false
   features:
     integrity: true
+  assets:
+    - branding.scss
 gems:
   - jekyll-redirect-from
 baseurl: '/charcoal-se.github.io'
