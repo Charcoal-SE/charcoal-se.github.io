@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis:300,500|Source+Sans+Pro');
+@import "mixins";
 /**
  * USAGE:
  *
@@ -20,35 +21,43 @@
   width: 32px;
   box-sizing: content-box;
   transition: all 0.4s;
-}
-.home:not(:hover) {
-  filter: grayscale(100%);
-  opacity: 0.4;
-}
-.home:not(.inline) {
-  position: absolute;
-  top: 0;
-  left: 5px;
-  padding: 12px;
-}
-.inline.home {
-  margin-right: 10px;
-  z-index: 1;
-}
-.home span {
-  padding-left: 16px;
-  font-size: 1.25em;
-  white-space: nowrap;
-  transition: all 0.4s;
-}
-.home:not(:hover) span {
-  transform: translateX(-100%);
-  opacity: 0;
-  pointer-events: none;
-}
-.inline.home:not(.no-label) + .navbar-brand {
-  transition: opacity 0.4s;
-}
-.inline.home:not(.no-label):hover + .navbar-brand {
-  opacity: 0;
+  &:not(:hover) {
+    filter: grayscale(100%);
+    opacity: 0.4;
+  }
+
+  &:not(.inline) {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    padding: 12px;
+  }
+  &.inline {
+    @include mobile {
+      margin-left: 15px;
+      & + .navbar-brand {
+        padding-left: 5px;
+      }
+    }
+    margin-right: 10px;
+    z-index: 1;
+    &:not(.no-label) + .navbar-brand {
+      transition: opacity 0.4s;
+    }
+    &:not(.no-label):hover + .navbar-brand {
+      opacity: 0;
+    }
+  }
+
+  span {
+    padding-left: 16px;
+    font-size: 1.25em;
+    white-space: nowrap;
+    transition: all 0.4s;
+  }
+  &:not(:hover) span {
+    transform: translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
 }
