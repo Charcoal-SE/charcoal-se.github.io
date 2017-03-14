@@ -1,3 +1,8 @@
+---
+redirect_from: /other-sites
+permalink: /more-projects
+---
+
 # Other Charcoal Projects
 
 * [metasmoke](https://metasmoke.erwaysoftware.com)
