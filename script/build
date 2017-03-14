@@ -33,7 +33,7 @@ fi
 wait
 
 ./add-front-matter.rb ms/** smokey/**
-JEKYLL_ENV=production bundle exec jekyll build
+JEKYLL_ENV=production bundle exec jekyll build --incremental
 cd _site
 if [[ ! $DEV ]]; then
   git add --all .
