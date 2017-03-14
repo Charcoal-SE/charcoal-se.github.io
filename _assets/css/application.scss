@@ -67,3 +67,12 @@ a, a:visited, a:hover, a:active {
     padding-bottom: 30px;
   }
 }
+
+#nprogress {
+  .bar {
+    position: fixed;
+  }
+  .spinner {
+    display: none;
+  }
+}
