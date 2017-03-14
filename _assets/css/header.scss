@@ -1,0 +1,50 @@
+.header {
+  border-bottom: 1px solid lightgray;
+  user-select: none;
+
+  @include mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 100%;
+    box-shadow: 0 -5px 5px 5px rgba(0, 0, 0, 0.25);
+  }
+
+  .header-icon {
+    line-height: 0;
+    a {
+      font-size: 0;
+      text-decoration: none;
+      @include mobile {
+        font-size: 1.5em;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+      }
+    }
+    @include mobile {
+      padding: 0.5em;
+      text-align: left;
+      img {
+        height: 32px;
+        margin-right: 0.5em
+      }
+      span {
+        display: flex;
+        flex-direction: column;
+        line-height: 0.9;
+        small {
+          font-size: 0.5em;
+          opacity: 0.75;
+        }
+      }
+    }
+  }
+
+  .header-icon, .navigation {
+    @include desktop {
+      margin-bottom: 20px;
+    }
+  }
+}

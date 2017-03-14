@@ -1,0 +1,59 @@
+.nav-toggle-icon {
+  @include desktop {
+    visibility: hidden;
+  }
+  margin: 7px;
+  float: right;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+#nav-toggle {
+  display: none;
+  @include mobile {
+    &:not(:checked) + .navigation {
+      display: none;
+    }
+  }
+}
+
+.navigation {
+  margin-left: -20px;
+  margin-right: -20px;
+
+  div {
+    display: inline-block;
+    border: 0 solid #6B1A00;
+    border-right-width: 2px;
+    line-height: 100%;
+    &:last-child {
+      border-right: none;
+    }
+    @include mobile {
+      display: block;
+      border-right-width: 0;
+      border-top-width: 1px;
+      padding: 0.5em;
+    }
+  }
+
+  a {
+    &, &:visited {
+      text-decoration: none !important;
+      text-transform: uppercase;
+      color: #333;
+      margin: 0 20px;
+      transition: all 0.2s ease;
+      letter-spacing: 0.03em;
+    }
+    &:hover, &:focus, &:active {
+      /* Hack courtsey of http://stackoverflow.com/a/14978871/4622463 */
+      text-shadow: 1px 0 0 #6B1A00;
+      letter-spacing: 0.03em;
+      color: #6B1A00;
+    }
+
+    svg {
+      vertical-align: top;
+    }
+  }
+}

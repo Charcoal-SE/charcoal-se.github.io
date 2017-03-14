@@ -1,0 +1,28 @@
+.alert {
+  border: 1px solid #31708F;
+  border-radius: 3px;
+  background: #D9EDF7;
+  color: #31708F;
+  padding: 7px;
+  margin: 0;
+  @include mobile {
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    margin: 0 -8px;
+    padding: 7px 15px;
+  }
+  &.link {
+    cursor: pointer;
+  }
+
+  p {
+    margin: 7px;
+    padding: 0;
+  }
+  a, a:hover, a:active, a:focus, a:visited {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #31708F;
+  }
+}

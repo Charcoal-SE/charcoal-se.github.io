@@ -10,5 +10,5 @@ title: Userscripts
 <script src="https://wzrd.in/standalone/userscript-parser@0.3.1" charset="utf-8"></script>
 <script src="https://wzrd.in/standalone/listify@1.0.0" charset="utf-8"></script>
 <script src="https://wzrd.in/standalone/file-size@1.0.0" charset="utf-8"></script>
-<link href="{{ site.baseurl }}/assets/css/userscripts.css" rel="stylesheet">
-<script defer src="{{ site.baseurl }}/assets/js/userscripts.js" charset="utf-8"></script>
+{% css userscripts %}
+{% js userscripts %}
