@@ -9,6 +9,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
+    autoprefixer-rails (6.7.7)
+      execjs
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -218,6 +220,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   github-pages
   jekyll-assets
   jekyll-livereload

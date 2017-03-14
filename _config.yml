@@ -12,6 +12,10 @@ exclude:
 kramdown:
   parse_block_html: true
 assets:
+  autoprefixer:
+    browsers:
+      - "last 2 versions"
+      - "> 1%"
   features:
     integrity: true
 gems:
