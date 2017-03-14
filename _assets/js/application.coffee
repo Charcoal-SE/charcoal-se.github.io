@@ -1,5 +1,6 @@
 #= require vendor/jquery
 #= require vendor/turbolinks/index
+#= require vendor/turbolinks_prefetch
 #= require vendor/nprogress
 #= require search
 $ ->
@@ -20,11 +21,11 @@ $ ->
       $(this).append(' ').append $('<span class="small">').append $('<a />').attr('href', '#' + this.id).append $ '<i class="fa fa-link" />'
 
     $('.footer-insert').remove().children().prependTo $ '.body + .footer'
-  .on 'turbolinks:request-start', ->
+  .on 'turbolinks:before-visit', ->
     clearTimeout(navTimeout)
     NProgress.start()
     # navTimeout = setTimeout(NProgress.start, 100)
-  .on 'turbolinks:request-end', ->
+  .on 'turbolinks:visit', ->
     clearTimeout(navTimeout)
     NProgress.done()
   .on 'click', '.link.alert', ->
