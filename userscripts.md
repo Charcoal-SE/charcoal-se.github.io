@@ -2,7 +2,7 @@
 title: Userscripts
 ---
 
-# Userscripts <span>[![View on GitHub](/assets/images/github.svg "View on GitHub")](https://github.com/Charcoal-SE/Userscripts) [Build <span>status loading…</span>](//travis-ci.org/Charcoal-SE/userscripts){: .build}</span>
+# Userscripts <span>[![View on GitHub]({{ site.baseurl }}/assets/images/github.svg "View on GitHub")](https://github.com/Charcoal-SE/Userscripts) [Build <span>status loading…</span>](//travis-ci.org/Charcoal-SE/userscripts){: .build}</span>
 
 <ul class="scripts">
   Loading…
