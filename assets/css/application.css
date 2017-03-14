@@ -169,6 +169,10 @@ a, a:visited, a:hover, a:active {
   background: white;
 }
 
+.sidebar .sidebar-content-smokey {
+  display: none;
+}
+
 .big-input {
   font-size: 1em;
   width: 75%;
