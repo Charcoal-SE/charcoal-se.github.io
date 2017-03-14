@@ -1,9 +1,11 @@
+#= require vendor/userscript-parser
+#= require vendor/listify
+#= require vendor/file-size
 # globals fileSize, listify, userscriptParser
 
 fail = -> console.error(arguments)
 
 setTimeout (_f = ->
-  return setTimeout(_f, 100) unless window.userscriptParser && window.listify && window.fileSize
   $.get 'https://img.shields.io/travis/Charcoal-SE/userscripts.json', (reply) -> $('.build span').text reply.value
   $.get
     url: 'https://api.travis-ci.org/repos/Charcoal-SE/userscripts',
