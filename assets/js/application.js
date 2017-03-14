@@ -50,9 +50,6 @@ $(document).ready(function() {
       search(term)
     }
     $('.search-query').on('keyup', function (e) {
-      if (e.which === 27) {
-        closeSearch()
-      }
       search(this.value)
     })
 
@@ -72,9 +69,16 @@ $(document).ready(function() {
     function openSearch () {
       $('.search').fadeIn('fast')
       $('.search-query').focus()
+      $(document).on('keyup', _closeIfNeeded)
     }
     function closeSearch () {
       $('.search').fadeOut('fast')
+      $(document).off('keyup', _closeIfNeeded)
+    }
+    function _closeIfNeeded(e) {
+      if (e.which === 27) {
+        closeSearch()
+      }
     }
   }).on('turbolinks:request-start', function () {
     clearTimeout(navTimeout)
