@@ -87,6 +87,7 @@ h4 {
 }
 .header-icon a {
   font-size: 0;
+  text-decoration: none;
 }
 .nav-toggle-icon {
   visibility: hidden;
@@ -217,6 +218,9 @@ a, a:visited, a:hover, a:active {
   left: 1em;
   color: black;
   font-size: 1.5em;
+}
+.search .controls a {
+  text-decoration: none;
 }
 .search .controls a:not(:last-child) {
   padding-right: 0.5em;
