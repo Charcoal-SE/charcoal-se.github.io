@@ -15,4 +15,4 @@ createController = ->
 moduleIsInstalled = ->
   window.Turbolinks is Turbolinks
 
-setTimeout Turbolinks.start if moduleIsInstalled()
+Turbolinks.start() if moduleIsInstalled()
