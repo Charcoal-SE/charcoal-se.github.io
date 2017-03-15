@@ -42,8 +42,8 @@ JEKYLL_ENV=production bundle exec jekyll build --incremental
 cd _site
 cd assets
 mkdir css images
-cp branding.css css
-cp charcoal.png images
+cp branding*.css css/branding.css
+cp charcoal*.png images/charcoal.png
 cd ..
 if [[ ! $DEV ]]; then
   git add --all .
