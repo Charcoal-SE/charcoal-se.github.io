@@ -187,22 +187,6 @@
         
       
         
-          "smokey-home-html": {
-            "title": "Home",
-            "content": "SmokeDetector is a headless chatbot that detects spam and posts it to chatrooms.It uses ChatExchange and takes questions from the Stack Exchange realtime tab. For more information on how it works, see our website at charcoal-se.org.User information      You can find a list of SmokeDetector’s commands on the Commands wiki page.        Find a list of chatrooms that SmokeDetector interacts with on the Chat Rooms wiki page.        If you’re thinking about asking for privileges, take a look at the Privileges page.        If you’re looking for guidance on feeding back to SmokeDetector, read Feedback Guidance.        If you want to know when it is appropriate to blacklist a website, check out Guidance for Blacklisting Websites.  Developer information      For information on how to write a new check for spam, see Docs: Creating new spam checks.        If you wish to integrate with Smokey and Metasmoke via our API, see the API Docs.  Glossary:      Blacklist - list of users whose every question or answer will be posted to the appropriate chatrooms. This should be used only for spammers or for users whose posts merit abusive/offensive flags.        Whitelist - list of users which are free from username checks on their posts. Title and body will still be checked.  ",
-            "url": "//charcoal-se.org/smokey/Home"
-          },
-        
-      
-        
-          "ms-home-html": {
-            "title": "Home",
-            "content": "This is the wiki page for metasmoke, a web application hosted on erwaysoftware.com that tracks reports and feedback from the Smoke Detector bot active on Stack Exchange.If you’re looking for the Metasmoke API Documentation, go here.",
-            "url": "//charcoal-se.org/ms/Home"
-          },
-        
-      
-        
           "ms-post-feedback-html": {
             "title": "Post Feedback",
             "content": "Route NamePost FeedbackRoute URL/api/post/:id/feedbackDescription &amp; UsageThis route will give you details of all feedbacks on one post. Replace :id in the URL with the metasmoke post ID you’re looking for, and all database fields for each feedback will be returned.You can use the per_page query string parameter to adjust how many results you get, up to a maximum of 100.The has_more field in the response indicates if there are more results available than have been returned in this result set; use the page query string parameter to get the next page of results. ?page=1 will return the first page; ?page=2 the second, and so on.ExampleRequest:HTTP/1.1 GET /api/post/20191/feedbackResponse:    {    \"items\": [        {            \"id\":16657,            \"message_link\":null,            \"user_name\":\"Ferrybig\",            \"user_link\":null,            \"feedback_type\":\"tpu-\",            \"post_id\":20191,            \"post_link\":\"//drupal.stackexchange.com/questions/193526\",            \"user_id\":null,            \"is_invalidated\":false,            \"invalidated_by\":null,            \"invalidated_at\":null,            \"chat_user_id\":null,            \"created_at\":null,            \"updated_at\":null        },        {            \"id\":16662,            \"message_link\":null,            \"user_name\":\"JamesENL\",            \"user_link\":null,            \"feedback_type\":\"tpu-\",            \"post_id\":20191,            \"post_link\":\"//drupal.stackexchange.com/questions/193526\",            \"user_id\":null,            \"is_invalidated\":false,            \"invalidated_by\":null,            \"invalidated_at\":null,            \"chat_user_id\":null,            \"created_at\":null,            \"updated_at\":null        }    ],    \"has_more\": false,}",
@@ -339,6 +323,22 @@
         
       
         
+          "smokey": {
+            "title": "index",
+            "content": "SmokeDetector is a headless chatbot that detects spam and posts it to chatrooms.  It uses [ChatExchange](https://github.com/Manishearth/ChatExchange) and takes questions from [the Stack Exchange realtime tab](http://stackexchange.com/questions?tab=realtime). For more information on how it works, see our website at [charcoal-se.org](http://charcoal-se.org/).***### User information - You can find a list of **SmokeDetector's commands** on [the Commands wiki page](Commands). - Find a list of **chatrooms that SmokeDetector interacts with** on [the Chat Rooms wiki page](Chat-Rooms). - If you're thinking about **asking for privileges**, take a look at the [Privileges](Privileges) page. - If you're looking for **guidance on feeding back to SmokeDetector**, read [Feedback Guidance](Feedback-Guidance). - If you want to know **when it is appropriate to blacklist a website**, check out [Guidance for Blacklisting Websites](Guidance-for-Blacklisting-Websites).### Developer information - For information on **how to write a new check for spam**, see [Docs: Creating new spam checks](Docs:-Creating-new-spam-checks). - If you wish to **integrate with Smokey** and Metasmoke via our API, see the [API Docs](//github.com/Charcoal-SE/metasmoke/API-Documentation).***### Glossary:- **Blacklist** - list of users whose every question or answer will be posted to the appropriate chatrooms. This should be used **only for spammers or** for users whose posts merit **abusive/offensive flags.**- **Whitelist** - list of users which are free from username checks on their posts. Title and body will still be checked.",
+            "url": "//charcoal-se.org/smokey/"
+          },
+        
+      
+        
+          "ms": {
+            "title": "index",
+            "content": "This is the wiki page for metasmoke, a web application hosted on erwaysoftware.com that tracks reports and feedback from the Smoke Detector bot active on Stack Exchange.If you're looking for the Metasmoke API Documentation, go [here](API-Documentation).",
+            "url": "//charcoal-se.org/ms/"
+          },
+        
+      
+        
           "": {
             "title": "Home",
             "content": "# we are charcoal> **Autoflagging**>> Charcoal are currently running an autoflagging initiative, to flag spam posts automatically based on past collected data. To find out more, go to [Autoflagging](/flagging).{: .alert.link}[Charcoal](http://chat.stackexchange.com/rooms/11540) are the people behind [SmokeDetector](https://github.com/Charcoal-SE/SmokeDetector), a community bot to detect spam on the [Stack Exchange network](http://stackexchange.com).## What is SmokeDetector? {#whats-smokey}SmokeDetector is a headless chatbot, written in Python, that scans all new and updated content across the Stack Exchange network to try to detect spam. And by 'everything', we mean 'everything' - that's every new post, on every SE site, plus every edit and other update. If it appears on the Stack Exchange-wide [real-time page](http://stackexchange.com/questions?tab=realtime), Smokey has seen it. That's about 100,000 posts scanned every day. Also, the bot is pretty accurate these days - some of the reasons that trip our filters have an accuracy of over 99%.It's administered and developed by the [team of people](/people) you can find in [Charcoal HQ](http://chat.stackexchange.com/rooms/11540), our co-ordination chatroom. That's also where the posts that Smokey thinks are spam get reported to.**Fact:** If you wrote all our spam tests out vertically at point size 36, they'd be as tall as the [One World Trade Center](https://en.wikipedia.org/wiki/One_World_Trade_Center).## How does it work? {#technical-details}*Warning: technical programming details ahead.*SmokeDetector sets up a websocket connection to the same feed that powers the [Stack Exchange realtime page](http://stackexchange.com/questions?tab=realtime). This websocket provides us with the feed of posts to scan.Every time a post comes in, we grab the full details of the post from the [Stack Exchange API](https://api.stackexchange.com/docs). Requests are bundled up wherever possible to save on our 10,000 requests per day API quota. Once we have the details, including the full text of the body, we run the post's body, title, and owner's username through [a whole load of tests](https://github.com/Charcoal-SE/SmokeDetector/blob/master/findspam.py), including several miles of regex (not literally) to determine whether or not the post is spam.If we determine that the post is spam, we post a report of that fact to Charcoal HQ (and to some other chatrooms, based on certain conditions). This report is the cue for some humans to go and look at the post, check if it's spam, and flag it if so. This gets spam posts destroyed quickly. Those humans can then feed back to SmokeDetector to say whether the report was correct or not. We store this feedback in our web dashboard, [metasmoke](https://metasmoke.erwaysoftware.com), which is itself complex enough that it's a story for another day.## Want to get involved? {#get-involved}Anybody is welcome to get involved; the best way to do this is to drop into [Charcoal HQ](http://chat.stackexchange.com/rooms/11540) and observe. Get yourself familiar with what goes on there; chat to some of the regulars about the system, and you'll figure out how to get involved.Eventually, when you're familiar with the system, you'll need to ask to be added to the privilege whitelist so that you can interact with SmokeDetector. There's a [wiki page](https://github.com/Charcoal-SE/SmokeDetector/wiki/Privileges) about that you should read before you ask; it'll give you some guidance about what we need from you and what you need to do.## For developers {#for-devs}If you're interested in integrating with the SmokeDetector system, we have an [API](https://github.com/Charcoal-SE/metasmoke/wiki/API-Documentation) that you can use to get stats about the system and to perform a limited set of write operations. Again, drop into chat for more information, or the docs are all available in the metasmoke wiki.",
@@ -385,22 +385,6 @@
             "title": "Userscripts",
             "content": "# Userscripts [{% img github.svg alt:\"View on GitHub\" title:\"View on GitHub\" %}](https://github.com/Charcoal-SE/Userscripts) [Build status loading…](//travis-ci.org/Charcoal-SE/userscripts){: .build}  Loading…{% css userscripts %}{% js userscripts %}",
             "url": "//charcoal-se.org/userscripts"
-          },
-        
-      
-        
-          "smokey": {
-            "title": "redirect",
-            "content": "",
-            "url": "//charcoal-se.org/smokey/"
-          },
-        
-      
-        
-          "ms": {
-            "title": "redirect",
-            "content": "",
-            "url": "//charcoal-se.org/ms/"
           },
         
       
