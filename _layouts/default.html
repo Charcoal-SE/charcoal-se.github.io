@@ -87,18 +87,5 @@
     </p>
     <ul class="search-results"></ul>
   </div>
-  <script>
-    window.store = {
-      {% for page in site.pages %}
-        {% unless page contains '.html' or page.no_search %}
-          "{{ page.url | slugify }}": {
-            "title": "{% if page.search_title.size > 0 %}{{ page.search_title }}{% elsif page.title.size > 0 %}{{ page.title | xml_escape }}{% else %}{{ page.name|replace:'.md',''|replace:'.html',''|replace:'-',' ' }}{% endif %}",
-            "content": {{ page.content | strip_html | strip_newlines | jsonify }},
-            "url": "{{ site.baseurl }}{{ page.url | replace: '.html', '' | xml_escape }}"
-          },
-        {% endunless %}
-      {% endfor %}
-    }
-  </script>
 </body>
 </html>
