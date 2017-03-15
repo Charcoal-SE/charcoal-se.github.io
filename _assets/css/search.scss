@@ -1,4 +1,4 @@
-.search {
+.search > div {
   position: fixed;
   top: 0;
   left: 0;
@@ -13,8 +13,14 @@
   justify-content: center;
   box-sizing: border-box;
 
-  > p {
+  .big-input {
+    font-size: 2em;
     margin-top: 0;
+    margin-bottom: 1em;
+    &:not(:focus) + .search-results:empty {
+      height: 0;
+      margin: 0;
+    }
   }
 
   .controls {
@@ -44,9 +50,15 @@
     transition: all 0.4s;
     height: 70vh;
     overflow: auto;
-    &:empty {
-      height: 0;
-      margin: 0;
+    li {
+      padding: 0.5em 0;
+      &.selected {
+        $selection: rgba(0, 0, 0, 0.1);
+        background: linear-gradient(to right, transparent, $selection 33%, $selection 66%, transparent);
+      }
+      p {
+        margin: 0;
+      }
     }
   }
 }

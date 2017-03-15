@@ -1,5 +1,5 @@
 #= require vendor/jquery
-#= require search
+#= require search-stub
 $ ->
   navTimeout = null
   NProgress.configure
