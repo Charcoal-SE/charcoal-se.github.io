@@ -62,7 +62,22 @@
       {{ content }}
     </div>
     <div class="footer text-center">
-      Charcoal is not affiliated with or sponsored by Stack Exchange, Inc. • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io">Website Source</a>
+      <p>Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.</p>
+      <p>
+        <a href="{{ site.github.repository_url }}">Website Source</a>
+        • Website built from commit
+          <a href="{{ site.github.repository_url }}/commit/{{ site.github.build_revision }}">
+            <code>{{ site.github.build_revision|slice:0,7 }}</code></a>
+        • By
+          {% for user in site.github.contributors limit:3 %}
+            <a href="{{ user.html_url }}">
+              {{ user.login }}</a>,
+          {% endfor %}
+          and
+          <a href="{{ site.github.repository_url }}/graphs/contributors">
+            {{ site.github.contributors.size|minus:3 }} more
+          </a>
+      </p>
     </div>
   </div>
   <div class="search text-center" style="display: none;">
