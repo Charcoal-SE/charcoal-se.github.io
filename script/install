@@ -11,8 +11,12 @@ case $i in
 esac
 done
 
-git config --global push.default matching
-git clone https://github.com/Charcoal-SE/charcoal-jekyll-theme .tmp
+git config --global push.default tracking
+if [[ -d .tmp ]]; then
+  ./force-fetch.sh .tmp
+else
+  git clone https://github.com/Charcoal-SE/charcoal-jekyll-theme .tmp
+fi
 cp -r .tmp/* ./
 if [[ $DEPLOY ]]; then
   bundle install --deployment
