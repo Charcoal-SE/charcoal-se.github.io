@@ -35,6 +35,11 @@ wait
 ./add-front-matter.rb ms/** smokey/**
 JEKYLL_ENV=production bundle exec jekyll build --incremental
 cd _site
+cd assets
+mkdir css images
+cp branding.css css
+cp charcoal.png images
+cd ..
 if [[ ! $DEV ]]; then
   git add --all .
   ../push.sh
