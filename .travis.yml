@@ -2,8 +2,11 @@ language: ruby
 rvm: 2.2
 cache:
   directories:
-  - vendor/bundle
-bundler_args: --deployment
+    - vendor/bundle
+    - _site
+    - smokey
+    - ms
+    - .tmp
 install: script/install --deploy
 script: script/build
 branches:
