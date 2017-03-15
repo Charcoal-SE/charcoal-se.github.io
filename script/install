@@ -12,7 +12,8 @@ esac
 done
 
 function force-fetch {
-  bash -c "cd $1 && git reset --hard HEAD && git fetch && git checkout origin/master && git checkout -B master"
+  echo "Force-fetching $1..."
+  bash -c "cd $1 && git reset -q --hard HEAD && git fetch && git checkout -q origin/master && git checkout -q -B master" &
 }
 
 git config --global push.default tracking
