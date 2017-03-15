@@ -1865,7 +1865,7 @@
   };
 
   if (moduleIsInstalled()) {
-    Turbolinks.start;
+    Turbolinks.start();
   }
 
 }).call(this);
