@@ -1,6 +1,28 @@
 #= require vendor/lunr
 $(document).on 'ready turbolinks:load', ->
+  index = null
   search = (term) ->
+    unless index?
+      index = lunr ->
+        @field 'id'
+        @field 'title',
+          boost: 10
+        @field 'content'
+
+      $.get '/search.json', (store) ->
+        window.store = store
+        for own id, page of window.store
+          delete store[id] unless page?
+        for own id, page of window.store
+          index.add
+            id: id,
+            title: page.title,
+            content: page.content
+        search term
+      .fail console.error
+
+      return
+    return unless window.store
     unless term.length
       $('.search-results').empty()
       return
@@ -36,23 +58,13 @@ $(document).on 'ready turbolinks:load', ->
   $('.search').click (e) ->
     closeSearch() if this == e.target || $(e.target).hasClass 'close'
 
-  index = lunr ->
-    @field 'id'
-    @field 'title',
-      boost: 10
-    @field 'content'
-
-  for own id, page of window.store
-    index.add
-      id: id,
-      title: page.title,
-      content: page.content
-
   term = decodeURIComponent location.search.substring(3).replace /\+/g, '%20' if location.search.substring(0, 3) == '?q='
   if term
     $('.search-query').val term
     openSearch()
-    search term
+    setTimeout ->
+      search term
+    , 500
 
   $('.search-query').on 'keyup', ->
     search $('.search-query').val()
