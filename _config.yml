@@ -17,8 +17,6 @@ assets:
       - "last 2 versions"
       - "> 1%"
   digest: false
-  features:
-    integrity: true
   assets:
     - branding.scss
 gems:
