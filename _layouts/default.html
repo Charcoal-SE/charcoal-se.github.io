@@ -81,11 +81,9 @@
     </div>
   </div>
   <div class="search text-center" style="display: none;">
-    <span class="controls"><a href="#" class="close" title="Close">╳</a><a href="#" class="link" title="Permalink"><i class="fa fa-link"></i></a></span>
-    <p style="font-size: 2em">
-      <input type="text" placeholder="Search…" class="search-query big-input" autocomplete="off">
-    </p>
-    <ul class="search-results"></ul>
   </div>
+  <script>
+    window.searchLoadPath = "{% asset_path search.js %}"
+  </script>
 </body>
 </html>
