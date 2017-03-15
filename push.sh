@@ -1,5 +1,5 @@
-git config --global user.email "smokey@erwaysoftware.com"
-git config --global user.name "SmokeDetector"
+git config user.email "smokey@erwaysoftware.com"
+git config user.name "SmokeDetector"
 if [ -n $TRAVIS_COMMIT ]
 then
   git commit --allow-empty -qm "Update site for $TRAVIS_COMMIT"
