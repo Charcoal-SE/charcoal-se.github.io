@@ -11,18 +11,22 @@ case $i in
 esac
 done
 
-if [[ -d _site ]]; then
-  ./force-fetch.sh _site
+function force-fetch {
+  bash -c "cd $1 && git reset --hard HEAD && git fetch && git checkout origin/master && git checkout -B master" &
+}
+
+if [[ -d _site/.git ]]; then
+  force-fetch _site
 else
   git clone --depth 1 -q -b master "https://$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG" _site &
 fi
-if [[ -d ms ]]; then
-  ./force-fetch.sh ms
+if [[ -d ms/.git ]]; then
+  force-fetch ms
 else
   git clone --depth 1 -q -b master "https://github.com/Charcoal-SE/metasmoke.wiki" ms &
 fi
-if [[ -d smokey ]]; then
-  ./force-fetch.sh smokey
+if [[ -d smokey/.git ]]; then
+  force-fetch smokey
 else
   git clone --depth 1 -q -b master "https://github.com/Charcoal-SE/SmokeDetector.wiki" smokey &
 fi
