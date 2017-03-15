@@ -16,7 +16,6 @@ assets:
     browsers:
       - "last 2 versions"
       - "> 1%"
-  digest: false
   assets:
     - branding.css
 gems:
