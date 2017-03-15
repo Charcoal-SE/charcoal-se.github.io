@@ -32,6 +32,10 @@ else
 fi
 wait
 
+for file in **/Home.md; do
+    mv "$file" "`dirname "$file"`/index.md"
+done
+
 ./add-front-matter.rb ms/** smokey/**
 JEKYLL_ENV=production bundle exec jekyll build --incremental
 cd _site
