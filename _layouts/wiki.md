@@ -2,7 +2,7 @@
 layout: default
 ---
 {% capture sidebar %}
-**[<i class="fa fa-pencil"></i> Edit on GitHub](//github.com/Charcoal-SE/{{ page.repo_name }}/wiki/{{ page.name|replace: '.md', '' }}/_edit)**
+**[<i class="fa fa-pencil"></i> Edit on GitHub](//github.com/Charcoal-SE/{{ page.repo_name }}/wiki/{{ page.name|replace:'index.md', 'Home.md'|replace: '.md', '' }}/_edit)**
 
 <div class="sidebar-content sidebar-content-{{ page.path|split:"/"|first }}">
 
