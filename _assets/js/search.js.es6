@@ -6,12 +6,12 @@
       store = null
   window.search = query => {
     if (index == null) {
-      index = lunr(function () {
-        this.field('id')
-        this.field('title', {
+      index = lunr(i => {
+        i.field('id')
+        i.field('title', {
           boost: 10
         })
-        this.field('content')
+        i.field('content')
       })
 
       $.get('/search.json', _s => {
