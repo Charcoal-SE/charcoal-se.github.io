@@ -52,4 +52,6 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Mithrandir](http://chat.stackexchange.com/users/133031/mithrandir)
 *   [Kaz Wolfe](http://chat.stackexchange.com/users/97389/kaz-wolfe)
 *   [Byte Commander](http://chat.stackexchange.com/users/137665/byte-commander)
+*   [DJMcMayhem](http://chat.stackexchange.com/users/144962/djmcmayhem)
+*   [quartata](http://chat.stackexchange.com/users/167070/quartata)
 </section>
