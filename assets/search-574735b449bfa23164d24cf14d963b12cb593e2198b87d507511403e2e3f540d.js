@@ -24093,12 +24093,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== 'function' 
       store = null;
   window.search = function (query) {
     if (index == null) {
-      index = lunr(function () {
-        this.field('id');
-        this.field('title', {
+      index = lunr(function (i) {
+        i.field('id');
+        i.field('title', {
           boost: 10
         });
-        this.field('content');
+        i.field('content');
       });
 
       $.get('/search.json', function (_s) {
