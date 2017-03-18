@@ -37,6 +37,7 @@ These people have, at some point, contributed code, spam checks, or blacklist ad
 *   [tripleee](http://chat.stackexchange.com/users/62118/tripleee)
 *   [Glorfindel](http://chat.stackexchange.com/users/164318/glorfindel)
 *   [J F](http://chat.stackexchange.com/users/161943/j-f)
+*   [Cerbrus](http://chat.stackexchange.com/users/126657/cerbrus)
 </section>
 <section>
 ## Team Members {#members}
@@ -48,7 +49,6 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Kyll](http://chat.stackexchange.com/users/172397/kyll)
 *   [Jan Dvorak](http://chat.stackexchange.com/users/56166/jan-dvorak)
 *   [DavidPostill](http://chat.stackexchange.com/users/133966/davidpostill)
-*   [Cerbrus](http://chat.stackexchange.com/users/126657/cerbrus)
 *   [Mithrandir](http://chat.stackexchange.com/users/133031/mithrandir)
 *   [Kaz Wolfe](http://chat.stackexchange.com/users/97389/kaz-wolfe)
 *   [Byte Commander](http://chat.stackexchange.com/users/137665/byte-commander)
