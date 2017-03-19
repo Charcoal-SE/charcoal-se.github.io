@@ -1,9 +1,32 @@
 #!/usr/bin/env ruby
-repo_names = {
-  "ms" => "metasmoke",
-  "smokey" => "SmokeDetector"
-}
-ARGV.reject{ |path| path.include?"#{File::SEPARATOR}_" }
-    .map{ |path| [path, File.new(path,"r").read] }
-    .each{ |path,c|
-      File.new(path,"w").write"---\nlayout: wiki\n" + (path.include?("index.md") ? "redirect_from:\n- /#{File.dirname path}/Home.html\n- /#{File.dirname path}/Home\ntitle: Home\n" : "") + "repo_name: #{repo_names[File.basename File.dirname path]}\n---\n\n"+c }
+
+def jekyll_front_matter(path)
+  repo_names = {
+    "ms" => "metasmoke",
+    "smokey" => "SmokeDetector"
+  }
+  m = ["---"]
+  m << "layout: wiki"
+  if path.include? "index.md"
+    dir = "/#{File.dirname path}"
+    m << "permalink: #{dir}/"
+    m << "redirect_from:"
+    m << "- #{dir}/Home.html"
+    m << "- #{dir}/Home"
+    m << "- #{dir}"
+    m << "title: Home"
+  end
+  m << "repo_name: #{repo_names[File.basename File.dirname path]}"
+  m << "---"
+  m << ""
+
+  m.join "\n"
+end
+
+ARGV.reject { |path|
+    path.include? "#{File::SEPARATOR}_"
+  }.map { |path|
+    [path, File.new(path,"r").read]
+  }.each { |path, c|
+    File.new(path, "w").write jekyll_front_matter(path) + c
+  }
