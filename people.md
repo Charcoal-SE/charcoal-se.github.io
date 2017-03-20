@@ -27,7 +27,7 @@ These people have, at some point, contributed code, spam checks, or blacklist ad
 *   [ProgramFOX](http://chat.stackexchange.com/users/88521/programfox)
 *   [ManishEarth](http://chat.stackexchange.com/users/31768/manishearth)
 *   [Ferrybig](http://chat.stackexchange.com/users/58529/ferrybig)
-*   [Ashish Ahuja](http://chat.stackexchange.com/users/193364/ashish-ahuja)
+*   [Ashish Ahuja](http://chat.stackexchange.com/users/181293/ashish-ahuja)
 *   [**Thomas Ward**](http://chat.stackexchange.com/users/10145/thomas-ward)
 *   [Magisch](http://chat.stackexchange.com/users/171054/magisch)
 *   [Brock Adams](http://chat.stackexchange.com/users/30477/brock-adams)
