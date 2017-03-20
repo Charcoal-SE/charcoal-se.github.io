@@ -3,7 +3,7 @@
 <head>
   <title>
     
-      Charcoal
+      API Documentation | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="//charcoal-se.org/assets/application-480bab870f2e4a88108dd6ecf1383057f9a8484da4b1ac6edd9549e9c88cb6f1.css">
@@ -44,6 +44,86 @@
     </div>
     <div class="body">
       
+
+
+<div class="sidebar">
+
+
+
+<p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/API-Documentation/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+
+<div class="sidebar-content sidebar-content-ms">
+
+  <p><strong><a href="Home">Home</a></strong></p>
+
+  <p><strong><a href="API-Documentation">API Documentation</a></strong></p>
+
+  <p><strong><a href="WebSocket-API">WebSocket API Documentation</a></strong></p>
+
+</div>
+
+
+</div>
+
+
+<p>Metasmoke offers a JSON API to access data about posts, reasons, and feedback. This is the documentation for said API.</p>
+
+<p>If you’re looking for the WebSocket API, go <a href="WebSocket-API">here</a>.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+<p>To get started, you’ll need an API key. No application can use the API without a key - you’ll get a 403 response. To get a key, ping a metasmoke admin in chat - they’ll be able to register one for you. Have a name in mind for your app - a name is necessary to register a key. You can edit it later, so it doesn’t have to be final. Also make sure that you have an active metasmoke account - this allows the registering admin to tie the key to your account, giving you control of your app.</p>
+
+<p>Once you have your key, you should include it as the <code class="highlighter-rouge">key</code> query string parameter on <strong>all requests</strong> to the API.</p>
+
+<h4 id="filters">Filters</h4>
+<p>The metasmoke API supports parameter-based filters (like the Stack Exchange API) so that you can filter a response down to only the fields you want.</p>
+
+<p>To create a filter, visit <a href="https://metasmoke.erwaysoftware.com/api/filters">metasmoke.erwaysoftware.com/api/filters</a> and select the fields you want in the response. <strong>Only select the fields you need.</strong> Selecting fields from unrelated tables may break things.</p>
+
+<blockquote>
+  <p><strong>N.B.:</strong> You <em>can</em> calculate filters yourself if you really want to, but you should have a thorough understanding of how to do so first. Ask ArtOfCode if you’re unsure.</p>
+</blockquote>
+
+<p>Once you’ve got your filter, include it as the <code class="highlighter-rouge">filter</code> parameter on requests to the API that use it.</p>
+
+<h4 id="write-methods">Write Methods</h4>
+<p>Write methods additionally require you to go through OAuth to get hold of a <em>write token</em>, which can be used to authorize the write request. You should follow this flow:</p>
+
+<ul>
+  <li>Send your user to <code class="highlighter-rouge">https://metasmoke.erwaysoftware.com/oauth/request?key=YOUR_KEY_HERE</code></li>
+  <li>If the user authorizes your app, they’ll be given a code to provide you. Ask them to enter that code, then:</li>
+  <li>Send an HTTP GET request to <code class="highlighter-rouge">https://metasmoke.erwaysoftware.com/oauth/token?key=YOUR_KEY_HERE&amp;code=THEIR_CODE_HERE</code>. The response is a JSON object containing one key, <code class="highlighter-rouge">token</code>, the value of which is your write token.</li>
+</ul>
+
+<p>Write tokens do not expire and can be used to authorize as many requests as you need. If you get a 401 Unauthorized response when you included a write token, that token has likely been revoked by an administrator or by the user, and you need to go through OAuth again.</p>
+
+<h2 id="api-read-routes">API Read Routes</h2>
+<ul>
+  <li><a href="Blacklisted-Websites">Blacklisted Websites</a>: <code class="highlighter-rouge">/api/blacklist</code></li>
+  <li><a href="Post-Feedback">Post Feedback</a>: <code class="highlighter-rouge">/api/post/:id/feedback</code></li>
+  <li><a href="Post-Reasons">Post Reasons</a>: <code class="highlighter-rouge">/api/post/:id/reasons</code></li>
+  <li><a href="Posts-by-Date-Range">Posts by Date Range</a>: <code class="highlighter-rouge">/api/posts/between</code></li>
+  <li><a href="Posts-by-Feedback">Posts by Feedback</a>: <code class="highlighter-rouge">/api/posts/feedback</code></li>
+  <li><a href="Posts-by-ID">Posts by ID</a>: <code class="highlighter-rouge">/api/posts/:ids</code></li>
+  <li><a href="Posts-by-Site">Posts by Site</a>: <code class="highlighter-rouge">/api/posts/site</code></li>
+  <li><a href="Posts-by-URLs">Posts by URLs</a>: <code class="highlighter-rouge">/api/posts/url</code></li>
+  <li><a href="Posts-caught-by-reason">Posts caught by reason</a>: <code class="highlighter-rouge">/api/reason/:id/posts</code></li>
+  <li><a href="Reasons-by-ID">Reasons by ID</a>: <code class="highlighter-rouge">/api/reasons/:ids</code></li>
+  <li><a href="Search-Posts">Search Posts</a>: <code class="highlighter-rouge">/api/posts/search</code></li>
+  <li><a href="Undeleted-Posts">Undeleted Posts</a>: <code class="highlighter-rouge">/api/posts/undeleted</code></li>
+  <li><a href="Valid-Feedback-Types">Valid Feedback Types</a>: <code class="highlighter-rouge">/api/post/:id/valid_feedback</code></li>
+</ul>
+
+<h2 id="api-write-routes">API Write Routes</h2>
+<ul>
+  <li><a href="Create-Feedback">Create Feedback</a>: <code class="highlighter-rouge">POST /api/w/post/:id/feedback</code></li>
+  <li><a href="Report-Post">Report Post</a>: <code class="highlighter-rouge">POST /api/w/post/report</code></li>
+</ul>
+
+
+<div class="footer footer-insert text-center">
+<p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
 
     </div>
     <div class="footer text-center">
