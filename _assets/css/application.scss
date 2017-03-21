@@ -78,10 +78,9 @@ a, a:visited, a:hover, a:active {
 }
 
 .avatar-link {
-  display: inline-flex;
-  align-items: center;
-
+  text-decoration: none;
   .avatar {
     margin-right: 0.5em;
+    vertical-align: middle;
   }
 }
