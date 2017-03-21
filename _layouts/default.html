@@ -71,7 +71,7 @@
         • By
           {% for user in site.github.contributors limit:3 %}
             <a href="{{ user.html_url }}" class="avatar-link">
-              {% avatar user=user.login size=16 %} {{ user.login }}</a>,
+              {% avatar user=user.login size=16 %}{{ user.login }}</a>,
           {% endfor %}
           and
           <a href="{{ site.github.repository_url }}/graphs/contributors">
