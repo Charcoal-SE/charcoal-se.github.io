@@ -70,7 +70,7 @@
             <code>{{ site.github.build_revision|slice:0,7 }}</code></a>
         • By
           {% for user in site.github.contributors limit:3 %}
-            <a href="{{ user.html_url }}">
+            <a href="{{ user.html_url }}" class="avatar-link">
               {% avatar user=user.login size=16 %} {{ user.login }}</a>,
           {% endfor %}
           and
