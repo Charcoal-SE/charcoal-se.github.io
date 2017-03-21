@@ -20,4 +20,5 @@ assets:
     - branding.css
 gems:
   - jekyll-redirect-from
+  - jekyll-avatar
 baseurl: //charcoal-se.org
