@@ -1,6 +1,3 @@
----
----
-
 # Meta: Who to ping
 
 When an organisation such as Charcoal is maintaining several large projects with may people involved, it can get confusing over who you should ping for help. Welcome to the one-stop shop for all your answers when it comes to getting in contact with the right people.
@@ -30,9 +27,24 @@ Ping ArtOfCode or Undo, they do most of the development on metasmoke.
 Ping one of the authors of the userscript, ArtOfCode or angussidney.
 </section>
 <section>
+## I'd like to contact the AIM maintainers {#aim-maintainers}
+
+Ping one of the authors of the userscript, J F or Glorfindel.
+</section>
+<section>
+## I'd like to contact the FIRE maintainer {#fire-maintainers}
+
+Ping Cerbrus, the author of the userscript.
+</section>
+<section>
 ## I'd like to contact the author of another one of your userscripts {#userscripts}
 
 Look in the source code of the userscript on GitHub, the author's name can be found in the metablock at the top of the file.
+</section>
+<section>
+## I'd like to contact one of the maintainers of the website
+
+J F, angussidney, and ArtOfCode are the primary authors of the website.
 </section>
 <section>
 ## It's dead Jim! {#dead}
