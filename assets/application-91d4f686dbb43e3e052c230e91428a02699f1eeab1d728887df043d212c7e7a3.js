@@ -10263,13 +10263,22 @@ return jQuery;
         return $(this).append(' ').append($('<span class="small">').append($('<a />').attr('href', '#' + this.id).append($('<i class="fa fa-link" />'))));
       });
       return $('.footer-insert').remove().children().prependTo($('.body + .footer'));
-    }).on('turbolinks:before-visit', function() {
+    }).on('turbolinks:before-visit', function(event) {
+      if (event.isDefaultPrevented()) {
+        return;
+      }
       clearTimeout(navTimeout);
       return NProgress.start();
-    }).on('turbolinks:visit', function() {
+    }).on('turbolinks:visit', function(event) {
+      if (event.isDefaultPrevented()) {
+        return;
+      }
       clearTimeout(navTimeout);
       return NProgress.done();
-    }).on('click', '.link.alert', function() {
+    }).on('click', '.link.alert', function(event) {
+      if (event.isDefaultPrevented()) {
+        return;
+      }
       return Turbolinks.visit($(this).find('a').attr('href'));
     });
   });

@@ -2450,9 +2450,16 @@
 
   return NProgress;
 });
+(function() {
+  $(document).on('turbolinks:before-visit', function(event) {
+    var redirect;
+    redirect = window.redirects[new URL(event.originalEvent.data.url).pathname.replace('.html', '')];
+    if (redirect) {
+      event.preventDefault();
+      return Turbolinks.visit(redirect, {
+        action: 'replace'
+      });
+    }
+  });
 
-//  vendor/turbolinks/start is modified to start on page load.
-
-//  vendor/turbolinks_prefetch is modified to start on page load.
-
-;
+}).call(this);
