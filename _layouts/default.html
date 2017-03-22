@@ -84,6 +84,7 @@
   </div>
   <script>
     window.searchLoadPath = "{% asset_path search.js.es6 %}"
+    window.redirects = { {% for page in site.pages %}{% if page.layout == "redirect" %}"{{ page.url|xml_escape|replace:'.html','' }}": "{{ page.redirect.to|xml_escape }}", {% endif %}{% endfor %} }
   </script>
 </body>
 </html>
