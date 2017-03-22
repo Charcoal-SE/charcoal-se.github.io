@@ -18,12 +18,15 @@ $ ->
       $(this).append(' ').append $('<span class="small">').append $('<a />').attr('href', '#' + this.id).append $ '<i class="fa fa-link" />'
 
     $('.footer-insert').remove().children().prependTo $ '.body + .footer'
-  .on 'turbolinks:before-visit', ->
+  .on 'turbolinks:before-visit', (event) ->
+    return if event.isDefaultPrevented()
     clearTimeout(navTimeout)
     NProgress.start()
     # navTimeout = setTimeout(NProgress.start, 100)
-  .on 'turbolinks:visit', ->
+  .on 'turbolinks:visit', (event) ->
+    return if event.isDefaultPrevented()
     clearTimeout(navTimeout)
     NProgress.done()
-  .on 'click', '.link.alert', ->
+  .on 'click', '.link.alert', (event) ->
+    return if event.isDefaultPrevented()
     Turbolinks.visit $(this).find('a').attr 'href'
