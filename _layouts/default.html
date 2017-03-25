@@ -65,9 +65,6 @@
       <p>Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.</p>
       <p>
         <a href="{{ site.github.repository_url }}">Website Source</a>
-        • Website built from commit
-          <a href="{{ site.github.repository_url }}/commit/{{ site.github.build_revision }}">
-            <code>{{ site.github.build_revision|slice:0,7 }}</code></a>
         • By
           {% for user in site.github.contributors limit:3 %}
             <a href="{{ user.html_url }}" class="avatar-link">
@@ -75,8 +72,8 @@
           {% endfor %}
           and
           <a href="{{ site.github.repository_url }}/graphs/contributors">
-            {{ site.github.contributors.size|minus:3 }} more
-          </a>
+            {{ site.github.contributors.size|minus:3 }} more</a>
+          • <a href="/code">More gory details</a>
       </p>
     </div>
   </div>
