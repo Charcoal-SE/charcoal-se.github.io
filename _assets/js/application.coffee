@@ -5,7 +5,7 @@ $ ->
   NProgress.configure
     parent: 'html'
 
-  $(document).on 'load turbolinks:load', ->
+  $(window).on 'load turbolinks:load', ->
     $('.highlight').removeClass 'highlight'
 
     if location.hash != ""
