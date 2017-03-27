@@ -10252,7 +10252,7 @@ return jQuery;
     NProgress.configure({
       parent: 'html'
     });
-    return $(document).on('turbolinks:load', function() {
+    return $(document).on('load turbolinks:load', function() {
       $('.highlight').removeClass('highlight');
       if (location.hash !== "") {
         $(location.hash).parent().addClass('highlight');
