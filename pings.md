@@ -1,6 +1,6 @@
 # Meta: Who to ping
 
-When an organisation such as Charcoal is maintaining several large projects with may people involved, it can get confusing over who you should ping for help. Welcome to the one-stop shop for all your answers when it comes to getting in contact with the right people.
+When an organisation such as Charcoal is maintaining several large projects with many people involved, it can get confusing over who you should ping for help. Welcome to the one-stop shop for all your answers when it comes to getting in contact with the right people.
 
 <section>
 
