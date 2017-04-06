@@ -11,3 +11,14 @@ $big-breakpoint: 1567px;
     @content;
   }
 }
+
+@media (max-width: $breakpoint) {
+  .hide-on-mobile, .desktop-only {
+    display: none;
+  }
+}
+@media (min-width: $breakpoint) {
+  .hide-on-desktop, .mobile-only {
+    display: none;
+  }
+}
