@@ -38,6 +38,7 @@ These people have, at some point, contributed code, spam checks, or blacklist ad
 *   [Glorfindel](http://chat.stackexchange.com/users/164318/glorfindel)
 *   [J F](http://chat.stackexchange.com/users/161943/j-f)
 *   [Cerbrus](http://chat.stackexchange.com/users/126657/cerbrus)
+*   [quartata](http://chat.stackexchange.com/users/167070/quartata)
 </section>
 <section>
 ## Team Members {#members}
@@ -53,5 +54,5 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Kaz Wolfe](http://chat.stackexchange.com/users/97389/kaz-wolfe)
 *   [Byte Commander](http://chat.stackexchange.com/users/137665/byte-commander)
 *   [DJMcMayhem](http://chat.stackexchange.com/users/144962/djmcmayhem)
-*   [quartata](http://chat.stackexchange.com/users/167070/quartata)
+*   [Henders](http://chat.stackexchange.com/users/211021/henders)
 </section>
