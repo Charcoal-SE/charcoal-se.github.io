@@ -22,7 +22,7 @@
 
   div {
     display: inline-block;
-    border: 0 solid #6B1A00;
+    border: 0 solid $red-text;
     border-right-width: 2px;
     line-height: 100%;
     &:last-child {
@@ -40,16 +40,16 @@
     &, &:visited {
       text-decoration: none !important;
       text-transform: uppercase;
-      color: #333;
+      color: $dark-gray-text;
       margin: 0 20px;
       transition: all 0.2s ease;
       letter-spacing: 0.03em;
     }
     &:hover, &:focus, &:active {
       /* Hack courtsey of http://stackoverflow.com/a/14978871/4622463 */
-      text-shadow: 1px 0 0 #6B1A00;
+      text-shadow: 1px 0 0 $red-text;
       letter-spacing: 0.03em;
-      color: #6B1A00;
+      color: $red-text;
     }
     i {
       text-shadow: none;

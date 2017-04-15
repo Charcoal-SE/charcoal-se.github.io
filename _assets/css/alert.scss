@@ -1,8 +1,8 @@
 .alert {
-  border: 1px solid #31708F;
+  border: 1px solid $blue-text;
   border-radius: 3px;
-  background: #D9EDF7;
-  color: #31708F;
+  background: $blue-bg;
+  color: $blue-text;
   padding: 7px;
   margin: 0;
   @include mobile {
@@ -23,6 +23,6 @@
   a, a:hover, a:active, a:focus, a:visited {
     font-weight: bold;
     text-decoration: underline;
-    color: #31708F;
+    color: $blue-text;
   }
 }

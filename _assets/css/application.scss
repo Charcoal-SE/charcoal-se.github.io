@@ -18,12 +18,12 @@ body {
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
   @include desktop {
-    background: #eee;
+    background: $gray-bg;
   }
 }
 
 a, a:visited, a:hover, a:active {
-  color: #6B1A00;
+  color: $red-text;
   text-decoration: underline;
 }
 
@@ -62,7 +62,7 @@ a, a:visited, a:hover, a:active {
 
 .footer {
   font-size: 0.8em;
-  color: #555;
+  color: $gray-text;
   margin-top: 30px;
   @include mobile {
     padding-bottom: 30px;
@@ -81,8 +81,15 @@ a, a:visited, a:hover, a:active {
 .avatar-link {
   text-decoration: none !important;
   .avatar {
-    border: 0.5px solid lightgray;
+    border: 0.5px solid $gray-bg;
     margin-right: 0.25em;
     vertical-align: middle;
   }
+}
+
+blockquote {
+  border-left: 4px solid $red-text;
+  margin-left: 1em;
+  padding-left: 1em;
+  border-radius: 4px
 }

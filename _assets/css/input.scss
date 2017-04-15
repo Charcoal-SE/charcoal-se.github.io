@@ -6,8 +6,8 @@
   appearance: none;
   border: none;
   background: transparent;
-  color: #6F1A09;
-  border-bottom: 2px solid RGBA(111, 26, 9, 0.5);
+  color: $red-text;
+  border-bottom: 2px solid rgba($red-text, 0.5);
   text-align: center;
   transition: all 0.4s;
   height: 1.5em;
@@ -18,7 +18,7 @@
   }
 
   &:focus {
-    border-color: #6F1A09;
+    border-color: $red-text;
     outline: none;
   }
 }

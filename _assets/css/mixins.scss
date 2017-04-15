@@ -1,3 +1,11 @@
+$red-bg: #FFCDBF; // old alert BG: #FFC3B7;
+$red-text: #6B1A00;
+$gray-bg: #eee;
+$gray-text: #555;
+$blue-bg: #D9EDF7;
+$blue-text: #31708F;
+$dark-gray-text: #333333;
+
 $breakpoint: 768px;
 $big-breakpoint: 1567px;
 @mixin mobile {
