@@ -19,16 +19,19 @@ function force-fetch {
 if [[ -d _site/.git ]]; then
   force-fetch _site
 else
+  rm -rf _site
   git clone --depth 1 -q -b master "https://$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG" _site &
 fi
 if [[ -d ms/.git ]]; then
   force-fetch ms
 else
+  rm -rf ms
   git clone --depth 1 -q -b master "https://github.com/Charcoal-SE/metasmoke.wiki" ms &
 fi
 if [[ -d smokey/.git ]]; then
   force-fetch smokey
 else
+  rm -rf smokey
   git clone --depth 1 -q -b master "https://github.com/Charcoal-SE/SmokeDetector.wiki" smokey &
 fi
 wait
@@ -37,15 +40,19 @@ for file in **/Home.md; do
     mv "$file" "`dirname "$file"`/index.md"
 done
 
-./add-front-matter.rb ms/** smokey/**
-./create-data-files.rb
+./add-front-matter.rb ms/** smokey/** &
+./create-data-files.rb &
+wait
+
 JEKYLL_ENV=production bundle exec jekyll build --incremental
+
 cd _site
 cd assets
 mkdir css images
 cp branding*.css css/branding.css
 cp charcoal*.png images/charcoal.png
 cd ..
+
 if [[ ! $DEV ]]; then
   git add --all .
   ../push.sh
