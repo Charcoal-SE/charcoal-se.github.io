@@ -1,3 +1,5 @@
+@import "mixins.scss";
+
 .nav-toggle-icon {
   @include desktop {
     visibility: hidden;
@@ -19,6 +21,9 @@
 nav {
   margin-left: -20px;
   margin-right: -20px;
+  @include desktop {
+    margin-bottom: 1em;
+  }
 
   a {
     display: inline-block;
@@ -34,14 +39,16 @@ nav {
       border-top-width: 1px;
       padding: 0.5em;
     }
+    @include desktop {
+      padding: 0 20px;
+    }
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    letter-spacing: 0.03em;
 
     &, &:visited {
       text-decoration: none !important;
-      text-transform: uppercase;
       color: $dark-gray-text;
-      padding: 0 20px;
-      transition: all 0.2s ease;
-      letter-spacing: 0.03em;
     }
     &:hover, &:focus, &:active {
       /* Hack courtsey of http://stackoverflow.com/a/14978871/4622463 */
