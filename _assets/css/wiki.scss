@@ -1,16 +1,21 @@
+@import "mixins.scss";
+
 .sidebar {
-  float: right;
+  @include desktop {
+    float: right;
+    padding: 0 1em 0 calc(1em + 3px);
+    border-radius: 3px;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: -3px;
+    background: white;
+  }
   border: 1px solid lightgray;
-  margin-top: -1px;
-  padding: 0 1em;
-  border-radius: 0 0 3px 3px;
-  position: -webkit-sticky;
-  position: sticky;
-  top: -1px;
-  background: white;
 
   @include mobile {
-    top: 48px;
+    text-align: center;
+    border-width: 1px 0;
+    margin: 0 -0.5em
   }
 
   .sidebar-content-smokey {
