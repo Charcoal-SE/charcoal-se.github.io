@@ -37,7 +37,7 @@
     }
     if (!matches) {
       $('section a').empty();
-      $('section div').html`<em class="huh">Huh?</em>`;
+      $('section div').html('<em class="huh">Huh?</em>');
     }
     id = matches[1];
     url = "//" + domain + "/" + type + "/" + id;
