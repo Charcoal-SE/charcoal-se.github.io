@@ -12,28 +12,18 @@ esac
 done
 
 function force-fetch {
-  echo "Force-fetching $1..."
-  bash -c "cd $1 && git reset -q --hard HEAD && git fetch && git checkout -q origin/master && git checkout -q -B master" &
+  if [[ -d $1/.git ]]; then
+    echo "Force-fetching $1..."
+    bash -c "cd $1 && git reset -q --hard HEAD && git fetch && git checkout -q origin/master && git checkout -q -B master"
+  else
+    rm -rf $1
+    git clone --depth 1 -q -b master $2 $1
+  fi
 }
 
-if [[ -d _site/.git ]]; then
-  force-fetch _site
-else
-  rm -rf _site
-  git clone --depth 1 -q -b master "https://$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG" _site &
-fi
-if [[ -d ms/.git ]]; then
-  force-fetch ms
-else
-  rm -rf ms
-  git clone --depth 1 -q -b master "https://github.com/Charcoal-SE/metasmoke.wiki" ms &
-fi
-if [[ -d smokey/.git ]]; then
-  force-fetch smokey
-else
-  rm -rf smokey
-  git clone --depth 1 -q -b master "https://github.com/Charcoal-SE/SmokeDetector.wiki" smokey &
-fi
+force-fetch _site "https://$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG" &
+force-fetch ms "https://github.com/Charcoal-SE/metasmoke.wiki" &
+force-fetch smokey "https://github.com/Charcoal-SE/SmokeDetector.wiki" &
 wait
 
 for file in **/Home.md; do

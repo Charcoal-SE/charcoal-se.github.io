@@ -12,17 +12,19 @@ esac
 done
 
 function force-fetch {
-  echo "Force-fetching $1..."
-  bash -c "cd $1 && git reset -q --hard HEAD && git fetch && git checkout -q origin/master && git checkout -q -B master" &
+  if [[ -d $1/.git ]]; then
+    echo "Force-fetching $1..."
+    bash -c "cd $1 && git reset -q --hard HEAD && git fetch && git checkout -q origin/master && git checkout -q -B master"
+  else
+    rm -rf $1
+    git clone --depth 1 -q -b master $2 $1
+  fi
 }
 
-git config --global push.default tracking
-if [[ -d .tmp/.git ]]; then
-  force-fetch .tmp
-else
-  git clone https://github.com/Charcoal-SE/charcoal-jekyll-theme .tmp
-fi
+git config push.default tracking
+force-fetch .tmp "https://github.com/Charcoal-SE/charcoal-jekyll-theme"
 cp -r .tmp/* ./
+
 if [[ $DEPLOY ]]; then
   bundle install --deployment
 else
