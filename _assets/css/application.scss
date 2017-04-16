@@ -77,11 +77,30 @@ a, a:visited, a:hover, a:active {
 }
 
 #nprogress {
-  .bar {
-    position: fixed;
+  @include desktop {
+    .bar {
+      position: fixed;
+    }
   }
   .spinner {
     display: none;
+  }
+}
+@include mobile {
+  #nprogress {
+    position: fixed;
+    top: 40px;
+    height: 10px;
+    z-index: 101;
+    width: 100%;
+    overflow: hidden;
+    .bar.bar {
+      bottom: 0;
+      top: auto;
+      .peg {
+        transform: rotate(-3deg) translate(0, 4px);
+      }
+    }
   }
 }
 
