@@ -54,8 +54,17 @@
           and
           <a href="{{ site.github.repository_url }}/graphs/contributors">
             {{ site.github.contributors.size|minus:3 }} more</a>
+        {% if page.layout == 'wiki' %}
           • <a href="/code">More gory details</a>
+        {% endif %}
       </p>
+      {% if page.layout != 'wiki' %}
+        <p>
+          <a href="/code">More gory details</a>
+          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/{{ page.path }}" title="{{ page.path }}">Edit on GitHub</a>
+          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/new/site">New Page</a>
+        </p>
+      {% endif %}
     </div>
   </div>
   <div class="search text-center" style="display: none;">
