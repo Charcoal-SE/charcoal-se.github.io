@@ -60,7 +60,7 @@ J F, angussidney, and ArtOfCode are the primary authors of the website.
 
 ## It's dead Jim! {#dead}
 
-First of all, check that Smokey isn't responding to any commands. You can also try rebooting Smokey from either SOCVR or Tavern on the Meta, more often than not Smokey has just lost connection to CHQ. If all else fails, please ping one of the people with a **bold name** on [this list](/people.html), they will be able to start a backup instance of SmokeDetector.
+First of all, check that Smokey isn't responding to any commands. You can also try rebooting Smokey from either SOCVR or Tavern on the Meta, more often than not Smokey has just lost connection to CHQ. If all else fails, please ping one of the people with a **bold name** on [this list](/people), they will be able to start a backup instance of SmokeDetector.
 </section>
 <section>
 
@@ -72,7 +72,7 @@ Ping one of the [Room Owners](http://chat.stackexchange.com/rooms/info/11540/cha
 
 ## I'd like to be added to the privilege whitelist for SmokeDetector {#privileges}
 
-Make sure that you've read the [Privileges](https://github.com/Charcoal-SE/SmokeDetector/wiki/Privileges) and [Feedback Guidance pages](https://github.com/Charcoal-SE/SmokeDetector/wiki/Feedback-Guidance), then ping one of the [SmokeDetector maintainers](#smokey-maintainers) and they will evaluate your request.
+Make sure that you've read the [Privileges](/smokey/Privileges) and [Feedback Guidance pages](/smokey/Feedback-Guidance), then ping one of the [SmokeDetector maintainers](#smokey-maintainers) and they will evaluate your request.
 </section>
 <section>
 
