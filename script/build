@@ -45,5 +45,6 @@ cd ..
 
 if [[ ! $DEV ]]; then
   git add --all .
+  git config --global push.default tracking
   ../push.sh
 fi

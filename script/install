@@ -21,7 +21,6 @@ function force-fetch {
   fi
 }
 
-git config push.default tracking
 force-fetch .tmp "https://github.com/Charcoal-SE/charcoal-jekyll-theme"
 cp -r .tmp/* ./
 
