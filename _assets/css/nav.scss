@@ -10,17 +10,17 @@
 #nav-toggle {
   display: none;
   @include mobile {
-    &:not(:checked) + .navigation {
+    &:not(:checked) + nav {
       display: none;
     }
   }
 }
 
-.navigation {
+nav {
   margin-left: -20px;
   margin-right: -20px;
 
-  div {
+  a {
     display: inline-block;
     border: 0 solid $red-text;
     border-right-width: 2px;
@@ -34,9 +34,7 @@
       border-top-width: 1px;
       padding: 0.5em;
     }
-  }
 
-  a {
     &, &:visited {
       text-decoration: none !important;
       text-transform: uppercase;
