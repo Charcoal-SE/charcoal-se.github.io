@@ -14,6 +14,8 @@ layout: default
 {% include_relative _Footer.md %}
 {% endcapture %}
 
+{{ content }}
+
 <div class="sidebar">
 
 
@@ -21,7 +23,5 @@ layout: default
 
 </div>
 
-
-{{ content }}
 
 <div class="footer footer-insert text-center">{{ footer | markdownify }}</div>
