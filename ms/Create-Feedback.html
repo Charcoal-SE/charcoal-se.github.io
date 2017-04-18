@@ -6,9 +6,9 @@
       Create Feedback | Charcoal
     
   </title>
-  <link type="text/css" rel="stylesheet" href="//charcoal-se.org/assets/application-5c9a2a7f83a39007b8a5fd6f5636f5a7363fb8e46e9333f1777737693910d116.css">
-  <script type="text/javascript" src="//charcoal-se.org/assets/application-298aa4c65d997243b2906842db4bde006a14636745902b430b5ef169c6cfaacc.js"></script>
-  <script type="text/javascript" src="//charcoal-se.org/assets/vendor-fad6853c80b4f83dd9b9327d08ae015076a89c51d5a959e0c9ef73241509de15.js"></script>
+  <link type="text/css" rel="stylesheet" href="/pages/Charcoal-SE/assets/application-5c9a2a7f83a39007b8a5fd6f5636f5a7363fb8e46e9333f1777737693910d116.css">
+  <script type="text/javascript" src="/pages/Charcoal-SE/assets/application-298aa4c65d997243b2906842db4bde006a14636745902b430b5ef169c6cfaacc.js"></script>
+  <script type="text/javascript" src="/pages/Charcoal-SE/assets/vendor-fad6853c80b4f83dd9b9327d08ae015076a89c51d5a959e0c9ef73241509de15.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -16,8 +16,8 @@
     
     <div class="header">
       <div class="header-icon text-center">
-        <a href="//charcoal-se.org/">
-          <img src="//charcoal-se.org/assets/charcoal-c0d57d82868cf7a8b169cfaf65a45179467c310868ebfdd0f10e6bd48f068816.png" height="64" width alt="charcoal.png">
+        <a href="/pages/Charcoal-SE/">
+          <img src="/pages/Charcoal-SE/assets/charcoal-c0d57d82868cf7a8b169cfaf65a45179467c310868ebfdd0f10e6bd48f068816.png" height="64" width alt="charcoal.png">
           <span class="title">
             <span>Charcoal</span>
             <small>spam-crusaders of the Internet</small>
@@ -27,12 +27,12 @@
       </div>
       <input type="checkbox" id="nav-toggle">
       <nav class="text-center">
-        <a href="//charcoal-se.org/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a>
+        <a href="/pages/Charcoal-SE/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a>
         <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq"><i class="fa mobile-only fa-comments-o"></i> chat</a>
-        <a href="//charcoal-se.org/more-projects"><i class="fa mobile-only fa-ellipsis-h"></i> more projects</a>
-        <a href="//charcoal-se.org/scripts"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a>
-        <a href="//charcoal-se.org/smokey/"><i class="fa mobile-only fa-file-text-o"></i> wiki</a>
-        <a href="//charcoal-se.org/ms/API-Documentation"><i class="fa mobile-only fa-book"></i> api</a>
+        <a href="/pages/Charcoal-SE/more-projects"><i class="fa mobile-only fa-ellipsis-h"></i> more projects</a>
+        <a href="/pages/Charcoal-SE/scripts"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a>
+        <a href="/pages/Charcoal-SE/smokey/"><i class="fa mobile-only fa-file-text-o"></i> wiki</a>
+        <a href="/pages/Charcoal-SE/ms/API-Documentation"><i class="fa mobile-only fa-book"></i> api</a>
         <a href="https://github.com/Charcoal-SE" title="GitHub organization"><i class="fa fa-github"></i><span class="mobile-only"> GitHub</span></a>
         <a href="#" class="search-link"><i class="fa fa-search" title="Search"></i><span class="mobile-only"> Search</span></a>
       </nav>
@@ -41,37 +41,32 @@
       
 
 
-<h3 id="route-name">Route Name</h3>
+<h3>Route Name</h3>
+
 <p>Create Feedback</p>
 
-<h3 id="route-url">Route URL</h3>
+<h3>Route URL</h3>
+<div class="highlight"><pre><code class="language-" data-lang="">POST /api/w/post/:id/feedback
+</code></pre></div>
+<h3>Description &amp; Usage</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>POST /api/w/post/:id/feedback
-</code></pre>
-</div>
+<p>This route allows an app to submit feedback through the API. Your app must have passed through the OAuth flow for write routes (see <a href="https://github.com/Charcoal-SE/metasmoke/wiki/API-Documentation">API documentation home</a>) and must have a valid write token; this token should be passed in the <code>token</code> query string parameter.</p>
 
-<h3 id="description--usage">Description &amp; Usage</h3>
-
-<p>This route allows an app to submit feedback through the API. Your app must have passed through the OAuth flow for write routes (see <a href="https://github.com/Charcoal-SE/metasmoke/wiki/API-Documentation">API documentation home</a>) and must have a valid write token; this token should be passed in the <code class="highlighter-rouge">token</code> query string parameter.</p>
-
-<p>Specify the feedback type being added by using the <code class="highlighter-rouge">type</code> parameter. The <code class="highlighter-rouge">:id</code> parameter in the URL should be replaced with the metasmoke ID of the post; use the <a href="https://github.com/Charcoal-SE/metasmoke/wiki/Posts-by-URL">posts by URL</a> route to get the metasmoke ID if you don’t already have it.</p>
+<p>Specify the feedback type being added by using the <code>type</code> parameter. The <code>:id</code> parameter in the URL should be replaced with the metasmoke ID of the post; use the <a href="https://github.com/Charcoal-SE/metasmoke/wiki/Posts-by-URL">posts by URL</a> route to get the metasmoke ID if you don&rsquo;t already have it.</p>
 
 <blockquote>
-  <p><strong>Heads up:</strong> sending <em>any</em> type of positive feedback using this route will additionally blacklist the user with SmokeDetector.</p>
+<p><strong>Heads up:</strong> sending <em>any</em> type of positive feedback using this route will additionally blacklist the user with SmokeDetector.</p>
 </blockquote>
 
 <p>This route will return all feedback on the post targeted once it has completed adding the new feedback.</p>
 
-<h3 id="example">Example</h3>
+<h3>Example</h3>
+
 <p><strong>Request</strong> (key and token omitted):</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>HTTP/1.1 POST /api/w/post/20191/feedback?type=tpu-
-</code></pre>
-</div>
-
+<div class="highlight"><pre><code class="language-" data-lang="">HTTP/1.1 POST /api/w/post/20191/feedback?type=tpu-
+</code></pre></div>
 <p><strong>Response:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>[
+<div class="highlight"><pre><code class="language-" data-lang="">[
     {
         "id":16657,
         "message_link":null,
@@ -105,46 +100,43 @@
         "updated_at":null
     }
 ]
-</code></pre>
-</div>
-
+</code></pre></div>
 <p>(the response will also include the created feedback, which has been omitted here for brevity)</p>
 
-<h3 id="smokey-websocket">Smokey websocket</h3>
+<h3>Smokey websocket</h3>
+
 <blockquote>
-  <p>If you just want to use the route already, you don’t need to read this section - it’s just additional detail for the interested.</p>
+<p>If you just want to use the route already, you don&rsquo;t need to read this section - it&rsquo;s just additional detail for the interested.</p>
 </blockquote>
 
 <p>This route also makes use of the metasmoke-Smokey websocket to communicate feedback back to SmokeDetector. Specifically, these cases cause a websocket message to be sent:</p>
 
 <ul>
-  <li><em>any</em> type of true positive feedback will send a blacklist request (like <code class="highlighter-rouge">tpu-</code> with Smokey; the user will be blacklisted and all posts reported)</li>
-  <li><code class="highlighter-rouge">naa</code> feedback gets sent back to Smokey to avoid the post being escalated to the Tavern for feedback</li>
+<li><em>any</em> type of true positive feedback will send a blacklist request (like <code>tpu-</code> with Smokey; the user will be blacklisted and all posts reported)</li>
+<li><code>naa</code> feedback gets sent back to Smokey to avoid the post being escalated to the Tavern for feedback</li>
 </ul>
 
 
 <div class="sidebar">
 
 
-
 <p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/Create-Feedback/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
 
 <div class="sidebar-content sidebar-content-ms">
 
-  <p><strong><a href="Home">Home</a></strong></p>
+**[Home](Home)**
 
-  <p><strong><a href="API-Documentation">API Documentation</a></strong></p>
+**[API Documentation](API-Documentation)**
 
-  <p><strong><a href="WebSocket-API">WebSocket API Documentation</a></strong></p>
-
-</div>
-
+**[WebSocket API Documentation](WebSocket-API)**
 
 </div>
 
 
-<div class="footer footer-insert text-center">
-<p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
+
+
+<div class="footer footer-insert text-center"><p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
 </div>
 
     </div>
@@ -176,8 +168,8 @@
   <div class="search text-center" style="display: none;">
   </div>
   <script>
-    window.searchLoadPath = "//charcoal-se.org/assets/search-6ad9e78a0cf31baffce21cffc74c749100f081c7988c4ca3e67fc513fdb06933.js"
-    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/smokey/Home": "//charcoal-se.org/smokey/", "/smokey/Home": "//charcoal-se.org/smokey/", "/smokey": "//charcoal-se.org/smokey/", "/ms/Home": "//charcoal-se.org/ms/", "/ms/Home": "//charcoal-se.org/ms/", "/ms": "//charcoal-se.org/ms/", "/other-sites": "//charcoal-se.org/more-projects", "/userscripts/": "//charcoal-se.org/scripts.html", "/userscripts": "//charcoal-se.org/scripts.html",  }
+    window.searchLoadPath = "/pages/Charcoal-SE/assets/search-6ad9e78a0cf31baffce21cffc74c749100f081c7988c4ca3e67fc513fdb06933.js"
+    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/smokey/Home": "/smokey/", "/smokey/Home": "/smokey/", "/smokey": "/smokey/", "/ms/Home": "/ms/", "/ms/Home": "/ms/", "/ms": "/ms/", "/other-sites": "/more-projects", "/userscripts/": "/scripts.html", "/userscripts": "/scripts.html",  }
   </script>
 </body>
 </html>

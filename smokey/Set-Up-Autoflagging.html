@@ -6,9 +6,9 @@
       Set Up Autoflagging | Charcoal
     
   </title>
-  <link type="text/css" rel="stylesheet" href="//charcoal-se.org/assets/application-5c9a2a7f83a39007b8a5fd6f5636f5a7363fb8e46e9333f1777737693910d116.css">
-  <script type="text/javascript" src="//charcoal-se.org/assets/application-298aa4c65d997243b2906842db4bde006a14636745902b430b5ef169c6cfaacc.js"></script>
-  <script type="text/javascript" src="//charcoal-se.org/assets/vendor-fad6853c80b4f83dd9b9327d08ae015076a89c51d5a959e0c9ef73241509de15.js"></script>
+  <link type="text/css" rel="stylesheet" href="/pages/Charcoal-SE/assets/application-5c9a2a7f83a39007b8a5fd6f5636f5a7363fb8e46e9333f1777737693910d116.css">
+  <script type="text/javascript" src="/pages/Charcoal-SE/assets/application-298aa4c65d997243b2906842db4bde006a14636745902b430b5ef169c6cfaacc.js"></script>
+  <script type="text/javascript" src="/pages/Charcoal-SE/assets/vendor-fad6853c80b4f83dd9b9327d08ae015076a89c51d5a959e0c9ef73241509de15.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -16,8 +16,8 @@
     
     <div class="header">
       <div class="header-icon text-center">
-        <a href="//charcoal-se.org/">
-          <img src="//charcoal-se.org/assets/charcoal-c0d57d82868cf7a8b169cfaf65a45179467c310868ebfdd0f10e6bd48f068816.png" height="64" width alt="charcoal.png">
+        <a href="/pages/Charcoal-SE/">
+          <img src="/pages/Charcoal-SE/assets/charcoal-c0d57d82868cf7a8b169cfaf65a45179467c310868ebfdd0f10e6bd48f068816.png" height="64" width alt="charcoal.png">
           <span class="title">
             <span>Charcoal</span>
             <small>spam-crusaders of the Internet</small>
@@ -27,12 +27,12 @@
       </div>
       <input type="checkbox" id="nav-toggle">
       <nav class="text-center">
-        <a href="//charcoal-se.org/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a>
+        <a href="/pages/Charcoal-SE/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a>
         <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq"><i class="fa mobile-only fa-comments-o"></i> chat</a>
-        <a href="//charcoal-se.org/more-projects"><i class="fa mobile-only fa-ellipsis-h"></i> more projects</a>
-        <a href="//charcoal-se.org/scripts"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a>
-        <a href="//charcoal-se.org/smokey/"><i class="fa mobile-only fa-file-text-o"></i> wiki</a>
-        <a href="//charcoal-se.org/ms/API-Documentation"><i class="fa mobile-only fa-book"></i> api</a>
+        <a href="/pages/Charcoal-SE/more-projects"><i class="fa mobile-only fa-ellipsis-h"></i> more projects</a>
+        <a href="/pages/Charcoal-SE/scripts"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a>
+        <a href="/pages/Charcoal-SE/smokey/"><i class="fa mobile-only fa-file-text-o"></i> wiki</a>
+        <a href="/pages/Charcoal-SE/ms/API-Documentation"><i class="fa mobile-only fa-book"></i> api</a>
         <a href="https://github.com/Charcoal-SE" title="GitHub organization"><i class="fa fa-github"></i><span class="mobile-only"> GitHub</span></a>
         <a href="#" class="search-link"><i class="fa fa-search" title="Search"></i><span class="mobile-only"> Search</span></a>
       </nav>
@@ -43,59 +43,59 @@
 
 <p>This document provides instructions on how to set up your account to cast automatic flags via the SmokeDetector/metasmoke system.  The facility is described in brief on the <a href="Autoflagging">Autoflagging</a> wiki page.</p>
 
-<h2 id="prerequisites">Prerequisites</h2>
+<h2>Prerequisites</h2>
+
 <p>Before running through the rest of these instructions, ensure that:</p>
 
 <ul>
-  <li>You have an account on metasmoke. You can get one of those <a href="https://metasmoke.erwaysoftware.com/users/sign_up">here</a>, if you don’t have one.</li>
-  <li>Your metasmoke account has the “flagger” permission. You can check that <a href="https://metasmoke.erwaysoftware.com/users">here</a>: find your username, and look for the “flagger” role. Ask an admin about this if you don’t have it.</li>
-  <li>Autoflagging and registrations are enabled. You can check these under <a href="https://metasmoke.erwaysoftware.com/flagging/settings">system settings</a>; verify that the <code class="highlighter-rouge">flagging_enabled</code> and <code class="highlighter-rouge">registration_enabled</code> settings have a value of <code class="highlighter-rouge">1</code>.</li>
-  <li>Your metasmoke account is write-access authenticated. If you don’t know whether it is or not, it’s probably not - visit the <a href="https://metasmoke.erwaysoftware.com/authentication/status">authentication status page</a> to authenticate.</li>
+<li>You have an account on metasmoke. You can get one of those <a href="https://metasmoke.erwaysoftware.com/users/sign_up">here</a>, if you don&rsquo;t have one.</li>
+<li>Your metasmoke account has the &ldquo;flagger&rdquo; permission. You can check that <a href="https://metasmoke.erwaysoftware.com/users">here</a>: find your username, and look for the &ldquo;flagger&rdquo; role. Ask an admin about this if you don&rsquo;t have it.</li>
+<li>Autoflagging and registrations are enabled. You can check these under <a href="https://metasmoke.erwaysoftware.com/flagging/settings">system settings</a>; verify that the <code>flagging_enabled</code> and <code>registration_enabled</code> settings have a value of <code>1</code>.</li>
+<li>Your metasmoke account is write-access authenticated. If you don&rsquo;t know whether it is or not, it&rsquo;s probably not - visit the <a href="https://metasmoke.erwaysoftware.com/authentication/status">authentication status page</a> to authenticate.</li>
 </ul>
 
-<h2 id="set-up-autoflagging">Set Up Autoflagging</h2>
+<h2>Set Up Autoflagging</h2>
+
 <ol>
-  <li><strong>Enable flags on your account.</strong><br />
-Visit <a href="https://metasmoke.erwaysoftware.com/flagging/preferences">your preferences page</a>, and read through the red-boxed disclaimer. If you’re happy with that, tick the box to enable flags on your account.</li>
-  <li><strong>Set up preferences.</strong><br />
-On the same preferences page, click “Set up preferences” near the bottom of the page. The page you’re taken to lets you set up your preferences, which govern how many of your flags the system can use on any particular site or group of sites. Fill in the maximum number you’d like to allocate, select the sites you want that number to apply to, and click Save. You can repeat this process to have different maxima for different groups of sites.</li>
-  <li><strong>Set up conditions.</strong><br />
+<li><strong>Enable flags on your account.</strong><br>
+Visit <a href="https://metasmoke.erwaysoftware.com/flagging/preferences">your preferences page</a>, and read through the red-boxed disclaimer. If you&rsquo;re happy with that, tick the box to enable flags on your account.</li>
+<li><strong>Set up preferences.</strong><br>
+On the same preferences page, click &ldquo;Set up preferences&rdquo; near the bottom of the page. The page you&rsquo;re taken to lets you set up your preferences, which govern how many of your flags the system can use on any particular site or group of sites. Fill in the maximum number you&rsquo;d like to allocate, select the sites you want that number to apply to, and click Save. You can repeat this process to have different maxima for different groups of sites.</li>
+<li><strong>Set up conditions.</strong><br>
 Visit the <a href="https://metasmoke.erwaysoftware.com/flagging/conditions/new">flag conditions setup</a> page. This page lets you set up combinations of conditions governing how certain you want the system to be that a post is spam before using your account to flag it. The minimum weight controls the minimum cumulative weight of all the reasons a post was caught by (the maximum weight a reason can have is 100; we suggest 280 is a good value for this field). The maximum poster rep controls the most reputation a post author can have. The minimum reason count controls how many reasons you want a post to have been caught by - this performs a <em>similar</em> function to minimum weight. Fill in some values, and click Save. Again, you can repeat this process to have different accuracies for different groups of sites.</li>
 </ol>
 
 <blockquote>
-  <p><strong>N.B.</strong> There’s a threshold of accuracy that all flagging conditions must meet before they’re used to cast flags automatically. Currently, this is 99.9% - if you want to get the current value of this threshold, it’s stored as the <code class="highlighter-rouge">min_accuracy</code> system setting. You can use the Preview button during condition setup to find out how accurate your proposed parameters are.</p>
+<p><strong>N.B.</strong> There&rsquo;s a threshold of accuracy that all flagging conditions must meet before they&rsquo;re used to cast flags automatically. Currently, this is 99.9% - if you want to get the current value of this threshold, it&rsquo;s stored as the <code>min_accuracy</code> system setting. You can use the Preview button during condition setup to find out how accurate your proposed parameters are.</p>
 </blockquote>
 
-<p>At this point, you should be set up and your account will be used to cast spam flags according to the parameters you’ve specified. If you’ve found any bugs, or have feedback on the system, let us know. If you’ve found a security bug, please email it to someone rather than posting publicly.</p>
+<p>At this point, you should be set up and your account will be used to cast spam flags according to the parameters you&rsquo;ve specified. If you&rsquo;ve found any bugs, or have feedback on the system, let us know. If you&rsquo;ve found a security bug, please email it to someone rather than posting publicly.</p>
 
 
 <div class="sidebar">
-
 
 
 <p><strong><a href="//github.com/Charcoal-SE/SmokeDetector/wiki/Set-Up-Autoflagging/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
 
 <div class="sidebar-content sidebar-content-smokey">
 
-  <p><strong><a href="Home">Home</a></strong></p>
+**[Home](Home)**
 
-  <p><strong><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a></strong></p>
+**[Charcoal HQ](http://chat.stackexchange.com/rooms/11540/charcoal-hq)**
 
-  <p><strong><a href="http://charcoal-se.org/">Charcoal Website</a></strong></p>
+**[Charcoal Website](http://charcoal-se.org/)**
 
-  <p><strong><a href="https://metasmoke.erwaysoftware.com">metasmoke</a></strong></p>
+**[metasmoke](https://metasmoke.erwaysoftware.com)**
 
-  <p><strong><a href="https://github.com/Charcoal-SE/userscripts">Userscripts</a></strong></p>
-
-</div>
-
+**[Userscripts](https://github.com/Charcoal-SE/userscripts)**
 
 </div>
 
 
-<div class="footer footer-insert text-center">
-<p>Smokey is made with &lt;3 by the <a href="https://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/SmokeDetector/graphs/contributors">contributors</a> from <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
+
+
+<div class="footer footer-insert text-center"><p>Smokey is made with &lt;3 by the <a href="https://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/SmokeDetector/graphs/contributors">contributors</a> from <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
 </div>
 
     </div>
@@ -127,8 +127,8 @@ Visit the <a href="https://metasmoke.erwaysoftware.com/flagging/conditions/new">
   <div class="search text-center" style="display: none;">
   </div>
   <script>
-    window.searchLoadPath = "//charcoal-se.org/assets/search-6ad9e78a0cf31baffce21cffc74c749100f081c7988c4ca3e67fc513fdb06933.js"
-    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/smokey/Home": "//charcoal-se.org/smokey/", "/smokey/Home": "//charcoal-se.org/smokey/", "/smokey": "//charcoal-se.org/smokey/", "/ms/Home": "//charcoal-se.org/ms/", "/ms/Home": "//charcoal-se.org/ms/", "/ms": "//charcoal-se.org/ms/", "/other-sites": "//charcoal-se.org/more-projects", "/userscripts/": "//charcoal-se.org/scripts.html", "/userscripts": "//charcoal-se.org/scripts.html",  }
+    window.searchLoadPath = "/pages/Charcoal-SE/assets/search-6ad9e78a0cf31baffce21cffc74c749100f081c7988c4ca3e67fc513fdb06933.js"
+    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/smokey/Home": "/smokey/", "/smokey/Home": "/smokey/", "/smokey": "/smokey/", "/ms/Home": "/ms/", "/ms/Home": "/ms/", "/ms": "/ms/", "/other-sites": "/more-projects", "/userscripts/": "/scripts.html", "/userscripts": "/scripts.html",  }
   </script>
 </body>
 </html>

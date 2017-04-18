@@ -6,9 +6,9 @@
       Creating new spam checks | Charcoal
     
   </title>
-  <link type="text/css" rel="stylesheet" href="//charcoal-se.org/assets/application-5c9a2a7f83a39007b8a5fd6f5636f5a7363fb8e46e9333f1777737693910d116.css">
-  <script type="text/javascript" src="//charcoal-se.org/assets/application-298aa4c65d997243b2906842db4bde006a14636745902b430b5ef169c6cfaacc.js"></script>
-  <script type="text/javascript" src="//charcoal-se.org/assets/vendor-fad6853c80b4f83dd9b9327d08ae015076a89c51d5a959e0c9ef73241509de15.js"></script>
+  <link type="text/css" rel="stylesheet" href="/pages/Charcoal-SE/assets/application-5c9a2a7f83a39007b8a5fd6f5636f5a7363fb8e46e9333f1777737693910d116.css">
+  <script type="text/javascript" src="/pages/Charcoal-SE/assets/application-298aa4c65d997243b2906842db4bde006a14636745902b430b5ef169c6cfaacc.js"></script>
+  <script type="text/javascript" src="/pages/Charcoal-SE/assets/vendor-fad6853c80b4f83dd9b9327d08ae015076a89c51d5a959e0c9ef73241509de15.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -16,8 +16,8 @@
     
     <div class="header">
       <div class="header-icon text-center">
-        <a href="//charcoal-se.org/">
-          <img src="//charcoal-se.org/assets/charcoal-c0d57d82868cf7a8b169cfaf65a45179467c310868ebfdd0f10e6bd48f068816.png" height="64" width alt="charcoal.png">
+        <a href="/pages/Charcoal-SE/">
+          <img src="/pages/Charcoal-SE/assets/charcoal-c0d57d82868cf7a8b169cfaf65a45179467c310868ebfdd0f10e6bd48f068816.png" height="64" width alt="charcoal.png">
           <span class="title">
             <span>Charcoal</span>
             <small>spam-crusaders of the Internet</small>
@@ -27,12 +27,12 @@
       </div>
       <input type="checkbox" id="nav-toggle">
       <nav class="text-center">
-        <a href="//charcoal-se.org/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a>
+        <a href="/pages/Charcoal-SE/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a>
         <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq"><i class="fa mobile-only fa-comments-o"></i> chat</a>
-        <a href="//charcoal-se.org/more-projects"><i class="fa mobile-only fa-ellipsis-h"></i> more projects</a>
-        <a href="//charcoal-se.org/scripts"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a>
-        <a href="//charcoal-se.org/smokey/"><i class="fa mobile-only fa-file-text-o"></i> wiki</a>
-        <a href="//charcoal-se.org/ms/API-Documentation"><i class="fa mobile-only fa-book"></i> api</a>
+        <a href="/pages/Charcoal-SE/more-projects"><i class="fa mobile-only fa-ellipsis-h"></i> more projects</a>
+        <a href="/pages/Charcoal-SE/scripts"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a>
+        <a href="/pages/Charcoal-SE/smokey/"><i class="fa mobile-only fa-file-text-o"></i> wiki</a>
+        <a href="/pages/Charcoal-SE/ms/API-Documentation"><i class="fa mobile-only fa-book"></i> api</a>
         <a href="https://github.com/Charcoal-SE" title="GitHub organization"><i class="fa fa-github"></i><span class="mobile-only"> GitHub</span></a>
         <a href="#" class="search-link"><i class="fa fa-search" title="Search"></i><span class="mobile-only"> Search</span></a>
       </nav>
@@ -42,45 +42,44 @@
 
 
 <blockquote>
-  <p>This document covers how to create a new spam check, which essentially turns out to be a guide on <code class="highlighter-rouge">findspam.py</code>.</p>
+<p>This document covers how to create a new spam check, which essentially turns out to be a guide on <code>findspam.py</code>.</p>
 </blockquote>
 
-<h2 id="1-the-bareear-necessities">1. The <code class="highlighter-rouge">B(are|ear)</code> Necessities</h2>
-<p>The <em>very first</em> thing you need to do before creating a new spam check is test if it’s actually necessary.</p>
+<h2>1. The <code>B(are|ear)</code> Necessities</h2>
+
+<p>The <em>very first</em> thing you need to do before creating a new spam check is test if it&rsquo;s actually necessary.</p>
 
 <ul>
-  <li>What is your proposed check designed to catch?</li>
-  <li>Is it something that’s caught by existing checks? This includes regex-based pattern checks, blacklists, and check methods. Use the various <code class="highlighter-rouge">!!/test</code> commands to check this.</li>
-  <li>Is it something <em>we want to catch</em>? Remember that Smokey is designed to catch spam and/or abuse - anything else (low quality posts, not-an-answers, etc) is out of scope. There are plenty more moderation bots around the network that might want that kind of check, though.</li>
+<li>What is your proposed check designed to catch?</li>
+<li>Is it something that&rsquo;s caught by existing checks? This includes regex-based pattern checks, blacklists, and check methods. Use the various <code>!!/test</code> commands to check this.</li>
+<li>Is it something <em>we want to catch</em>? Remember that Smokey is designed to catch spam and/or abuse - anything else (low quality posts, not-an-answers, etc) is out of scope. There are plenty more moderation bots around the network that might want that kind of check, though.</li>
 </ul>
 
-<h2 id="2-write-a-check">2. Write a Check</h2>
-<p>…preferably addressed to me, with plenty of money involved. (Ha! Spelling jokes!)</p>
+<h2>2. Write a Check</h2>
 
-<p>If you’ve determined that a new check is necessary, now you need to actually write it. The preferred way of doing this is a regex - these are (usually) simpler and easier to maintain than the alternatives. Writing a regex check is pretty easy: just write the regex. You can use regex-checking websites like <a href="http://regex101.com">regex101</a> to check if you’ve written it right - doing this is encouraged, because regex is not an easy language to speak.</p>
+<p>&hellip;preferably addressed to me, with plenty of money involved. (Ha! Spelling jokes!)</p>
 
-<p>The alternative, which should only be used if a regex doesn’t do the job, is to write a check method. This is done by writing a new method in <code class="highlighter-rouge">findspam.py</code>, which takes two parameters: <code class="highlighter-rouge">s</code> and <code class="highlighter-rouge">site</code>. <code class="highlighter-rouge">s</code> is a string of stuff that you need to check (like the title, username, or post body), and <code class="highlighter-rouge">site</code> is the site that the post is on. Give your method a descriptive name, so that its purpose can be judged at a glance.</p>
+<p>If you&rsquo;ve determined that a new check is necessary, now you need to actually write it. The preferred way of doing this is a regex - these are (usually) simpler and easier to maintain than the alternatives. Writing a regex check is pretty easy: just write the regex. You can use regex-checking websites like <a href="http://regex101.com">regex101</a> to check if you&rsquo;ve written it right - doing this is encouraged, because regex is not an easy language to speak.</p>
 
-<p>Your method should return a pair of values. The first is a boolean, indicating whether or not you think the post is spam. The second is a string, which is the <code class="highlighter-rouge">why</code> data for the post (and if you don’t know what that means, you should probably be letting someone more experienced write the check - or go learn about it).</p>
+<p>The alternative, which should only be used if a regex doesn&rsquo;t do the job, is to write a check method. This is done by writing a new method in <code>findspam.py</code>, which takes two parameters: <code>s</code> and <code>site</code>. <code>s</code> is a string of stuff that you need to check (like the title, username, or post body), and <code>site</code> is the site that the post is on. Give your method a descriptive name, so that its purpose can be judged at a glance.</p>
 
-<p>Here’s an example check method. This method will say that any <code class="highlighter-rouge">s</code> longer than 3 characters is spam.</p>
+<p>Your method should return a pair of values. The first is a boolean, indicating whether or not you think the post is spam. The second is a string, which is the <code>why</code> data for the post (and if you don&rsquo;t know what that means, you should probably be letting someone more experienced write the check - or go learn about it).</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>def ridiculous_spam_check(s, site):
+<p>Here&rsquo;s an example check method. This method will say that any <code>s</code> longer than 3 characters is spam.</p>
+<div class="highlight"><pre><code class="language-" data-lang="">def ridiculous_spam_check(s, site):
     if len(s) &gt; 3:
         return True, "Length is greater than 3 characters"
     else:
         return False, ""
-</code></pre>
-</div>
+</code></pre></div>
+<h2>3. Endless Lists</h2>
 
-<h2 id="3-endless-lists">3. Endless Lists</h2>
-<p>Checks are our ammunition against spam; now you need a gun to fire it from. In our case, it’s a GLOCK - a Giant List of Checks and Keywords.</p>
+<p>Checks are our ammunition against spam; now you need a gun to fire it from. In our case, it&rsquo;s a GLOCK - a Giant List of Checks and Keywords.</p>
 
-<p>Scroll to the <code class="highlighter-rouge">rules</code> array, which is <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/findspam.py#L312">somewhere around line 312 in <code class="highlighter-rouge">findspam.py</code></a>. This structure describes all the checks that SmokeDetector runs, and how to apply them. (N.B.: It’s not actually JSON, don’t make that mistake - it’s Python dicts.)</p>
+<p>Scroll to the <code>rules</code> array, which is <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/findspam.py#L312">somewhere around line 312 in <code>findspam.py</code></a>. This structure describes all the checks that SmokeDetector runs, and how to apply them. (N.B.: It&rsquo;s not actually JSON, don&rsquo;t make that mistake - it&rsquo;s Python dicts.)</p>
 
 <p>You need to add a new entry to this array that describes your check. The general format of this dictionary is:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre><code class="language-" data-lang=""><span class="p">{</span><span class="w">
     </span><span class="err">'regex':</span><span class="w"> </span><span class="err">r</span><span class="nt">"Include your regex here if it's a regex-based check"</span><span class="err">,</span><span class="w">
     </span><span class="err">'method'</span><span class="p">:</span><span class="w"> </span><span class="err">method_name</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">Pass</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">name</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">method</span><span class="w"> </span><span class="err">here</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">it's</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">method-based</span><span class="w"> </span><span class="err">check,</span><span class="w">
     </span><span class="err">'all'</span><span class="p">:</span><span class="w"> </span><span class="err">True</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">True</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">want</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">scan</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">sites</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">network,</span><span class="w"> </span><span class="err">False</span><span class="w"> </span><span class="err">otherwise,</span><span class="w">
@@ -94,38 +93,34 @@
     </span><span class="err">'max_rep'</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">Posts</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">users</span><span class="w"> </span><span class="err">above</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">reputation</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">scanned</span><span class="w">
     </span><span class="err">'max_score'</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="err">Posts</span><span class="w"> </span><span class="err">scoring</span><span class="w"> </span><span class="err">above</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">scanned</span><span class="w">
 </span><span class="err">}</span><span class="w">
-</span></code></pre>
-</div>
-
-<p>You should only include <em>one</em> of <code class="highlighter-rouge">regex</code> or <code class="highlighter-rouge">method</code> - checks should not be both at the same time.</p>
+</span></code></pre></div>
+<p>You should only include <em>one</em> of <code>regex</code> or <code>method</code> - checks should not be both at the same time.</p>
 
 
 <div class="sidebar">
-
 
 
 <p><strong><a href="//github.com/Charcoal-SE/SmokeDetector/wiki/Creating-new-spam-checks/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
 
 <div class="sidebar-content sidebar-content-smokey">
 
-  <p><strong><a href="Home">Home</a></strong></p>
+**[Home](Home)**
 
-  <p><strong><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a></strong></p>
+**[Charcoal HQ](http://chat.stackexchange.com/rooms/11540/charcoal-hq)**
 
-  <p><strong><a href="http://charcoal-se.org/">Charcoal Website</a></strong></p>
+**[Charcoal Website](http://charcoal-se.org/)**
 
-  <p><strong><a href="https://metasmoke.erwaysoftware.com">metasmoke</a></strong></p>
+**[metasmoke](https://metasmoke.erwaysoftware.com)**
 
-  <p><strong><a href="https://github.com/Charcoal-SE/userscripts">Userscripts</a></strong></p>
-
-</div>
-
+**[Userscripts](https://github.com/Charcoal-SE/userscripts)**
 
 </div>
 
 
-<div class="footer footer-insert text-center">
-<p>Smokey is made with &lt;3 by the <a href="https://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/SmokeDetector/graphs/contributors">contributors</a> from <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
+
+
+<div class="footer footer-insert text-center"><p>Smokey is made with &lt;3 by the <a href="https://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/SmokeDetector/graphs/contributors">contributors</a> from <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
 </div>
 
     </div>
@@ -157,8 +152,8 @@
   <div class="search text-center" style="display: none;">
   </div>
   <script>
-    window.searchLoadPath = "//charcoal-se.org/assets/search-6ad9e78a0cf31baffce21cffc74c749100f081c7988c4ca3e67fc513fdb06933.js"
-    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/smokey/Home": "//charcoal-se.org/smokey/", "/smokey/Home": "//charcoal-se.org/smokey/", "/smokey": "//charcoal-se.org/smokey/", "/ms/Home": "//charcoal-se.org/ms/", "/ms/Home": "//charcoal-se.org/ms/", "/ms": "//charcoal-se.org/ms/", "/other-sites": "//charcoal-se.org/more-projects", "/userscripts/": "//charcoal-se.org/scripts.html", "/userscripts": "//charcoal-se.org/scripts.html",  }
+    window.searchLoadPath = "/pages/Charcoal-SE/assets/search-6ad9e78a0cf31baffce21cffc74c749100f081c7988c4ca3e67fc513fdb06933.js"
+    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/smokey/Home": "/smokey/", "/smokey/Home": "/smokey/", "/smokey": "/smokey/", "/ms/Home": "/ms/", "/ms/Home": "/ms/", "/ms": "/ms/", "/other-sites": "/more-projects", "/userscripts/": "/scripts.html", "/userscripts": "/scripts.html",  }
   </script>
 </body>
 </html>

@@ -6,9 +6,9 @@
       Commands | Charcoal
     
   </title>
-  <link type="text/css" rel="stylesheet" href="//charcoal-se.org/assets/application-5c9a2a7f83a39007b8a5fd6f5636f5a7363fb8e46e9333f1777737693910d116.css">
-  <script type="text/javascript" src="//charcoal-se.org/assets/application-298aa4c65d997243b2906842db4bde006a14636745902b430b5ef169c6cfaacc.js"></script>
-  <script type="text/javascript" src="//charcoal-se.org/assets/vendor-fad6853c80b4f83dd9b9327d08ae015076a89c51d5a959e0c9ef73241509de15.js"></script>
+  <link type="text/css" rel="stylesheet" href="/pages/Charcoal-SE/assets/application-5c9a2a7f83a39007b8a5fd6f5636f5a7363fb8e46e9333f1777737693910d116.css">
+  <script type="text/javascript" src="/pages/Charcoal-SE/assets/application-298aa4c65d997243b2906842db4bde006a14636745902b430b5ef169c6cfaacc.js"></script>
+  <script type="text/javascript" src="/pages/Charcoal-SE/assets/vendor-fad6853c80b4f83dd9b9327d08ae015076a89c51d5a959e0c9ef73241509de15.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -16,8 +16,8 @@
     
     <div class="header">
       <div class="header-icon text-center">
-        <a href="//charcoal-se.org/">
-          <img src="//charcoal-se.org/assets/charcoal-c0d57d82868cf7a8b169cfaf65a45179467c310868ebfdd0f10e6bd48f068816.png" height="64" width alt="charcoal.png">
+        <a href="/pages/Charcoal-SE/">
+          <img src="/pages/Charcoal-SE/assets/charcoal-c0d57d82868cf7a8b169cfaf65a45179467c310868ebfdd0f10e6bd48f068816.png" height="64" width alt="charcoal.png">
           <span class="title">
             <span>Charcoal</span>
             <small>spam-crusaders of the Internet</small>
@@ -27,12 +27,12 @@
       </div>
       <input type="checkbox" id="nav-toggle">
       <nav class="text-center">
-        <a href="//charcoal-se.org/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a>
+        <a href="/pages/Charcoal-SE/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a>
         <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq"><i class="fa mobile-only fa-comments-o"></i> chat</a>
-        <a href="//charcoal-se.org/more-projects"><i class="fa mobile-only fa-ellipsis-h"></i> more projects</a>
-        <a href="//charcoal-se.org/scripts"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a>
-        <a href="//charcoal-se.org/smokey/"><i class="fa mobile-only fa-file-text-o"></i> wiki</a>
-        <a href="//charcoal-se.org/ms/API-Documentation"><i class="fa mobile-only fa-book"></i> api</a>
+        <a href="/pages/Charcoal-SE/more-projects"><i class="fa mobile-only fa-ellipsis-h"></i> more projects</a>
+        <a href="/pages/Charcoal-SE/scripts"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a>
+        <a href="/pages/Charcoal-SE/smokey/"><i class="fa mobile-only fa-file-text-o"></i> wiki</a>
+        <a href="/pages/Charcoal-SE/ms/API-Documentation"><i class="fa mobile-only fa-book"></i> api</a>
         <a href="https://github.com/Charcoal-SE" title="GitHub organization"><i class="fa fa-github"></i><span class="mobile-only"> GitHub</span></a>
         <a href="#" class="search-link"><i class="fa fa-search" title="Search"></i><span class="mobile-only"> Search</span></a>
       </nav>
@@ -43,189 +43,221 @@
 
 <p>This wiki page contains a list of commands and their explanation.</p>
 
-<h1 id="commands-for-everyone">Commands for everyone</h1>
+<h1>Commands for everyone</h1>
 
 <p>These commands can be executed by everyone.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">!!/alive</code> - Replies a random message taken from a list so you can see that SmokeDetector is still running.  <em>(Reply message is constant in Charcoal HQ.)</em></li>
-  <li><code class="highlighter-rouge">!!/status</code> - Shows the UTC date when SmokeDetector started running.</li>
-  <li><code class="highlighter-rouge">!!/rev</code> or <code class="highlighter-rouge">!!/ver</code> - Shows the running Git revision.</li>
-  <li><code class="highlighter-rouge">!!/help</code>, <code class="highlighter-rouge">!!/info</code>, <code class="highlighter-rouge">!!/commands</code> - Shows a small help message about SmokeDetector.</li>
-  <li><code class="highlighter-rouge">!!/apiquota</code> - Shows the remaining API quota of SmokeDetector.</li>
-  <li><code class="highlighter-rouge">!!/queuestatus</code> - Shows the queue status of BodyFetcher.</li>
-  <li><code class="highlighter-rouge">!!/blame</code> - Chooses randomly from a list of people who have talked recently in the room.</li>
-  <li><code class="highlighter-rouge">!!/lick</code>, <code class="highlighter-rouge">!!/wut</code>, <code class="highlighter-rouge">!!/coffee</code>, <code class="highlighter-rouge">!!/tea</code>, and <code class="highlighter-rouge">!!/brownie</code> - better versions of <code class="highlighter-rouge">!!/alive</code>, aka ‘fun’ commands.</li>
-  <li><code class="highlighter-rouge">!!/location</code> - Replies with the current location, as set in the <code class="highlighter-rouge">config</code> file.</li>
-  <li><code class="highlighter-rouge">!!/test &lt;string&gt;</code> - Runs <code class="highlighter-rouge">&lt;string&gt;</code> against the filter as if it appeared in a question title, body, or username. To test specifically, use <code class="highlighter-rouge">!!/test-a</code> for answer, <code class="highlighter-rouge">!!/test-q</code> for question body, <code class="highlighter-rouge">!!/test-t</code> for title, or <code class="highlighter-rouge">!!/test-u</code> for username.</li>
-  <li><code class="highlighter-rouge">!!/isblu</code>, <code class="highlighter-rouge">!!/iswlu</code> - Checks if a user is blacklisted/whitelisted. Two formats are accepted: <code class="highlighter-rouge">&lt;profile_URL&gt;</code> or <code class="highlighter-rouge">&lt;user_ID&gt; &lt;site_name&gt;</code></li>
-  <li><code class="highlighter-rouge">!!/whoami</code> - Replies with the bot’s user id for that site</li>
-  <li><code class="highlighter-rouge">!!/amiprivileged</code> - Lets you know if you are in the list of privileged users</li>
-  <li><code class="highlighter-rouge">!!/amicodeprivileged</code> - Lets you know whether or not you have code privileges (i.e. you can blacklist without approval)</li>
-  <li><code class="highlighter-rouge">!!/notify &lt;chatroom_ID_number&gt; &lt;site_domain&gt;</code> - Tells SmokeDetector to ping you, in the given chatroom, when a post is reported on the given site.<br />
-  Example:  <code class="highlighter-rouge">!!/notify 89 parenting.stackexchange.com-</code><br />
-  Note: Please use the squelch suffix (<code class="highlighter-rouge">-</code>) and avoid spamming the chat room with too many requests. See <a href="http://chat.meta.stackexchange.com/transcript/message/4157790#4157790">this chat message</a> and the surrounding context.</li>
-  <li><code class="highlighter-rouge">!!/unnotify &lt;chatroom_ID_number&gt; &lt;site_domain&gt;</code> - Cancels the previously set notification.  Also accepts the silent mode suffix (<code class="highlighter-rouge">-</code>).</li>
-  <li><code class="highlighter-rouge">!!/willibenotified &lt;chatroom_ID_number&gt; &lt;site_domain&gt;</code> - Reports whether you will be pinged, in the given room, about spam on the given site.</li>
-  <li><code class="highlighter-rouge">!!/allnotificationsites &lt;chatroom_ID_number&gt;</code> - Shows all sites that you will be pinged for in the given room.</li>
+<li><code>!!/alive</code> - Replies a random message taken from a list so you can see that SmokeDetector is still running.  <em>(Reply message is constant in Charcoal HQ.)</em></li>
+<li><code>!!/status</code> - Shows the UTC date when SmokeDetector started running.</li>
+<li><code>!!/rev</code> or <code>!!/ver</code> - Shows the running Git revision.</li>
+<li><code>!!/help</code>, <code>!!/info</code>, <code>!!/commands</code> - Shows a small help message about SmokeDetector.</li>
+<li><code>!!/apiquota</code> - Shows the remaining API quota of SmokeDetector.</li>
+<li><code>!!/queuestatus</code> - Shows the queue status of BodyFetcher.</li>
+<li><code>!!/blame</code> - Chooses randomly from a list of people who have talked recently in the room.</li>
+<li><code>!!/lick</code>, <code>!!/wut</code>, <code>!!/coffee</code>, <code>!!/tea</code>, and <code>!!/brownie</code> - better versions of <code>!!/alive</code>, aka &lsquo;fun&rsquo; commands.</li>
+<li><code>!!/location</code> - Replies with the current location, as set in the <code>config</code> file.</li>
+<li><code>!!/test &lt;string&gt;</code> - Runs <code>&lt;string&gt;</code> against the filter as if it appeared in a question title, body, or username. To test specifically, use <code>!!/test-a</code> for answer, <code>!!/test-q</code> for question body, <code>!!/test-t</code> for title, or <code>!!/test-u</code> for username.</li>
+<li><code>!!/isblu</code>, <code>!!/iswlu</code> - Checks if a user is blacklisted/whitelisted. Two formats are accepted: <code>&lt;profile_URL&gt;</code> or <code>&lt;user_ID&gt; &lt;site_name&gt;</code></li>
+<li><code>!!/whoami</code> - Replies with the bot&rsquo;s user id for that site</li>
+<li><code>!!/amiprivileged</code> - Lets you know if you are in the list of privileged users</li>
+<li><code>!!/amicodeprivileged</code> - Lets you know whether or not you have code privileges (i.e. you can blacklist without approval)</li>
+<li><code>!!/notify &lt;chatroom_ID_number&gt; &lt;site_domain&gt;</code> - Tells SmokeDetector to ping you, in the given chatroom, when a post is reported on the given site.<br>
+Example:  <code>!!/notify 89 parenting.stackexchange.com-</code><br>
+Note: Please use the squelch suffix (<code>-</code>) and avoid spamming the chat room with too many requests. See <a href="http://chat.meta.stackexchange.com/transcript/message/4157790#4157790">this chat message</a> and the surrounding context.</li>
+<li><code>!!/unnotify &lt;chatroom_ID_number&gt; &lt;site_domain&gt;</code> - Cancels the previously set notification.  Also accepts the silent mode suffix&nbsp;(<code>-</code>).</li>
+<li><code>!!/willibenotified &lt;chatroom_ID_number&gt; &lt;site_domain&gt;</code> - Reports whether you will be pinged, in the given room, about spam on the given site.</li>
+<li><code>!!/allnotificationsites &lt;chatroom_ID_number&gt;</code> - Shows all sites that you will be pinged for in the given room.</li>
 </ul>
 
-<h1 id="commands-as-reply-for-everyone">Commands as reply for everyone</h1>
+<h1>Commands as reply for everyone</h1>
 
 <ul>
-  <li><code class="highlighter-rouge">why</code> - Shows the reason that SmokeDetector caught a post.<br />
-Note that <code class="highlighter-rouge">why</code> data is only kept for the last 50 reports. If you need to see older data, it can be found in the post record on Metasmoke.</li>
-  <li><code class="highlighter-rouge">autoflagged</code> - Returns if the post was autoflagged or not, and if so, what users were used.</li>
+<li><code>why</code> - Shows the reason that SmokeDetector caught a post.<br>
+Note that <code>why</code> data is only kept for the last 50 reports. If you need to see older data, it can be found in the post record on Metasmoke.</li>
+<li><code>autoflagged</code> - Returns if the post was autoflagged or not, and if so, what users were used.</li>
 </ul>
 
-<h1 id="privileged-commands">Privileged commands</h1>
+<h1>Privileged commands</h1>
 
-<p>These commands require privileges.
-<!-- These were not in any order. Recommend most-used/useful up top. --></p>
+<p>These commands require privileges.</p>
+
+<!-- These were not in any order. Recommend most-used/useful up top. -->
 
 <ul>
-  <li><code class="highlighter-rouge">!!/report &lt;post URL 1&gt; [&lt;post URL 2&gt; [...]]</code> - Makes SmokeDetector report a specific post/multiple specific posts in Charcoal HQ and Tavern on the Meta. The originator of each post will be added to the blacklist. Maximally 5 at a time.</li>
-  <li><code class="highlighter-rouge">!!/allspam &lt;user URL&gt;</code> - To be used if a spammer has many posts so you don’t have to use <code class="highlighter-rouge">!!/report</code>. This command posts a message about the user in all applicable rooms.  Note that this command does NOT auto-TPU anything, for various reasons. It has an alias, <code class="highlighter-rouge">!!/reportuser &lt;user URL&gt;</code></li>
-  <li><code class="highlighter-rouge">!!/blacklist &lt;regex&gt;</code> - <strong>This command is deprecated.</strong> Use one of the three specialized blacklist commands instead, which are shown below. If run, this command will print a help</li>
-  <li><code class="highlighter-rouge">!!/blacklist-website &lt;regex&gt;</code> - Adds a regular expression pattern to the <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/blacklisted_websites.txt">website blacklist</a>. Make sure regex special characters are escaped (in particular <code class="highlighter-rouge">.</code> characters should be escaped as <code class="highlighter-rouge">\.</code>). If you are a code admin on metasmoke, your change will apply immediately once CI passes; otherwise, a pull request will be created for your changes so that they can be reviewed.</li>
-  <li><code class="highlighter-rouge">!!/blacklist-keyword &lt;regex&gt;</code> - Adds a regular expression pattern to the <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/bad_keywords.txt">list of bad keywords</a>. Just like <code class="highlighter-rouge">!!/blacklist-website</code>, if you are a code admin on metasmoke your change will apply immediately once CI passes; otherwise, a pull request will be created for your changes to that they can be reviewed.</li>
-  <li><code class="highlighter-rouge">!!/blacklist-username &lt;regex&gt;</code> - Adds a regular expression pattern to the <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/blacklisted_usernames.txt">username blacklist</a>. Just like <code class="highlighter-rouge">!!/blacklist-website</code> and <code class="highlighter-rouge">!!/blacklist-keyword</code>, if you are a code admin on metasmoke your change will apply immediately once CI passes; otherwise, a pull request will be created for your changes to that they can be reviewed.</li>
-  <li><code class="highlighter-rouge">!!/addwlu &lt;profile_URL&gt;</code> or <code class="highlighter-rouge">!!/addwlu &lt;user_ID&gt; &lt;site_name&gt;</code> - Adds a user to the whitelist (this means that if the username for that user matches one of the regexes, this will be ignored).</li>
-  <li><code class="highlighter-rouge">!!/rmwlu &lt;profile_URL&gt;</code> or <code class="highlighter-rouge">!!/rmwlu &lt;user_ID&gt; &lt;site_name&gt;</code> - Removes a user from the whitelist.</li>
-  <li><code class="highlighter-rouge">!!/addblu</code> (same syntax as <code class="highlighter-rouge">!!/addwlu</code>) - Adds a user to the blacklist (this means that any post of this user will be reported).</li>
-  <li><code class="highlighter-rouge">!!/rmblu</code> (same syntax as <code class="highlighter-rouge">!!/rmwlu</code>) - Removes a user from the blacklist.</li>
-  <li><code class="highlighter-rouge">!!/reboot</code> - Reboots SmokeDetector.</li>
-  <li><code class="highlighter-rouge">!!/stappit</code> - Stops all SmokeDetector instances.</li>
-  <li><code class="highlighter-rouge">!!/stappit &lt;string&gt;</code> - Stops all SmokeDetector instances where <code class="highlighter-rouge">string</code> is included in the location (e.g. <code class="highlighter-rouge">!!/stappit undo</code> would stop <code class="highlighter-rouge">Undo/EC2</code> and <code class="highlighter-rouge">Undo/DO</code>, but not <code class="highlighter-rouge">teward/aroura</code></li>
-  <li><code class="highlighter-rouge">!!/pull</code> - Pulls new revisions from GitHub.</li>
-  <li><code class="highlighter-rouge">!!/master</code> - When SmokeDetector enters reverted mode, use this command to go back to the <code class="highlighter-rouge">master</code> branch.</li>
-  <li><code class="highlighter-rouge">!!/errorlogs &lt;N&gt;</code> - Shows the last <em>N</em> lines of the error logs.</li>
-  <li><code class="highlighter-rouge">!!/block &lt;N&gt;</code> - Blocks SmokeDetector globally for <em>N</em> seconds; no alerts will be posted. Example: <code class="highlighter-rouge">!!/block 600</code> blocks globally for 10 minutes.</li>
-  <li><code class="highlighter-rouge">!!/block &lt;N&gt; &lt;room_id&gt;</code> - Blocks SmokeDetector in the specific room for <em>N</em> seconds; no alerts will be posted there. Example: <code class="highlighter-rouge">!!/block 3600 89</code> blocks alerts in the Tavern for one hour.</li>
-  <li><code class="highlighter-rouge">!!/unblock</code> - Unblock SmokeDetector manually, resetting global block only.</li>
-  <li><code class="highlighter-rouge">!!/unblock &lt;room_id&gt;</code> - Unblock SmokeDetector manually in the specific room.</li>
+<li><code>!!/report &lt;post URL 1&gt; [&lt;post URL 2&gt; [...]]</code> - Makes SmokeDetector report a specific post/multiple specific posts in Charcoal HQ and Tavern on the Meta. The originator of each post will be added to the blacklist. Maximally 5 at a time.</li>
+<li><code>!!/allspam &lt;user URL&gt;</code> - To be used if a spammer has many posts so you don&rsquo;t have to use <code>!!/report</code>. This command posts a message about the user in all applicable rooms.  Note that this command does NOT auto-TPU anything, for various reasons. It has an alias, <code>!!/reportuser &lt;user URL&gt;</code></li>
+<li><code>!!/blacklist &lt;regex&gt;</code> - <strong>This command is deprecated.</strong> Use one of the three specialized blacklist commands instead, which are shown below. If run, this command will print a help</li>
+<li><code>!!/blacklist-website &lt;regex&gt;</code> - Adds a regular expression pattern to the <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/blacklisted_websites.txt">website blacklist</a>. Make sure regex special characters are escaped (in particular <code>.</code> characters should be escaped as <code>\.</code>). If you are a code admin on metasmoke, your change will apply immediately once CI passes; otherwise, a pull request will be created for your changes so that they can be reviewed.</li>
+<li><code>!!/blacklist-keyword &lt;regex&gt;</code> - Adds a regular expression pattern to the <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/bad_keywords.txt">list of bad keywords</a>. Just like <code>!!/blacklist-website</code>, if you are a code admin on metasmoke your change will apply immediately once CI passes; otherwise, a pull request will be created for your changes to that they can be reviewed.</li>
+<li><code>!!/blacklist-username &lt;regex&gt;</code> - Adds a regular expression pattern to the <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/blacklisted_usernames.txt">username blacklist</a>. Just like <code>!!/blacklist-website</code> and <code>!!/blacklist-keyword</code>, if you are a code admin on metasmoke your change will apply immediately once CI passes; otherwise, a pull request will be created for your changes to that they can be reviewed.</li>
+<li><code>!!/addwlu &lt;profile_URL&gt;</code> or <code>!!/addwlu &lt;user_ID&gt; &lt;site_name&gt;</code> - Adds a user to the whitelist (this means that if the username for that user matches one of the regexes, this will be ignored).</li>
+<li><code>!!/rmwlu &lt;profile_URL&gt;</code> or <code>!!/rmwlu &lt;user_ID&gt; &lt;site_name&gt;</code> - Removes a user from the whitelist.</li>
+<li><code>!!/addblu</code> (same syntax as <code>!!/addwlu</code>) - Adds a user to the blacklist (this means that any post of this user will be reported).</li>
+<li><code>!!/rmblu</code> (same syntax as <code>!!/rmwlu</code>) - Removes a user from the blacklist.</li>
+<li><code>!!/reboot</code> - Reboots SmokeDetector.</li>
+<li><code>!!/stappit</code> - Stops all SmokeDetector instances.</li>
+<li><code>!!/stappit &lt;string&gt;</code> - Stops all SmokeDetector instances where <code>string</code> is included in the location (e.g. <code>!!/stappit undo</code> would stop <code>Undo/EC2</code> and <code>Undo/DO</code>, but not <code>teward/aroura</code></li>
+<li><code>!!/pull</code> - Pulls new revisions from GitHub.</li>
+<li><code>!!/master</code> - When SmokeDetector enters reverted mode, use this command to go back to the <code>master</code> branch.</li>
+<li><code>!!/errorlogs &lt;N&gt;</code> - Shows the last <em>N</em> lines of the error logs.</li>
+<li><code>!!/block &lt;N&gt;</code> - Blocks SmokeDetector globally for <em>N</em> seconds; no alerts will be posted. Example: <code>!!/block 600</code> blocks globally for 10 minutes.</li>
+<li><code>!!/block &lt;N&gt; &lt;room_id&gt;</code> - Blocks SmokeDetector in the specific room for <em>N</em> seconds; no alerts will be posted there. Example: <code>!!/block 3600 89</code> blocks alerts in the Tavern for one hour.</li>
+<li><code>!!/unblock</code> - Unblock SmokeDetector manually, resetting global block only.</li>
+<li><code>!!/unblock &lt;room_id&gt;</code> - Unblock SmokeDetector manually in the specific room.</li>
 </ul>
 
-<h1 id="privileged-commands-as-reply">Privileged commands as reply</h1>
+<h1>Privileged commands as reply</h1>
 
 <p>These commands require privileges, and have to be posted as a reply to a message of SmokeDetector.</p>
 
 <p>User-friendly syntax:</p>
 
 <ul>
-  <li>use <code class="highlighter-rouge">spam</code> or <code class="highlighter-rouge">rude</code> or <code class="highlighter-rouge">abusive</code> or <code class="highlighter-rouge">offensive</code> for posts that should be flagged as such (equivalent to <code class="highlighter-rouge">tpu-</code>; see below)</li>
-  <li>use <code class="highlighter-rouge">v</code>, <code class="highlighter-rouge">vand</code> or <code class="highlighter-rouge">vandalism</code> for posts that have been vandalised and the vandalism edit should be rolled back (equivalent to <code class="highlighter-rouge">tp-</code>)</li>
-  <li>use <code class="highlighter-rouge">notspam</code> if the post should not be flagged (equivalent to <code class="highlighter-rouge">fp-</code>)</li>
+<li>use <code>spam</code> or <code>rude</code> or <code>abusive</code> or <code>offensive</code> for posts that should be flagged as such (equivalent to <code>tpu-</code>; see below)</li>
+<li>use <code>v</code>, <code>vand</code> or <code>vandalism</code> for posts that have been vandalised and the vandalism edit should be rolled back (equivalent to <code>tp-</code>)</li>
+<li>use <code>notspam</code> if the post should not be flagged (equivalent to <code>fp-</code>)</li>
 </ul>
 
 <p>Complete list:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">tp</code> or <code class="highlighter-rouge">true</code> - Marks a reported post as true positive.</li>
-  <li><code class="highlighter-rouge">tpu</code> or <code class="highlighter-rouge">trueu</code> - Marks a reported post as true positive and adds the poster to the blacklist.</li>
-  <li><code class="highlighter-rouge">fp</code> or <code class="highlighter-rouge">false</code> - Marks a reported post as false positive. Additionally removes the user from the blacklist, if that was the reason that the post was reported.</li>
-  <li><code class="highlighter-rouge">fpu</code> or <code class="highlighter-rouge">falseu</code> - Marks a reported post as false positive and adds the poster to the whitelist.</li>
-  <li><code class="highlighter-rouge">naa</code> - If the reported post is an answer, this command records it as NAA (Not an answer) in metasmoke.</li>
-  <li><code class="highlighter-rouge">ignore</code> - Makes SmokeDetector ignore a reported post.</li>
-  <li><code class="highlighter-rouge">delete</code>, <code class="highlighter-rouge">del</code>, <code class="highlighter-rouge">remove</code> or <code class="highlighter-rouge">gone</code> - Deletes a message of SmokeDetector.</li>
-  <li><code class="highlighter-rouge">postgone</code> - Edits out the post link of a SmokeDetector report.</li>
+<li><code>tp</code> or <code>true</code> - Marks a reported post as true positive.</li>
+<li><code>tpu</code> or <code>trueu</code> - Marks a reported post as true positive and adds the poster to the blacklist.</li>
+<li><code>fp</code> or <code>false</code> - Marks a reported post as false positive. Additionally removes the user from the blacklist, if that was the reason that the post was reported.</li>
+<li><code>fpu</code> or <code>falseu</code> - Marks a reported post as false positive and adds the poster to the whitelist.</li>
+<li><code>naa</code> - If the reported post is an answer, this command records it as NAA (Not an answer) in metasmoke.</li>
+<li><code>ignore</code> - Makes SmokeDetector ignore a reported post.</li>
+<li><code>delete</code>, <code>del</code>, <code>remove</code> or <code>gone</code> - Deletes a message of SmokeDetector.</li>
+<li><code>postgone</code> - Edits out the post link of a SmokeDetector report.</li>
 </ul>
 
-<h1 id="silent-mode-and-aliases">Silent mode and aliases</h1>
+<h1>Silent mode and aliases</h1>
 
-<p>If you don’t want SmokeDetector to reply when executing a command, add a <code class="highlighter-rouge">-</code> sign at the end, for example <code class="highlighter-rouge">fp-</code>. This is a good practice to cut down on chatroom clutter.  Note that SmokeDetector will always report any errors, even if the <code class="highlighter-rouge">-</code> is present. The hyphen can be placed after the command itself, or after its parameter. The following commands support silent mode: replying to spam reports, managing black- and white-list, and managing chat notifications.</p>
+<p>If you don&rsquo;t want SmokeDetector to reply when executing a command, add a <code>-</code> sign at the end, for example <code>fp-</code>. This is a good practice to cut down on chatroom clutter.  Note that SmokeDetector will always report any errors, even if the <code>-</code> is present. The hyphen can be placed after the command itself, or after its parameter. The following commands support silent mode: replying to spam reports, managing black- and white-list, and managing chat notifications.</p>
 
 <p>Also, some frequently used commands have one-letter aliases, or convenient words that can be used instead:</p>
 
-<center>
+<p><center></p>
 
-|   Command | Alias of |
-|----------:|----------|
-|         f | fp-      |
-|   notspam | fp-      |
-|         k | tpu-     |
-|      spam | tpu-     |
-|      rude | tpu-     |
-|     abuse | tpu-     |
-|   abusive | tpu-     |
-| offensive | tpu-     |
-| vandalism | tp-      |
-|         n | naa-     |
+<table><thead>
+<tr>
+<th style="text-align: right">Command</th>
+<th>Alias of</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: right">f</td>
+<td>fp-</td>
+</tr>
+<tr>
+<td style="text-align: right">notspam</td>
+<td>fp-</td>
+</tr>
+<tr>
+<td style="text-align: right">k</td>
+<td>tpu-</td>
+</tr>
+<tr>
+<td style="text-align: right">spam</td>
+<td>tpu-</td>
+</tr>
+<tr>
+<td style="text-align: right">rude</td>
+<td>tpu-</td>
+</tr>
+<tr>
+<td style="text-align: right">abuse</td>
+<td>tpu-</td>
+</tr>
+<tr>
+<td style="text-align: right">abusive</td>
+<td>tpu-</td>
+</tr>
+<tr>
+<td style="text-align: right">offensive</td>
+<td>tpu-</td>
+</tr>
+<tr>
+<td style="text-align: right">vandalism</td>
+<td>tp-</td>
+</tr>
+<tr>
+<td style="text-align: right">n</td>
+<td>naa-</td>
+</tr>
+</tbody></table>
 
-</center>
+<p></center></p>
 
-<h1 id="message-deletion">Message deletion</h1>
-<p>Messages by SmokeDetector can be deleted within 2 minutes after they were posted by using the <code class="highlighter-rouge">del</code>, <code class="highlighter-rouge">remove</code>, or <code class="highlighter-rouge">gone</code> commands. After 2 minutes are up, SmokeDetector cannot delete its own messages in response to those commands, so any deletion after that window must be done by a moderator.</p>
+<h1>Message deletion</h1>
+
+<p>Messages by SmokeDetector can be deleted within 2 minutes after they were posted by using the <code>del</code>, <code>remove</code>, or <code>gone</code> commands. After 2 minutes are up, SmokeDetector cannot delete its own messages in response to those commands, so any deletion after that window must be done by a moderator.</p>
 
 <p>Messages will also be deleted in Tavern on the Meta and SO Close Vote Reviewers if the relevant post is deleted before the 2-minute window is up; this does not apply in Charcoal HQ.</p>
 
 <p>Messages will also be deleted in Tavern on the Meta and SO Close Vote Reviewers if they are fed back on as a false positive within the 2-minute window.</p>
 
-<h1 id="shortcut-commands">Shortcut commands</h1>
+<h1>Shortcut commands</h1>
 
 <p>You can now use a shortcut to post a reply to one, two or three messages
 at the same time, in this shape:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>sd cmd1
+<div class="highlight"><pre><code class="language-" data-lang="">sd cmd1
 sd cmd1 cmd2
 sd cmd1 cmd2 cmd3
 sd cmd1 cmd2 cmd3 cmd4
 sd cmd1 cmd2 cmd3 cmd4 cmd5
-</code></pre>
-</div>
-
+</code></pre></div>
 <p>cmd1 will be invoked in the most recent message, cmd2 on the message
 before that and cmd3 on the message before that, and so on.</p>
 
-<p>It’s also possible to skip a message. Replace a command by a - to skip a
-message. For example, <code class="highlighter-rouge">sd - delete</code> skips the most recent message and
+<p>It&rsquo;s also possible to skip a message. Replace a command by a - to skip a
+message. For example, <code>sd - delete</code> skips the most recent message and
 deletes the message before that one.</p>
 
 <p>Smokey will reply to your shortcut command, unless all commands have quiet
-mode (like tp-) or just don’t reply by default (like delete).</p>
+mode (like tp-) or just don&rsquo;t reply by default (like delete).</p>
 
 <p>A few examples:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">sd - delete</code> keeps the most recent message and deletes the one before that.</li>
-  <li><code class="highlighter-rouge">sd tp fp delete</code> marks the most recent message as tp, the one before that as fp, and deletes the one before that.</li>
+<li><code>sd - delete</code> keeps the most recent message and deletes the one before that.</li>
+<li><code>sd tp fp delete</code> marks the most recent message as tp, the one before that as fp, and deletes the one before that.</li>
 </ul>
 
 <p>You can also put a digit in front of a command so the command will apply as many times as the digit. A few examples:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">sd 2tpu</code> = <code class="highlighter-rouge">sd tpu tpu</code></li>
-  <li><code class="highlighter-rouge">sd 2tpu 3fpu</code> = <code class="highlighter-rouge">sd tpu tpu fpu fpu fpu</code></li>
-  <li><code class="highlighter-rouge">sd 2- fp</code> = <code class="highlighter-rouge">sd - - fp</code></li>
+<li><code>sd 2tpu</code> = <code>sd tpu tpu</code></li>
+<li><code>sd 2tpu 3fpu</code> = <code>sd tpu tpu fpu fpu fpu</code></li>
+<li><code>sd 2- fp</code> = <code>sd - - fp</code></li>
 </ul>
 
 
 <div class="sidebar">
 
 
-
 <p><strong><a href="//github.com/Charcoal-SE/SmokeDetector/wiki/Commands/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
 
 <div class="sidebar-content sidebar-content-smokey">
 
-  <p><strong><a href="Home">Home</a></strong></p>
+**[Home](Home)**
 
-  <p><strong><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a></strong></p>
+**[Charcoal HQ](http://chat.stackexchange.com/rooms/11540/charcoal-hq)**
 
-  <p><strong><a href="http://charcoal-se.org/">Charcoal Website</a></strong></p>
+**[Charcoal Website](http://charcoal-se.org/)**
 
-  <p><strong><a href="https://metasmoke.erwaysoftware.com">metasmoke</a></strong></p>
+**[metasmoke](https://metasmoke.erwaysoftware.com)**
 
-  <p><strong><a href="https://github.com/Charcoal-SE/userscripts">Userscripts</a></strong></p>
-
-</div>
-
+**[Userscripts](https://github.com/Charcoal-SE/userscripts)**
 
 </div>
 
 
-<div class="footer footer-insert text-center">
-<p>Smokey is made with &lt;3 by the <a href="https://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/SmokeDetector/graphs/contributors">contributors</a> from <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
+
+
+<div class="footer footer-insert text-center"><p>Smokey is made with &lt;3 by the <a href="https://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/SmokeDetector/graphs/contributors">contributors</a> from <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
 </div>
 
     </div>
@@ -257,8 +289,8 @@ mode (like tp-) or just don’t reply by default (like delete).</p>
   <div class="search text-center" style="display: none;">
   </div>
   <script>
-    window.searchLoadPath = "//charcoal-se.org/assets/search-6ad9e78a0cf31baffce21cffc74c749100f081c7988c4ca3e67fc513fdb06933.js"
-    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/smokey/Home": "//charcoal-se.org/smokey/", "/smokey/Home": "//charcoal-se.org/smokey/", "/smokey": "//charcoal-se.org/smokey/", "/ms/Home": "//charcoal-se.org/ms/", "/ms/Home": "//charcoal-se.org/ms/", "/ms": "//charcoal-se.org/ms/", "/other-sites": "//charcoal-se.org/more-projects", "/userscripts/": "//charcoal-se.org/scripts.html", "/userscripts": "//charcoal-se.org/scripts.html",  }
+    window.searchLoadPath = "/pages/Charcoal-SE/assets/search-6ad9e78a0cf31baffce21cffc74c749100f081c7988c4ca3e67fc513fdb06933.js"
+    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/smokey/Home": "/smokey/", "/smokey/Home": "/smokey/", "/smokey": "/smokey/", "/ms/Home": "/ms/", "/ms/Home": "/ms/", "/ms": "/ms/", "/other-sites": "/more-projects", "/userscripts/": "/scripts.html", "/userscripts": "/scripts.html",  }
   </script>
 </body>
 </html>
