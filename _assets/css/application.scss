@@ -36,6 +36,34 @@ a, a:visited, a:hover, a:active {
   text-decoration: underline;
 }
 
+hr {
+  $hr-width: 2px;
+  border: none;
+  border-radius: $hr-width / 2;
+  height: $hr-width;
+  background: lightgray;
+  position: relative;
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+  }
+  &::before {
+    width: $hr-width * 20;
+    height: $hr-width;
+    background: white;
+    left: calc(50% - #{$hr-width * 10});
+  }
+  &::after {
+    background: lightgray;
+    width: $hr-width * 10;
+    height: $hr-width * 10;
+    left: calc(50% - #{$hr-width * 5});
+    bottom: 1px - $hr-width * 5;
+    border-radius: 50%;
+  }
+}
+
 .body-container {
   width: 70%;
   min-width: 768px;
