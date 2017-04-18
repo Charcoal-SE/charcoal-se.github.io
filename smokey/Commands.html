@@ -137,19 +137,22 @@ Note that <code class="highlighter-rouge">why</code> data is only kept for the l
 
 <p>Also, some frequently used commands have one-letter aliases, or convenient words that can be used instead:</p>
 
-<table>
-<tr><th>Command</th><th>Alias of</th></tr>
-<tr><td><code>f</code></td><td><code>fp-</code></td></tr>
-<tr><td><code>notspam</code></td><td><code>fp-</code></td></tr>
-<tr><td><code>k</code></td><td><code>tpu-</code></td></tr>
-<tr><td><code>spam</code></td><td><code>tpu-</code></td></tr>
-<tr><td><code>rude</code></td><td><code>tpu-</code></td></tr>
-<tr><td><code>abuse</code></td><td><code>tpu-</code></td></tr>
-<tr><td><code>abusive</code></td><td><code>tpu-</code></td></tr>
-<tr><td><code>offensive</code></td><td><code>tpu-</code></td></tr>
-<tr><td><code>vandalism</code></td><td><code>tp-</code></td></tr>
-<tr><td><code>n</code></td><td><code>naa-</code></td></tr>
-</table>
+<center>
+
+|   Command | Alias of |
+|----------:|----------|
+|         f | fp-      |
+|   notspam | fp-      |
+|         k | tpu-     |
+|      spam | tpu-     |
+|      rude | tpu-     |
+|     abuse | tpu-     |
+|   abusive | tpu-     |
+| offensive | tpu-     |
+| vandalism | tp-      |
+|         n | naa-     |
+
+</center>
 
 <h1 id="message-deletion">Message deletion</h1>
 <p>Messages by SmokeDetector can be deleted within 2 minutes after they were posted by using the <code class="highlighter-rouge">del</code>, <code class="highlighter-rouge">remove</code>, or <code class="highlighter-rouge">gone</code> commands. After 2 minutes are up, SmokeDetector cannot delete its own messages in response to those commands, so any deletion after that window must be done by a moderator.</p>
@@ -191,9 +194,9 @@ mode (like tp-) or just don’t reply by default (like delete).</p>
 <p>You can also put a digit in front of a command so the command will apply as many times as the digit. A few examples:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">sd 2tpu</code> == <code class="highlighter-rouge">sd tpu tpu</code></li>
-  <li><code class="highlighter-rouge">sd 2tpu 3fpu</code> == <code class="highlighter-rouge">sd tpu tpu fpu fpu fpu</code></li>
-  <li><code class="highlighter-rouge">sd 2- fp</code> == <code class="highlighter-rouge">sd - - fp</code></li>
+  <li><code class="highlighter-rouge">sd 2tpu</code> = <code class="highlighter-rouge">sd tpu tpu</code></li>
+  <li><code class="highlighter-rouge">sd 2tpu 3fpu</code> = <code class="highlighter-rouge">sd tpu tpu fpu fpu fpu</code></li>
+  <li><code class="highlighter-rouge">sd 2- fp</code> = <code class="highlighter-rouge">sd - - fp</code></li>
 </ul>
 
 
