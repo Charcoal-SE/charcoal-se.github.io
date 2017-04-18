@@ -204,7 +204,7 @@
   
     "code-html": {
       "title": "Code",
-      "content": "Website built from:\n\n\ncommit 76def54 on Charcoal-SE/charcoal-se.github.io\ncommit 9775403 on the Charcoal-SE/SmokeDetector wiki\ncommit d5fbe76 on the Charcoal-SE/metasmoke wiki\ncommit b986762 on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
+      "content": "Website built from:\n\n\ncommit 980afa7 on Charcoal-SE/charcoal-se.github.io\ncommit 9775403 on the Charcoal-SE/SmokeDetector wiki\ncommit d5fbe76 on the Charcoal-SE/metasmoke wiki\ncommit b986762 on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
       "url": "/pages/Charcoal-SE/code"
     },
   
