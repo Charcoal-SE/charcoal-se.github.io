@@ -40,66 +40,77 @@
       
 
 
-<h2>What the website blacklist does:</h2>
+<h2 id="what-the-website-blacklist-does">What the website blacklist does:</h2>
 
 <p>The website blacklist is one of the filters used by the spam detection bot SmokeDetector. It consists of a list of websites associated with known spam that automatically raise suspicion when posted anywhere on Stack Exchange.</p>
 
 <p>Blacklisting a website makes SmokeDetector report every post that is posted or modified with a link to the website (formatted as a link or otherwise) in its text. The website blacklist is maintained in the <a href="https://github.com/Charcoal-SE/SmokeDetector">SmokeDetector GitHub repository</a>, specifically in the file <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/blacklisted_websites.txt">blacklisted_websites.txt</a>.</p>
 
-<h2>When to blacklist a website:</h2>
+<h2 id="when-to-blacklist-a-website">When to blacklist a website:</h2>
 
 <p>Generally, it makes sense to blacklist a website if all of the following criteria are met:</p>
 
 <ul>
-<li><p>Website has been used in <strong>at least</strong> 2 confirmed instances (tp fed back reports) of spam (You can use <a href="https://metasmoke.erwaysoftware.com/search">https://metasmoke.erwaysoftware.com/search</a> to find other instances of a website being used for spam).</p></li>
-<li><p>Website is not used legitimately in other posts on Stack Exchange.</p></li>
-<li><p>Website is not currently caught in either of these filters:</p>
-
-<ul>
-<li>bad keyword in body</li>
-<li>blacklisted website</li>
-<li>pattern matching website</li>
-</ul></li>
+  <li>
+    <p>Website has been used in <strong>at least</strong> 2 confirmed instances (tp fed back reports) of spam (You can use https://metasmoke.erwaysoftware.com/search to find other instances of a website being used for spam).</p>
+  </li>
+  <li>
+    <p>Website is not used legitimately in other posts on Stack Exchange.</p>
+  </li>
+  <li>
+    <p>Website is not currently caught in either of these filters:</p>
+    <ul>
+      <li>bad keyword in body</li>
+      <li>blacklisted website</li>
+      <li>pattern matching website</li>
+    </ul>
+  </li>
 </ul>
 
-<p>You can test this by using the <code>!!/test &lt;string to test&gt;</code> command. (or <code>!!/test-a &lt;string to test&gt;</code> to test as an answer).</p>
+<p>You can test this by using the <code class="highlighter-rouge">!!/test &lt;string to test&gt;</code> command. (or <code class="highlighter-rouge">!!/test-a &lt;string to test&gt;</code> to test as an answer).</p>
 
-<h2>How to blacklist a website:</h2>
+<h2 id="how-to-blacklist-a-website">How to blacklist a website:</h2>
 
-<p>Everyone with SmokeDetector privileges (if you don&rsquo;t have those and would like them, read up on <a href="Privileges">how to get them</a>) can blacklist a website, though the action will require admin-approval for most people. Additions to the blacklist (via both methods) must be valid regular expressions (regex). In reality that means for largely exact matches (like the website blacklist) that you ensure that special characters (like <code>.</code>) are escaped. (Example: <code>thisisspam\.com</code>)</p>
+<p>Everyone with SmokeDetector privileges (if you don’t have those and would like them, read up on <a href="Privileges">how to get them</a>) can blacklist a website, though the action will require admin-approval for most people. Additions to the blacklist (via both methods) must be valid regular expressions (regex). In reality that means for largely exact matches (like the website blacklist) that you ensure that special characters (like <code class="highlighter-rouge">.</code>) are escaped. (Example: <code class="highlighter-rouge">thisisspam\.com</code>)</p>
 
 <p>There are 2 methods to add a website to the blacklist:</p>
 
 <ul>
-<li><p>Propose a change to the <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/blacklisted_websites.txt">blacklisted_websites.txt</a> file on GitHub and create a pull request specifying why you want to blacklist the website.</p></li>
-<li><p>Use the <code>!!/blacklist-website &lt;regex string&gt;</code> command in any of the Smoke Detector chatrooms. This will create a pull request containing your change for you.</p></li>
+  <li>
+    <p>Propose a change to the <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/blacklisted_websites.txt">blacklisted_websites.txt</a> file on GitHub and create a pull request specifying why you want to blacklist the website.</p>
+  </li>
+  <li>
+    <p>Use the <code class="highlighter-rouge">!!/blacklist-website &lt;regex string&gt;</code> command in any of the Smoke Detector chatrooms. This will create a pull request containing your change for you.</p>
+  </li>
 </ul>
 
 
 <div class="sidebar">
 
 
+
 <p><strong><a href="//github.com/Charcoal-SE/SmokeDetector/wiki/Guidance-for-Blacklisting-Websites/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
 
 <div class="sidebar-content sidebar-content-smokey">
 
-**[Home](Home)**
+  <p><strong><a href="Home">Home</a></strong></p>
 
-**[Charcoal HQ](http://chat.stackexchange.com/rooms/11540/charcoal-hq)**
+  <p><strong><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a></strong></p>
 
-**[Charcoal Website](http://charcoal-se.org/)**
+  <p><strong><a href="http://charcoal-se.org/">Charcoal Website</a></strong></p>
 
-**[metasmoke](https://metasmoke.erwaysoftware.com)**
+  <p><strong><a href="https://metasmoke.erwaysoftware.com">metasmoke</a></strong></p>
 
-**[Userscripts](https://github.com/Charcoal-SE/userscripts)**
-
-</div>
-
+  <p><strong><a href="https://github.com/Charcoal-SE/userscripts">Userscripts</a></strong></p>
 
 </div>
 
 
-<div class="footer footer-insert text-center"><p>Smokey is made with &lt;3 by the <a href="https://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/SmokeDetector/graphs/contributors">contributors</a> from <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>Smokey is made with &lt;3 by the <a href="https://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/SmokeDetector/graphs/contributors">contributors</a> from <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
 </div>
 
     </div>

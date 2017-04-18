@@ -43,78 +43,74 @@
 
 <p>Some aspects of feedback to SmokeDetector have historically caused confusion. This page is intended to address some of those confusions.</p>
 
-<h3>Generic Guidance</h3>
-
-<p>In very general terms, the litmus test for whether you should use <a href="Commands#silent-mode-and-aliases"><code>k</code></a> or <a href="Commands#silent-mode-and-aliases"><code>f</code></a> is this:</p>
+<h3 id="generic-guidance">Generic Guidance</h3>
+<p>In very general terms, the litmus test for whether you should use <a href="Commands#silent-mode-and-aliases"><code class="highlighter-rouge">k</code></a> or <a href="Commands#silent-mode-and-aliases"><code class="highlighter-rouge">f</code></a> is this:</p>
 
 <blockquote>
-<p>If SmokeDetector was implemented as a system-level block, would we want to catch this type of activity?</p>
+  <p>If SmokeDetector was implemented as a system-level block, would we want to catch this type of activity?</p>
 </blockquote>
 
-<p>If the answer to that question is <em>yes</em>, you should mark the post <code>k</code>. There are a few types of activity we have specific guidelines for, as outlined below.</p>
+<p>If the answer to that question is <em>yes</em>, you should mark the post <code class="highlighter-rouge">k</code>. There are a few types of activity we have specific guidelines for, as outlined below.</p>
 
-<h3>Disclosed affiliation</h3>
-
-<p>It&rsquo;s fine to promote your own product or service on Stack Exchange, <em>as long as</em>:</p>
+<h3 id="disclosed-affiliation">Disclosed affiliation</h3>
+<p>It’s fine to promote your own product or service on Stack Exchange, <em>as long as</em>:</p>
 
 <ul>
-<li>you&rsquo;re not doing it excessively</li>
-<li>you disclose your affiliation</li>
-<li>you only do so where relevant</li>
+  <li>you’re not doing it excessively</li>
+  <li>you disclose your affiliation</li>
+  <li>you only do so where relevant</li>
 </ul>
 
-<p>If all of those conditions are true, then self-promotion is not spam and therefore <code>f</code> and not <code>k</code> (unless it doesn&rsquo;t answer the question, in which case it&rsquo;s <code>n</code>). If any of them are false, self-promotion is <code>k</code>.</p>
+<p>If all of those conditions are true, then self-promotion is not spam and therefore <code class="highlighter-rouge">f</code> and not <code class="highlighter-rouge">k</code> (unless it doesn’t answer the question, in which case it’s <code class="highlighter-rouge">n</code>). If any of them are false, self-promotion is <code class="highlighter-rouge">k</code>.</p>
 
-<h3>Self-vandalism</h3>
+<h3 id="self-vandalism">Self-vandalism</h3>
+<p>Self-vandalism is where a user vandalises their own post by replacing all its useful content with something like “xxxxxxxxxxxxxxxxxxxxxxxx”, or “deleted deleted deleted”. For self-vandalism, use <a href="Commands#privileged-commands-as-reply"><code class="highlighter-rouge">tp-</code></a> (or one of its aliases, such as <code class="highlighter-rouge">v</code>, <code class="highlighter-rouge">vand</code> or <code class="highlighter-rouge">vandalism</code>). At a system level, we’d want to catch and block people doing this, but it’s not worth blacklisting the user because it’s usually a one-time incident. Most users, when warned, don’t do it again.</p>
 
-<p>Self-vandalism is where a user vandalises their own post by replacing all its useful content with something like &ldquo;xxxxxxxxxxxxxxxxxxxxxxxx&rdquo;, or &ldquo;deleted deleted deleted&rdquo;. For self-vandalism, use <a href="Commands#privileged-commands-as-reply"><code>tp-</code></a> (or one of its aliases, such as <code>v</code>, <code>vand</code> or <code>vandalism</code>). At a system level, we&rsquo;d want to catch and block people doing this, but it&rsquo;s not worth blacklisting the user because it&rsquo;s usually a one-time incident. Most users, when warned, don&rsquo;t do it again.</p>
+<h3 id="foreign-language-posts-on-english-sites-or-vice-versa">Foreign-language posts on English sites (or vice versa)</h3>
+<p>Treat these as you would an English post. If it’s spam, offensive, etc., then mark it as <code class="highlighter-rouge">k</code>; otherwise use <code class="highlighter-rouge">f</code> or <code class="highlighter-rouge">n</code>. Particularly, answers in the wrong language for the target site are NAA, so <code class="highlighter-rouge">n</code>. Being in the wrong language for the site <em>alone</em> doesn’t make a post <code class="highlighter-rouge">k</code>-able.</p>
 
-<h3>Foreign-language posts on English sites (or vice versa)</h3>
+<h3 id="plagiarism">Plagiarism</h3>
+<p>Plagiarism - copying without attribution from another source such as someone else’s answer or another website - is not always easy to spot. If you do spot it in an answer, then mark it as <code class="highlighter-rouge">k</code> - you may wish to explain to other users in the chatroom why you’ve done that, to avoid arguments about what the feedback should be.</p>
 
-<p>Treat these as you would an English post. If it&rsquo;s spam, offensive, etc., then mark it as <code>k</code>; otherwise use <code>f</code> or <code>n</code>. Particularly, answers in the wrong language for the target site are NAA, so <code>n</code>. Being in the wrong language for the site <em>alone</em> doesn&rsquo;t make a post <code>k</code>-able.</p>
+<p>If you get to a post before it’s deleted, an easy way to spot plagiarism is to check the other posts on the same page for similar content.</p>
 
-<h3>Plagiarism</h3>
+<p>However, while plagiarism should be marked as <code class="highlighter-rouge">k</code>, the <code class="highlighter-rouge">!!/report</code> command shouldn’t be used to report plagiarism - catching plagiarism is a bonus if we do, but we’re not aiming to catch it.</p>
 
-<p>Plagiarism - copying without attribution from another source such as someone else&rsquo;s answer or another website - is not always easy to spot. If you do spot it in an answer, then mark it as <code>k</code> - you may wish to explain to other users in the chatroom why you&rsquo;ve done that, to avoid arguments about what the feedback should be.</p>
-
-<p>If you get to a post before it&rsquo;s deleted, an easy way to spot plagiarism is to check the other posts on the same page for similar content.</p>
-
-<p>However, while plagiarism should be marked as <code>k</code>, the <code>!!/report</code> command shouldn&rsquo;t be used to report plagiarism - catching plagiarism is a bonus if we do, but we&rsquo;re not aiming to catch it.</p>
-
-<h3>NAA feedback</h3>
-
-<p>NAA feedback has sometimes been a little confusing. Using <code>n</code> as your feedback should, in general, be done if:</p>
+<h3 id="naa-feedback">NAA feedback</h3>
+<p>NAA feedback has sometimes been a little confusing. Using <code class="highlighter-rouge">n</code> as your feedback should, in general, be done if:</p>
 
 <ul>
-<li>the post is not spam, abusive, offensive etc. (use <code>k</code>)</li>
-<li>you would flag the post as Not An Answer on the site itself</li>
+  <li>the post is not spam, abusive, offensive etc. (use <code class="highlighter-rouge">k</code>)</li>
+  <li>you would flag the post as Not An Answer on the site itself</li>
 </ul>
 
 
 <div class="sidebar">
 
 
+
 <p><strong><a href="//github.com/Charcoal-SE/SmokeDetector/wiki/Feedback-Guidance/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
 
 <div class="sidebar-content sidebar-content-smokey">
 
-**[Home](Home)**
+  <p><strong><a href="Home">Home</a></strong></p>
 
-**[Charcoal HQ](http://chat.stackexchange.com/rooms/11540/charcoal-hq)**
+  <p><strong><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a></strong></p>
 
-**[Charcoal Website](http://charcoal-se.org/)**
+  <p><strong><a href="http://charcoal-se.org/">Charcoal Website</a></strong></p>
 
-**[metasmoke](https://metasmoke.erwaysoftware.com)**
+  <p><strong><a href="https://metasmoke.erwaysoftware.com">metasmoke</a></strong></p>
 
-**[Userscripts](https://github.com/Charcoal-SE/userscripts)**
-
-</div>
-
+  <p><strong><a href="https://github.com/Charcoal-SE/userscripts">Userscripts</a></strong></p>
 
 </div>
 
 
-<div class="footer footer-insert text-center"><p>Smokey is made with &lt;3 by the <a href="https://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/SmokeDetector/graphs/contributors">contributors</a> from <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>Smokey is made with &lt;3 by the <a href="https://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/SmokeDetector/graphs/contributors">contributors</a> from <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
 </div>
 
     </div>

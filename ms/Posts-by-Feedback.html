@@ -41,28 +41,33 @@
       
 
 
-<h3>Route Name</h3>
-
+<h3 id="route-name">Route Name</h3>
 <p>Posts by Feedback</p>
 
-<h3>Route URL</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">/api/posts/feedback
-</code></pre></div>
-<h3>Description &amp; Usage</h3>
+<h3 id="route-url">Route URL</h3>
 
-<p>This route provides a list of posts that have a specified feedback type on them. Specify the type of feedback by passing a valid feedback type. These include <code>tpu-</code>, <code>fp-</code>, <code>naa-</code>, or <code>ignore-</code>, but there are other valid <a href="https://github.com/Charcoal-SE/metasmoke/wiki/Posts-by-Feedback#valid-type-options">types</a>.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>/api/posts/feedback
+</code></pre>
+</div>
 
-<p>You can use the <code>per_page</code> query string parameter to adjust how many results you get, up to a maximum of 100.</p>
+<h3 id="description--usage">Description &amp; Usage</h3>
 
-<p>The <code>has_more</code> field in the response indicates if there are more results available than have been returned in this result set; use the <code>page</code> query string parameter to get the next page of results. <code>?page=1</code> will return the first page; <code>?page=2</code> the second, and so on.</p>
+<p>This route provides a list of posts that have a specified feedback type on them. Specify the type of feedback by passing a valid feedback type. These include <code class="highlighter-rouge">tpu-</code>, <code class="highlighter-rouge">fp-</code>, <code class="highlighter-rouge">naa-</code>, or <code class="highlighter-rouge">ignore-</code>, but there are other valid <a href="https://github.com/Charcoal-SE/metasmoke/wiki/Posts-by-Feedback#valid-type-options">types</a>.</p>
 
-<h3>Example</h3>
+<p>You can use the <code class="highlighter-rouge">per_page</code> query string parameter to adjust how many results you get, up to a maximum of 100.</p>
 
+<p>The <code class="highlighter-rouge">has_more</code> field in the response indicates if there are more results available than have been returned in this result set; use the <code class="highlighter-rouge">page</code> query string parameter to get the next page of results. <code class="highlighter-rouge">?page=1</code> will return the first page; <code class="highlighter-rouge">?page=2</code> the second, and so on.</p>
+
+<h3 id="example">Example</h3>
 <p><strong>Request:</strong></p>
-<div class="highlight"><pre><code class="language-" data-lang="">HTTP/1.1 GET /api/posts/feedback?type=tpu-
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP/1.1 GET /api/posts/feedback?type=tpu-
+</code></pre>
+</div>
+
 <p><strong>Response:</strong></p>
-<div class="highlight"><pre><code class="language-" data-lang=""><span class="p">{</span><span class="w">
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"items"</span><span class="p">:[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">672</span><span class="p">,</span><span class="w">
@@ -107,49 +112,53 @@
     </span><span class="p">],</span><span class="w">
     </span><span class="nt">"has_more"</span><span class="p">:</span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<h3>Valid Type options</h3>
+</span></code></pre>
+</div>
 
-<p>A summary of <em>all</em> <code>type</code>s that Meta Smoke has ever seen was <a href="http://chat.stackexchange.com/transcript/message/33128805#33128805">posted</a> on Oct. 25, 2016. However, not all of these are really useful. The most common <code>type</code> values are (in descending order of usage, and anything seen over 100 times since the post linked above):</p>
+<h3 id="valid-type-options">Valid Type options</h3>
+
+<p>A summary of <em>all</em> <code class="highlighter-rouge">type</code>s that Meta Smoke has ever seen was <a href="http://chat.stackexchange.com/transcript/message/33128805#33128805">posted</a> on Oct. 25, 2016. However, not all of these are really useful. The most common <code class="highlighter-rouge">type</code> values are (in descending order of usage, and anything seen over 100 times since the post linked above):</p>
 
 <ul>
-<li><code>tpu-</code></li>
-<li><code>tp</code></li>
-<li><code>fp-</code></li>
-<li><code>fp</code></li>
-<li><code>naa-</code></li>
-<li><code>trueu-</code></li>
-<li><code>tpu</code></li>
-<li><code>naa</code></li>
-<li><code>tp-</code></li>
-<li><code>ignore-</code></li>
-<li><code>fpu-</code></li>
-<li><code>trueu</code></li>
-<li><code>Ambiguous</code><br></li>
-<li><code>ignore</code></li>
+  <li><code class="highlighter-rouge">tpu-</code></li>
+  <li><code class="highlighter-rouge">tp</code></li>
+  <li><code class="highlighter-rouge">fp-</code></li>
+  <li><code class="highlighter-rouge">fp</code></li>
+  <li><code class="highlighter-rouge">naa-</code></li>
+  <li><code class="highlighter-rouge">trueu-</code></li>
+  <li><code class="highlighter-rouge">tpu</code></li>
+  <li><code class="highlighter-rouge">naa</code></li>
+  <li><code class="highlighter-rouge">tp-</code></li>
+  <li><code class="highlighter-rouge">ignore-</code></li>
+  <li><code class="highlighter-rouge">fpu-</code></li>
+  <li><code class="highlighter-rouge">trueu</code></li>
+  <li><code class="highlighter-rouge">Ambiguous</code></li>
+  <li><code class="highlighter-rouge">ignore</code></li>
 </ul>
 
 
 <div class="sidebar">
 
 
+
 <p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/Posts-by-Feedback/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
 
 <div class="sidebar-content sidebar-content-ms">
 
-**[Home](Home)**
+  <p><strong><a href="Home">Home</a></strong></p>
 
-**[API Documentation](API-Documentation)**
+  <p><strong><a href="API-Documentation">API Documentation</a></strong></p>
 
-**[WebSocket API Documentation](WebSocket-API)**
-
-</div>
-
+  <p><strong><a href="WebSocket-API">WebSocket API Documentation</a></strong></p>
 
 </div>
 
 
-<div class="footer footer-insert text-center"><p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
 </div>
 
     </div>

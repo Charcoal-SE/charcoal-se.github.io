@@ -41,42 +41,45 @@
       
 
 
-<h3>Route Name</h3>
-
+<h3 id="route-name">Route Name</h3>
 <p>Posts by Site</p>
 
-<h3>Route URL</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">/api/posts/site
-</code></pre></div>
-<h3>Description &amp; Usage</h3>
+<h3 id="route-url">Route URL</h3>
 
-<p>This route allows you to fetch posts based on the Stack Exchange site they were posted on. Use the <code>site</code> query string parameter to specify which site you want to check: this parameter should be filled with a valid URL to the Stack Exchange site in question (such as <code>http://stackoverflow.com</code>, or <code>http://drupal.stackexchange.com</code>.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>/api/posts/site
+</code></pre>
+</div>
 
-<p>You can use the <code>per_page</code> query string parameter to adjust how many results you get, up to a maximum of 100.</p>
+<h3 id="description--usage">Description &amp; Usage</h3>
+<p>This route allows you to fetch posts based on the Stack Exchange site they were posted on. Use the <code class="highlighter-rouge">site</code> query string parameter to specify which site you want to check: this parameter should be filled with a valid URL to the Stack Exchange site in question (such as <code class="highlighter-rouge">http://stackoverflow.com</code>, or <code class="highlighter-rouge">http://drupal.stackexchange.com</code>.</p>
 
-<p>The <code>has_more</code> field in the response indicates if there are more results available than have been returned in this result set; use the <code>page</code> query string parameter to get the next page of results. <code>?page=1</code> will return the first page; <code>?page=2</code> the second, and so on.</p>
+<p>You can use the <code class="highlighter-rouge">per_page</code> query string parameter to adjust how many results you get, up to a maximum of 100.</p>
+
+<p>The <code class="highlighter-rouge">has_more</code> field in the response indicates if there are more results available than have been returned in this result set; use the <code class="highlighter-rouge">page</code> query string parameter to get the next page of results. <code class="highlighter-rouge">?page=1</code> will return the first page; <code class="highlighter-rouge">?page=2</code> the second, and so on.</p>
 
 
 <div class="sidebar">
+
 
 
 <p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/Posts-by-Site/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
 
 <div class="sidebar-content sidebar-content-ms">
 
-**[Home](Home)**
+  <p><strong><a href="Home">Home</a></strong></p>
 
-**[API Documentation](API-Documentation)**
+  <p><strong><a href="API-Documentation">API Documentation</a></strong></p>
 
-**[WebSocket API Documentation](WebSocket-API)**
-
-</div>
-
+  <p><strong><a href="WebSocket-API">WebSocket API Documentation</a></strong></p>
 
 </div>
 
 
-<div class="footer footer-insert text-center"><p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
 </div>
 
     </div>

@@ -40,48 +40,56 @@
       
 
 
-<h1>Intro</h1>
+<h1 id="intro">Intro</h1>
 
 <p><sup><strong>Note</strong>: All JSON is formatted here. Where JSON is contained as a string value of a key, it is formatted. This is not the actual data sent.</sup></p>
 
 <ol>
-<li>Connect to <code>wss://metasmoke.erwaysoftware.com/cable</code></li>
-<li>When the socket is opened, you can send <a href="#subscriptions">subscriptions</a></li>
+  <li>Connect to <code class="highlighter-rouge">wss://metasmoke.erwaysoftware.com/cable</code></li>
+  <li>When the socket is opened, you can send <a href="#subscriptions">subscriptions</a></li>
 </ol>
 
-<h1>Messages Received from metasmoke</h1>
+<h1 id="messages-received-from-metasmoke">Messages Received from metasmoke</h1>
 
-<h2>Welcome</h2>
+<h2 id="welcome">Welcome</h2>
 
 <p>This is sent when the socket is first opened.</p>
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"welcome"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<h2>Confirm Subscription</h2>
+</span></code></pre>
+</div>
+
+<h2 id="confirm-subscription">Confirm Subscription</h2>
 
 <p>This is sent when a channel has been subscribed to.</p>
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirm_subscription"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;subscription&gt;"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<h2>Ping</h2>
+</span></code></pre>
+</div>
+
+<h2 id="ping">Ping</h2>
 
 <p>This is sent every 3 seconds to keep the socket alive.
-<code>message</code> is the current Unix time.</p>
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+<code class="highlighter-rouge">message</code> is the current Unix time.</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ping"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345678</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<h2>Feedback</h2>
+</span></code></pre>
+</div>
 
-<p>The <code>post_link</code> is the one that can be sent to the metasmoke API.
-<code>user_name</code> is the user’s <strong>metasmoke</strong> display name.
-<code>app_name</code> is the name of the app used to send the feedback (example: <code>&quot;FDSC&quot;</code>)
-<code>symbol</code> is a HTML representation of the appropriate symbol to display.</p>
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+<h2 id="feedback">Feedback</h2>
+
+<p>The <code class="highlighter-rouge">post_link</code> is the one that can be sent to the metasmoke API.
+<code class="highlighter-rouge">user_name</code> is the user’s <strong>metasmoke</strong> display name.
+<code class="highlighter-rouge">app_name</code> is the name of the app used to send the feedback (example: <code class="highlighter-rouge">"FDSC"</code>)
+<code class="highlighter-rouge">symbol</code> is a HTML representation of the appropriate symbol to display.</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;identifier&gt;"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"feedback"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -93,50 +101,60 @@
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<h1>Messages Sent to metasmoke</h1>
+</span></code></pre>
+</div>
 
-<h2>Subscription</h2>
+<h1 id="messages-sent-to-metasmoke">Messages Sent to metasmoke</h1>
 
-<p>The <code>identifier</code> is sent as the <code>identifier</code> of all messages coming from this channel.</p>
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span><span class="w">
+<h2 id="subscription">Subscription</h2>
+
+<p>The <code class="highlighter-rouge">identifier</code> is sent as the <code class="highlighter-rouge">identifier</code> of all messages coming from this channel.</p>
+
+<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscribe"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{
     \"channel\": \"&lt;channel&gt;\",
     \"key\": \"&lt;API Key&gt;\"
   }"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<h3>Channels</h3>
+</span></code></pre>
+</div>
+<h3 id="channels">Channels</h3>
 
 <ul>
-<li><code>ApiChannel</code>: This is the one you probably want.<br></li>
+  <li>
+    <p><code class="highlighter-rouge">ApiChannel</code>: This is the one you probably want.</p>
+
+    <p>example:</p>
+    <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"channel\":\"ApiChannel\",\"key\":\"&lt;metasmoke API key&gt;\"}"</span><span class="p">,</span><span class="w"> </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscribe"</span><span class="p">}</span><span class="w">
+</span></code></pre>
+    </div>
+  </li>
 </ul>
 
-<p>example:</p>
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="w">  </span><span class="p">{</span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"channel\":\"ApiChannel\",\"key\":\"&lt;metasmoke API key&gt;\"}"</span><span class="p">,</span><span class="w"> </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscribe"</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
 
 <div class="sidebar">
+
 
 
 <p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/WebSocket-API/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
 
 <div class="sidebar-content sidebar-content-ms">
 
-**[Home](Home)**
+  <p><strong><a href="Home">Home</a></strong></p>
 
-**[API Documentation](API-Documentation)**
+  <p><strong><a href="API-Documentation">API Documentation</a></strong></p>
 
-**[WebSocket API Documentation](WebSocket-API)**
-
-</div>
-
+  <p><strong><a href="WebSocket-API">WebSocket API Documentation</a></strong></p>
 
 </div>
 
 
-<div class="footer footer-insert text-center"><p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
 </div>
 
     </div>

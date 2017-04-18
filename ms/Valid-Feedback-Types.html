@@ -41,26 +41,30 @@
       
 
 
-<h3>Route Name</h3>
-
+<h3 id="route-name">Route Name</h3>
 <p>Valid Feedback Types</p>
 
-<h3>Route URL</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">/api/post/:id/valid_feedback
-</code></pre></div>
-<h3>Description &amp; Usage</h3>
+<h3 id="route-url">Route URL</h3>
 
+<div class="highlighter-rouge"><pre class="highlight"><code>/api/post/:id/valid_feedback
+</code></pre>
+</div>
+
+<h3 id="description--usage">Description &amp; Usage</h3>
 <p>This route provides details of valid feedback types for a given post ID. This is an almost-constant value, but changes depending on whether the queried post is a question or an answer: NAA-type feedback is valid for answers, but not questions.</p>
 
 <p>This route is not paginated.</p>
 
-<h3>Example</h3>
-
+<h3 id="example">Example</h3>
 <p><strong>Request:</strong></p>
-<div class="highlight"><pre><code class="language-" data-lang="">GET /api/post/20191/valid_feedback HTTP/1.1
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /api/post/20191/valid_feedback HTTP/1.1
+</code></pre>
+</div>
+
 <p><strong>Response:</strong></p>
-<div class="highlight"><pre><code class="language-" data-lang="">[
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[
   {
     "type": "tp",
     "description": "True positive"
@@ -106,28 +110,32 @@
     "alias_for": "fp-"
   }
 ]
-</code></pre></div>
+</code></pre>
+</div>
+
 
 <div class="sidebar">
+
 
 
 <p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/Valid-Feedback-Types/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
 
 <div class="sidebar-content sidebar-content-ms">
 
-**[Home](Home)**
+  <p><strong><a href="Home">Home</a></strong></p>
 
-**[API Documentation](API-Documentation)**
+  <p><strong><a href="API-Documentation">API Documentation</a></strong></p>
 
-**[WebSocket API Documentation](WebSocket-API)**
-
-</div>
-
+  <p><strong><a href="WebSocket-API">WebSocket API Documentation</a></strong></p>
 
 </div>
 
 
-<div class="footer footer-insert text-center"><p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
 </div>
 
     </div>

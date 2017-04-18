@@ -40,62 +40,67 @@
       
 
 
-<h1>State of the Project</h1>
+<h1 id="state-of-the-project">State of the Project</h1>
 
-<p>We are looking into automating flags from Smokey.  Basically, it will look as if though Smokey clicks &ldquo;flag&rdquo; → &ldquo;spam&rdquo; as soon as Smoke Detector reports a post (though not all reported posts are eligible; see the Spam weight section for details.).</p>
+<p>We are looking into automating flags from Smokey.  Basically, it will look as if though Smokey clicks “flag” → “spam” as soon as Smoke Detector reports a post (though not all reported posts are eligible; see the Spam weight section for details.).</p>
 
 <p>We are working out the specifics of the system right now, so the details are still in flux.</p>
 
 <p>To participate in the development of this feature, please show up in <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">the Charcoal HQ chat room</a> and wait for a good moment to bring up your topic (afternoon UTC seems to be a fairly busy time in the room).</p>
 
-<p>The main dashboard (status, statistics, etc) is at <a href="https://metasmoke.erwaysoftware.com/flagging">https://metasmoke.erwaysoftware.com/flagging</a></p>
+<p>The main dashboard (status, statistics, etc) is at https://metasmoke.erwaysoftware.com/flagging</p>
 
-<h1>Technical details and spam weight</h1>
+<h1 id="technical-details-and-spam-weight">Technical details and spam weight</h1>
 
-<p>Every time a post is reported, it triggers a <a href="https://metasmoke.erwaysoftware.com/dashboard">variety of different reasons</a> for being reported (such as bad keyword, blacklisted website, etc). Each of these reasons (also known as &ldquo;heuristics&rdquo;) contributes to the post&rsquo;s weight. The formula that determines how much weight each reason contributes is as follows:</p>
-<div class="highlight"><pre><code class="language-" data-lang="">[Number of True Positives caught by reason] / [Total posts caught by the reason] * 100
-</code></pre></div>
+<p>Every time a post is reported, it triggers a <a href="https://metasmoke.erwaysoftware.com/dashboard">variety of different reasons</a> for being reported (such as bad keyword, blacklisted website, etc). Each of these reasons (also known as “heuristics”) contributes to the post’s weight. The formula that determines how much weight each reason contributes is as follows:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[Number of True Positives caught by reason] / [Total posts caught by the reason] * 100
+</code></pre>
+</div>
+
 <p>In our current preliminary testing, the threshold that was set for posts to be flagged automatically is at a weight of 280. In our database of over 50,000 records, this score threshold has a predictive accuracy of 99.98% (meaning of all posts hitting 280 score caught by Smokey, 99.98% were true positives).</p>
 
 <p>As with any other projection, you need to understand that past performance is no guarantee for the future.</p>
 
 <p>The flagging is done by Metasmoke (the back end component) using the credentials of users who have signed up to allow the system to cast flags on their behalf.</p>
 
-<h1>Opting In</h1>
+<h1 id="opting-in">Opting In</h1>
 
 <p>There is a separate page about <a href="Set-Up-Autoflagging">Setting up Autoflagging</a>.  This brief section is a quick FAQ-like summary.</p>
 
-<p>There is a &ldquo;big red button&rdquo; which you can click.  Please be patient and try again until it actually sticks!  This is a known issue which of course we hope to resolve eventually.</p>
+<p>There is a “big red button” which you can click.  Please be patient and try again until it actually sticks!  This is a known issue which of course we hope to resolve eventually.</p>
 
 <p>Once <a href="https://metasmoke.erwaysoftware.com/flagging/preferences">your flagging status</a> shows as active (the button stays checked if you navigate away from the page and come back again) and your conditions are met, you are eligible to be drawn randomly when a flag is about to be raised.  This is a random selection out of the list of users whose conditions allow flagging at the given weight on the given site.</p>
 
-<p>You can review the flags cast on your behalf at a URL like <code>https://metasmoke.erwaysoftware.com/flagging/users/XX/logs</code> (for example, <a href="https://metasmoke.erwaysoftware.com/flagging/users/1/logs">Undo&rsquo;s log</a>).  There is a number of other useful links on the personal flagging dashboard where you can tweak conditions or turn off autoflagging.</p>
+<p>You can review the flags cast on your behalf at a URL like <code class="highlighter-rouge">https://metasmoke.erwaysoftware.com/flagging/users/XX/logs</code> (for example, <a href="https://metasmoke.erwaysoftware.com/flagging/users/1/logs">Undo’s log</a>).  There is a number of other useful links on the personal flagging dashboard where you can tweak conditions or turn off autoflagging.</p>
 
 
 <div class="sidebar">
+
 
 
 <p><strong><a href="//github.com/Charcoal-SE/SmokeDetector/wiki/Autoflagging/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
 
 <div class="sidebar-content sidebar-content-smokey">
 
-**[Home](Home)**
+  <p><strong><a href="Home">Home</a></strong></p>
 
-**[Charcoal HQ](http://chat.stackexchange.com/rooms/11540/charcoal-hq)**
+  <p><strong><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a></strong></p>
 
-**[Charcoal Website](http://charcoal-se.org/)**
+  <p><strong><a href="http://charcoal-se.org/">Charcoal Website</a></strong></p>
 
-**[metasmoke](https://metasmoke.erwaysoftware.com)**
+  <p><strong><a href="https://metasmoke.erwaysoftware.com">metasmoke</a></strong></p>
 
-**[Userscripts](https://github.com/Charcoal-SE/userscripts)**
-
-</div>
-
+  <p><strong><a href="https://github.com/Charcoal-SE/userscripts">Userscripts</a></strong></p>
 
 </div>
 
 
-<div class="footer footer-insert text-center"><p>Smokey is made with &lt;3 by the <a href="https://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/SmokeDetector/graphs/contributors">contributors</a> from <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>Smokey is made with &lt;3 by the <a href="https://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/SmokeDetector/graphs/contributors">contributors</a> from <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
 </div>
 
     </div>

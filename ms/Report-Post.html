@@ -41,48 +41,56 @@
       
 
 
-<h3>Route Name</h3>
-
+<h3 id="route-name">Route Name</h3>
 <p>Report Post</p>
 
-<h3>Route URL</h3>
-<div class="highlight"><pre><code class="language-" data-lang="">/api/w/post/report
-</code></pre></div>
-<h3>Description &amp; Usage</h3>
+<h3 id="route-url">Route URL</h3>
 
-<p>Use this route to report a post as spam to SmokeDetector. This functions the same as the <code>!!/report</code> command for SmokeDetector in chat, and is implemented by simply sending the details of the report across a websocket connection to SmokeDetector for it to deal with the reporting itself. Use the <code>post_link</code> query string parameter to specify a link to the post you want to report.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>/api/w/post/report
+</code></pre>
+</div>
 
-<p>Since we have no way of knowing the final status of the sent data, this route <em>always</em> returns 201 Created and the plaintext response <code>OK</code>.</p>
+<h3 id="description--usage">Description &amp; Usage</h3>
+<p>Use this route to report a post as spam to SmokeDetector. This functions the same as the <code class="highlighter-rouge">!!/report</code> command for SmokeDetector in chat, and is implemented by simply sending the details of the report across a websocket connection to SmokeDetector for it to deal with the reporting itself. Use the <code class="highlighter-rouge">post_link</code> query string parameter to specify a link to the post you want to report.</p>
 
-<h3>Example</h3>
+<p>Since we have no way of knowing the final status of the sent data, this route <em>always</em> returns 201 Created and the plaintext response <code class="highlighter-rouge">OK</code>.</p>
 
+<h3 id="example">Example</h3>
 <p><strong>Request</strong> (key and token omitted):</p>
-<div class="highlight"><pre><code class="language-" data-lang="">POST /api/w/post/report?post_link=//drupal.stackexchange.com/q/433924 HTTP/1.1
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>POST /api/w/post/report?post_link=//drupal.stackexchange.com/q/433924 HTTP/1.1
+</code></pre>
+</div>
+
 <p><strong>Response</strong> (status 201):</p>
-<div class="highlight"><pre><code class="language-" data-lang="">OK
-</code></pre></div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>OK
+</code></pre>
+</div>
+
 
 <div class="sidebar">
+
 
 
 <p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/Report-Post/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
 
 <div class="sidebar-content sidebar-content-ms">
 
-**[Home](Home)**
+  <p><strong><a href="Home">Home</a></strong></p>
 
-**[API Documentation](API-Documentation)**
+  <p><strong><a href="API-Documentation">API Documentation</a></strong></p>
 
-**[WebSocket API Documentation](WebSocket-API)**
-
-</div>
-
+  <p><strong><a href="WebSocket-API">WebSocket API Documentation</a></strong></p>
 
 </div>
 
 
-<div class="footer footer-insert text-center"><p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
 </div>
 
     </div>
