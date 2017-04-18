@@ -5,3 +5,4 @@ gem 'jekyll-assets', group: :jekyll_plugins
 gem 'autoprefixer-rails'
 gem 'sprockets-es6'
 gem 'uglifier'
+gem 'redcarpet'

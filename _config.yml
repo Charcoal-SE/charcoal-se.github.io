@@ -9,8 +9,16 @@ exclude:
   - Gemfile*
   - vendor/bundle
   - .asset-cache
-kramdown:
-  parse_block_html: true
+markdown: redcarpet
+redcarpet:
+  extensions:
+    - no_intra_emphasis
+    - tables
+    - fenced_code_blocks
+    - smart
+    - autolink
+    - lax_spacing
+    - strikethrough
 assets:
   autoprefixer:
     browsers:
