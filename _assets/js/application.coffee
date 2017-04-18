@@ -6,10 +6,10 @@ $ ->
     parent: 'html'
 
   $(window).on 'load turbolinks:load', ->
-    $('.highlight').removeClass 'highlight'
+    $('.hash-target').removeClass 'hash-target'
 
     if location.hash != ""
-      $(location.hash).parent().addClass 'highlight'
+      $(location.hash).parent().addClass 'hash-target'
 
     $('h2,h3,h4,h5,h6').filter('[id]')
     .filter ->
