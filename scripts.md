@@ -10,5 +10,10 @@ redirect_from:
 <ul class="scripts">
   Loading…
 </ul>
+
+## Other Userscripts
+
+* [Stack Exchange Global Flag Summary](https://raw.githubusercontent.com/Floern/stackoverflow/master/userscripts/SE_global_flag_summary.user.js) ([Stack Apps post](https://stackapps.com/q/7173/34727))
+
 {% css userscripts %}
 {% js userscripts %}
