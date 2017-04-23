@@ -34,7 +34,7 @@ done
 ./create-data-files.rb &
 wait
 
-JEKYLL_ENV=production bundle exec jekyll build --incremental
+JEKYLL_ENV=production bundle exec jekyll build --incremental --profile
 
 cd _site
 cd assets
