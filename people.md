@@ -55,4 +55,6 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Byte Commander](http://chat.stackexchange.com/users/137665/byte-commander)
 *   [DJMcMayhem](http://chat.stackexchange.com/users/144962/djmcmayhem)
 *   [Henders](http://chat.stackexchange.com/users/211021/henders)
+*   [CalvT](http://chat.stackexchange.com/users/64521/calvt)
+*   [QPaysTaxes](http://chat.stackexchange.com/users/137388/qpaystaxes)
 </section>
