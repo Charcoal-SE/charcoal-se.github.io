@@ -96,5 +96,5 @@ Just make a pull request to one of our repositories on GitHub, and one of the ma
 
 ### I need to discuss something with the admins privately, how can I contact them? {#private}
 
-Please email <smokey@charcoal-se.org>, and it will reach the right people.
+Please email <smokey@charcoal-se.org>, and it will reach the right people. This also applies to security issues; see [Security](https://charcoal-se.org/security).
 </section>
