@@ -148,6 +148,10 @@ blockquote {
   border-radius: 4px
 }
 
+h3 {
+  font-size: 1.3em;
+}
+
 .dev-warning {
   @include desktop {
     position: absolute;
