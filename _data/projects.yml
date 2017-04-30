@@ -1,0 +1,7 @@
+- name: metasmoke
+  link: https://metasmoke.erwaysoftware.com/
+- name: metasmoke URL converter
+  link: https://charcoal-se.org/ms-urls
+- name: Blaze
+  link: https://charcoal-se.org/blaze
+  link_extra: data-turbolinks="false"
