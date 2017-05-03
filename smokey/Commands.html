@@ -43,7 +43,7 @@
 
 <p>This wiki page contains a list of commands and their explanation.</p>
 
-<h1 id="commands-for-everyone">Commands for everyone</h1>
+<h2 id="commands-for-everyone">Commands for everyone</h2>
 
 <p>These commands can be executed by everyone.</p>
 
@@ -70,7 +70,7 @@ Note: Please use the squelch suffix (<code class="highlighter-rouge">-</code>) a
   <li><code class="highlighter-rouge">!!/allnotificationsites &lt;chatroom_ID_number&gt;</code> — Shows all sites that you will be pinged for in the given room.</li>
 </ul>
 
-<h1 id="commands-as-reply-for-everyone">Commands as reply for everyone</h1>
+<h2 id="commands-as-reply-for-everyone">Commands as reply for everyone</h2>
 
 <ul>
   <li><code class="highlighter-rouge">why</code> — Shows the reason that SmokeDetector caught a post.<br />
@@ -78,7 +78,7 @@ Note that <code class="highlighter-rouge">why</code> data is only kept for the l
   <li><code class="highlighter-rouge">autoflagged</code> — Returns if the post was autoflagged or not, and if so, what users were used.</li>
 </ul>
 
-<h1 id="privileged-commands">Privileged commands</h1>
+<h2 id="privileged-commands">Privileged commands</h2>
 
 <p>These commands require privileges.
 <!-- These were not in any order. Recommend most-used/useful up top. --></p>
@@ -106,7 +106,7 @@ Note that <code class="highlighter-rouge">why</code> data is only kept for the l
   <li><code class="highlighter-rouge">!!/unblock &lt;room_id&gt;</code> — Unblock SmokeDetector manually in the specific room.</li>
 </ul>
 
-<h1 id="privileged-commands-as-reply">Privileged commands as reply</h1>
+<h2 id="privileged-commands-as-reply">Privileged commands as reply</h2>
 
 <p>These commands require privileges, and have to be posted as a reply to a message of SmokeDetector.</p>
 
@@ -131,7 +131,7 @@ Note that <code class="highlighter-rouge">why</code> data is only kept for the l
   <li><code class="highlighter-rouge">postgone</code> — Edits out the post link of a SmokeDetector report.</li>
 </ul>
 
-<h1 id="silent-mode-and-aliases">Silent mode and aliases</h1>
+<h2 id="silent-mode-and-aliases">Silent mode and aliases</h2>
 
 <p>If you don’t want SmokeDetector to reply when executing a command, add a <code class="highlighter-rouge">-</code> sign at the end, for example <code class="highlighter-rouge">fp-</code>. This is a good practice to cut down on chatroom clutter.  Note that SmokeDetector will always report any errors, even if the <code class="highlighter-rouge">-</code> is present. The hyphen can be placed after the command itself, or after its parameter. The following commands support silent mode: replying to spam reports, managing black- and white-list, and managing chat notifications.</p>
 
@@ -154,14 +154,14 @@ Note that <code class="highlighter-rouge">why</code> data is only kept for the l
 
 </center>
 
-<h1 id="message-deletion">Message deletion</h1>
+<h2 id="message-deletion">Message deletion</h2>
 <p>Messages by SmokeDetector can be deleted within 2 minutes after they were posted by using the <code class="highlighter-rouge">del</code>, <code class="highlighter-rouge">remove</code>, or <code class="highlighter-rouge">gone</code> commands. After 2 minutes are up, SmokeDetector cannot delete its own messages in response to those commands, so any deletion after that window must be done by a moderator.</p>
 
 <p>Messages will also be deleted in Tavern on the Meta and SO Close Vote Reviewers if the relevant post is deleted before the 2-minute window is up; this does not apply in Charcoal HQ.</p>
 
 <p>Messages will also be deleted in Tavern on the Meta and SO Close Vote Reviewers if they are fed back on as a false positive within the 2-minute window.</p>
 
-<h1 id="shortcut-commands">Shortcut commands</h1>
+<h2 id="shortcut-commands">Shortcut commands</h2>
 
 <p>You can now use a shortcut to post a reply to one, two or three messages
 at the same time, in this shape:</p>
