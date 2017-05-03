@@ -4,6 +4,9 @@
   margin-bottom: 1em;
   border-radius: 4px;
   overflow: auto;
+  &::selection {
+    background-color: #e5e5e6;
+  }
 }
 // Source: https://github.com/atom/one-light-syntax/blob/07f3f0f8c46741f60274ccbc3cd858c66c9afd93/styles/colors.less
 // and https://github.com/mgyongyosi/OneDarkJekyll
