@@ -42,5 +42,5 @@ Eventually, when you're familiar with the system, you'll need to ask to be added
 <section>
 ## For developers {#for-devs}
 
-If you're interested in integrating with the SmokeDetector system, we have an [API](https://github.com/Charcoal-SE/metasmoke/wiki/API-Documentation) that you can use to get stats about the system and to perform a limited set of write operations. Again, drop into chat for more information, or the docs are all available in the metasmoke wiki.
+If you're interested in integrating with the SmokeDetector system, we have an [API](/ms/API-Documentation) that you can use to get stats about the system and to perform a limited set of write operations. Again, drop into chat for more information, or the docs are all available in the metasmoke wiki.
 </section>
