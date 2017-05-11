@@ -2,7 +2,8 @@
 <html>
 <head>
   <title>
-    Code | Charcoal
+    
+      Users | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="//charcoal-se.org/assets/application-0e5b485426f9ab4111e4ad65df4cdddf92d00317882d8a6c145e250745bbeb1e.css">
@@ -37,16 +38,85 @@
       </nav>
     </div>
     <div class="body">
-      <p>Website built from:</p>
+      
+
+
+<h3 id="route-name">Route Name</h3>
+<p>Users</p>
+
+<h3 id="route-url">Route URL</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/api/users
+</code></pre>
+</div>
+
+<h3 id="description--usage">Description &amp; Usage</h3>
+<p>This route supplies a list of metasmoke users, optionally filtered by role.</p>
+
+<p>You can use the <code class="highlighter-rouge">per_page</code> query string parameter to adjust how many results you get, up to a maximum of 100.</p>
+
+<p>The <code class="highlighter-rouge">has_more</code> field in the response indicates if there are more results available than have been returned in this result set; use the <code class="highlighter-rouge">page</code> query string parameter to get the next page of results. <code class="highlighter-rouge">?page=1</code> will return the first page; <code class="highlighter-rouge">?page=2</code> the second, and so on.</p>
+
+<p>Adding the option <code class="highlighter-rouge">role</code> query string parameter and providing one of the available metasmoke roles will filter the list of users that are returned. Currently, the available roles are:</p>
 
 <ul>
-  <li>commit <a href="http://github.com/Charcoal-SE/charcoal-se.github.io/commit/f0af10e1d3aedd9456329028591d278cad8be01c" title="f0af10e1d3aedd9456329028591d278cad8be01c"><code class="highlighter-rouge">f0af10e</code></a> on <a href="https://github.com/Charcoal-SE/charcoal-se.github.io">Charcoal-SE/charcoal-se.github.io</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/_compare/a6f214646c96bf7bf3a447c685dc4e0e14706df1" title="a6f214646c96bf7bf3a447c685dc4e0e14706df1"><code class="highlighter-rouge">a6f2146</code></a> on the <a href="//github.com/Charcoal-SE/SmokeDetector/wiki">Charcoal-SE/SmokeDetector wiki</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/metasmoke/wiki/_compare/af0d1e81a94cf49b23b7b6d7c4acfb05800edd94" title="af0d1e81a94cf49b23b7b6d7c4acfb05800edd94"><code class="highlighter-rouge">af0d1e8</code></a> on the <a href="//github.com/Charcoal-SE/metasmoke/wiki">Charcoal-SE/metasmoke wiki</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/charcoal-jekyll-theme/commit/08b4e4f1e597ecd4d788426fa47fa32589e30b50" title="08b4e4f1e597ecd4d788426fa47fa32589e30b50"><code class="highlighter-rouge">08b4e4f</code></a> on <a href="https://github.com/Charcoal-SE/charcoal-jekyll-theme">Charcoal-SE/charcoal-jekyll-theme</a></li>
+  <li>reviewer</li>
+  <li>admin</li>
+  <li>code_admin</li>
+  <li>developer</li>
+  <li>flagger</li>
+  <li>core</li>
 </ul>
 
-<p>This site is powered by <a href="https://jekyllrb.com">Jekyll</a> <a href="https://github.com/jekyll/jekyll/releases/v3.4.2">v3.4.2</a></p>
+<h3 id="example">Example</h3>
+<p><strong>Request:</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>GET /api/users HTTP/1.1
+</code></pre>
+</div>
+
+<p><strong>Response:</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Undo"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"stackexchange_chat_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">73046</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"meta_stackexchange_chat_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">215468</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"stackoverflow_chat_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1849664</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"stack_exchange_account_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1703573</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"has_more"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+
+<div class="sidebar">
+
+
+
+<p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/Users/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+
+<div class="sidebar-content sidebar-content-ms">
+
+  <p><strong><a href="Home">Home</a></strong></p>
+
+  <p><strong><a href="API-Documentation">API Documentation</a></strong></p>
+
+  <p><strong><a href="WebSocket-API">WebSocket API Documentation</a></strong></p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
 
     </div>
     <div class="footer text-center">
@@ -70,13 +140,9 @@
           <a href="http://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
             3 more</a>
         
+          • <a href="/code">More gory details</a>
+        
       </p>
-      
-        <p>
-          <a href="/code">More gory details</a>
-          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/code.md" title="code.md">Edit on GitHub</a>
-          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/new/site">New Page</a>
-        </p>
       
     </div>
   </div>
