@@ -14,6 +14,7 @@ redirect_from:
 ## Other Userscripts
 
 * [Stack Exchange Global Flag Summary](https://raw.githubusercontent.com/Floern/stackoverflow/master/userscripts/SE_global_flag_summary.user.js) ([Stack Apps post](https://stackapps.com/q/7173/34727))
+* [AutoReviewComments](https://raw.github.com/Benjol/SE-AutoReviewComments/master/dist/autoreviewcomments.user.js) ([Stack Apps post](https://stackapps.com/q/2116/34727)) (Enter `https://charcoal-se.org/userscripts/charcoal-autocomments/comments.js` into the remote dialog box)
 
 {% css userscripts %}
 {% js userscripts %}
