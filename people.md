@@ -15,7 +15,7 @@ These people get pinged a lot. (GH) indicates a GitHub organisation admin, and (
 *   [**Undo**](http://chat.stackexchange.com/users/73046/undo) (GH, MS)
 *   [**ArtOfCode**](http://chat.stackexchange.com/users/121520/artofcode) (GH, MS)
 *   [**hichris123**](http://chat.stackexchange.com/users/103081/hichris123) (MS)
-*   [Andy](http://chat.stackexchange.com/users/66258/andy) (MS)
+*   [**Andy**](http://chat.stackexchange.com/users/66258/andy) (MS)
 *   [**angussidney**](http://chat.stackexchange.com/users/145827/angussidney) (MS)
 </section>
 <section>
@@ -33,7 +33,7 @@ These people have, at some point, contributed code, spam checks, or blacklist ad
 *   [Brock Adams](http://chat.stackexchange.com/users/30477/brock-adams)
 *   [rene](http://chat.stackexchange.com/users/60548/rene)
 *   [dorukayhan](http://chat.stackexchange.com/users/209140/dorukayhan)
-*   [NobodyNada](http://chat.stackexchange.com/users/139423/nobodynada)
+*   [**NobodyNada**](http://chat.stackexchange.com/users/139423/nobodynada)
 *   [tripleee](http://chat.stackexchange.com/users/62118/tripleee)
 *   [Glorfindel](http://chat.stackexchange.com/users/164318/glorfindel)
 *   [J F](http://chat.stackexchange.com/users/161943/j-f)
