@@ -212,7 +212,7 @@
   
     "code-html": {
       "title": "Code",
-      "content": "Website built from:\n\n\n  commit acd4594 on Charcoal-SE/charcoal-se.github.io\n  commit 7adc681 on the Charcoal-SE/SmokeDetector wiki\n  commit f9df834 on the Charcoal-SE/metasmoke wiki\n  commit c7d1f77 on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
+      "content": "Website built from:\n\n\n  commit d76a999 on Charcoal-SE/charcoal-se.github.io\n  commit 7adc681 on the Charcoal-SE/SmokeDetector wiki\n  commit f9df834 on the Charcoal-SE/metasmoke wiki\n  commit c7d1f77 on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
       "url": "/pages/Charcoal-SE/code"
     },
   
@@ -220,7 +220,7 @@
   
     "announcements-feed-json": {
       "title": "feed.json",
-      "content": "{\n  \"version\": \"https://jsonfeed.org/version/1\",\n  \"title\": \"Charcoal Announcements\",\n  \"description\": \"Announcements from Charcoal\",\n  \"home_page_url\": \"https://charcoal-se.org\",\n  \"feed_url\": \"https://charcoal-se.org/announcements/feed.json\",\n  \n  \"items\": [\n\n    \n    {\n      \"id\": \"https://charcoal-se.orghttps://charcoal-se.org/announcements/test-announcement.html\",\n      \"url\": \"https://charcoal-se.orghttps://charcoal-se.org/announcements/test-announcement.html\",\n      \"title\": \"Test Announcement\",\n      \n      \"content_html\": \"Announcement here — don’t forget to edit the filename to include the title.\\n\",\n      \n      \"date_published\": \"Wed, 07 Jun 2017 00:00:00 +0000\"\n      },\n    \n    {\n      \"id\": \"https://charcoal-se.orghttps://charcoal-se.org/announcements/first-announcement.html\",\n      \"url\": \"https://charcoal-se.orghttps://charcoal-se.org/announcements/first-announcement.html\",\n      \"title\": \"Announcements are now a thing\",\n      \n      \"content_html\": \"Visit your account settings to turn on emails for new announcements.\\n\",\n      \n      \"date_published\": \"Wed, 07 Jun 2017 00:00:00 +0000\"\n      }\n    \n  ]\n}\n",
+      "content": "{\n  \"version\": \"https://jsonfeed.org/version/1\",\n  \"title\": \"Charcoal Announcements\",\n  \"description\": \"Announcements from Charcoal\",\n  \"home_page_url\": \"https://charcoal-se.org\",\n  \"feed_url\": \"https://charcoal-se.org/announcements/feed.json\",\n  \n  \"items\": [\n\n    \n    {\n      \"id\": \"https://charcoal-se.org/announcements/test-announcement.html\",\n      \"url\": \"https://charcoal-se.org/announcements/test-announcement.html\",\n      \"title\": \"Test Announcement\",\n      \n      \"content_html\": \"Announcement here — don’t forget to edit the filename to include the title.\\n\",\n      \n      \"date_published\": \"Wed, 07 Jun 2017 00:00:00 +0000\"\n      },\n    \n    {\n      \"id\": \"https://charcoal-se.org/announcements/first-announcement.html\",\n      \"url\": \"https://charcoal-se.org/announcements/first-announcement.html\",\n      \"title\": \"Announcements are now a thing\",\n      \n      \"content_html\": \"Visit your account settings to turn on emails for new announcements.\\n\",\n      \n      \"date_published\": \"Wed, 07 Jun 2017 00:00:00 +0000\"\n      }\n    \n  ]\n}\n",
       "url": "/pages/Charcoal-SE/announcements/feed.json"
     },
   

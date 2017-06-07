@@ -9,8 +9,8 @@
 
     
     {
-      "id": "https://charcoal-se.orghttps://charcoal-se.org/announcements/test-announcement.html",
-      "url": "https://charcoal-se.orghttps://charcoal-se.org/announcements/test-announcement.html",
+      "id": "https://charcoal-se.org/announcements/test-announcement.html",
+      "url": "https://charcoal-se.org/announcements/test-announcement.html",
       "title": "Test Announcement",
       
       "content_html": "<p>Announcement here — don’t forget to edit the filename to include the title.</p>\n",
@@ -19,8 +19,8 @@
       },
     
     {
-      "id": "https://charcoal-se.orghttps://charcoal-se.org/announcements/first-announcement.html",
-      "url": "https://charcoal-se.orghttps://charcoal-se.org/announcements/first-announcement.html",
+      "id": "https://charcoal-se.org/announcements/first-announcement.html",
+      "url": "https://charcoal-se.org/announcements/first-announcement.html",
       "title": "Announcements are now a thing",
       
       "content_html": "<p>Visit your <a href=\"https://metasmoke.erwaysoftware.com/users/edit\">account settings</a> to turn on emails for new announcements.</p>\n",
