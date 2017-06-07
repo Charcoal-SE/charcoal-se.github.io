@@ -22,4 +22,5 @@ gems:
   - jekyll-redirect-from
   - jekyll-avatar
 url: https://charcoal-se.org
+baseurl: ''
 permalink: none
