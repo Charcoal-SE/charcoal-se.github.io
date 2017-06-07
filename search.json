@@ -212,7 +212,7 @@
   
     "code-html": {
       "title": "Code",
-      "content": "Website built from:\n\n\n  commit 9a40ef3 on Charcoal-SE/charcoal-se.github.io\n  commit 7adc681 on the Charcoal-SE/SmokeDetector wiki\n  commit f9df834 on the Charcoal-SE/metasmoke wiki\n  commit 08b4e4f on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
+      "content": "Website built from:\n\n\n  commit cff5f26 on Charcoal-SE/charcoal-se.github.io\n  commit 7adc681 on the Charcoal-SE/SmokeDetector wiki\n  commit f9df834 on the Charcoal-SE/metasmoke wiki\n  commit 08b4e4f on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
       "url": "//charcoal-se.org/code"
     },
   
@@ -318,14 +318,6 @@
       "title": "security",
       "content": "## Help! I've found a security bug!\nDon't panic, they happen. If you've found a security issue in any Charcoal project, please don't post it publicly\n(including in Charcoal HQ, our chatroom). Instead, email details of the vulnerability to \n[smokey@charcoal-se.org](mailto:smokey@charcoal-se.org), which is a mailing list that will reach the necessary people.\nThey'll have a look and confirm whether or not it's a security issue, and deal with it appropriately.\n\n## Which projects matter most?\nIf you find a security bug in any of the projects in the list below, please let us know as soon as possible - these are \nprojects which are critical to what Charcoal does or to the security of core Charcoal software.\n\n - [Charcoal-SE/aescrypt](https://github.com/Charcoal-SE/aescrypt)\n - Anything to do with [autoflagging](https://charcoal-se.org/flagging)\n - [SmokeDetector](https://github.com/Charcoal-SE/SmokeDetector) itself, particularly anything involving integration\n   or communication with metasmoke\n - [metasmoke](https://github.com/Charcoal-SE/metasmoke)\n",
       "url": "//charcoal-se.org/security"
-    },
-  
-
-  
-    "testing-html": {
-      "title": "testing",
-      "content": "new announcement\n",
-      "url": "//charcoal-se.org/testing"
     },
   
  "": null }
