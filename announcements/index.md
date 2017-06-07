@@ -1,6 +1,7 @@
 ---
 title: Announcements
-redirect_from: /announcements/index.html
+redirect_from: /announcements
+permalink: /announcements/
 ---
 
 # Announcements
