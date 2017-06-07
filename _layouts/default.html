@@ -18,7 +18,7 @@
     {% if jekyll.environment == 'development' %}<div class="dev-warning">Dev!</div>{% endif %}
     <div class="header">
       <div class="header-icon text-center">
-        <a href="{{ site.baseurl }}/">
+        <a href="{{ site.url }}/">
           {% img charcoal.png height:"64" width title:"Charcoal\: spam-crusaders of the Internet" %}
           <span class="title">
             <span>Charcoal{% if jekyll.environment == 'development' %}<div class="dev-warning mobile">Dev!</div>{% endif %}</span>
@@ -29,12 +29,12 @@
       </div>
       <input type="checkbox" id="nav-toggle">
       <nav class="text-center">
-        <a href="{{ site.baseurl }}/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a>
+        <a href="{{ site.url }}/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a>
         <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq"><i class="fa mobile-only fa-comments-o"></i> chat</a>
-        <a href="{{ site.baseurl }}/more-projects"><i class="fa mobile-only fa-ellipsis-h"></i> more projects</a>
-        <a href="{{ site.baseurl }}/scripts"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a>
-        <a href="{{ site.baseurl }}/smokey/"><i class="fa mobile-only fa-file-text-o"></i> wiki</a>
-        <a href="{{ site.baseurl }}/ms/API-Documentation"><i class="fa mobile-only fa-book"></i> api</a>
+        <a href="{{ site.url }}/more-projects"><i class="fa mobile-only fa-ellipsis-h"></i> more projects</a>
+        <a href="{{ site.url }}/scripts"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a>
+        <a href="{{ site.url }}/smokey/"><i class="fa mobile-only fa-file-text-o"></i> wiki</a>
+        <a href="{{ site.url }}/ms/API-Documentation"><i class="fa mobile-only fa-book"></i> api</a>
         <a href="https://github.com/Charcoal-SE" title="GitHub organization"><i class="fa fa-github"></i><span class="mobile-only"> GitHub</span></a>
         <a href="#" class="search-link"><i class="fa fa-search" title="Search"></i><span class="mobile-only"> Search</span></a>
       </nav>
