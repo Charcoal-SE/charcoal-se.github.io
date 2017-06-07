@@ -212,7 +212,7 @@
   
     "announcements-html": {
       "title": "Announcements",
-      "content": "Announcements\n\n\n  Test Announcement\n    \n      Announcement here — don’t forget to edit the filename to include the title.\n    \n  \n\n\n",
+      "content": "Announcements\n\n\n  Test Announcement\n    \n      Announcement here — don’t forget to edit the filename to include the title.\n    \n  \n  Announcements are now a thing\n    \n      Visit your account settings to turn on emails for new announcements.\n    \n  \n\n\n",
       "url": "//charcoal-se.org/announcements"
     },
   
@@ -220,7 +220,7 @@
   
     "code-html": {
       "title": "Code",
-      "content": "Website built from:\n\n\n  commit f3c7e73 on Charcoal-SE/charcoal-se.github.io\n  commit 7adc681 on the Charcoal-SE/SmokeDetector wiki\n  commit f9df834 on the Charcoal-SE/metasmoke wiki\n  commit 654d5f4 on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
+      "content": "Website built from:\n\n\n  commit dbed5f7 on Charcoal-SE/charcoal-se.github.io\n  commit 7adc681 on the Charcoal-SE/SmokeDetector wiki\n  commit f9df834 on the Charcoal-SE/metasmoke wiki\n  commit 654d5f4 on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
       "url": "//charcoal-se.org/code"
     },
   
