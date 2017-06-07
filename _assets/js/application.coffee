@@ -25,10 +25,11 @@ $ ->
     layout: post
     title: Enter Title Here
     date: #{dateStr}
+    categories: announcements
     ---
     Announcement here — don’t forget to edit the filename to include the title.
     """
-    $('.new-announcement-link').attr href: "https://github.com/Charcoal-SE/charcoal-se.github.io/new/site?filename=_posts/#{dateStr}-title-here.md&value=#{encodedValue}"
+    $('.new-announcement-link').attr href: "https://github.com/Charcoal-SE/charcoal-se.github.io/new/site?filename=_posts/announcements/#{dateStr}-title-here.md&value=#{encodedValue}"
 
     $('h2,h3,h4,h5,h6').filter('[id]')
     .filter ->
