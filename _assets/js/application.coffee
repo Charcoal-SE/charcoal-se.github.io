@@ -14,7 +14,12 @@ $ ->
       $(location.hash).parent().addClass 'hash-target'
       
     date = new Date()
-    dateStr = "#{p(date.getFullYear())}-#{p(date.getMonth() + 1)}-#{p(date.getDate())}"
+    p = (n, length = 2) ->
+      n = String n
+      while n.length < length
+        n = '0' + n
+      n
+    dateStr = "#{p(date.getFullYear(), 4)}-#{p(date.getMonth() + 1)}-#{p(date.getDate())}"
     encodedValue = encodeURIComponent """
     ---
     layout: post
