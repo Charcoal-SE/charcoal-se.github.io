@@ -2,8 +2,7 @@
 <html>
 <head>
   <title>
-    
-      Reasons by ID | Charcoal
+    Announcements | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="//charcoal-se.org/assets/application-0e5b485426f9ab4111e4ad65df4cdddf92d00317882d8a6c145e250745bbeb1e.css">
@@ -38,78 +37,16 @@
       </nav>
     </div>
     <div class="body">
-      
+      <h1 id="announcements">Announcements</h1>
 
+<ul>
+  <li><a href="/announcements/test-announcement.html">Test Announcement</a>
+    <blockquote>
+      <p>Announcement here — don’t forget to edit the filename to include the title.</p>
+    </blockquote>
+  </li>
+</ul>
 
-<h3 id="route-name">Route Name</h3>
-<p>Reasons by ID</p>
-
-<h3 id="route-url">Route URL</h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>/api/reasons/:ids
-</code></pre>
-</div>
-
-<h3 id="description--usage">Description &amp; Usage</h3>
-<p>This route allows you to get data about reasons by specifying their IDs. Replace <code class="highlighter-rouge">:ids</code> in the URL with a semicolon-delimited list of metasmoke reason IDs (which can be found on the metasmoke dashboard - look in the link to each reason), and all database fields on each reason will be returned.</p>
-
-<p>You can use the <code class="highlighter-rouge">per_page</code> query string parameter to adjust how many results you get, up to a maximum of 100.</p>
-
-<p>The <code class="highlighter-rouge">has_more</code> field in the response indicates if there are more results available than have been returned in this result set; use the <code class="highlighter-rouge">page</code> query string parameter to get the next page of results. <code class="highlighter-rouge">?page=1</code> will return the first page; <code class="highlighter-rouge">?page=2</code> the second, and so on.</p>
-
-<h3 id="example">Example</h3>
-<p><strong>Request:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>HTTP/1.1 GET /api/reasons/47;67
-</code></pre>
-</div>
-
-<p><strong>Response:</strong></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"items"</span><span class="p">:[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">47</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"reason_name"</span><span class="p">:</span><span class="s2">"Phone number detected in title"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"last_post_title"</span><span class="p">:</span><span class="s2">"1.8.0.0. .8.4.1. 6.4.3.6. N.e.t.f.l.i.x C.u.s.t.o.me.r. S.u.p.po.r.t P.h.on.e N.u.mb.e.r"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"inactive"</span><span class="p">:</span><span class="kc">false</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">67</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"reason_name"</span><span class="p">:</span><span class="s2">"Black magic in title"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"last_post_title"</span><span class="p">:</span><span class="s2">"black magic Specialist 9928749449"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"inactive"</span><span class="p">:</span><span class="kc">false</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"has_more"</span><span class="p">:</span><span class="kc">false</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
-
-
-<div class="sidebar">
-
-
-
-<p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/Reasons-by-ID/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
-
-<div class="sidebar-content sidebar-content-ms">
-
-  <p><strong><a href="Home">Home</a></strong></p>
-
-  <p><strong><a href="API-Documentation">API Documentation</a></strong></p>
-
-  <p><strong><a href="WebSocket-API">WebSocket API Documentation</a></strong></p>
-
-</div>
-
-
-</div>
-
-
-<div class="footer footer-insert text-center">
-<p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
-</div>
 
     </div>
     <div class="footer text-center">
@@ -133,9 +70,13 @@
           <a href="http://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
             3 more</a>
         
-          • <a href="/code">More gory details</a>
-        
       </p>
+      
+        <p>
+          <a href="/code">More gory details</a>
+          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/announcements.md" title="announcements.md">Edit on GitHub</a>
+          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/new/site">New Page</a>
+        </p>
       
     </div>
   </div>
