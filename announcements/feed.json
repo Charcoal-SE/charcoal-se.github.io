@@ -15,8 +15,8 @@
 
     {% for post in site.categories.announcements %}
     {
-      "id": "{{ post.url | prepend: site.url | prepend: site.url }}",
-      "url": "{{ post.url | prepend: site.url | prepend: site.url }}",
+      "id": "{{ post.url |  prepend: site.url }}",
+      "url": "{{ post.url | prepend: site.url }}",
       "title": {{ post.title | jsonify }},
       {% if post.excerpt %}
       "content_html": {{ post.excerpt | jsonify  }},
