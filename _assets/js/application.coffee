@@ -24,7 +24,7 @@ $ ->
     ---
     layout: post
     title: Enter Title Here
-    date:2017-06-07
+    date: #{dateStr}
     ---
     Announcement here — don’t forget to edit the filename to include the title.
     """
