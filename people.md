@@ -3,7 +3,7 @@
 
 # People
 
-These are the people who make it all work. People in **bold** have credentials to run SmokeDetector, including metasmoke integration tokens.
+These are the people who make it all work. People in **bold** have credentials to run SmokeDetector, including metasmoke integration tokens. People with (RO) after their names are room owners.
 
 If you're wondering who you should talk to about something, [there's a guide for that](/pings).
 
@@ -12,11 +12,11 @@ If you're wondering who you should talk to about something, [there's a guide for
 
 These people get pinged a lot. (GH) indicates a GitHub organisation admin, and (MS) indicates an admin on metasmoke.
 
-*   [**Undo**](http://chat.stackexchange.com/users/73046/undo) (GH, MS)
-*   [**ArtOfCode**](http://chat.stackexchange.com/users/121520/artofcode) (GH, MS)
-*   [**hichris123**](http://chat.stackexchange.com/users/103081/hichris123) (MS)
-*   [**Andy**](http://chat.stackexchange.com/users/66258/andy) (MS)
-*   [**angussidney**](http://chat.stackexchange.com/users/145827/angussidney) (MS)
+*   [**Undo**](http://chat.stackexchange.com/users/73046/undo) (GH, MS, RO)
+*   [**ArtOfCode**](http://chat.stackexchange.com/users/121520/artofcode) (GH, MS, RO)
+*   [**hichris123**](http://chat.stackexchange.com/users/103081/hichris123) (MS, RO)
+*   [**Andy**](http://chat.stackexchange.com/users/66258/andy) (MS, RO)
+*   [**angussidney**](http://chat.stackexchange.com/users/145827/angussidney) (MS, RO)
 </section>
 <section>
 ## Developers {#devs}
@@ -24,17 +24,17 @@ These people get pinged a lot. (GH) indicates a GitHub organisation admin, and (
 These people have, at some point, contributed code, spam checks, or blacklist additions. If you're wondering why you're not on the list, there's a threshold at play here to stop the list getting too long.
 
 *   [zaq](http://chat.stackexchange.com/users/117490/zaq)
-*   [ProgramFOX](http://chat.stackexchange.com/users/88521/programfox)
-*   [ManishEarth](http://chat.stackexchange.com/users/31768/manishearth)
-*   [Ferrybig](http://chat.stackexchange.com/users/58529/ferrybig)
+*   [ProgramFOX](http://chat.stackexchange.com/users/88521/programfox) (RO)
+*   [ManishEarth](http://chat.stackexchange.com/users/31768/manishearth) (RO)
+*   [Ferrybig](http://chat.stackexchange.com/users/58529/ferrybig) (RO)
 *   [Ashish Ahuja](http://chat.stackexchange.com/users/181293/ashish-ahuja)
-*   [**Thomas Ward**](http://chat.stackexchange.com/users/10145/thomas-ward)
+*   [**Thomas Ward**](http://chat.stackexchange.com/users/10145/thomas-ward) (RO)
 *   [Magisch](http://chat.stackexchange.com/users/171054/magisch)
 *   [Brock Adams](http://chat.stackexchange.com/users/30477/brock-adams)
 *   [rene](http://chat.stackexchange.com/users/60548/rene)
 *   [dorukayhan](http://chat.stackexchange.com/users/209140/dorukayhan)
 *   [**NobodyNada**](http://chat.stackexchange.com/users/139423/nobodynada)
-*   [tripleee](http://chat.stackexchange.com/users/62118/tripleee)
+*   [tripleee](http://chat.stackexchange.com/users/62118/tripleee) (RO)
 *   [Glorfindel](http://chat.stackexchange.com/users/164318/glorfindel)
 *   [J F](http://chat.stackexchange.com/users/161943/j-f)
 *   [Cerbrus](http://chat.stackexchange.com/users/126657/cerbrus)
