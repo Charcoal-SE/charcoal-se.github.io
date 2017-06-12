@@ -8,6 +8,6 @@ Charcoal includes people from around the world. If you're looking for someone wh
 * **German**: [Glorfindel](http://stackexchange.com/users/6085540/glorfindel)
 * **Hebrew**: [Mithrandir](http://stackexchange.com/users/5129611/mithrandir)
 * **Polish**: [Michał Perłakowski](http://stackexchange.com/users/4768421/micha%c5%82-per%c5%82akowski)
-* **Spanish/Castellano**: [CalvT](http://stackexchange.com/users/1245478/calvt)
+* **Spanish**: [CalvT](http://stackexchange.com/users/1245478/calvt)
 
 If you're not on this list, please ping `@JF` or another website maintainer in chat to get yourself added. 
