@@ -1,7 +1,6 @@
 #= require vendor/jquery
 #= require search-stub
 
-# https://github.com/Charcoal-SE/charcoal-se.github.io/new/site?filename=_posts/2017-06-07-title-here.md&value=---%0Alayout:%20post%0Atitle:%20Enter%20Title%20Here%0Adate:2017-06-07%0A---%0AAnnouncement%20Here%20%E2%80%94%20don%E2%80%99t%20forget%20to%20edit%20the%20filename%20to%20include%20the%20title
 $ ->
   navTimeout = null
   NProgress.configure
@@ -12,7 +11,7 @@ $ ->
 
     if location.hash != ""
       $(location.hash).parent().addClass 'hash-target'
-      
+
     date = new Date()
     p = (n, length = 2) ->
       n = String n
