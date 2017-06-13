@@ -5,7 +5,7 @@
     404 Not Found | Charcoal
     
   </title>
-  <link type="text/css" rel="stylesheet" href="https://charcoal-se.org/assets/application-0e5b485426f9ab4111e4ad65df4cdddf92d00317882d8a6c145e250745bbeb1e.css">
+  <link type="text/css" rel="stylesheet" href="https://charcoal-se.org/assets/application-def59906ce62c1ef1fb55af0dd9fb46357227c80043124c330f741703340fb2d.css">
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch"></script>
   <script type="text/javascript" src="https://charcoal-se.org/assets/application-49b55bfd390519fc1a0c15f247835e230506bd0b4024e40069eb5cd21289f121.js"></script>
   <script type="text/javascript" src="https://charcoal-se.org/assets/vendor-fad6853c80b4f83dd9b9327d08ae015076a89c51d5a959e0c9ef73241509de15.js"></script>
@@ -26,15 +26,29 @@
         <label class="nav-toggle-icon fa fa-bars fa-lg" for="nav-toggle"></label>
       </div>
       <input type="checkbox" id="nav-toggle">
-      <nav class="text-center">
-        <a href="https://charcoal-se.org/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a>
-        <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq"><i class="fa mobile-only fa-comments-o"></i> chat</a>
-        <a href="https://charcoal-se.org/more-projects"><i class="fa mobile-only fa-ellipsis-h"></i> more projects</a>
-        <a href="https://charcoal-se.org/scripts"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a>
-        <a href="https://charcoal-se.org/smokey/"><i class="fa mobile-only fa-file-text-o"></i> wiki</a>
-        <a href="https://charcoal-se.org/ms/API-Documentation"><i class="fa mobile-only fa-book"></i> api</a>
-        <a href="https://github.com/Charcoal-SE" title="GitHub organization"><i class="fa fa-github"></i><span class="mobile-only"> GitHub</span></a>
-        <a href="#" class="search-link"><i class="fa fa-search" title="Search"></i><span class="mobile-only"> Search</span></a>
+      <nav class="text-center top-nav">
+        <ul>
+          <li><a href="https://charcoal-se.org/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a></li>
+          <li><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq"><i class="fa mobile-only fa-comments-o"></i> chat</a></li>
+          <li>
+            <label class="link" for="projects-toggle">
+              more projects <i class="fa fa-chevron-down"></i>
+            </label>
+            <input type="checkbox" id="projects-toggle">
+            <nav class="nav-dropdown">
+              <a href="https://metasmoke.erwaysoftware.com/" >metasmoke</a>
+            
+              <a href="https://charcoal-se.org/ms-urls" >metasmoke URL converter</a>
+            
+              <a href="https://charcoal-se.org/blaze" data-turbolinks="false">Blaze</a>
+            </nav>
+          </li>
+          <li><a href="https://charcoal-se.org/scripts"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a></li>
+          <li><a href="https://charcoal-se.org/smokey/"><i class="fa mobile-only fa-file-text-o"></i> wiki</a></li>
+          <li><a href="https://charcoal-se.org/ms/API-Documentation"><i class="fa mobile-only fa-book"></i> api</a></li>
+          <li><a href="https://github.com/Charcoal-SE" title="GitHub organization"><i class="fa fa-github"></i><span class="mobile-only"> GitHub</span></a></li>
+          <li><a href="#" class="search-link"><i class="fa fa-search" title="Search"></i><span class="mobile-only"> Search</span></a></li>
+        </ul>
       </nav>
     </div>
     <div class="body">
@@ -86,7 +100,7 @@ if (document.referrer) {
   </div>
   <script>
     window.searchLoadPath = "https://charcoal-se.org/assets/search-6ad9e78a0cf31baffce21cffc74c749100f081c7988c4ca3e67fc513fdb06933.js"
-    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/announcements": "https://charcoal-se.org/https://charcoal-se.org/announcements/", "/smokey/Home": "https://charcoal-se.org/https://charcoal-se.org/smokey/", "/smokey/Home": "https://charcoal-se.org/https://charcoal-se.org/smokey/", "/smokey": "https://charcoal-se.org/https://charcoal-se.org/smokey/", "/ms/Home": "https://charcoal-se.org/https://charcoal-se.org/ms/", "/ms/Home": "https://charcoal-se.org/https://charcoal-se.org/ms/", "/ms": "https://charcoal-se.org/https://charcoal-se.org/ms/", "/other-sites": "https://charcoal-se.org/https://charcoal-se.org/more-projects", "/userscripts/": "https://charcoal-se.org/https://charcoal-se.org/scripts.html", "/userscripts": "https://charcoal-se.org/https://charcoal-se.org/scripts.html",  }
+    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/announcements": "https://charcoal-se.org/https://charcoal-se.org/announcements/", "/smokey/Home": "https://charcoal-se.org/https://charcoal-se.org/smokey/", "/smokey/Home": "https://charcoal-se.org/https://charcoal-se.org/smokey/", "/smokey": "https://charcoal-se.org/https://charcoal-se.org/smokey/", "/ms/Home": "https://charcoal-se.org/https://charcoal-se.org/ms/", "/ms/Home": "https://charcoal-se.org/https://charcoal-se.org/ms/", "/ms": "https://charcoal-se.org/https://charcoal-se.org/ms/", "/userscripts/": "https://charcoal-se.org/https://charcoal-se.org/scripts.html", "/userscripts": "https://charcoal-se.org/https://charcoal-se.org/scripts.html",  }
   </script>
 </body>
 </html>

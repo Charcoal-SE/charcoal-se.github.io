@@ -212,7 +212,7 @@
   
     "code-html": {
       "title": "Code",
-      "content": "Website built from:\n\n\n  commit af68c7f on Charcoal-SE/charcoal-se.github.io\n  commit 7adc681 on the Charcoal-SE/SmokeDetector wiki\n  commit f9df834 on the Charcoal-SE/metasmoke wiki\n  commit 60c6419 on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
+      "content": "Website built from:\n\n\n  commit c5f2ee4 on Charcoal-SE/charcoal-se.github.io\n  commit 7adc681 on the Charcoal-SE/SmokeDetector wiki\n  commit f9df834 on the Charcoal-SE/metasmoke wiki\n  commit d8df033 on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
       "url": "https://charcoal-se.org/code"
     },
   
@@ -284,14 +284,6 @@
   
 
   
-    "more-projects": {
-      "title": "Other Charcoal Projects",
-      "content": "Other Charcoal Projects\n\n\n  metasmoke\n  metasmoke URL converter\n  Blaze\n\n",
-      "url": "https://charcoal-se.org/more-projects"
-    },
-  
-
-  
     "ms-urls-html": {
       "title": "Convert URLs",
       "content": "Convert\nConvert Stack Exchange URLs to metasmoke URLs\n\n\n\n\n  \n  \n  \n\n\n\n\n\n\n",
@@ -313,8 +305,6 @@
       "content": "Userscripts  Build status loading…\n\n\n  Loading…\n\n\nOther Userscripts\n\n\n  Stack Exchange Global Flag Summary (Stack Apps post)\n  AutoReviewComments (Stack Apps post) (Enter https://charcoal-se.org/userscripts/charcoal-autocomments/comments.js into the remote dialog box)\n\n\n\n\n\n\n",
       "url": "https://charcoal-se.org/scripts"
     },
-  
-
   
 
   
