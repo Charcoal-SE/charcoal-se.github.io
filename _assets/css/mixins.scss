@@ -15,17 +15,17 @@ $big-breakpoint: 1567px;
 }
 
 @mixin desktop {
-  @media (min-width: $breakpoint) {
+  @media (min-width: $breakpoint + 1px) {
     @content;
   }
 }
 
-@media (max-width: $breakpoint) {
+@include mobile {
   .hide-on-mobile, .desktop-only {
     display: none;
   }
 }
-@media (min-width: $breakpoint) {
+@include desktop {
   .hide-on-desktop, .mobile-only {
     display: none;
   }
