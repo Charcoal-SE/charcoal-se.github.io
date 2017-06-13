@@ -12,24 +12,75 @@
 #nav-toggle {
   display: none;
   @include mobile {
-    &:not(:checked) + nav {
+    &:not(:checked) + .top-nav {
       display: none;
     }
   }
 }
 
-nav {
-  margin-left: -20px;
-  margin-right: -20px;
+nav.nav-dropdown {
+  display: flex;
+  flex-direction: column;
   @include desktop {
+    position: absolute;
+    left: 0;
+    padding: 0.25em 0.5em;
+    margin-top: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  @include mobile {
+    margin: 0.5em -0.5em -0.5em;
+  }
+
+  text-align: initial;
+  white-space: nowrap;
+
+  background: white;
+
+  transition: all 0.4s;
+  transform-origin: top right;
+
+  > a {
+    text-transform: none;
+    @include desktop {
+      line-height: 1.5;
+    }
+    @include mobile {
+      padding: 0.5em 1em;
+      border-top: 1px solid transparentize($red-text, 0.5);
+    }
+  }
+}
+#projects-toggle {
+  display: none;
+  &:not(:checked) + .nav-dropdown  {
+    @include desktop {
+      transform: scaleY(0);
+      opacity: 0;
+    }
+    @include mobile {
+      display: none;
+    }
+  }
+}
+
+.top-nav ul {
+  margin: 0;
+  padding: 0;
+  @include desktop {
+    margin-left: -20px;
+    margin-right: -20px;
     margin-bottom: 1em;
   }
 
-  a {
+  > li {
     display: inline-block;
     border: 0 solid $red-text;
     border-right-width: 2px;
     line-height: 100%;
+    position: relative;
+
     &:last-child {
       border-right: none;
     }
@@ -43,19 +94,23 @@ nav {
       padding: 0 20px;
     }
     text-transform: uppercase;
-    transition: all 0.2s ease;
     letter-spacing: 0.03em;
 
-    &, &:visited {
-      text-decoration: none !important;
-      color: $dark-gray-text;
+    a, .link {
+      transition: all 0.2s ease;
+      &, &:visited {
+        cursor: pointer;
+        text-decoration: none !important;
+        color: $dark-gray-text;
+      }
+      &:hover, &:focus, &:active {
+        /* Hack courtsey of http://stackoverflow.com/a/14978871/4622463 */
+        text-shadow: 1px 0 0 $red-text;
+        letter-spacing: 0.03em;
+        color: $red-text;
+      }
     }
-    &:hover, &:focus, &:active {
-      /* Hack courtsey of http://stackoverflow.com/a/14978871/4622463 */
-      text-shadow: 1px 0 0 $red-text;
-      letter-spacing: 0.03em;
-      color: $red-text;
-    }
+
     i {
       text-shadow: none;
     }
