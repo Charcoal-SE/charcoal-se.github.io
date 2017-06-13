@@ -1,21 +1,19 @@
 const key = '1658080a59604fa5386e39290dd415ed5270dc6f12fab053cd4cc3d32cb154d4'
 
-async function getUsers() {
-  let users = []
-  let more = false
-  let page = 1
-  do {
-    const res = await fetch(`https://metasmoke.erwaysoftware.com/api/users?per_page=100&key=${key}&page=${page}`)
-    let json = await res.json()
-    more = json.has_more
-    users = users.concat(json.items)
-    page++
-  } while (more)
-  return users
+function getUsers(page = 1, users = []) {
+  return fetch(`https://metasmoke.erwaysoftware.com/api/users?per_page=100&key=${key}&page=${page}`)
+    .then(res => res.json())
+    .then({ has_more: hasMore, items } => {
+      users = users.concat(items)
+      if (hasMore) {
+        return getUsers(page + 1, users)
+      } else {
+        return users
+      }
+    })
 }
 
-(async () => {
-  const users = await getUsers()
+getUsers().then(users => {
   const sites = {}
   const modSites = {}
   for (const user of users) {
@@ -75,4 +73,4 @@ async function getUsers() {
     $ul.append($li)
   }
   $('.mod-info').empty().append($ul)
-})()
+})
