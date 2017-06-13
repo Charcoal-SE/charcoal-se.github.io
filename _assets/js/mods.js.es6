@@ -1,8 +1,6 @@
 const key = '1658080a59604fa5386e39290dd415ed5270dc6f12fab053cd4cc3d32cb154d4'
 
-function getUsers(page, users) {
-  page = page || 1
-  users = users || []
+function getUsers(page = 1, users = 1) {
   return fetch(`https://metasmoke.erwaysoftware.com/api/users?per_page=100&key=${key}&page=${page}`)
     .then(res => res.json())
     .then({ has_more: hasMore, items } => {
