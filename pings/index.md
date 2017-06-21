@@ -52,9 +52,21 @@ Look in the source code of the userscript on GitHub, the author's name can be fo
 </section>
 <section>
 
-### I'd like to contact one of the maintainers of the website
+### I'd like to contact one of the maintainers of the website {#site}
 
 J F, angussidney, and ArtOfCode are the primary authors of the website.
+</section>
+<section>
+
+### I'd like to speak with a moderator about something Charcoal-related {#mods}
+
+If you find a post that needs moderator attention in general, please just **flag it** on the site. However, if you need to speak to a moderator about something specifically Charcoal-related, [these mods](/pings/mods) should be able to help you.
+</section>
+<section>
+
+### I'd like to get someone's help to translate some possible spam into English {#translation}
+
+[This page](/pings/langs) has a list of people who speak languages other than English.
 </section>
 <section>
 
