@@ -3,7 +3,7 @@
 Charcoal includes people from around the world. If you're looking for someone who speaks a particular language, please check this list:
 
 * **Arabic**: [M.A.R.](http://stackexchange.com/users/3841881/m-a-r)
-* **Dutch**: [Glorfindel](http://stackexchange.com/users/6085540/glorfindel) and [rene](https://stackexchange.com/users/281857/rene)
+* **Dutch**: [Glorfindel](http://stackexchange.com/users/6085540/glorfindel), [Ferrybig](https://stackexchange.com/users/1677570/ferrybig), and [rene](https://stackexchange.com/users/281857/rene)
 * **French**: [Kyll](http://stackexchange.com/users/5221606/kyll)
 * **German**: [Magisch](https://stackexchange.com/users/7034529/magisch), [Wrzlprmft](https://stackexchange.com/users/2437491/wrzlprmft), [Glorfindel](http://stackexchange.com/users/6085540/glorfindel), and [rene](https://stackexchange.com/users/281857/rene)
 * **Hebrew**: [Mithrandir](http://stackexchange.com/users/5129611/mithrandir)
