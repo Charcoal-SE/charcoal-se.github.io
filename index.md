@@ -56,10 +56,10 @@ Every time a post comes in, we grab the full details of the post from the
 Requests are bundled up wherever possible to save on our
 10,000 requests per day API quota.
 Once we have the details, including the full text of the body,
-we run the post's body, title, and owner's username through
+we run the post's body text, title, and owner's username through
 [a whole load of tests](https://github.com/Charcoal-SE/SmokeDetector/blob/master/findspam.py),
-including several miles of regex (not literally) to determine
-whether or not the post is spam.
+including several miles of regex (not literally)
+to determine whether or not the post is spam.
 
 If we determine that the post is spam, we post a report of that fact
 to Charcoal HQ (and to some other chatrooms, based on certain conditions).
@@ -71,6 +71,11 @@ to say whether the report was correct or not.
 We store this feedback in our web dashboard,
 [metasmoke](https://metasmoke.erwaysoftware.com),
 which is itself complex enough that it's a story for another day.
+
+Since early 2017, we also have the possibility to automatically
+flag a post on behalf of volunteers who signed up for autoflagging.
+A post will never receive more than three of these automatic flags;
+we want to make sure every post is also reviewed by humans.
 </section>
 <section>
 ## Want to get involved? {#get-involved}
