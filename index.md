@@ -93,6 +93,9 @@ so that you can interact with SmokeDetector.
 There's a [wiki page](https://github.com/Charcoal-SE/SmokeDetector/wiki/Privileges)
 about that you should read before you ask;
 it'll give you some guidance about what we need from you and what you need to do.
+There's also a page with [who to ping](https://charcoal-se.org/pings/)
+which enumerates the persons who are responsible for various parts
+and various privileges.
 </section>
 <section>
 ## For developers {#for-devs}
