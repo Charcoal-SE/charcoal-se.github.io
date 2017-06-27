@@ -36,6 +36,9 @@ It's administered and developed by the [team of people](/people) you can find in
 our co-ordination chatroom.
 That's also where the posts that Smokey thinks are spam get reported to.
 
+A slightly more detailed introduction is available in this Meta post from early 2017:
+[Can a machine be taught to flag spam automatically?](https://meta.stackexchange.com/questions/291301)
+
 **Fact:** If you wrote all our spam tests out vertically at point size 36, they'd be as tall as the
 [One World Trade Center](https://en.wikipedia.org/wiki/One_World_Trade_Center).
 </section>
