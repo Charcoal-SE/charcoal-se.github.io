@@ -104,5 +104,6 @@ If you're interested in integrating with the SmokeDetector system, we have an
 [API](/ms/API-Documentation) that you can use to get stats about the system
 and to perform a limited set of write operations.
 Again, drop into chat for more information,
-or the docs are all available in the metasmoke wiki.
+or the docs are all available in the
+[metasmoke wiki](https://github.com/Charcoal-SE/metasmoke/wiki).
 </section>
