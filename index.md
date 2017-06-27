@@ -105,5 +105,5 @@ If you're interested in integrating with the SmokeDetector system, we have an
 and to perform a limited set of write operations.
 Again, drop into chat for more information,
 or the docs are all available in the
-[metasmoke wiki](https://github.com/Charcoal-SE/metasmoke/wiki).
+[metasmoke wiki](/ms).
 </section>
