@@ -8,7 +8,7 @@ def jekyll_front_matter(path)
   m = ["---"]
   m << "layout: wiki"
   if path.include? "index.md"
-    dir = "/#{File.dirname path}"
+    dir = "#{File.dirname path}"
     m << "permalink: #{dir}/"
     m << "redirect_from:"
     m << "- #{dir}/Home.html"
