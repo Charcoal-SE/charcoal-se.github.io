@@ -21,5 +21,5 @@ assets:
 gems:
   - jekyll-redirect-from
   - jekyll-avatar
-baseurl: /
+baseurl: ''
 permalink: none
