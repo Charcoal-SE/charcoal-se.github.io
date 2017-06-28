@@ -60,13 +60,13 @@
       <p>
         <a href="{{ site.github.repository_url }}">Website Source</a>
         • By
-          {% for user in site.github.contributors limit:3 %}
+          {% for user in site.github.contributors limit:4 %}
             <a href="{{ user.html_url }}" class="avatar-link">
               {% avatar user=user.login size=16 %}{{ user.login }}</a>,
           {% endfor %}
           and
           <a href="{{ site.github.repository_url }}/graphs/contributors">
-            {{ site.github.contributors.size|minus:3 }} more</a>
+            {{ site.github.contributors.size|minus:4 }} more</a>
         {% if page.layout == 'wiki' %}
           • <a href="/code">More gory details</a>
         {% endif %}
