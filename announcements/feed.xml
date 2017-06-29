@@ -3,8 +3,8 @@
   <channel>
     <title>Charcoal - Announcements</title>
     <description>Announcements from Charcoal</description>
-    <link>http://github.com</link>
-    <atom:link href="http://github.com/announcements/feed.xml" rel="self" type="application/rss+xml" />
+    <link>https://charcoal-se.org/</link>
+    <atom:link href="https://charcoal-se.org//announcements/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>Test Announcement</title>
@@ -13,8 +13,8 @@
 </description>
         
         <pubDate>Wed, 07 Jun 2017 00:00:00 +0000</pubDate>
-        <link>http://github.com/announcements/test-announcement.html</link>
-        <guid isPermaLink="true">http://github.com/announcements/test-announcement.html</guid>
+        <link>https://charcoal-se.org//announcements/test-announcement.html</link>
+        <guid isPermaLink="true">https://charcoal-se.org//announcements/test-announcement.html</guid>
       </item>
     
       <item>
@@ -24,8 +24,8 @@
 </description>
         
         <pubDate>Wed, 07 Jun 2017 00:00:00 +0000</pubDate>
-        <link>http://github.com/announcements/first-announcement.html</link>
-        <guid isPermaLink="true">http://github.com/announcements/first-announcement.html</guid>
+        <link>https://charcoal-se.org//announcements/first-announcement.html</link>
+        <guid isPermaLink="true">https://charcoal-se.org//announcements/first-announcement.html</guid>
       </item>
     
   </channel>

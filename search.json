@@ -212,7 +212,7 @@
   
     "code-html": {
       "title": "Code",
-      "content": "Website built from:\n\n\n  commit 0355d78 on Charcoal-SE/charcoal-se.github.io\n  commit 7adc681 on the Charcoal-SE/SmokeDetector wiki\n  commit f9df834 on the Charcoal-SE/metasmoke wiki\n  commit 44e5875 on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
+      "content": "Website built from:\n\n\n  commit 0355d78 on Charcoal-SE/charcoal-se.github.io\n  commit 7adc681 on the Charcoal-SE/SmokeDetector wiki\n  commit f9df834 on the Charcoal-SE/metasmoke wiki\n  commit f8a9901 on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
       "url": "//code"
     },
   
@@ -220,7 +220,7 @@
   
     "announcements-feed-json": {
       "title": "feed.json",
-      "content": "{\n  \"version\": \"https://jsonfeed.org/version/1\",\n  \"title\": \"Charcoal Announcements\",\n  \"description\": \"Announcements from Charcoal\",\n  \"home_page_url\": \"http://github.com\",\n  \"feed_url\": \"http://github.com/announcements/feed.json\",\n  \n  \"items\": [\n\n    \n    {\n      \"id\": \"http://github.com/announcements/test-announcement.html\",\n      \"url\": \"http://github.com/announcements/test-announcement.html\",\n      \"title\": \"Test Announcement\",\n      \n      \"content_html\": \"Announcement here — don’t forget to edit the filename to include the title.\\n\",\n      \n      \"date_published\": \"Wed, 07 Jun 2017 00:00:00 +0000\"\n      },\n    \n    {\n      \"id\": \"http://github.com/announcements/first-announcement.html\",\n      \"url\": \"http://github.com/announcements/first-announcement.html\",\n      \"title\": \"Announcements are now a thing\",\n      \n      \"content_html\": \"Visit your account settings to turn on emails for new announcements.\\n\",\n      \n      \"date_published\": \"Wed, 07 Jun 2017 00:00:00 +0000\"\n      }\n    \n  ]\n}\n",
+      "content": "{\n  \"version\": \"https://jsonfeed.org/version/1\",\n  \"title\": \"Charcoal Announcements\",\n  \"description\": \"Announcements from Charcoal\",\n  \"home_page_url\": \"https://charcoal-se.org/\",\n  \"feed_url\": \"https://charcoal-se.org//announcements/feed.json\",\n  \n  \"items\": [\n\n    \n    {\n      \"id\": \"https://charcoal-se.org//announcements/test-announcement.html\",\n      \"url\": \"https://charcoal-se.org//announcements/test-announcement.html\",\n      \"title\": \"Test Announcement\",\n      \n      \"content_html\": \"Announcement here — don’t forget to edit the filename to include the title.\\n\",\n      \n      \"date_published\": \"Wed, 07 Jun 2017 00:00:00 +0000\"\n      },\n    \n    {\n      \"id\": \"https://charcoal-se.org//announcements/first-announcement.html\",\n      \"url\": \"https://charcoal-se.org//announcements/first-announcement.html\",\n      \"title\": \"Announcements are now a thing\",\n      \n      \"content_html\": \"Visit your account settings to turn on emails for new announcements.\\n\",\n      \n      \"date_published\": \"Wed, 07 Jun 2017 00:00:00 +0000\"\n      }\n    \n  ]\n}\n",
       "url": "//announcements/feed.json"
     },
   
@@ -228,7 +228,7 @@
   
     "announcements-feed-xml": {
       "title": "feed.xml",
-      "content": "\n\n  \n    Charcoal - Announcements\n    Announcements from Charcoal\n    http://github.com\n    \n    \n      \n        Test Announcement\n        \n          &lt;p&gt;Announcement here — don’t forget to edit the filename to include the title.&lt;/p&gt;\n\n        \n        Wed, 07 Jun 2017 00:00:00 +0000\n        http://github.com/announcements/test-announcement.html\n        http://github.com/announcements/test-announcement.html\n      \n    \n      \n        Announcements are now a thing\n        \n          &lt;p&gt;Visit your &lt;a href=&quot;https://metasmoke.erwaysoftware.com/users/edit&quot;&gt;account settings&lt;/a&gt; to turn on emails for new announcements.&lt;/p&gt;\n\n        \n        Wed, 07 Jun 2017 00:00:00 +0000\n        http://github.com/announcements/first-announcement.html\n        http://github.com/announcements/first-announcement.html\n      \n    \n  \n\n",
+      "content": "\n\n  \n    Charcoal - Announcements\n    Announcements from Charcoal\n    https://charcoal-se.org/\n    \n    \n      \n        Test Announcement\n        \n          &lt;p&gt;Announcement here — don’t forget to edit the filename to include the title.&lt;/p&gt;\n\n        \n        Wed, 07 Jun 2017 00:00:00 +0000\n        https://charcoal-se.org//announcements/test-announcement.html\n        https://charcoal-se.org//announcements/test-announcement.html\n      \n    \n      \n        Announcements are now a thing\n        \n          &lt;p&gt;Visit your &lt;a href=&quot;https://metasmoke.erwaysoftware.com/users/edit&quot;&gt;account settings&lt;/a&gt; to turn on emails for new announcements.&lt;/p&gt;\n\n        \n        Wed, 07 Jun 2017 00:00:00 +0000\n        https://charcoal-se.org//announcements/first-announcement.html\n        https://charcoal-se.org//announcements/first-announcement.html\n      \n    \n  \n\n",
       "url": "//announcements/feed.xml"
     },
   
