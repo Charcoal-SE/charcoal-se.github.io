@@ -34,6 +34,13 @@ done
 ./create-data-files.rb &
 wait
 
+echo -n "Theme commit: "
+git -C ./.tmp rev-parse HEAD
+echo -n "MS wiki commit: "
+git -C ./ms rev-parse HEAD
+echo -n "Smokey wiki commit: "
+git -C ./smokey rev-parse HEAD
+
 JEKYLL_ENV=production bundle exec jekyll build --incremental --profile
 
 cd _site
