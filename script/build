@@ -46,8 +46,14 @@ JEKYLL_ENV=production bundle exec jekyll build --incremental --profile
 cd _site
 cd assets
 mkdir css images
-cp branding*.css css/branding.css
-cp charcoal*.png images/charcoal.png
+
+for file in branding*.css; do
+    cp "$file" css/branding.css
+done
+for file in charcoal*.png; do
+    cp "$file" images/charcoal.png
+done
+
 cd ..
 
 if [[ ! $DEV ]]; then
