@@ -22,12 +22,12 @@
   box-sizing: content-box;
   transition: all 0.4s;
   
-  &img:not(:hover) {
+  img:not(:hover) {
     transform: rotateX(-360deg);
     transition: all 0.4s;
   }
   
-  &img:hover {
+  img:hover {
     transform: rotateX(0);
     transition: all 0.4s;
   }
