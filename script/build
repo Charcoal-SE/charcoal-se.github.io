@@ -41,6 +41,8 @@ git -C ./ms rev-parse HEAD
 echo -n "Smokey wiki commit: "
 git -C ./smokey rev-parse HEAD
 
+rm -r _site/assets # remove old assets
+
 JEKYLL_ENV=production bundle exec jekyll build --incremental --profile
 
 cd _site
