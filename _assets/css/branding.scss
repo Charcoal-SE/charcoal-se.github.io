@@ -23,6 +23,7 @@
   transition: all 0.4s;
   &:not(:hover) {
     filter: grayscale(100%);
+    transform: rotateX(-360deg);
     opacity: 0.4;
   }
 
