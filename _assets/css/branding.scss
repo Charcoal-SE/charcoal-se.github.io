@@ -21,9 +21,19 @@
   width: 32px;
   box-sizing: content-box;
   transition: all 0.4s;
+  
+  &img:not(:hover) {
+    transform: rotateX(-360deg);
+    transition: all 0.4s;
+  }
+  
+  &img:hover {
+    transform: rotateX(0);
+    transition: all 0.4s;
+  }
+  
   &:not(:hover) {
     filter: grayscale(100%);
-    transform: rotateX(-360deg);
     opacity: 0.4;
   }
 
