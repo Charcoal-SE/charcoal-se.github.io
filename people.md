@@ -39,6 +39,7 @@ These people have, at some point, contributed code, spam checks, or blacklist ad
 *   [J F](http://chat.stackexchange.com/users/161943/j-f)
 *   [Cerbrus](http://chat.stackexchange.com/users/126657/cerbrus)
 *   [quartata](http://chat.stackexchange.com/users/167070/quartata)
+*   [doppelgreener](https://chat.stackexchange.com/users/2562/doppelgreener)
 </section>
 <section>
 ## Team Members {#members}
