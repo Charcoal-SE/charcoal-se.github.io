@@ -40,7 +40,7 @@ These people have, at some point, contributed code, spam checks, or blacklist ad
 *   [quartata](http://chat.stackexchange.com/users/167070/quartata)
 *   [doppelgreener](https://chat.stackexchange.com/users/2562/doppelgreener)
 *   [Mithrandir](http://chat.stackexchange.com/users/133031/mithrandir)
-*   [hichris123](http://chat.stackexchange.com/users/103081/hichris123)
+*   [hichris123](http://chat.stackexchange.com/users/103081/hichris123) (admin emeritus)
 </section>
 <section>
 ## Team Members {#members}
