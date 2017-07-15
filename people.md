@@ -32,7 +32,7 @@ These people have, at some point, contributed code, spam checks, or blacklist ad
 *   [Brock Adams](http://chat.stackexchange.com/users/30477/brock-adams)
 *   [rene](http://chat.stackexchange.com/users/60548/rene)
 *   [dorukayhan](http://chat.stackexchange.com/users/209140/dorukayhan)
-*   [**NobodyNada**](http://chat.stackexchange.com/users/139423/nobodynada)
+*   [**NobodyNada**](http://chat.stackexchange.com/users/139423/nobodynada) (RO)
 *   [tripleee](http://chat.stackexchange.com/users/62118/tripleee) (RO)
 *   [Glorfindel](http://chat.stackexchange.com/users/164318/glorfindel)
 *   [J F](http://chat.stackexchange.com/users/161943/j-f)
