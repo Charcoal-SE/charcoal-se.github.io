@@ -2,7 +2,8 @@
 <html>
 <head>
   <title>
-    What the website blacklist does: | Charcoal
+    
+      Guidance for Blacklisting and Watching | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="/assets/application-def59906ce62c1ef1fb55af0dd9fb46357227c80043124c330f741703340fb2d.css">
@@ -55,47 +56,75 @@
       
 
 
-<h2 id="what-the-website-blacklist-does">What the website blacklist does:</h2>
+<p>Blacklisting or watching a keyword or a web site address cause the spam detection bot SmokeDetector to trigger an alert whenever that keyword or web site address appears in a post.  In other words, it basically says that any post containing this expression is spam, or at least suspicious.</p>
 
-<p>The website blacklist is one of the filters used by the spam detection bot SmokeDetector. It consists of a list of websites associated with known spam that automatically raise suspicion when posted anywhere on Stack Exchange.</p>
+<h2 id="the-website-blacklist">The Website Blacklist</h2>
 
-<p>Blacklisting a website makes SmokeDetector report every post that is posted or modified with a link to the website (formatted as a link or otherwise) in its text. The website blacklist is maintained in the <a href="https://github.com/Charcoal-SE/SmokeDetector">SmokeDetector GitHub repository</a>, specifically in the file <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/blacklisted_websites.txt">blacklisted_websites.txt</a>.</p>
+<p>The website blacklist consists of a list of websites associated with known spam that automatically raise suspicion when posted anywhere on Stack Exchange.</p>
 
-<h2 id="when-to-blacklist-a-website">When to blacklist a website:</h2>
+<p>Blacklisting a website makes SmokeDetector report every post that is posted or modified with a link to the website (formatted as a link or otherwise) in its text.</p>
 
-<p>Generally, it makes sense to blacklist a website if all of the following criteria are met:</p>
+<p>The website blacklist is maintained in the <a href="https://github.com/Charcoal-SE/SmokeDetector">SmokeDetector GitHub repository</a>, specifically in the file <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/blacklisted_websites.txt">blacklisted_websites.txt</a>.</p>
+
+<h2 id="the-keyword-blacklist">The Keyword Blacklist</h2>
+
+<p>The keyword blacklist consists of a list of phrases which are frequently seen in spam, and rarely outside of spam posts.</p>
+
+<p>Blacklisting a “keyword” (which can actually be a regular expression matching a phrase or a more-complex expression with alternatives, like <code class="highlighter-rouge">find (true )?love</code> which matches either of “find love” or “find true love”) causes any post which matches it to be reported as probable spam by SmokeDetector.  Matches are not reported in the middle of a word; the keyword expression “dog” does not match “doggone” or “endogenous”.</p>
+
+<p>The keyword blacklist is maintained in the <a href="https://github.com/Charcoal-SE/SmokeDetector">SmokeDetector GitHub repository</a>, specifically in the file <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/bad_keywords.txt">bad_keywords.txt</a>.</p>
+
+<h2 id="watch-expressions">Watch Expressions</h2>
+
+<p>“Watching” an expression causes SmokeDetector to report it just like a blacklist expression, but the rule weight is kept low, so as to prevent matches from triggering autoflagging. Posts which only match watched expressions and no other rules are not reported in other chat rooms, just in Charcoal. That means you can use <code class="highlighter-rouge">!!/watch</code> to try out different patterns experimentally, just to get an idea of what sorts of posts match a particular expression.</p>
+
+<h2 id="rules-for-blacklisting-and-watching">Rules for Blacklisting and Watching</h2>
+
+<p>We have established the following rules for watching and blacklisting.</p>
 
 <ul>
-  <li>
-    <p>Website has been used in <strong>at least</strong> 2 confirmed instances (tp fed back reports) of spam (You can use https://metasmoke.erwaysoftware.com/search to find other instances of a website being used for spam).</p>
-  </li>
-  <li>
-    <p>Website is not used legitimately in other posts on Stack Exchange.</p>
-  </li>
-  <li>
-    <p>Website is not currently caught in either of these filters:</p>
+  <li><strong>Blacklisted websites:</strong> reserved for sites which we are highly confident that are used only in spam. You may add a site to this list if <em>one of</em> the following is true.
     <ul>
-      <li>bad keyword in body</li>
-      <li>blacklisted website</li>
-      <li>pattern matching website</li>
+      <li>The site has at least five hits in Metasmoke, with no false positives, and at least one of them is below the default autoflagging threshold (currently, 280) and no older than six months.</li>
+      <li>There are more than twenty hits in the last six months, and no false positives.</li>
+      <li>There are recent hits, and more than 30 hits overall, and no false positives.</li>
+    </ul>
+  </li>
+  <li><strong>Blacklisted keywords:</strong> reserved for phrases which we are highly confident that are used only in spam.  You may add a phrase to this list if the following is true.
+    <ul>
+      <li>The phrase has been used repeatedly in recent spam and has no false positives in Metasmoke, and searching on Stack Exchange indicates that it is not a common phrase on any site in the network.</li>
+    </ul>
+  </li>
+  <li><strong>Watched keywords:</strong> anything is game, but be prepared to have it removed if circumstances require it.
+    <ul>
+      <li>We will be removing patterns periodically; you can reduce the risk of having useful patterns removed by proactively removing patterns you no longer are interested in, or which produce very uncertain value.</li>
+      <li>Autoflagging weight for this reason is technically forced to stay at 1.</li>
+      <li>Smoke Detector will regard these rules as “experimental”; it will not alert in other rooms than Charcoal HQ if there are hits solely from this set of rules.</li>
     </ul>
   </li>
 </ul>
 
-<p>You can test this by using the <code class="highlighter-rouge">!!/test &lt;string to test&gt;</code> command. (or <code class="highlighter-rouge">!!/test-a &lt;string to test&gt;</code> to test as an answer).</p>
+<h2 id="how-to-blacklist-or-watch-something">How to Blacklist or Watch Something</h2>
 
-<h2 id="how-to-blacklist-a-website">How to blacklist a website:</h2>
+<p>You will want to test that the expression you want to blacklist or watch isn’t already covered by one of the existing patterns.</p>
 
-<p>Everyone with SmokeDetector privileges (if you don’t have those and would like them, read up on <a href="Privileges">how to get them</a>) can blacklist a website, though the action will require admin-approval for most people. Additions to the blacklist (via both methods) must be valid regular expressions (regex). In reality that means for largely exact matches (like the website blacklist) that you ensure that special characters (like <code class="highlighter-rouge">.</code>) are escaped. (Example: <code class="highlighter-rouge">thisisspam\.com</code>)</p>
+<p>You can test this by using the <code class="highlighter-rouge">!!/test &lt;string to test&gt;</code> command (or <code class="highlighter-rouge">!!/test-a &lt;string to test&gt;</code> to test as an answer).</p>
 
-<p>There are 2 methods to add a website to the blacklist:</p>
+<p>Everyone with SmokeDetector privileges (if you don’t have those and would like them, read up on <a href="Privileges">how to get them</a>) can blacklist a website, though the action will require administrator approval for most people. Additions to the blacklist must be valid regular expressions (regex). In reality that means for largely exact matches (like the website blacklist) that you ensure that special characters (like <code class="highlighter-rouge">.</code>) are escaped. (Example: <code class="highlighter-rouge">thisisspam\.com</code>)</p>
+
+<p>There are two methods to add a website to a watch list or blacklist:</p>
 
 <ul>
   <li>
-    <p>Propose a change to the <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/blacklisted_websites.txt">blacklisted_websites.txt</a> file on GitHub and create a pull request specifying why you want to blacklist the website.</p>
+    <p>Propose a change to the relevant file on GitHub and create a pull request specifying why you want to blacklist the website.</p>
   </li>
   <li>
-    <p>Use the <code class="highlighter-rouge">!!/blacklist-website &lt;regex string&gt;</code> command in any of the Smoke Detector chatrooms. This will create a pull request containing your change for you.</p>
+    <p>Use the pertinent chat command in any of the Smoke Detector chatrooms. This will create a pull request containing your change for you.</p>
+    <ul>
+      <li><code class="highlighter-rouge">!!/blacklist-website &lt;regex&gt;</code> to blacklist a web site</li>
+      <li><code class="highlighter-rouge">!!/blacklist-keyword &lt;regex&gt;</code> to blacklist a keyword expression</li>
+      <li><code class="highlighter-rouge">!!/watch &lt;regex&gt;</code> to add something to the watch list</li>
+    </ul>
   </li>
 </ul>
 
@@ -104,7 +133,7 @@
 
 
 
-<p><strong><a href="//github.com/Charcoal-SE/SmokeDetector/wiki/Guidance-for-Blacklisting-Websites/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+<p><strong><a href="//github.com/Charcoal-SE/SmokeDetector/wiki/Guidance-for-Blacklisting-and-Watching/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
 
 <div class="sidebar-content sidebar-content-smokey">
 
