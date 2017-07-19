@@ -110,7 +110,7 @@
 
 <p>You can test this by using the <code class="highlighter-rouge">!!/test &lt;string to test&gt;</code> command (or <code class="highlighter-rouge">!!/test-a &lt;string to test&gt;</code> to test as an answer).</p>
 
-<p>Everyone with SmokeDetector privileges (if you don’t have those and would like them, read up on <a href="Privileges">how to get them</a>) can blacklist a website, though the action will require administrator approval for most people. Additions to the blacklist must be valid regular expressions (regex). In reality that means for largely exact matches (like the website blacklist) that you ensure that special characters (like <code class="highlighter-rouge">.</code>) are escaped. (Example: <code class="highlighter-rouge">thisisspam\.com</code>)</p>
+<p>Everyone with SmokeDetector privileges (if you don’t have those and would like them, read up on <a href="Privileges">how to get them</a>) can blacklist a website, though this will need to be approved by someone with code privileges if you don’t already have them. Additions to the blacklist must be valid regular expressions (regex). In reality that means for largely exact matches (like the website blacklist) that you ensure that special characters (like <code class="highlighter-rouge">.</code>) are escaped. (Example: <code class="highlighter-rouge">thisisspam\.com</code>)</p>
 
 <p>There are two methods to add a website to a watch list or blacklist:</p>
 
@@ -127,6 +127,8 @@
     </ul>
   </li>
 </ul>
+
+<p>If you’re blacklisting or watching a complex regex to match a whole bunch of different stuff, it’s probably better off in the pattern-matching section of <code class="highlighter-rouge">findspam.py</code>. You’ll need to propose a change to the file on GitHub for this; ask for help if you’re unsure what to do.</p>
 
 
 <div class="sidebar">
