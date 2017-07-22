@@ -10,7 +10,7 @@ If you're looking for someone who speaks a particular language, please check thi
 * **German**: [Magisch](https://stackexchange.com/users/7034529/magisch), [Wrzlprmft](https://stackexchange.com/users/2437491/wrzlprmft), [Glorfindel](http://stackexchange.com/users/6085540/glorfindel), and [rene](https://stackexchange.com/users/281857/rene)
 * **Hebrew**: [Mithrandir](http://stackexchange.com/users/5129611/mithrandir)
 * **Polish**: [Michał Perłakowski](http://stackexchange.com/users/4768421/micha%c5%82-per%c5%82akowski)
-* **Russian**: [D-side](https://stackexchange.com/users/2372500/d-side)
+* **Russian**: [D-side](https://stackexchange.com/users/2372500/d-side) and [Nick Volynkin](https://stackexchange.com/users/3318283/nick-volynkin)
 * **Spanish**: [CalvT](http://stackexchange.com/users/1245478/calvt) and [ArtOfCode](https://stackexchange.com/users/3457374/artofcode)
 * **Swedish**: [Nisse Engström](https://stackexchange.com/users/4252138/nisse-engström) and [tripleee](https://stackexchange.com/users/468289/tripleee)
 
