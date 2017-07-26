@@ -90,7 +90,7 @@ Make sure that you've read the [Privileges](/smokey/Privileges) and [Feedback Gu
 
 ### I'd like to get further privileges (autoflagging, code access etc), who do I ask? {#more-privileges}
 
-Please ping an admin: Undo, ArtOfCode, hichris123, angussidney, or Andy.
+Please ping an admin: Undo, ArtOfCode, angussidney, or Andy.
 </section>
 <section>
 
