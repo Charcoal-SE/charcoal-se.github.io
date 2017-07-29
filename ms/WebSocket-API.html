@@ -2,7 +2,8 @@
 <html>
 <head>
   <title>
-    Intro | Charcoal
+    
+      WebSocket API | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="/assets/application-abe3a02d9caae71a96e85889fcfded7f0d982885fce3f3e6cf70ea0118eacb59.css">
@@ -55,96 +56,50 @@
       
 
 
-<h1 id="intro">Intro</h1>
+<p>The metasmoke websocket API allows you to have events pushed to you as they happen, which is useful to avoid having to poll the HTTP API for changes. You can subscribe to events from any model by specifying which models you want to watch when you connect.</p>
 
-<p><sup><strong>Note</strong>: All JSON is formatted here. Where JSON is contained as a string value of a key, it is formatted. This is not the actual data sent.</sup></p>
+<p><strong>Note:</strong> I recommend you use an ActionCable client rather than trying to communicate directly with the websocket - the latter is <em>possible</em>, but AC is weird enough that you’re better off letting someone else do that hard work for you. This documentation assumes you’re using the ActionCable JS client.</p>
 
-<ol>
-  <li>Connect to <code class="highlighter-rouge">wss://metasmoke.erwaysoftware.com/cable</code></li>
-  <li>When the socket is opened, you can send <a href="#subscriptions">subscriptions</a></li>
-</ol>
+<h2 id="connection">Connection</h2>
+<p>Create a consumer using your ActionCable client. The consumer is the underlying connection to the websocket.</p>
 
-<h1 id="messages-received-from-metasmoke">Messages Received from metasmoke</h1>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">ActionCable</span><span class="p">.</span><span class="nx">createConsumer</span><span class="p">(</span><span class="s1">'wss://metasmoke.erwaysoftware.com/cable'</span><span class="p">);</span>
+</code></pre>
+</div>
 
-<h2 id="welcome">Welcome</h2>
+<p>Using that consumer, you now need to create a subscription to the API channel. At this point, you need to specify both your API key, and which models you want to receive events from.</p>
 
-<p>This is sent when the socket is first opened.</p>
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"welcome"</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">socket</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="na">channel</span><span class="p">:</span> <span class="s1">'ApiChannel'</span><span class="p">,</span> <span class="na">key</span><span class="p">:</span> <span class="s1">'abcdef012345'</span><span class="p">,</span> <span class="na">events</span><span class="p">:</span> <span class="s1">'posts;feedbacks;flag_logs'</span><span class="p">},</span> <span class="p">{</span>
+  <span class="na">received</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>With the subscription above, you will be sent an event every time a post, feedback, or flag log is created or updated.</p>
+
+<h2 id="events">Events</h2>
+<p>The full message sent to you by the websocket looks like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"identifier"</span><span class="p">:</span><span class="s2">"{\"channel\":\"ApiChannel\",\"key\":\"abcdef012345\",\"events\":\"announcements\"}"</span><span class="p">,</span><span class="nt">"message"</span><span class="p">:{</span><span class="nt">"event_type"</span><span class="p">:</span><span class="s2">"create"</span><span class="p">,</span><span class="nt">"event_class"</span><span class="p">:</span><span class="s2">"Announcement"</span><span class="p">,</span><span class="nt">"object"</span><span class="p">:{</span><span class="nt">"id"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="nt">"text"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">"expiry"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">"created_at"</span><span class="p">:</span><span class="s2">"2017-07-29T23:41:59.000Z"</span><span class="p">,</span><span class="nt">"updated_at"</span><span class="p">:</span><span class="s2">"2017-07-29T23:41:59.000Z"</span><span class="p">}}}</span><span class="w">
 </span></code></pre>
 </div>
 
-<h2 id="confirm-subscription">Confirm Subscription</h2>
+<p>Your ActionCable client will most likely decode that for you, and just provide you with the event data itself, which looks like this:</p>
 
-<p>This is sent when a channel has been subscribed to.</p>
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"confirm_subscription"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;subscription&gt;"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
+  <span class="nl">event_type</span><span class="p">:</span> <span class="s1">'create'</span><span class="p">,</span>
+  <span class="nx">event_class</span><span class="err">:</span> <span class="s1">'FlagLog'</span><span class="p">,</span>
+  <span class="nx">object</span><span class="err">:</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
 </div>
-
-<h2 id="ping">Ping</h2>
-
-<p>This is sent every 3 seconds to keep the socket alive.
-<code class="highlighter-rouge">message</code> is the current Unix time.</p>
-
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ping"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345678</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
-
-<h2 id="feedback">Feedback</h2>
-
-<p>The <code class="highlighter-rouge">post_link</code> is the one that can be sent to the metasmoke API.
-<code class="highlighter-rouge">user_name</code> is the user’s <strong>metasmoke</strong> display name.
-<code class="highlighter-rouge">app_name</code> is the name of the app used to send the feedback (example: <code class="highlighter-rouge">"FDSC"</code>)
-<code class="highlighter-rouge">symbol</code> is a HTML representation of the appropriate symbol to display.</p>
-
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;identifier&gt;"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"feedback"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"post_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//stackoverflow.com/a/12345"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"feedback_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fp-"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"J F"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"app_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"\u0026#x2717;"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
-
-<h1 id="messages-sent-to-metasmoke">Messages Sent to metasmoke</h1>
-
-<h2 id="subscription">Subscription</h2>
-
-<p>The <code class="highlighter-rouge">identifier</code> is sent as the <code class="highlighter-rouge">identifier</code> of all messages coming from this channel.</p>
-
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscribe"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{
-    \"channel\": \"&lt;channel&gt;\",
-    \"key\": \"&lt;API Key&gt;\"
-  }"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
-<h3 id="channels">Channels</h3>
 
 <ul>
-  <li>
-    <p><code class="highlighter-rouge">ApiChannel</code>: This is the one you probably want.</p>
-
-    <p>example:</p>
-    <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{\"channel\":\"ApiChannel\",\"key\":\"&lt;metasmoke API key&gt;\"}"</span><span class="p">,</span><span class="w"> </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"subscribe"</span><span class="p">}</span><span class="w">
-</span></code></pre>
-    </div>
-  </li>
+  <li>The <code class="highlighter-rouge">event_type</code> parameter reflects what kind of event caused the message - a new object being created, or an existing object being updated.</li>
+  <li>The <code class="highlighter-rouge">event_class</code> parameter is the model class name of the object concerned (such as <code class="highlighter-rouge">Post</code> or <code class="highlighter-rouge">FlagLog</code>).</li>
+  <li>The <code class="highlighter-rouge">object</code> parameter is the object itself: all the fields from that object’s database row, minus any sensitive data like API tokens.</li>
 </ul>
 
 
