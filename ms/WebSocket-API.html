@@ -79,6 +79,19 @@
 
 <p>With the subscription above, you will be sent an event every time a post, feedback, or flag log is created or updated.</p>
 
+<h3 id="specifying-event-types">Specifying event types</h3>
+<p>With the example above, you will be sent all events for each model you specify - currently, that’s creates and updates. You can optionally specify which events you want sent to you by including them in your subscription creation, using this syntax:</p>
+
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">socket</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="na">channel</span><span class="p">:</span> <span class="s1">'ApiChannel'</span><span class="p">,</span> <span class="na">key</span><span class="p">:</span> <span class="s1">'abcdef012345'</span><span class="p">,</span> <span class="na">events</span><span class="p">:</span> <span class="s1">'statistics#create,update;posts#create'</span><span class="p">},</span> <span class="p">{</span>
+  <span class="na">received</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+</div>
+
+<p>This example will result in you being sent events when a post is created, and when a statistic is created <em>or</em> updated.</p>
+
 <h2 id="events">Events</h2>
 <p>The full message sent to you by the websocket looks like this:</p>
 
