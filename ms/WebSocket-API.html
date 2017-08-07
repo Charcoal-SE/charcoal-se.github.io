@@ -11,6 +11,9 @@
   <script type="text/javascript" src="/assets/application-49b55bfd390519fc1a0c15f247835e230506bd0b4024e40069eb5cd21289f121.js"></script>
   <script type="text/javascript" src="/assets/vendor-fad6853c80b4f83dd9b9327d08ae015076a89c51d5a959e0c9ef73241509de15.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" 
+            type="image/png" 
+            href="/assets/charcoal-c0d57d82868cf7a8b169cfaf65a45179467c310868ebfdd0f10e6bd48f068816.png" />
 </head>
 <body>
   <div class="body-container">
@@ -69,7 +72,11 @@
 
 <p>Using that consumer, you now need to create a subscription to the API channel. At this point, you need to specify both your API key, and which models you want to receive events from.</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">socket</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="na">channel</span><span class="p">:</span> <span class="s1">'ApiChannel'</span><span class="p">,</span> <span class="na">key</span><span class="p">:</span> <span class="s1">'abcdef012345'</span><span class="p">,</span> <span class="na">events</span><span class="p">:</span> <span class="s1">'posts;feedbacks;flag_logs'</span><span class="p">},</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">socket</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+  <span class="na">channel</span><span class="p">:</span> <span class="s1">'ApiChannel'</span><span class="p">,</span>
+  <span class="na">key</span><span class="p">:</span> <span class="s1">'abcdef012345'</span><span class="p">,</span>
+  <span class="na">events</span><span class="p">:</span> <span class="s1">'posts;feedbacks;flag_logs'</span>
+<span class="p">},</span> <span class="p">{</span>
   <span class="na">received</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
   <span class="p">}</span>
@@ -82,7 +89,11 @@
 <h3 id="specifying-event-types">Specifying event types</h3>
 <p>With the example above, you will be sent all events for each model you specify - currently, that’s creates and updates. You can optionally specify which events you want sent to you by including them in your subscription creation, using this syntax:</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">socket</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span><span class="na">channel</span><span class="p">:</span> <span class="s1">'ApiChannel'</span><span class="p">,</span> <span class="na">key</span><span class="p">:</span> <span class="s1">'abcdef012345'</span><span class="p">,</span> <span class="na">events</span><span class="p">:</span> <span class="s1">'statistics#create,update;posts#create'</span><span class="p">},</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">socket</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+  <span class="na">channel</span><span class="p">:</span> <span class="s1">'ApiChannel'</span><span class="p">,</span>
+  <span class="na">key</span><span class="p">:</span> <span class="s1">'abcdef012345'</span><span class="p">,</span>
+  <span class="na">events</span><span class="p">:</span> <span class="s1">'statistics#create,update;posts#create'</span>
+<span class="p">},</span> <span class="p">{</span>
   <span class="na">received</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
   <span class="p">}</span>
