@@ -212,7 +212,7 @@
   
     "code-html": {
       "title": "Code",
-      "content": "Website built from:\n\n\n  commit 258818b on Charcoal-SE/charcoal-se.github.io\n  commit b64773b on the Charcoal-SE/SmokeDetector wiki\n  commit 643c1e0 on the Charcoal-SE/metasmoke wiki\n  commit 43a139c on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
+      "content": "Website built from:\n\n\n  commit 69945e4 on Charcoal-SE/charcoal-se.github.io\n  commit b64773b on the Charcoal-SE/SmokeDetector wiki\n  commit 643c1e0 on the Charcoal-SE/metasmoke wiki\n  commit 43a139c on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
       "url": "//code"
     },
   
@@ -278,7 +278,7 @@
   
     "pings-mods-html": {
       "title": "Mods to Ping",
-      "content": "Mods to Ping\n\nIf something has gone wrong on a site (spam flags wrongly declined etc.), these mods might be able to help:\n\n\n\n  \n    Loading…\n  \n\n\n\n\n\n",
+      "content": "Mods to Ping\n\nIf something has gone wrong on a site (spam flags wrongly declined etc.), these mods might be able to help:\n\n\n\n  \n    Loading…\n  \n\n\n\nAre you a mod, but your name doesn’t show up on this list? If you’re freshly elected, please check again in 24 hours. Otherwise, authenticate on this page. Again, the sites you’re a mod on will show up in less than 24 hours.\n\n\n\n",
       "url": "//pings/mods"
     },
   
