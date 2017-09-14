@@ -5,7 +5,7 @@
 
 These are the people who make it all work. People in **bold** have credentials to run SmokeDetector, including metasmoke integration tokens. People with (RO) after their names are room owners.
 
-If you're wondering who you should talk to about something, [there's a guide for that](/pings).
+If you're wondering who you should talk to about something, [there's a guide for that](/pings/).
 
 <section>
 ## Administrators {#admins}
