@@ -20,27 +20,36 @@ These people get pinged a lot. (GH) indicates a GitHub organisation admin, and (
 <section>
 ## Developers {#devs}
 
-These people have, at some point, contributed code, spam checks, or blacklist additions. If you're wondering why you're not on the list, there's a threshold at play here to stop the list getting too long.
+These people have at some point contributed code of some variety, whether it be to Smokey, MS or a userscript. If you're wondering why you're not on the list, there's a threshold at play here to stop the list getting too long.
 
+*   [hichris123](http://chat.stackexchange.com/users/103081/hichris123) (admin emeritus)
 *   [zaq](http://chat.stackexchange.com/users/117490/zaq)
 *   [ProgramFOX](http://chat.stackexchange.com/users/88521/programfox) (RO)
 *   [ManishEarth](http://chat.stackexchange.com/users/31768/manishearth) (RO)
 *   [Ferrybig](http://chat.stackexchange.com/users/58529/ferrybig) (RO)
-*   [Ashish Ahuja](http://chat.stackexchange.com/users/181293/ashish-ahuja)
 *   [**Thomas Ward**](http://chat.stackexchange.com/users/10145/thomas-ward) (RO)
-*   [Magisch](http://chat.stackexchange.com/users/171054/magisch)
+*   [tripleee](http://chat.stackexchange.com/users/62118/tripleee) (RO)
 *   [Brock Adams](http://chat.stackexchange.com/users/30477/brock-adams)
 *   [rene](http://chat.stackexchange.com/users/60548/rene)
-*   [dorukayhan](http://chat.stackexchange.com/users/209140/dorukayhan)
-*   [**NobodyNada**](http://chat.stackexchange.com/users/139423/nobodynada) (RO)
-*   [tripleee](http://chat.stackexchange.com/users/62118/tripleee) (RO)
 *   [Glorfindel](http://chat.stackexchange.com/users/164318/glorfindel)
 *   [J F](http://chat.stackexchange.com/users/161943/j-f)
 *   [Cerbrus](http://chat.stackexchange.com/users/126657/cerbrus)
 *   [quartata](http://chat.stackexchange.com/users/167070/quartata)
+*   [**Henders**](http://chat.stackexchange.com/users/211021/henders)
+
+</section>
+<section>
+## Spam checks maintainers {#blacklists}
+
+These people help out by adding to and maintaining the miles of regexes and blacklists which do all the heavy lifting in detecting spam.
+
+*   [Ashish Ahuja](http://chat.stackexchange.com/users/181293/ashish-ahuja)
+*   [Magisch](http://chat.stackexchange.com/users/171054/magisch)
+*   [dorukayhan](http://chat.stackexchange.com/users/209140/dorukayhan)
 *   [doppelgreener](https://chat.stackexchange.com/users/2562/doppelgreener)
 *   [Mithrandir](http://chat.stackexchange.com/users/133031/mithrandir)
-*   [hichris123](http://chat.stackexchange.com/users/103081/hichris123) (admin emeritus)
+*   [**NobodyNada**](http://chat.stackexchange.com/users/139423/nobodynada) (RO)
+
 </section>
 <section>
 ## Team Members {#members}
@@ -55,7 +64,8 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Kaz Wolfe](http://chat.stackexchange.com/users/97389/kaz-wolfe)
 *   [Byte Commander](http://chat.stackexchange.com/users/137665/byte-commander)
 *   [DJMcMayhem](http://chat.stackexchange.com/users/144962/djmcmayhem)
-*   [Henders](http://chat.stackexchange.com/users/211021/henders)
 *   [CalvT](http://chat.stackexchange.com/users/64521/calvt)
 *   [QPaysTaxes](http://chat.stackexchange.com/users/137388/qpaystaxes)
+*   [suraj](https://chat.stackexchange.com/users/262693/suraj)
+*   [Nisse Engström](https://chat.stackexchange.com/users/155243/nisse-engstrom)
 </section>
