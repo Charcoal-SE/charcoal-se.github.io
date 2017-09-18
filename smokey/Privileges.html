@@ -61,7 +61,7 @@
 
 <p>SmokeDetector operates a privilege system. That is, before you are able to use a number of commands (most notably the feedback commands), you must be added to a list of privileged users in SmokeDetector’s code.</p>
 
-<h2 id="getting-privileged">Getting Privileged</h2>
+<h2 id="getting-reviewer-privileges-with-smokedetector">Getting reviewer privileges with SmokeDetector</h2>
 <p>In theory, anyone can be added to the privilege list. In practice, this doesn’t always work out, so <em>as a general guideline</em>, we look for a few things to indicate how qualified you are.</p>
 
 <ul>
@@ -82,7 +82,107 @@ If your request for privileges is supported by a regular of one of the <a href="
 <p>These are all general guidelines, rather than hard limits. We understand that there are cases of users who have little apparent activity who can be excellent at moderation; we’re also aware that the converse is true. Take note of what’s mentioned here, but also remember that requests are judged on a case-by-case basis.</p>
 
 <h4 id="for-moderators">For Moderators</h4>
-<p>If you’re a Stack Exchange network moderator, <strong>you’re automatically privileged</strong> in <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a> (and in <a href="http://chat.stackoverflow.com/rooms/41570/so-close-vote-reviewers">SOCVR</a> if you are a Stack Overflow moderator). You don’t need to be added to the explicit privilege lists, as your diamond also gives you privileges with SmokeDetector. We assume that moderators are, on the whole, pretty good at moderation.</p>
+<p>If you’re a Stack Exchange network moderator, <strong>you’re automatically privileged</strong> with SmokeDetector in <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a> (and in <a href="http://chat.stackoverflow.com/rooms/41570/so-close-vote-reviewers">SOCVR</a> if you are a Stack Overflow moderator). You don’t need to be added to the explicit privilege lists, as your diamond also gives you privileges with SmokeDetector. We assume that moderators are, on the whole, pretty good at moderation.</p>
+
+<h2 id="privilege-levels">Privilege Levels</h2>
+
+<p>There are multiple privilege levels on SmokeDetector and metasmoke, each giving you access to different commands, tools, etc. There isn’t any exact threshold that you have to meet in order to be elegible for many of these privileges; rather the admins will grant them to you at their own discretion. If you think that you should have some of these privileges but you don’t, please contact <a href="https://charcoal-se.org/people#admins">an admin</a>.</p>
+
+<p>(SD) refers to privileges set in the code of SmokeDetector, (MS) refers to privileges set on metasmoke, and (GH) refers to privileges set on GitHub.</p>
+
+<h3 id="smokedetector-privileges-sd">Smokedetector privileges (SD)</h3>
+<p>The process for aquiring these privileges is listed above. Note that this privilege only works per-chat-server, so if you’re privileged in CHQ, you’re not automatically privileged in SOCVR or the Tavern (due to your user ID being different), so you’ll need to contact an admin so that they can add you there as well.</p>
+
+<p>This privilege level allows you to:</p>
+<ul>
+  <li>Give feedback via chat</li>
+  <li>Use the privileged commands listed <a href="Commands">here</a>.</li>
+  <li>Stop autoflagging in the event of an emergency using <code class="highlighter-rouge">!!/stopflagging</code>. After this, autoflagging can only be re-enabled by a system administrator.</li>
+</ul>
+
+<h3 id="reviewer-ms">Reviewer (MS)</h3>
+<p>Everyone who has SmokeDetector privileges is elegible to get the reviewer role. However, this process is not automatic, so you will need to sign up for a metasmoke account so that admin can grant it to you.</p>
+
+<p>This allows you to:</p>
+<ul>
+  <li>Review posts from the <a href="https://metasmoke.erwaysoftware.com/review">review queue</a></li>
+  <li>Use applications which require the write API (e.g. userscripts such as FIRE and FDSC)</li>
+  <li>Associate your chat feedback with your metasmoke account when <a href="https://metasmoke.erwaysoftware.com/authentication/status">you connect your SE account</a> (this should be done when you sign up, older users may need to do this manually)</li>
+  <li>Overwrite and invalidate your own feedback</li>
+</ul>
+
+<h3 id="flagger-ms">Flagger (MS)</h3>
+<p>Everyone who signs up to metasmoke gets this by default. This privilege will be revoked if you abuse the system.</p>
+<ul>
+  <li>Allows you to set up your account so that it will be used for autoflagging</li>
+</ul>
+
+<h3 id="core-ms">Core (MS)</h3>
+<p>Given to people who have contributed to Charcoal in a non-insignificant way (e.g. by giving 50+ feedbacks, contributing code, or frequenting CHQ). This signals that you are a core member of our team.</p>
+
+<p>Benefits include:</p>
+<ul>
+  <li>Increased autoflagging frequency (see <a href="https://charcoal-se.org/smokey/Set-Up-Autoflagging#i-opted-in-but-i-dont-see-any-flags">this</a> page for details)</li>
+  <li>Access to the <a href="https://metasmoke.erwaysoftware.com/data">data explorer</a></li>
+  <li>Can create <a href="https://metasmoke.erwaysoftware.com/announcements/new">new announcements</a> (please don’t use this if you don’t know what you’re doing)</li>
+  <li>Can edit domain records, and add/edit domain tags</li>
+</ul>
+
+<h3 id="code-admin-aka-blacklister-ms">Code admin a.k.a. blacklister (MS)</h3>
+
+<ul>
+  <li>Can <code class="highlighter-rouge">!!/watch</code> and <code class="highlighter-rouge">!!/blacklist</code> without approval. Please make sure that you read the <a href="https://charcoal-se.org/smokey/Guidance-for-Blacklisting-and-Watching">blacklisting guidelines</a> before using these commands.</li>
+  <li>Can approve other user’s watches and blacklists on GitHub. Simply add a comment on the auto-generated PR containing the command <code class="highlighter-rouge">!!/approve</code>, and metasmoke will handle the rest. Note that you will need to be added to PullApprove for this to work properly; ping ArtOfCode or Undo and they will be able to set you up.</li>
+  <li>Can failover standby instances from the <a href="https://metasmoke.erwaysoftware.com/status">status</a> page. Normally metasmoke handles this automatically if an instance goes down for more than 5 minutes, but you can use this if Smokey isn’t working properly. Make sure that you follow the <a href="https://charcoal-se.org/pings/#dead">torubleshooting guidelines</a> first.</li>
+</ul>
+
+<h3 id="github-push-privileges-aka-proper-code-admin-gh">GitHub push privileges a.k.a. proper code admin (GH)</h3>
+
+<p>These people have collaborator access on GitHub.</p>
+
+<ul>
+  <li>Can push code directly to GitHub, manage PRs and issues, and add people to the SmokeDetector privilege list.</li>
+  <li><strong><em>ALWAYS PUSH TO MASTER, NEVER DEPLOY!</em></strong></li>
+  <li>Generally it’s fine to directly push minor changes (e.g. privilege, blacklist, watchlist, regex, and spam check changes, bug fixes) to master without any reviews; it is recommended that you make a PR and ask for reviews on any major changes (e.g. refactoring, changed functionality, new commands, new rules)</li>
+</ul>
+
+<h3 id="smokedetector-runner-ms">SmokeDetector Runner (MS)</h3>
+
+<p>Note that you can still run a SmokeDetector instance without this privilege; however it’s functionality will be limited without it.</p>
+
+<ul>
+  <li>Has a copy of the crededentials for the SmokeDetector account on SE and GH</li>
+  <li>Has the ability to <a href="https://metasmoke.erwaysoftware.com/smoke_detector/mine">generate</a> metasmoke integration tokens, required in order for Smokey to integrate with MS (e.g. feedbacks, privilege checks, autoflagging, etc)</li>
+</ul>
+
+<h3 id="admin-ms">Admin (MS)</h3>
+
+<p>These people get access to lots of administrational tools. All admins are also subscribed to the <code class="highlighter-rouge">smokey@charcoal-se.org</code> mailing list - any email sent to that address will reach the admins.</p>
+
+<p>They can:</p>
+
+<ul>
+  <li>Manage privileges for all users</li>
+  <li>See posts which have been flagged for admin attention</li>
+  <li>Create API keys, edit them, and revoke write tokens, on the behalf of the application author</li>
+  <li>Invalidate other people’s feedback</li>
+  <li>Manually expire announcements</li>
+  <li>View, edit, enable/disable and delete other user’s autoflagging conditions</li>
+  <li>Invalidate autoflagging API tokens in the event of an emergency</li>
+  <li>Edit global autoflagging settings (e.g. enabled/disabled, min accuracy and post count, dry run, max flags and core flags - note that the latter two are also hard-coded for extra security)</li>
+  <li>Can destroy domain records and domain tags</li>
+</ul>
+
+<h3 id="developer-for-metasmoke-ms">Developer for metasmoke (MS)</h3>
+
+<p>Only avaliable to our benevolent dictators Art and Undo. Only Undo can grant this privilege level, by editing the database directly from the console.</p>
+
+<ul>
+  <li>Can see production logs</li>
+  <li>Can refresh the site list cache</li>
+  <li>Can send messages down the SmokeDetector websocket to all instances for testing and development purposes</li>
+</ul>
+
 
 
 <div class="sidebar">
