@@ -90,7 +90,7 @@ If your request for privileges is supported by a regular of one of the <a href="
 
 <p>(SD) refers to privileges set in the code of SmokeDetector, (MS) refers to privileges set on metasmoke, and (GH) refers to privileges set on GitHub.</p>
 
-<h3 id="smokedetector-privileges-sd">Smokedetector privileges (SD)</h3>
+<h3 id="smokedetector-privileges-sd">SmokeDetector privileges (SD)</h3>
 <p>The process for acquiring these privileges is listed above. Note that this privilege only works per-chat-server, so if you’re privileged in CHQ, you’re not automatically privileged in SOCVR or the Tavern (due to your user ID being different), so you’ll need to contact an admin so that they can add you there as well.</p>
 
 <p>This privilege level allows you to:</p>
@@ -149,7 +149,7 @@ If your request for privileges is supported by a regular of one of the <a href="
 
 <h3 id="smokedetector-runner-ms">SmokeDetector Runner (MS)</h3>
 
-<p>Note that you can still run a SmokeDetector instance without this privilege; however it’s functionality will be limited without it.</p>
+<p>Note that you can still run a SmokeDetector instance without this privilege; however its functionality will be limited without it.</p>
 
 <ul>
   <li>Has a copy of the credentials for the SmokeDetector account on SE and GH</li>
@@ -158,7 +158,7 @@ If your request for privileges is supported by a regular of one of the <a href="
 
 <h3 id="admin-ms">Admin (MS)</h3>
 
-<p>These people get access to lots of administrational tools. All admins are also subscribed to the <code class="highlighter-rouge">smokey@charcoal-se.org</code> mailing list - any email sent to that address will reach the admins.</p>
+<p>These people get access to lots of administrative tools. They are able to see most data that is usually only visible to its owner, and perform system-level administration and maintenance tasks. All admins are also subscribed to the <code class="highlighter-rouge">smokey@charcoal-se.org</code> mailing list - any email sent to that address will reach the admins.</p>
 
 <p>They can:</p>
 
@@ -171,7 +171,7 @@ If your request for privileges is supported by a regular of one of the <a href="
   <li>View, edit, enable/disable and delete other user’s autoflagging conditions</li>
   <li>Invalidate autoflagging API tokens in the event of an emergency</li>
   <li>Edit global autoflagging settings (e.g. enabled/disabled, min accuracy and post count, dry run, max flags and core flags - note that the latter two are also hard-coded for extra security)</li>
-  <li>Can destroy domain records and domain tags</li>
+  <li>Destroy domain records and domain tags</li>
 </ul>
 
 <h3 id="developer-for-metasmoke-ms">Developer for metasmoke (MS)</h3>
@@ -181,7 +181,8 @@ If your request for privileges is supported by a regular of one of the <a href="
 <ul>
   <li>Can see production logs</li>
   <li>Can refresh the site list cache</li>
-  <li>Can send messages down the SmokeDetector websocket to all instances for testing and development purposes</li>
+  <li>Can refresh the per-post feedback cache</li>
+  <li>Can send messages down metasmoke’s websockets for testing and development purposes</li>
 </ul>
 
 
