@@ -100,8 +100,10 @@ If your request for privileges is supported by a regular of one of the <a href="
   <li>Stop autoflagging in the event of an emergency using <code class="highlighter-rouge">!!/stopflagging</code>. After this, autoflagging can only be re-enabled by a system administrator.</li>
 </ul>
 
+<p>Technically, this privilege is granted in the Smoke Detector source code by adding the user’s numeric account ID to the <code class="highlighter-rouge">privileged_users</code> list for the room in question.  When this is in place, the <code class="highlighter-rouge">!!/amiprivileged</code> chat command will cause Smoke Detector to reply “✓ You are a privileged user”.</p>
+
 <h3 id="reviewer-ms">Reviewer (MS)</h3>
-<p>Everyone who has SmokeDetector privileges is eligible to get the reviewer role. However, this process is not automatic, so you will need to sign up for a metasmoke account so that admin can grant it to you.</p>
+<p>Everyone who has SmokeDetector privileges is eligible to get the reviewer role. However, this process is not automatic, so you will need to <a href="https://metasmoke.erwaysoftware.com/users/sign_up">sign up for a metasmoke account</a> so that admin can grant it to you.</p>
 
 <p>This allows you to:</p>
 <ul>
@@ -111,6 +113,8 @@ If your request for privileges is supported by a regular of one of the <a href="
   <li>Overwrite and invalidate your own feedback</li>
   <li>Use the <a href="https://metasmoke.erwaysoftware.com/flagging/conditions/sandbox">autoflagging conditions sandbox</a></li>
 </ul>
+
+<p>Technically, one of the Metasmoke admins will need to change your privilege entry in the database. <em>(FIXME: More detail here please?)</em></p>
 
 <h3 id="flagger-ms">Flagger (MS)</h3>
 <p>Everyone who signs up to metasmoke gets this by default. This privilege will be revoked if you abuse the system.</p>
@@ -133,7 +137,7 @@ If your request for privileges is supported by a regular of one of the <a href="
 
 <ul>
   <li>Can <code class="highlighter-rouge">!!/watch</code> and <code class="highlighter-rouge">!!/blacklist</code> without approval. Please make sure that you read the <a href="https://charcoal-se.org/smokey/Guidance-for-Blacklisting-and-Watching">blacklisting guidelines</a> before using these commands.</li>
-  <li>Can approve other user’s watches and blacklists on GitHub. Simply add a comment on the auto-generated PR containing the command <code class="highlighter-rouge">!!/approve</code>, and metasmoke will handle the rest. Note that you will need to be added to PullApprove for this to work properly; ping ArtOfCode and he will be able to set you up.</li>
+  <li>Can approve other user’s watches and blacklists on GitHub. Simply add a comment on the auto-generated PR containing the command <code class="highlighter-rouge">!!/approve</code>, and metasmoke will handle the rest. Note that you will need to be added to PullApprove for this to work properly (which in turn requires you to have a GitHub account which is known to us); ping ArtOfCode and he will be able to set you up.</li>
   <li>Can failover standby instances from the <a href="https://metasmoke.erwaysoftware.com/status">status</a> page. Normally metasmoke handles this automatically if an instance goes down for more than 5 minutes, but you can use this if Smokey isn’t working properly. Make sure that you follow the <a href="https://charcoal-se.org/pings/#dead">troubleshooting guidelines</a> first.</li>
 </ul>
 
