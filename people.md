@@ -49,6 +49,9 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [doppelgreener](https://chat.stackexchange.com/users/2562/doppelgreener)
 *   [Mithrandir](http://chat.stackexchange.com/users/133031/mithrandir)
 *   [**NobodyNada**](http://chat.stackexchange.com/users/139423/nobodynada) (RO)
+*   [suraj](https://chat.stackexchange.com/users/262693/suraj)
+*   [John Dvorak](http://chat.stackexchange.com/users/56166/john-dvorak)
+*   [Yvette Colomb](http://chat.stackexchange.com/users/178825/yvette-colomb)
 
 </section>
 <section>
@@ -56,16 +59,13 @@ These people help out by adding to and maintaining the miles of regexes and blac
 
 These people contribute in other ways, such as flagging, giving feedback, making the rest of us laugh, and being all-round cool people.
 
-*   [Yvette Colomb](http://chat.stackexchange.com/users/178825/yvette-colomb)
 *   [M.A.R.](http://chat.stackexchange.com/users/135450/m-a-r)
 *   [Kyll](http://chat.stackexchange.com/users/172397/kyll)
-*   [Jan Dvorak](http://chat.stackexchange.com/users/56166/jan-dvorak)
 *   [DavidPostill](http://chat.stackexchange.com/users/133966/davidpostill)
 *   [Kaz Wolfe](http://chat.stackexchange.com/users/97389/kaz-wolfe)
 *   [Byte Commander](http://chat.stackexchange.com/users/137665/byte-commander)
 *   [DJMcMayhem](http://chat.stackexchange.com/users/144962/djmcmayhem)
 *   [CalvT](http://chat.stackexchange.com/users/64521/calvt)
 *   [QPaysTaxes](http://chat.stackexchange.com/users/137388/qpaystaxes)
-*   [suraj](https://chat.stackexchange.com/users/262693/suraj)
 *   [Nisse Engström](https://chat.stackexchange.com/users/155243/nisse-engstrom)
 </section>
