@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Installing Ruby and Rails | Charcoal
+    
+  </title>
+  <link type="text/css" rel="stylesheet" href="/assets/application-abe3a02d9caae71a96e85889fcfded7f0d982885fce3f3e6cf70ea0118eacb59.css">
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch"></script>
+  <script type="text/javascript" src="/assets/application-49b55bfd390519fc1a0c15f247835e230506bd0b4024e40069eb5cd21289f121.js"></script>
+  <script type="text/javascript" src="/assets/vendor-fad6853c80b4f83dd9b9327d08ae015076a89c51d5a959e0c9ef73241509de15.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" 
+            type="image/png" 
+            href="/assets/charcoal-c0d57d82868cf7a8b169cfaf65a45179467c310868ebfdd0f10e6bd48f068816.png" />
+</head>
+<body>
+  <div class="body-container">
+    
+    <div class="header">
+      <div class="header-icon text-center">
+        <a href="/">
+          <img src="/assets/charcoal-c0d57d82868cf7a8b169cfaf65a45179467c310868ebfdd0f10e6bd48f068816.png" height="64" width alt="charcoal.png">
+          <span class="title">
+            <span>Charcoal</span>
+            <small>spam-crusaders of the Internet</small>
+          </span>
+        </a>
+        <label class="nav-toggle-icon fa fa-bars fa-lg" for="nav-toggle"></label>
+      </div>
+      <input type="checkbox" id="nav-toggle">
+      <nav class="text-center top-nav">
+        <ul>
+          <li><a href="/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a></li>
+          <li><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq"><i class="fa mobile-only fa-comments-o"></i> chat</a></li>
+          <li>
+            <label class="link" for="projects-toggle">
+              more projects <i class="fa fa-chevron-down"></i>
+            </label>
+            <input type="checkbox" id="projects-toggle">
+            <nav class="nav-dropdown">
+              <a href="https://metasmoke.erwaysoftware.com/" >metasmoke</a>
+            
+              <a href="https://charcoal-se.org/ms-urls" >metasmoke URL converter</a>
+            
+              <a href="https://charcoal-se.org/blaze" data-turbolinks="false">Blaze</a>
+            </nav>
+          </li>
+          <li><a href="/scripts"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a></li>
+          <li><a href="/smokey/"><i class="fa mobile-only fa-file-text-o"></i> wiki</a></li>
+          <li><a href="/ms/API-Documentation"><i class="fa mobile-only fa-book"></i> api</a></li>
+          <li><a href="https://github.com/Charcoal-SE" title="GitHub organization"><i class="fa fa-github"></i><span class="mobile-only"> GitHub</span></a></li>
+          <li><a href="#" class="search-link"><i class="fa fa-search" title="Search"></i><span class="mobile-only"> Search</span></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="body">
+      
+
+
+<h2 id="installing-ruby-and-rails">Installing Ruby and Rails</h2>
+
+<p>Steps in this section are taken from a <a href="https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rvm-on-ubuntu-16-04">Digital Ocean tutorial</a></p>
+
+<ol>
+  <li>
+    <p>Add RVM’s key to the system</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code> gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Move to <code class="highlighter-rouge">/tmp</code> and start the install of the latest stable version of Rails</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code> cd /tmp
+ \curl -sSL https://get.rvm.io -o rvm.sh
+ cat /tmp/rvm.sh | bash -s stable --rails
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">source</code> the RVM scripts (insert your user’s name in the command)</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code> source /home/USERNAMEHERE/.rvm/scripts/rvm
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>You should now be able to run <code class="highlighter-rouge">ruby --version</code> and get a response</p>
+  </li>
+</ol>
+
+<h2 id="setting-up-metasmoke">Setting up metasmoke</h2>
+
+<ol>
+  <li>
+    <p>Clone the metasmoke repository (or your fork) to a directory of your choice (probably not <code class="highlighter-rouge">/tmp</code>)</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code> git clone https://github.com/Charcoal-SE/metasmoke.git
+</code></pre>
+    </div>
+  </li>
+  <li>Navigate to the repository you just cloned</li>
+  <li>
+    <p>Install a couple needed gems</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code> gem install bundler next 
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Install the metasmoke bundles</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code> bundle install
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>If there are any errors with the previous step, you will need to correct those before proceeding. The most common one is with MySQL and is usually solved by running and then repeating the previous step</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code> sudo apt-get install libmysqlclient-dev
+ gem uninstall mysql2
+ gem install mysql2
+</code></pre>
+    </div>
+  </li>
+  <li>When the bundle install has completed, you’ll get a notice about how to restart Passenger.</li>
+  <li>
+    <p>Log into MySQL with a user that has permissions to create a database and users. <code class="highlighter-rouge">root</code> may work best</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>mysql -u root -p
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Create the metasmoke database and metasmoke_test database</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>CREATE DATABASE metasmoke;
+CREATE DATABASE metasmoke_test;
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Create the metasmoke user and password. This user will only be able to access MySQL locally. You should still select a strong password. Grant this user privileges on the metasmoke database</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>CREATE USER 'metasmoke'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON `metasmoke`.* TO `metasmoke`@`localhost`;
+GRANT ALL PRIVILEGES ON `metasmoke_test`.* TO `metasmoke`@`localhost`;
+FLUSH PRIVILEGES; 
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Inside the metasmoke folder, from the command line, copy the <code class="highlighter-rouge">database.sample.yml</code> to <code class="highlighter-rouge">database.yml</code>:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>cd config
+cp database.sample.yml database.yml
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Open database.yml in your editor of choice. Replace the <code class="highlighter-rouge">development:</code> section with something like this, using your password on the <code class="highlighter-rouge">password</code> line:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>development:
+  adapter: mysql2
+  database: metasmoke
+  encoding: utf8
+  username: metasmoke
+  password: yourpass
+  host: 127.0.0.1
+  port: 3306
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Copy the sample configuration to <code class="highlighter-rouge">config.yml</code></p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>cp config.sample.yml config.yml
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Time to set up the metasmoke database. Navigate back to the metasmoke root directory (you are probably in <code class="highlighter-rouge">metasmoke/config</code> right now)</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>rails db:create
+rails db:schema:load
+rails db:seed 
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Update nodejs</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - 
+sudo apt-get install nodejs 
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Yarn needs to be installed to properly serve the web content</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update &amp;&amp; sudo apt-get install yarn
+yarn install
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Start the local server</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>foreman start
+</code></pre>
+    </div>
+  </li>
+  <li>Your local instance of metasmoke is now on http://localhost:5000</li>
+</ol>
+
+
+<div class="sidebar">
+
+
+
+<p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/Set-up-local-instance-of-metasmoke-(Ubuntu-16.04)/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+
+<div class="sidebar-content sidebar-content-ms">
+
+  <p><strong><a href="Home">Home</a></strong></p>
+
+  <p><strong><a href="API-Documentation">API Documentation</a></strong></p>
+
+  <p><strong><a href="WebSocket-API">WebSocket API Documentation</a></strong></p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
+
+    </div>
+    <div class="footer text-center">
+      <p>Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.<br />
+        <a href="/security">Security</a> • <a href="/pings">Contact</a>
+      </p>
+      <p>
+        <a href="http://github.com/Charcoal-SE/charcoal-se.github.io">Website Source</a>
+        • By
+          
+            <a href="https://github.com/j-f1" class="avatar-link">
+              <img class="avatar avatar-small" src="https://avatars2.githubusercontent.com/j-f1?v=3&s=16" alt="j-f1" srcset="https://avatars2.githubusercontent.com/j-f1?v=3&s=16 1x, https://avatars2.githubusercontent.com/j-f1?v=3&s=32 2x, https://avatars2.githubusercontent.com/j-f1?v=3&s=48 3x, https://avatars2.githubusercontent.com/j-f1?v=3&s=64 4x" width="16" height="16" data-proofer-ignore="true" />j-f1</a>,
+          
+            <a href="https://github.com/ArtOfCode-" class="avatar-link">
+              <img class="avatar avatar-small" src="https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=16" alt="ArtOfCode-" srcset="https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=16 1x, https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=32 2x, https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=48 3x, https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=64 4x" width="16" height="16" data-proofer-ignore="true" />ArtOfCode-</a>,
+          
+            <a href="https://github.com/tripleee" class="avatar-link">
+              <img class="avatar avatar-small" src="https://avatars2.githubusercontent.com/tripleee?v=3&s=16" alt="tripleee" srcset="https://avatars2.githubusercontent.com/tripleee?v=3&s=16 1x, https://avatars2.githubusercontent.com/tripleee?v=3&s=32 2x, https://avatars2.githubusercontent.com/tripleee?v=3&s=48 3x, https://avatars2.githubusercontent.com/tripleee?v=3&s=64 4x" width="16" height="16" data-proofer-ignore="true" />tripleee</a>,
+          
+            <a href="https://github.com/Fortunate-MAN" class="avatar-link">
+              <img class="avatar avatar-small" src="https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=16" alt="Fortunate-MAN" srcset="https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=16 1x, https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=32 2x, https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=48 3x, https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=64 4x" width="16" height="16" data-proofer-ignore="true" />Fortunate-MAN</a>,
+          
+          and
+          <a href="http://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
+            7 more</a>
+        
+          • <a href="/code">More gory details</a>
+        
+      </p>
+      
+    </div>
+  </div>
+  <div class="search text-center" style="display: none;">
+  </div>
+  <script>
+    window.searchLoadPath = "/assets/search-6ad9e78a0cf31baffce21cffc74c749100f081c7988c4ca3e67fc513fdb06933.js"
+    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/announcements": "https://charcoal-se.org///announcements/", "/smokey/Home": "https://charcoal-se.org///smokey/", "/smokey/Home": "https://charcoal-se.org///smokey/", "/smokey": "https://charcoal-se.org///smokey/", "/ms/Home": "https://charcoal-se.org///ms/", "/ms/Home": "https://charcoal-se.org///ms/", "/ms": "https://charcoal-se.org///ms/", "/userscripts/": "https://charcoal-se.org///scripts.html", "/userscripts": "https://charcoal-se.org///scripts.html",  }
+  </script>
+</body>
+</html>
