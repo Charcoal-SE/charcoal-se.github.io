@@ -16,6 +16,7 @@ These people get pinged a lot. (GH) indicates a GitHub organisation admin, and (
 *   [**ArtOfCode**](http://chat.stackexchange.com/users/121520/artofcode) (GH, MS, RO)
 *   [**Andy**](http://chat.stackexchange.com/users/66258/andy) (MS, RO)
 *   [**angussidney**](http://chat.stackexchange.com/users/145827/angussidney) (MS, RO)
+*   [**tripleee**](http://chat.stackexchange.com/users/62118/tripleee) (MS, RO)
 </section>
 <section>
 ## Developers {#devs}
@@ -28,7 +29,6 @@ These people have at some point contributed code of some variety, whether it be 
 *   [ManishEarth](http://chat.stackexchange.com/users/31768/manishearth) (RO)
 *   [Ferrybig](http://chat.stackexchange.com/users/58529/ferrybig) (RO)
 *   [**Thomas Ward**](http://chat.stackexchange.com/users/10145/thomas-ward) (RO)
-*   [tripleee](http://chat.stackexchange.com/users/62118/tripleee) (RO)
 *   [Brock Adams](http://chat.stackexchange.com/users/30477/brock-adams)
 *   [rene](http://chat.stackexchange.com/users/60548/rene)
 *   [Glorfindel](http://chat.stackexchange.com/users/164318/glorfindel)
