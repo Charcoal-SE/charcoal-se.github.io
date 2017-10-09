@@ -83,7 +83,7 @@
   <li><code class="highlighter-rouge">!!/notify &lt;chatroom_ID_number&gt; &lt;site_domain&gt;</code> — Tells SmokeDetector to ping you, in the given chatroom, when a post is reported on the given site.<br />
 Example:  <code class="highlighter-rouge">!!/notify 89 parenting.stackexchange.com-</code><br />
 Note: Please use the squelch suffix (<code class="highlighter-rouge">-</code>) and avoid spamming the chat room with too many requests. See <a href="http://chat.meta.stackexchange.com/transcript/message/4157790#4157790">this chat message</a> and the surrounding context.</li>
-  <li><code class="highlighter-rouge">!!/unnotify &lt;chatroom_ID_number&gt; &lt;site_domain&gt;</code> — Cancels the previously set notification.  Also accepts the silent mode suffix (<code class="highlighter-rouge">-</code>).</li>
+  <li><code class="highlighter-rouge">!!/unnotify &lt;chatroom_ID_number&gt; &lt;site_domain&gt;</code> — Cancels the previously set notification.  Also, accepts the silent mode suffix (<code class="highlighter-rouge">-</code>).</li>
   <li><code class="highlighter-rouge">!!/willibenotified &lt;chatroom_ID_number&gt; &lt;site_domain&gt;</code> — Reports whether you will be pinged, in the given room, about spam on the given site.</li>
   <li><code class="highlighter-rouge">!!/allnotificationsites &lt;chatroom_ID_number&gt;</code> — Shows all sites that you will be pinged for in the given room.</li>
 </ul>
@@ -127,7 +127,7 @@ Note that <code class="highlighter-rouge">why</code> data is only kept for the l
 
 <h2 id="privileged-commands-as-reply">Privileged commands as reply</h2>
 
-<p>These commands require privileges, and have to be posted as a reply to a message of SmokeDetector.</p>
+<p>These commands require privileges and have to be posted as a reply to a message of SmokeDetector.</p>
 
 <p>User-friendly syntax:</p>
 
@@ -146,15 +146,15 @@ Note that <code class="highlighter-rouge">why</code> data is only kept for the l
   <li><code class="highlighter-rouge">fpu</code> or <code class="highlighter-rouge">falseu</code> — Marks a reported post as false positive and adds the poster to the whitelist.</li>
   <li><code class="highlighter-rouge">naa</code> — If the reported post is an answer, this command records it as NAA (Not an answer) in metasmoke.</li>
   <li><code class="highlighter-rouge">ignore</code> — Makes SmokeDetector ignore a reported post.</li>
-  <li><code class="highlighter-rouge">delete</code>, <code class="highlighter-rouge">del</code>, <code class="highlighter-rouge">remove</code> or <code class="highlighter-rouge">gone</code> — Deletes a message of SmokeDetector. This has been disabled in CHQ due to the reasons <a href="#a-note-on-message-deletion">listed below</a>, but if you really need to delete a message use <code class="highlighter-rouge">sd delete-force</code>.</li>
+  <li><code class="highlighter-rouge">delete</code>, <code class="highlighter-rouge">del</code>, <code class="highlighter-rouge">remove</code> or <code class="highlighter-rouge">gone</code> — Deletes a message of SmokeDetector. This has been disabled in CHQ due to the reasons <a href="#a-note-on-message-deletion">listed below</a>. But if you really need to delete a message, use <code class="highlighter-rouge">sd delete-force</code>.</li>
   <li><code class="highlighter-rouge">postgone</code> — Edits out the post link of a SmokeDetector report. If in CHQ, this should be used sparingly.</li>
 </ul>
 
 <h2 id="silent-mode-and-aliases">Silent mode and aliases</h2>
 
-<p>If you don’t want SmokeDetector to reply when executing a command, add a <code class="highlighter-rouge">-</code> sign at the end, for example <code class="highlighter-rouge">fp-</code>. This is a good practice to cut down on chatroom clutter.  Note that SmokeDetector will always report any errors, even if the <code class="highlighter-rouge">-</code> is present. The hyphen can be placed after the command itself, or after its parameter. The following commands support silent mode: replying to spam reports, managing black- and white-list, and managing chat notifications.</p>
+<p>If you don’t want SmokeDetector to reply when executing a command add a <code class="highlighter-rouge">-</code> sign at the end, for example, <code class="highlighter-rouge">fp-</code>. This is a good practice to cut down on chatroom clutter.  Note that SmokeDetector will always report any errors, even if the <code class="highlighter-rouge">-</code> is present. The hyphen can be placed after the command itself or after its parameter. The following commands support silent mode: replying to spam reports, managing black- and white-list, and managing chat notifications.</p>
 
-<p>Also, some frequently used commands have one-letter aliases, or convenient words that can be used instead:</p>
+<p>Also, some frequently used commands have one-letter aliases or convenient words that can be used instead:</p>
 
 <table>
   <thead>
@@ -210,7 +210,7 @@ Note that <code class="highlighter-rouge">why</code> data is only kept for the l
 <h2 id="a-note-on-message-deletion">A note on message deletion</h2>
 <p>Messages by SmokeDetector can be deleted within 2 minutes after they were posted by using the <code class="highlighter-rouge">del</code>, <code class="highlighter-rouge">remove</code>, or <code class="highlighter-rouge">gone</code> commands. After 2 minutes are up, SmokeDetector cannot delete its own messages in response to those commands, so any deletion after that window must be done by a moderator.</p>
 
-<p>Messages will also be deleted in Tavern on the Meta and SO Close Vote Reviewers, or Raiders of the Lost Downboat if the relevant post is deleted or marked as false positive before the 2-minute window is up.</p>
+<p>Messages will also be deleted in <em>Tavern on the Meta</em> and <em>SO Close Vote Reviewers</em>, or <em>Raiders of the Lost Downboat</em> if the relevant post is deleted or marked as false positive before the 2-minute window is up.</p>
 
 <p><strong>Please note</strong> that the usage of deletion commands is discouraged in Charcoal HQ. Generally, messages in CHQ are kept as a record of all reported posts for multiple reasons:</p>
 
@@ -243,7 +243,7 @@ before that and cmd3 on the message before that, and so on.</p>
 message. For example, <code class="highlighter-rouge">sd - delete</code> skips the most recent message and
 deletes the message before that one.</p>
 
-<p>Smokey will reply to your shortcut command, unless all commands have quiet
+<p>Smokey will reply to your shortcut command unless all commands have quiet
 mode (like tp-) or just don’t reply by default (like delete).</p>
 
 <p>A few examples:</p>
@@ -253,7 +253,7 @@ mode (like tp-) or just don’t reply by default (like delete).</p>
   <li><code class="highlighter-rouge">sd tp fp delete</code> marks the most recent message as tp, the one before that as fp, and deletes the one before that.</li>
 </ul>
 
-<p>You can also put a digit in front of a command so the command will apply as many times as the digit. A few examples:</p>
+<p>You can also put a digit in front of a command so that the command will apply as many times as the digit. A few examples:</p>
 
 <ul>
   <li><code class="highlighter-rouge">sd 2tpu</code> = <code class="highlighter-rouge">sd tpu tpu</code></li>
