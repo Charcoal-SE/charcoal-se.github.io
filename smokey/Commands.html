@@ -146,7 +146,7 @@ Note that <code class="highlighter-rouge">why</code> data is only kept for the l
   <li><code class="highlighter-rouge">fpu</code> or <code class="highlighter-rouge">falseu</code> — Marks a reported post as false positive and adds the poster to the whitelist.</li>
   <li><code class="highlighter-rouge">naa</code> — If the reported post is an answer, this command records it as NAA (Not an answer) in metasmoke.</li>
   <li><code class="highlighter-rouge">ignore</code> — Makes SmokeDetector ignore a reported post.</li>
-  <li><code class="highlighter-rouge">delete</code>, <code class="highlighter-rouge">del</code>, <code class="highlighter-rouge">remove</code> or <code class="highlighter-rouge">gone</code> — Deletes a message of SmokeDetector. If in CHQ, this should be used sparingly - we like to keep the room as a complete transcript of all reports and messages by the bot.</li>
+  <li><code class="highlighter-rouge">delete</code>, <code class="highlighter-rouge">del</code>, <code class="highlighter-rouge">remove</code> or <code class="highlighter-rouge">gone</code> — Deletes a message of SmokeDetector. This has been disabled in CHQ due to the reasons <a href="#a-note-on-message-deletion">listed below</a>, but if you really need to delete a message use <code class="highlighter-rouge">sd delete-force</code>.</li>
   <li><code class="highlighter-rouge">postgone</code> — Edits out the post link of a SmokeDetector report. If in CHQ, this should be used sparingly.</li>
 </ul>
 
@@ -207,12 +207,21 @@ Note that <code class="highlighter-rouge">why</code> data is only kept for the l
   </tbody>
 </table>
 
-<h2 id="message-deletion">Message deletion</h2>
+<h2 id="a-note-on-message-deletion">A note on message deletion</h2>
 <p>Messages by SmokeDetector can be deleted within 2 minutes after they were posted by using the <code class="highlighter-rouge">del</code>, <code class="highlighter-rouge">remove</code>, or <code class="highlighter-rouge">gone</code> commands. After 2 minutes are up, SmokeDetector cannot delete its own messages in response to those commands, so any deletion after that window must be done by a moderator.</p>
 
-<p>Messages will also be deleted in Tavern on the Meta and SO Close Vote Reviewers if the relevant post is deleted before the 2-minute window is up; this does not apply in Charcoal HQ.</p>
+<p>Messages will also be deleted in Tavern on the Meta and SO Close Vote Reviewers, or Raiders of the Lost Downboat if the relevant post is deleted or marked as false positive before the 2-minute window is up.</p>
 
-<p>Messages will also be deleted in Tavern on the Meta and SO Close Vote Reviewers if they are fed back on as a false positive within the 2-minute window.</p>
+<p><strong>Please note</strong> that the usage of deletion commands is discouraged in Charcoal HQ. Generally, messages in CHQ are kept as a record of all reported posts for multiple reasons:</p>
+
+<ul>
+  <li>While we <em>do</em> have metasmoke which acts as a mirror of all posts, it does go offline occasionally</li>
+  <li>Some userscripts which run in chat (e.g. FIRE) use information from the chat reports to fetch the correct data from the API.</li>
+  <li>It allows for a second opinion on reports, even if one person has marked it as a false positive</li>
+  <li>Seeing spam and abusive posts is an occupational hazard in CHQ; we aren’t worried if the report contains something NSFW.</li>
+</ul>
+
+<p>The <code class="highlighter-rouge">delete-force</code> command can be used if a report <em>really</em> needs to be deleted in Charcoal HQ.</p>
 
 <h2 id="shortcut-commands">Shortcut commands</h2>
 
