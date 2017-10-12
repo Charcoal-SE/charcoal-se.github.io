@@ -186,6 +186,14 @@
   
 
   
+    "ms-smoke-detectors-html": {
+      "title": "Smoke Detectors",
+      "content": "Route Name\nSmoke Detectors\n\nRoute URL\n\n/api/smoke_detectors\n\n\n\nDescription &amp; Usage\nThis route supplies a list of smoke detectors.\n\nYou can use the per_page query string parameter to adjust how many results you get, up to a maximum of 100.\n\nThe has_more field in the response indicates if there are more results available than have been returned in this result set; use the page query string parameter to get the next page of results. ?page=1 will return the first page; ?page=2 the second, and so on.\n\nPassing a blank filter (by appending ?filter= to the the URL) will result in all fields being displayed.\n\nExample\nRequest:\n\nHTTP/1.1 GET /api/smoke_detectors\n\n\n\nResponse:\n\n{\n    \"items\":[\n        {\n            \"id\": 1,\n            \"last_ping\": \"2017-02-06T23:20:50.000Z\",\n            \"name\": null,\n            \"location\": \"Redacted Location\",\n            \"created_at\": \"2016-02-20T23:25:32.000Z\",\n            \"updated_at\": \"2017-08-25T18:11:07.000Z\",\n            \"email_date\": \"2017-02-05T03:36:04.000Z\",\n            \"user_id\": 1,\n            \"is_standby\": false,\n            \"force_failover\": false,\n            \"status_color\": \"good\"\n        },\n        {\n            \"id\": 2,\n            \"last_ping\": \"2017-10-07T00:13:05.000Z\",\n            \"name\": \"Temp Smokey\",\n            \"location\": \"Redacted Location\",\n            \"created_at\": \"2016-05-09T20:21:30.000Z\",\n            \"updated_at\": \"2017-10-07T00:13:05.000Z\",\n            \"email_date\": \"2017-05-24T07:18:08.000Z\",\n            \"user_id\": 7,\n            \"is_standby\": false,\n            \"force_failover\": false,\n            \"status_color\": \"critical\"\n        }\n    ],\n    \"has_more\":false\n}\n\n\n",
+      "url": "/ms/Smoke-Detectors"
+    },
+  
+
+  
     "smokey-smokedetector-statuses-html": {
       "title": "SmokeDetector Statuses",
       "content": "SmokeDetector can restart into one of three different statuses:\n\n\n  Standard mode\n  Standby mode\n  Reverted mode\n\n\nStandby mode\n\nSmokeDetector can be run in standby mode as a backup copy, just in case the main Smokey breaks down.\nWhile in Standby mode, SmokeDetector will not make reports in chat, send posts to Metasmoke or listen\nto commands.\n\nStandby mode can be deactivated by running the !!/failover command. This will restart a backup \ninstance so that it begins to run like the standard SmokeDetector.\n\n\n  SmokeDetector host note: you can run python3 nocrash.py standby to start Smokey directly into Standby mode.\n\n\nReverted Mode\n\nSmokeDetector switches to Reverted Mode when it detects that errors occur in the running version: it goes back to a previous version. When SmokeDetector is in reverted mode, any privileged user can switch back to the master branch using the !!/master command when that’s necessary.\n",
@@ -228,7 +236,7 @@
   
     "code-html": {
       "title": "Code",
-      "content": "Website built from:\n\n\n  commit 3f3ce07 on Charcoal-SE/charcoal-se.github.io\n  commit 5c7db29 on the Charcoal-SE/SmokeDetector wiki\n  commit 27ed09f on the Charcoal-SE/metasmoke wiki\n  commit 43a139c on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
+      "content": "Website built from:\n\n\n  commit 3f3ce07 on Charcoal-SE/charcoal-se.github.io\n  commit 5c7db29 on the Charcoal-SE/SmokeDetector wiki\n  commit 089a372 on the Charcoal-SE/metasmoke wiki\n  commit 43a139c on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
       "url": "/code"
     },
   
