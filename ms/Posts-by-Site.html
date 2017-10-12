@@ -75,6 +75,34 @@
 
 <p>The <code class="highlighter-rouge">has_more</code> field in the response indicates if there are more results available than have been returned in this result set; use the <code class="highlighter-rouge">page</code> query string parameter to get the next page of results. <code class="highlighter-rouge">?page=1</code> will return the first page; <code class="highlighter-rouge">?page=2</code> the second, and so on.</p>
 
+<h3 id="example">Example</h3>
+<p><strong>Request:</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP/1.1 GET /api/posts/site?site=https://drupal.stackexchange.com
+</code></pre>
+</div>
+
+<p><strong>Response:</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">88814</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"For Which Age Group This Face Cream Is Suitable For?"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;truncated&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"//drupal.stackexchange.com/questions/247905"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"site_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">86</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"user_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://drupal.stackexchange.com/users/79823/aftly-19"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Redacted User"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"why"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;truncated&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"user_reputation"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"stack_exchange_user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">77689</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"is_tp"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"is_fp"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"is_naa"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-12T14:11:09.000Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
 
 <div class="sidebar">
 
