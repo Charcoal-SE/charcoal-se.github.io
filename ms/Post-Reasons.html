@@ -75,6 +75,8 @@
 
 <p>The <code class="highlighter-rouge">has_more</code> field in the response indicates if there are more results available than have been returned in this result set; use the <code class="highlighter-rouge">page</code> query string parameter to get the next page of results. <code class="highlighter-rouge">?page=1</code> will return the first page; <code class="highlighter-rouge">?page=2</code> the second, and so on.</p>
 
+<p>Passing a blank filter (by appending <code class="highlighter-rouge">?filter=</code> to the the URL) will result in all fields being displayed.</p>
+
 <h3 id="example">Example</h3>
 <p><strong>Request:</strong></p>
 
@@ -91,12 +93,16 @@
             </span><span class="nt">"reason_name"</span><span class="p">:</span><span class="s2">"Link at end of body"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"last_post_title"</span><span class="p">:</span><span class="s2">"VitaPulse by Princeton Vitamins is evidently"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"inactive"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+            </span><span class="s2">"weight"</span><span class="err">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"maximum_weight"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">35</span><span class="p">,</span><span class="w">
             </span><span class="nt">"reason_name"</span><span class="p">:</span><span class="s2">"Pattern-matching website in body"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"last_post_title"</span><span class="p">:</span><span class="s2">"VitaPulse by Princeton Vitamins is evidently"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"inactive"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+            </span><span class="s2">"weight"</span><span class="err">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"maximum_weight"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="nt">"has_more"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
