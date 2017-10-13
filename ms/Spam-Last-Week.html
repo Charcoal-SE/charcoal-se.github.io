@@ -2,7 +2,8 @@
 <html>
 <head>
   <title>
-    Code | Charcoal
+    
+      Spam Last Week | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="/assets/application-abe3a02d9caae71a96e85889fcfded7f0d982885fce3f3e6cf70ea0118eacb59.css">
@@ -55,16 +56,87 @@
       </nav>
     </div>
     <div class="body">
-      <p>Website built from:</p>
+      
 
-<ul>
-  <li>commit <a href="http://github.com/Charcoal-SE/charcoal-se.github.io/commit/3f3ce079ca126193b2987ac92d8be91e083a057b" title="3f3ce079ca126193b2987ac92d8be91e083a057b"><code class="highlighter-rouge">3f3ce07</code></a> on <a href="https://github.com/Charcoal-SE/charcoal-se.github.io">Charcoal-SE/charcoal-se.github.io</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/_compare/5c7db29d42a8144acb5ffa283e9aa8960c517f73" title="5c7db29d42a8144acb5ffa283e9aa8960c517f73"><code class="highlighter-rouge">5c7db29</code></a> on the <a href="//github.com/Charcoal-SE/SmokeDetector/wiki">Charcoal-SE/SmokeDetector wiki</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/metasmoke/wiki/_compare/19634284454b98ce81a53dcbb92f51a1dd0f91e5" title="19634284454b98ce81a53dcbb92f51a1dd0f91e5"><code class="highlighter-rouge">1963428</code></a> on the <a href="//github.com/Charcoal-SE/metasmoke/wiki">Charcoal-SE/metasmoke wiki</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/charcoal-jekyll-theme/commit/43a139c2015a113acdbca005018d5cfcf544e3df" title="43a139c2015a113acdbca005018d5cfcf544e3df"><code class="highlighter-rouge">43a139c</code></a> on <a href="https://github.com/Charcoal-SE/charcoal-jekyll-theme">Charcoal-SE/charcoal-jekyll-theme</a></li>
-</ul>
 
-<p>This site is powered by <a href="https://jekyllrb.com">Jekyll</a> <a href="https://github.com/jekyll/jekyll/releases/v3.4.2">v3.4.2</a></p>
+<h3 id="route-name">Route Name</h3>
+<p>Spam Last Week</p>
+
+<h3 id="route-url">Route URL</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>/api/spam/last_week
+</code></pre>
+</div>
+
+<h3 id="description--usage">Description &amp; Usage</h3>
+<p>This route allows you to retrieve data about how many posts were marked as spam and were true positives, for each website in the past week.</p>
+
+<p>You can use the <code class="highlighter-rouge">per_page</code> query string parameter to adjust how many results you get, up to a maximum of 100.</p>
+
+<p>The <code class="highlighter-rouge">has_more</code> field in the response indicates if there are more results available than have been returned in this result set; use the <code class="highlighter-rouge">page</code> query string parameter to get the next page of results. <code class="highlighter-rouge">?page=1</code> will return the first page; <code class="highlighter-rouge">?page=2</code> the second, and so on.</p>
+
+<h3 id="example">Example</h3>
+<p><strong>Request:</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>HTTP/1.1 GET /api/spam/last_week
+</code></pre>
+</div>
+
+<p><strong>Response:</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"3D Printing"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Academia"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Android Enthusiasts"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Anime &amp; Manga"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Arduino"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Arqade"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Ask Different"</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Ask Patents"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Ask Ubuntu"</span><span class="p">:</span><span class="w"> </span><span class="mi">222</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Astronomy"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Aviation"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Biblical Hermeneutics"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Bicycles"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Biology"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Bitcoin"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Chemistry"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"CiviCRM"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Code Review"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Computer Graphics"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Computer Science"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Craft CMS"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Database Administrators"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"Drupal Answers"</span><span class="p">:</span><span class="w"> </span><span class="mi">59</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+</div>
+
+
+<div class="sidebar">
+
+
+
+<p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/Spam-Last-Week/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+
+<div class="sidebar-content sidebar-content-ms">
+
+  <p><strong><a href="Home">Home</a></strong></p>
+
+  <p><strong><a href="API-Documentation">API Documentation</a></strong></p>
+
+  <p><strong><a href="WebSocket-API">WebSocket API Documentation</a></strong></p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
 
     </div>
     <div class="footer text-center">
@@ -91,13 +163,9 @@
           <a href="http://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
             7 more</a>
         
+          • <a href="/code">More gory details</a>
+        
       </p>
-      
-        <p>
-          <a href="/code">More gory details</a>
-          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/code.md" title="code.md">Edit on GitHub</a>
-          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/new/site">New Page</a>
-        </p>
       
     </div>
   </div>
