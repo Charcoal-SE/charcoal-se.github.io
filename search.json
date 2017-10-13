@@ -164,7 +164,7 @@
   
     "ms-search-posts-html": {
       "title": "Search Posts",
-      "content": "Route Name\nSearch Posts\n\nRoute URL\n\n/api/posts/search\n\n\n\nDescription &amp; Usage\nThis route is a unification of a number of other routes, including Posts by Feedback, Posts by Site, and Posts by Date Range. More exact documentation for the parameters of this route is available within the documentation for these individual routes. What follows is a list of available parameters for this route:\n\n\n  feedback_type\n  from_date\n  to_date\n  site\n\n\nYou can use the per_page query string parameter to adjust how many results you get, up to a maximum of 100.\n\nThe has_more field in the response indicates if there are more results available than have been returned in this result set; use the page query string parameter to get the next page of results. ?page=1 will return the first page; ?page=2 the second, and so on.\n\nExample\nPlease refer to the individual route documentation for examples of the kind of data returned. This route returns an array (list) of posts, which is the same type returned by each individual route.\n",
+      "content": "Route Name\nSearch Posts\n\nRoute URL\n\n/api/posts/search\n\n\n\nDescription &amp; Usage\nThis route is a unification of a number of other routes, including Posts by Feedback, Posts by Site, and Posts by Date Range. More exact documentation for the parameters of this route is available within the documentation for these individual routes. What follows is a list of available parameters for this route:\n\n\n  feedback_type\n  from_date\n  to_date\n  site\n\n\nPlease note that using the Search Posts route with site parameter is different than using the Posts by Site route: the Search Posts route with site parameter (api/posts/search?site=) must exclude https:// from the passed value, but the Posts by Site route and parameter (api/posts/site?site=) must include https:// in the passed value. Otherwise, the query will not yield any results.\n\nYou can use the per_page query string parameter to adjust how many results you get, up to a maximum of 100.\n\nThe has_more field in the response indicates if there are more results available than have been returned in this result set; use the page query string parameter to get the next page of results. ?page=1 will return the first page; ?page=2 the second, and so on.\n\nExample\nPlease refer to the individual route documentation for examples of the kind of data returned. This route returns an array (list) of posts, which is the same type returned by each individual route.\n",
       "url": "/ms/Search-Posts"
     },
   
@@ -236,7 +236,7 @@
   
     "code-html": {
       "title": "Code",
-      "content": "Website built from:\n\n\n  commit 3f3ce07 on Charcoal-SE/charcoal-se.github.io\n  commit 5c7db29 on the Charcoal-SE/SmokeDetector wiki\n  commit 1db849b on the Charcoal-SE/metasmoke wiki\n  commit 43a139c on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
+      "content": "Website built from:\n\n\n  commit 3f3ce07 on Charcoal-SE/charcoal-se.github.io\n  commit 5c7db29 on the Charcoal-SE/SmokeDetector wiki\n  commit d39501f on the Charcoal-SE/metasmoke wiki\n  commit 43a139c on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
       "url": "/code"
     },
   
