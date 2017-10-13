@@ -88,7 +88,7 @@ POST /api/posts/urls
 
 <p>This route supports both GET and POST requests, for the event that your list of URLs is too long for a GET.</p>
 
-<p>Passing a blank filter (by appending ?filter= to the the URL) will result in all fields being displayed.</p>
+<p>Passing a blank filter (by appending <code class="highlighter-rouge">?filter=</code> to the the URL) will result in all fields being displayed.</p>
 
 <h3 id="example">Example</h3>
 <p><strong>Request:</strong></p>
@@ -118,7 +118,33 @@ POST /api/posts/urls
         </span><span class="nt">"downvote_count"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="nt">"stack_exchange_user_id"</span><span class="p">:</span><span class="mi">15384</span><span class="p">,</span><span class="w">
         </span><span class="nt">"is_tp"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"is_fp"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+        </span><span class="nt">"is_fp"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"is_naa"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"revision_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"smoke_detector_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"autoflagged"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"flagged"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"names"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="err">}</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"count_tp"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"count_fp"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"count_naa"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"manual_flags"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="err">}</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"feedbacks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"feedback_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tpu-"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ferrybig"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"feedback_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tpu-"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JamesENL"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nt">"reason_weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">196</span><span class="w">
     </span><span class="p">}],</span><span class="w">
     </span><span class="nt">"has_more"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
