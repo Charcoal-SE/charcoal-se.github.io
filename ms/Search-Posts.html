@@ -78,8 +78,6 @@
   <li><a href="https://github.com/Charcoal-SE/metasmoke/wiki/Posts-by-Site"><code class="highlighter-rouge">site</code></a></li>
 </ul>
 
-<p>Please note that using the Search Posts route with <code class="highlighter-rouge">site</code> parameter is different than using the Posts by Site route: the Search Posts route with <code class="highlighter-rouge">site</code> parameter (<code class="highlighter-rouge">api/posts/search?site=</code>) must exclude https:// from the passed value, but the Posts by Site route and parameter (<code class="highlighter-rouge">api/posts/site?site=</code>) must include https:// in the passed value. Otherwise, the query will not yield any results.</p>
-
 <p>You can use the <code class="highlighter-rouge">per_page</code> query string parameter to adjust how many results you get, up to a maximum of 100.</p>
 
 <p>The <code class="highlighter-rouge">has_more</code> field in the response indicates if there are more results available than have been returned in this result set; use the <code class="highlighter-rouge">page</code> query string parameter to get the next page of results. <code class="highlighter-rouge">?page=1</code> will return the first page; <code class="highlighter-rouge">?page=2</code> the second, and so on.</p>
