@@ -28,7 +28,7 @@
   
     "smokey-chat-rooms-html": {
       "title": "Chat Rooms",
-      "content": "This is a list of Stack Exchange chat rooms where SmokeDetector posts reports and/or listens for commands.\n\nSite-specific reports are sent to:\n\n\n  Bitcoin: mempool\n  Crafts: The Studio\n  English: English Language &amp; Usage\n  English Language Learners: Language Overflow\n  Ethereum: Whisper\n  Graphic Design: The Spam Blot\n  Magento: Charcoal SmokeDetector Reports\n  Mathematics: C.R.U.D.E.\n  Mi Yodeya: V’dibarta Bam\n  Money: Smoke Detector\n  Movies: Movies &amp; TV Moderation and Maintenance\n  Parenting: Parenting\n  Role-playing Games: RPG General Chat\n  Stack Overflow: SO Close Vote Reviewers, SOBotics\n  Stack Overflow in Russian: Ru.SO General Room\n  Science Fiction &amp; Fantasy: SFF community cleanup room\n\n\nUniversal, cross site reports are sent to:\n\n\n  Charcoal HQ\n  Tavern on the Meta (undeleted posts with a 5-minute delay, and excluding Stack Overflow reports).\n\n\nCommands are accepted from:\n\n\n  Charcoal HQ\n  Tavern on the Meta\n  SO Close Vote Reviewers\n  SOBotics\n\n",
+      "content": "This is a list of Stack Exchange chat rooms where SmokeDetector posts reports and/or listens for commands.\n\nSite-specific reports are sent to:\n\n\n  Bitcoin: mempool\n  Crafts: The Studio\n  English: English Language &amp; Usage\n  English Language Learners: Language Overflow\n  Ethereum: Whisper\n  Graphic Design: The Spam Blot\n  Magento: Charcoal SmokeDetector Reports\n  Mathematics: C.R.U.D.E.\n  Mi Yodeya: V’dibarta Bam\n  Money: Smoke Detector\n  Parenting: Parenting\n  Role-playing Games: RPG General Chat\n  Stack Overflow: SO Close Vote Reviewers, SOBotics\n  Stack Overflow in Russian: Ru.SO General Room\n  Science Fiction &amp; Fantasy: SFF community cleanup room\n\n\nUniversal, cross site reports are sent to:\n\n\n  Charcoal HQ\n  Tavern on the Meta (undeleted posts with a 5-minute delay, and excluding Stack Overflow reports).\n\n\nCommands are accepted from:\n\n\n  Charcoal HQ\n  Tavern on the Meta\n  SO Close Vote Reviewers\n  SOBotics\n\n",
       "url": "/smokey/Chat-Rooms"
     },
   
@@ -252,7 +252,7 @@
   
     "code-html": {
       "title": "Code",
-      "content": "Website built from:\n\n\n  commit 3f3ce07 on Charcoal-SE/charcoal-se.github.io\n  commit 5c7db29 on the Charcoal-SE/SmokeDetector wiki\n  commit ab20769 on the Charcoal-SE/metasmoke wiki\n  commit 43a139c on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
+      "content": "Website built from:\n\n\n  commit 3f3ce07 on Charcoal-SE/charcoal-se.github.io\n  commit bd112a8 on the Charcoal-SE/SmokeDetector wiki\n  commit ab20769 on the Charcoal-SE/metasmoke wiki\n  commit 43a139c on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
       "url": "/code"
     },
   
