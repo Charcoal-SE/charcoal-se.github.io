@@ -3,7 +3,7 @@
 /**
  * USAGE:
  *
- * for inside a navbar
+ * for inside a Bootstrap navbar
  * <a class="inline home" href="//charcoal-se.org/"><img src="//charcoal-se.org/assets/images/charcoal.png" height="32"><span>by Charcoal</span></a>
  *
  * If you don’t want a label
@@ -23,12 +23,12 @@
   transition: all 0.4s;
   
   img:not(:hover) {
-    transform: rotateX(-360deg);
+    transform: rotate(-360deg);
     transition: all 0.4s;
   }
   
   img:hover {
-    transform: rotateX(0);
+    transform: rotate(0);
     transition: all 0.4s;
   }
   
