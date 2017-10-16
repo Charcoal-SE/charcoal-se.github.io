@@ -71,10 +71,6 @@
 <h3 id="description--usage">Description &amp; Usage</h3>
 <p>This route provides data about the posts caught by a specific reason. Replace <code class="highlighter-rouge">:id</code> in the URL with the ID of the metasmoke reason you want data for, and all database fields for each post caught by that reason will be returned.</p>
 
-<p>You can use the <code class="highlighter-rouge">per_page</code> query string parameter to adjust how many results you get, up to a maximum of 100.</p>
-
-<p>The <code class="highlighter-rouge">has_more</code> field in the response indicates if there are more results available than have been returned in this result set; use the <code class="highlighter-rouge">page</code> query string parameter to get the next page of results. <code class="highlighter-rouge">?page=1</code> will return the first page; <code class="highlighter-rouge">?page=2</code> the second, and so on.</p>
-
 <h3 id="example">Example</h3>
 <p><strong>Request:</strong></p>
 
