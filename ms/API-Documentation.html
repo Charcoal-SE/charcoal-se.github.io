@@ -83,6 +83,14 @@
 
 <p>Once you’ve got your filter, include it as the <code class="highlighter-rouge">filter</code> parameter on requests to the API that use it.</p>
 
+<p>You may sometimes need to pass a blank filter (by appending <code class="highlighter-rouge">?filter=</code> to the the URL) for all fields to be displayed.</p>
+
+<h4 id="results">Results</h4>
+
+<p>You can use the <code class="highlighter-rouge">per_page</code> query string parameter to adjust how many results you get, up to a maximum of 100.</p>
+
+<p>The <code class="highlighter-rouge">has_more</code> field in the response indicates if there are more results available than have been returned in this result set; use the <code class="highlighter-rouge">page</code> query string parameter to get the next page of results. <code class="highlighter-rouge">?page=1</code> will return the first page; <code class="highlighter-rouge">?page=2</code> the second, and so on.</p>
+
 <h4 id="write-methods">Write Methods</h4>
 <p>Write methods additionally require you to go through OAuth to get hold of a <em>write token</em>, which can be used to authorize the write request. You should follow this flow:</p>
 
