@@ -173,6 +173,11 @@ cp database.sample.yml database.yml
 </code></pre>
     </div>
   </li>
+</ol>
+
+<p>If there are any <code class="highlighter-rouge">adapter: sqlite3</code> databases in there, remove them if you don’t need them, or convert them to <code class="highlighter-rouge">adapter: mysql2</code>.</p>
+
+<ol>
   <li>
     <p>Copy the sample configuration to <code class="highlighter-rouge">config.yml</code></p>
 
@@ -180,6 +185,18 @@ cp database.sample.yml database.yml
 </code></pre>
     </div>
   </li>
+  <li>
+    <p>You need to have Redis up and running, too.</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get install -y redis-server
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<p>If you are unable to find Redis for your platform (because you are on something older or just different than a reasonably recent Ubuntu or Debian), see their installation instructions at https://redis.io/download#installation</p>
+
+<ol>
   <li>
     <p>Time to set up the metasmoke database. Navigate back to the metasmoke root directory (you are probably in <code class="highlighter-rouge">metasmoke/config</code> right now)</p>
 
@@ -214,7 +231,9 @@ yarn install
 </code></pre>
     </div>
   </li>
-  <li>Your local instance of metasmoke is now on http://localhost:5000</li>
+  <li>
+    <p>Your local instance of metasmoke is now on http://localhost:5000</p>
+  </li>
 </ol>
 
 
