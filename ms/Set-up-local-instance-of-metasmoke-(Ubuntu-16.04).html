@@ -236,6 +236,21 @@ yarn install
   </li>
 </ol>
 
+<p>To actually use it, you’ll want to use the “Sign up” button in the web UI to create a local user, then assign admin and developer roles to this first user from the console:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    rails c
+</code></pre>
+</div>
+
+<p>At the <code class="highlighter-rouge">irb</code> prompt, type</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    User.first.add_role(:admin)
+    User.first.add_role(:developer)
+</code></pre>
+</div>
+
+<p>(There will be a significant amount of output from Rails after each of these commands, showing how the roles table is updated with a new role, and then the user is assigned this role.)</p>
+
 
 <div class="sidebar">
 
