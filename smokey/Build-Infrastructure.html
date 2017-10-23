@@ -2,7 +2,8 @@
 <html>
 <head>
   <title>
-    Home | Charcoal
+    
+      Build Infrastructure | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="/assets/application-abe3a02d9caae71a96e85889fcfded7f0d982885fce3f3e6cf70ea0118eacb59.css">
@@ -58,66 +59,62 @@
       
 
 
-<p>SmokeDetector is a headless chatbot that detects spam and posts it to chatrooms.<br />
-It uses <a href="https://github.com/Manishearth/ChatExchange">ChatExchange</a> and takes questions from <a href="http://stackexchange.com/questions?tab=realtime">the Stack Exchange realtime tab</a>. For more information on how it works, see our website at <a href="https://charcoal-se.org/">charcoal-se.org</a>.</p>
+<p>SmokeDetector’s build infrastructure is complex and involves quite a number of components. This is an attempt to document the process and reduce the bus factor.</p>
 
-<hr />
-
-<h3 id="user-information">User information</h3>
+<h1 id="principles">Principles</h1>
+<p>The idea of the build process is to enable those with SmokeDetector privileges to pull in code without having direct server access. However, doing that without any safeguards is obviously a bad idea, so there are a number of components that regulate what and when things can be pulled in.</p>
 
 <ul>
-  <li>
-    <p>You can find a list of <strong>SmokeDetector’s commands</strong> on <a href="Commands">the commands page</a>.</p>
-  </li>
-  <li>
-    <p>Find a list of <strong>chatrooms that SmokeDetector interacts with</strong> on <a href="Chat-Rooms">the chat rooms page</a>.</p>
-  </li>
-  <li>
-    <p>If you’re thinking about <strong>asking for privileges</strong>, take a look at <a href="Privileges">the privileges page</a>.</p>
-  </li>
-  <li>
-    <p>To find out what’s expected of members of Charcoal, check out our <a href="Behaviour-and-Procedure">expected behaviour and procedures page</a></p>
-  </li>
-  <li>
-    <p>If you’re looking for <strong>guidance on feeding back to SmokeDetector</strong>, read <a href="Feedback-Guidance">the feedback guidance</a>.</p>
-  </li>
-  <li>
-    <p>If you want to know <strong>when it is appropriate to blacklist or watch something,</strong> check out <a href="Guidance-for-Blacklisting-and-Watching">the guidance for blacklisting and watching</a>.</p>
-  </li>
+  <li>CI (x2)</li>
+  <li>metasmoke</li>
+  <li>Smokey itself</li>
+  <li>GitHub</li>
+  <li>PullApprove</li>
 </ul>
 
-<h3 id="developer-information">Developer information</h3>
+<h1 id="flow">Flow</h1>
+<h2 id="ci">CI</h2>
+<p>CI - Continuous Integration - runs Smokey’s test suite against every commit. This is the major phase in every build, as no changes can be remotely pulled until CI has passed the commit.</p>
 
-<ul>
-  <li>
-    <p>For information on <strong>how to write a new check for spam</strong>, see <a href="Creating-new-spam-checks">the documentation for creating new spam checks</a>.</p>
-  </li>
-  <li>
-    <p>If you wish to <strong>integrate with Smokey</strong> and Metasmoke via our API, see <a href="https://charcoal-se.org/ms/API-Documentation">the API docs</a>.</p>
-  </li>
-  <li>
-    <p>For information on our <strong>build process</strong>, see <a href="Build-Infrastructure">Build Infrastructure</a>.</p>
-  </li>
-</ul>
+<p>We use two CI services, Travis and Circle. Semaphore also watches the repo, but Smokey doesn’t use Semaphore to check commit validity. When someone makes a commit, GitHub fires a webhook event to all registered CI services to alert them to start testing on the new commit. Each CI service runs its test process, and reports back to GitHub by creating a commit status.</p>
 
-<hr />
-<h3 id="glossary">Glossary:</h3>
+<h2 id="metasmoke">metasmoke</h2>
+<p>GitHub POSTs the commit status to https://metasmoke.erwaysoftware.com/github/status_hook (<a href="https://github.com/Charcoal-SE/metasmoke/blob/master/app/controllers/github_controller.rb#L12">code</a>). The status gets saved into metasmoke’s database, and forwarded to Smokey via the MS-Smokey websocket.#</p>
 
-<ul>
-  <li>
-    <p><strong>Blacklist</strong> - list of users whose every question or answer will be posted to the appropriate chatrooms. This should be used <strong>only for spammers or</strong> for users whose posts merit <strong>abusive/offensive flags.</strong></p>
-  </li>
-  <li>
-    <p><strong>Whitelist</strong> - list of users which are free from username checks on their posts. Title and body will still be checked.</p>
-  </li>
-</ul>
+<p>GitHub <em>also</em> POSTs the commit event itself to metasmoke, and metasmoke uses Octokit to update the <code class="highlighter-rouge">deploy</code> branch to the same commit as <code class="highlighter-rouge">master</code>. This is why all commits should be made on master rather than deploy, and also why commits to deploy break things. The exception to this is for PR commits, which don’t update deploy until they’re merged.</p>
+
+<h2 id="smokey">Smokey</h2>
+<p>Smokey <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/metasmoke.py#L159">receives the websocket message for processing</a>. If the tests failed, then Smokey simply posts that in CHQ and takes no further action. If, however, it was successful, then Smokey further checks if the commit message contains “autopull”, and automatically pulls in the changes if it does; if not, it posts a CI success message in CHQ.</p>
+
+<h1 id="pull-requests">Pull Requests</h1>
+<p>Pull requests have a slightly different flow. CI still tests the commits and reports them back to GitHub, and GitHub forwards them to metasmoke. However, metasmoke rejects them because it doesn’t do anything with them.</p>
+
+<h2 id="pullapprove--blacklist-prs">PullApprove &amp; Blacklist PRs</h2>
+<p>This is where PullApprove comes in. Pull requests on the Smokey repo are set up to require status checks to pass before allowing them to be merged. We also want to have a review on the code - a second pair of eyes. However, using GitHub’s native reviews for this isn’t possible, as those are restricted to only people with code access (i.e. git privileges). So instead, we have PullApprove.</p>
+
+<p>PullApprove uses a <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/.pullapprove.yml">config file</a>, which includes a list of people, to determine who has privileges to review a pull request. If the reviewers approve the pull request, PA sets its PR status to successful; if they don’t, PA sets the PR status to failed. Because this works through a status, the existing requirement for status checks to pass is enough to enforce a PA review before merging. This still requires someone with git privileges to manually merge the PR; however, they don’t have to review it before doing so.</p>
+
+<p>Additionally, GitHub forwards these PR statuses to metasmoke. For the most part, metasmoke ignores them. However, if a pull request is authored by SmokeDetector, as is the case with blacklist commands from non-code privileged users, then metasmoke checks the status. If it’s a successful status from PullApprove, then metasmoke automatically merges the pull request.</p>
+
+<h1 id="fixing-erroneous-commits">Fixing Erroneous Commits</h1>
+<p>If someone has accidentally committed to the <code class="highlighter-rouge">deploy</code> branch instead of <code class="highlighter-rouge">master</code>, someone with git privileges will need to set this right before things return to normal. This isn’t difficult:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>aah@broken:~/Smokey$ git checkout master
+aah@broken:~/Smokey$ git merge --rebase deploy
+aah@broken:~/Smokey$ git push origin master
+</code></pre>
+</div>
+
+<p>In other words: move the erroneous commits back to master via a rebase merge, and push that up to GitHub. From there, metasmoke should be able to update deploy to the correct reference.</p>
+
+<p>If not… I hope you know where your towel is.</p>
 
 
 <div class="sidebar">
 
 
 
-<p><strong><a href="//github.com/Charcoal-SE/SmokeDetector/wiki/Home/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+<p><strong><a href="//github.com/Charcoal-SE/SmokeDetector/wiki/Build-Infrastructure/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
 
 <div class="sidebar-content sidebar-content-smokey">
 
