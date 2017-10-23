@@ -74,14 +74,14 @@
 
 <h1 id="flow">Flow</h1>
 <h2 id="ci">CI</h2>
-<p>CI - Continuous Integration - runs Smokey’s test suite against every commit. This is the major phase in every build, as no changes can be remotely pulled until CI has passed the commit.</p>
+<p>CI — Continuous Integration — runs Smokey’s test suite against every commit. This is the major phase in every build, as no changes can be remotely pulled until CI has passed the commit.</p>
 
 <p>We use two CI services, Travis and Circle. Semaphore also watches the repo, but Smokey doesn’t use Semaphore to check commit validity. When someone makes a commit, GitHub fires a webhook event to all registered CI services to alert them to start testing on the new commit. Each CI service runs its test process, and reports back to GitHub by creating a commit status.</p>
 
 <h2 id="metasmoke">metasmoke</h2>
-<p>GitHub POSTs the commit status to https://metasmoke.erwaysoftware.com/github/status_hook (<a href="https://github.com/Charcoal-SE/metasmoke/blob/master/app/controllers/github_controller.rb#L12">code</a>). The status gets saved into metasmoke’s database, and forwarded to Smokey via the MS-Smokey websocket.#</p>
+<p>GitHub <code class="highlighter-rouge">POST</code>s the commit status to metasmoke (<a href="https://github.com/Charcoal-SE/metasmoke/blob/master/app/controllers/github_controller.rb#L12">handler code</a>). The status gets saved into metasmoke’s database, and forwarded to Smokey via the MS-Smokey websocket.</p>
 
-<p>GitHub <em>also</em> POSTs the commit event itself to metasmoke, and metasmoke uses Octokit to update the <code class="highlighter-rouge">deploy</code> branch to the same commit as <code class="highlighter-rouge">master</code>. This is why all commits should be made on master rather than deploy, and also why commits to deploy break things. The exception to this is for PR commits, which don’t update deploy until they’re merged.</p>
+<p>GitHub <em>also</em> <code class="highlighter-rouge">POST</code>s the commit event itself to metasmoke, and metasmoke uses Octokit to update the <code class="highlighter-rouge">deploy</code> branch to the same commit as <code class="highlighter-rouge">master</code>. This is why all commits should be made on master rather than deploy, and also why commits to deploy break things. The exception to this is for PR commits, which don’t update deploy until they’re merged.</p>
 
 <h2 id="smokey">Smokey</h2>
 <p>Smokey <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/metasmoke.py#L159">receives the websocket message for processing</a>. If the tests failed, then Smokey simply posts that in CHQ and takes no further action. If, however, it was successful, then Smokey further checks if the commit message contains “autopull”, and automatically pulls in the changes if it does; if not, it posts a CI success message in CHQ.</p>
