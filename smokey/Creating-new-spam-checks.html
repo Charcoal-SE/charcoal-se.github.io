@@ -83,11 +83,11 @@
 
 <p>Here’s an example check method. This method will say that any <code class="highlighter-rouge">s</code> longer than 3 characters is spam.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>def ridiculous_spam_check(s, site):
-    if len(s) &gt; 3:
-        return True, "Length is greater than 3 characters"
-    else:
-        return False, ""
+<div class="language-py highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">ridiculous_spam_check</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">site</span><span class="p">):</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+       <span class="k">return</span> <span class="bp">True</span><span class="p">,</span> <span class="s">"Length is greater than 3 characters"</span>
+  <span class="k">else</span><span class="p">:</span>
+       <span class="k">return</span> <span class="bp">False</span><span class="p">,</span> <span class="s">""</span>
 </code></pre>
 </div>
 
@@ -98,7 +98,7 @@
 
 <p>You need to add a new entry to this array that describes your check. The general format of this dictionary is:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
+<div class="language-py highlighter-rouge"><pre class="highlight"><code><span class="p">{</span>
     <span class="s">'regex'</span><span class="p">:</span> <span class="s">r"Include your regex here if it's a regex-based check"</span><span class="p">,</span>
     <span class="s">'method'</span><span class="p">:</span> <span class="n">method_name</span><span class="p">,</span>  <span class="c"># Pass the name of your method here if it's a method-based check,</span>
     <span class="s">'all'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>  <span class="c"># True if you want to scan all sites in the network, False otherwise,</span>
