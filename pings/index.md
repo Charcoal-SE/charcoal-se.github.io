@@ -75,6 +75,8 @@ If you find a post that needs moderator attention in general, please just **flag
 First of all, check that Smokey isn't responding to any commands. You can also try rebooting Smokey from either SOCVR or Tavern on the Meta, more often than not Smokey has just lost connection to CHQ. Next, check if the instance is still connected to MS [here](https://metasmoke.erwaysoftware.com/status) - if it is, something really bad has happened and you'll need to ask the person who owns the instance to shut it down. In the meantime, you can ask a code admin (`!!/whois code_admin`) to failover a new instance.
 
 If all else fails, please ping one of the people with a **bold name** on [this list](/people), they will be able to start a backup instance of SmokeDetector.
+
+If even that fails, panicking is acceptable (but of course, you know where your towel is and will remain calm). Ping ArtOfCode or Undo - they have a few extra tools in metasmoke that may yet be able to resolve the issue.
 </section>
 <section>
 
