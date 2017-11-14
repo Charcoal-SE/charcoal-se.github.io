@@ -68,4 +68,5 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [CalvT](http://chat.stackexchange.com/users/64521/calvt)
 *   [QPaysTaxes](http://chat.stackexchange.com/users/137388/qpaystaxes)
 *   [Nisse Engström](https://chat.stackexchange.com/users/155243/nisse-engstrom)
+*   [bummi](https://chat.stackexchange.com/users/54902/bummi)
 </section>
