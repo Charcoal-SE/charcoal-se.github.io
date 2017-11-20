@@ -12,7 +12,7 @@
   
     "ms-add-domain-tag-html": {
       "title": "Add Domain Tag",
-      "content": "Route Name\nAdd Domain Tag\n\nRoute URL\nPOST /api/w/domain/:id/add_tag\n\n\n\nDescription &amp; Usage\nThis route allows you to programmatically add a domain tag to a domain record. Specify the tag to add using the tag parameter; if the tag doesn’t already exist, it will be created.\n\nThis route returns a list of the first n tags on the domain after the requested tag has been added, where n is determined by the per_page parameter (max 100). A more_url field is also returned, specifying the URL to issue a GET request to in order to get the full list of tags - this is the Domain Tags route.\n\nThe page parameter is unavailable on this route.\n",
+      "content": "Route Name\nAdd Domain Tag\n\nRoute URL\nPOST /api/w/domains/:id/add_tag\n\n\n\nDescription &amp; Usage\nThis route allows you to programmatically add a domain tag to a domain record. Specify the tag to add using the tag parameter; if the tag doesn’t already exist, it will be created.\n\nThis route returns a list of the first n tags on the domain after the requested tag has been added, where n is determined by the per_page parameter (max 100). A more_url field is also returned, specifying the URL to issue a GET request to in order to get the full list of tags - this is the Domain Tags route.\n\nThe page parameter is unavailable on this route.\n",
       "url": "/ms/Add-Domain-Tag"
     },
   
@@ -84,7 +84,7 @@
   
     "ms-domain-tags-html": {
       "title": "Domain Tags",
-      "content": "Route Name\nDomain Tags\n\nRoute URL\nGET /api/domain/:id/tags\n\n\n\nDescription &amp; Usage\nThis route returns a list of domain tags on a domain. Domain tags are classifiers manually added to domain records by metasmoke users to group domains with similar usage or purpose together. To programmatically add a domain tag to a domain, use the Add Domain Tag route.\n\nStandard pagination parameters are available on this route.\n",
+      "content": "Route Name\nDomain Tags\n\nRoute URL\nGET /api/domains/:id/tags\n\n\n\nDescription &amp; Usage\nThis route returns a list of domain tags on a domain. Domain tags are classifiers manually added to domain records by metasmoke users to group domains with similar usage or purpose together. To programmatically add a domain tag to a domain, use the Add Domain Tag route.\n\nStandard pagination parameters are available on this route.\n",
       "url": "/ms/Domain-Tags"
     },
   
@@ -292,7 +292,7 @@
   
     "code-html": {
       "title": "Code",
-      "content": "Website built from:\n\n\n  commit a86fdde on Charcoal-SE/charcoal-se.github.io\n  commit 1fe7f01 on the Charcoal-SE/SmokeDetector wiki\n  commit c713948 on the Charcoal-SE/metasmoke wiki\n  commit 4b5eb30 on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
+      "content": "Website built from:\n\n\n  commit a86fdde on Charcoal-SE/charcoal-se.github.io\n  commit 1fe7f01 on the Charcoal-SE/SmokeDetector wiki\n  commit 4f65c13 on the Charcoal-SE/metasmoke wiki\n  commit 4b5eb30 on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
       "url": "/code"
     },
   
