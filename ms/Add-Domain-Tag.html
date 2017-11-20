@@ -2,7 +2,8 @@
 <html>
 <head>
   <title>
-    Code | Charcoal
+    
+      Add Domain Tag | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="/assets/application-abe3a02d9caae71a96e85889fcfded7f0d982885fce3f3e6cf70ea0118eacb59.css">
@@ -55,16 +56,48 @@
       </nav>
     </div>
     <div class="body">
-      <p>Website built from:</p>
+      
 
-<ul>
-  <li>commit <a href="http://github.com/Charcoal-SE/charcoal-se.github.io/commit/a86fddea06cafba9bb47de18f3dd33e90e6f4243" title="a86fddea06cafba9bb47de18f3dd33e90e6f4243"><code class="highlighter-rouge">a86fdde</code></a> on <a href="https://github.com/Charcoal-SE/charcoal-se.github.io">Charcoal-SE/charcoal-se.github.io</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/_compare/1fe7f01cc3edf06ea129fb4b42cd53759251afa8" title="1fe7f01cc3edf06ea129fb4b42cd53759251afa8"><code class="highlighter-rouge">1fe7f01</code></a> on the <a href="//github.com/Charcoal-SE/SmokeDetector/wiki">Charcoal-SE/SmokeDetector wiki</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/metasmoke/wiki/_compare/c713948a2b31480e52d858cb84b5a5f7dd53d514" title="c713948a2b31480e52d858cb84b5a5f7dd53d514"><code class="highlighter-rouge">c713948</code></a> on the <a href="//github.com/Charcoal-SE/metasmoke/wiki">Charcoal-SE/metasmoke wiki</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/charcoal-jekyll-theme/commit/4b5eb30fb1a52bb03dac666a324abde1dcabb851" title="4b5eb30fb1a52bb03dac666a324abde1dcabb851"><code class="highlighter-rouge">4b5eb30</code></a> on <a href="https://github.com/Charcoal-SE/charcoal-jekyll-theme">Charcoal-SE/charcoal-jekyll-theme</a></li>
-</ul>
 
-<p>This site is powered by <a href="https://jekyllrb.com">Jekyll</a> <a href="https://github.com/jekyll/jekyll/releases/v3.4.2">v3.4.2</a></p>
+<h3 id="route-name">Route Name</h3>
+<p>Add Domain Tag</p>
+
+<h3 id="route-url">Route URL</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>POST /api/w/domain/:id/add_tag
+</code></pre>
+</div>
+
+<h3 id="description--usage">Description &amp; Usage</h3>
+<p>This route allows you to programmatically add a domain tag to a domain record. Specify the tag to add using the <code class="highlighter-rouge">tag</code> parameter; if the tag doesn’t already exist, it will be created.</p>
+
+<p>This route returns a list of the first <em>n</em> tags on the domain after the requested tag has been added, where <em>n</em> is determined by the <code class="highlighter-rouge">per_page</code> parameter (max 100). A <code class="highlighter-rouge">more_url</code> field is also returned, specifying the URL to issue a GET request to in order to get the full list of tags - this is the <a href="Domain-Tags">Domain Tags route</a>.</p>
+
+<p>The <code class="highlighter-rouge">page</code> parameter is unavailable on this route.</p>
+
+
+<div class="sidebar">
+
+
+
+<p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/Add-Domain-Tag/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+
+<div class="sidebar-content sidebar-content-ms">
+
+  <p><strong><a href="Home">Home</a></strong></p>
+
+  <p><strong><a href="API-Documentation">API Documentation</a></strong></p>
+
+  <p><strong><a href="WebSocket-API">WebSocket API Documentation</a></strong></p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
 
     </div>
     <div class="footer text-center">
@@ -91,13 +124,9 @@
           <a href="http://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
             7 more</a>
         
+          • <a href="/code">More gory details</a>
+        
       </p>
-      
-        <p>
-          <a href="/code">More gory details</a>
-          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/code.md" title="code.md">Edit on GitHub</a>
-          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/new/site">New Page</a>
-        </p>
       
     </div>
   </div>

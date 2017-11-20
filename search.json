@@ -10,6 +10,14 @@
   
 
   
+    "ms-add-domain-tag-html": {
+      "title": "Add Domain Tag",
+      "content": "Route Name\nAdd Domain Tag\n\nRoute URL\nPOST /api/w/domain/:id/add_tag\n\n\n\nDescription &amp; Usage\nThis route allows you to programmatically add a domain tag to a domain record. Specify the tag to add using the tag parameter; if the tag doesn’t already exist, it will be created.\n\nThis route returns a list of the first n tags on the domain after the requested tag has been added, where n is determined by the per_page parameter (max 100). A more_url field is also returned, specifying the URL to issue a GET request to in order to get the full list of tags - this is the Domain Tags route.\n\nThe page parameter is unavailable on this route.\n",
+      "url": "/ms/Add-Domain-Tag"
+    },
+  
+
+  
     "smokey-autoflagging-html": {
       "title": "State of the Project",
       "content": "State of the Project\n\nWe are looking into automating flags from Smokey.  Basically, it will look as if though Smokey clicks “flag” → “spam” as soon as Smoke Detector reports a post (though not all reported posts are eligible; see the Spam weight section for details.).\n\nWe are working out the specifics of the system right now, so the details are still in flux.\n\nTo participate in the development of this feature, please show up in the Charcoal HQ chat room and wait for a good moment to bring up your topic (afternoon UTC seems to be a fairly busy time in the room).\n\nThe main dashboard (status, statistics, etc) is at https://metasmoke.erwaysoftware.com/flagging\n\nTechnical details and spam weight\n\nEvery time a post is reported, it triggers a variety of different reasons for being reported (such as bad keyword, blacklisted website, etc). Each of these reasons (also known as “heuristics”) contributes to the post’s weight. The formula that determines how much weight each reason contributes is as follows:\n\n[Number of True Positives caught by reason] / [Total posts caught by the reason] * 100\n\n\n\nIn our current preliminary testing, the threshold that was set for posts to be flagged automatically is at a weight of 280. In our database of over 50,000 records, this score threshold has a predictive accuracy of 99.98% (meaning of all posts hitting 280 score caught by Smokey, 99.98% were true positives).\n\nAs with any other projection, you need to understand that past performance is no guarantee for the future.\n\nThe flagging is done by Metasmoke (the back end component) using the credentials of users who have signed up to allow the system to cast flags on their behalf.\n\nOpting In\n\nThere is a separate page about Setting up Autoflagging.  This brief section is a quick FAQ-like summary.\n\nThere is a “big red button” which you can click.  Please be patient and try again until it actually sticks!  This is a known issue which of course we hope to resolve eventually.\n\nOnce your flagging status shows as active (the button stays checked if you navigate away from the page and come back again) and your conditions are met, you are eligible to be drawn randomly when a flag is about to be raised.  This is a random selection out of the list of users whose conditions allow flagging at the given weight on the given site.\n\nYou can review the flags cast on your behalf at a URL like https://metasmoke.erwaysoftware.com/flagging/users/XX/logs (for example, Undo’s log).  There is a number of other useful links on the personal flagging dashboard where you can tweak conditions or turn off autoflagging.\n",
@@ -284,7 +292,7 @@
   
     "code-html": {
       "title": "Code",
-      "content": "Website built from:\n\n\n  commit a86fdde on Charcoal-SE/charcoal-se.github.io\n  commit 1fe7f01 on the Charcoal-SE/SmokeDetector wiki\n  commit 62e0a16 on the Charcoal-SE/metasmoke wiki\n  commit 4b5eb30 on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
+      "content": "Website built from:\n\n\n  commit a86fdde on Charcoal-SE/charcoal-se.github.io\n  commit 1fe7f01 on the Charcoal-SE/SmokeDetector wiki\n  commit c713948 on the Charcoal-SE/metasmoke wiki\n  commit 4b5eb30 on Charcoal-SE/charcoal-jekyll-theme\n\n\nThis site is powered by Jekyll v3.4.2\n",
       "url": "/code"
     },
   
