@@ -1,5 +1,5 @@
 #= require vendor/jquery
-#= require search-stub
+#= require search
 
 $ ->
   navTimeout = null

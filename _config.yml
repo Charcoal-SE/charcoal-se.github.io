@@ -24,3 +24,13 @@ plugins:
 baseurl: /
 url: https://charcoal-se.org/
 permalink: none
+algolia:
+  search_key: c63c2f79258f929439376cfb88862440
+  application_id: TMPUB31BTZ
+  index_name: main-search
+  excluded_files:
+    - _posts
+    - testing
+    - Home.md
+    - '404'
+  record_css_selector: p, ul
