@@ -43,7 +43,13 @@ git -C ./smokey rev-parse HEAD
 
 rm -r _site/assets # remove old assets
 
-JEKYLL_ENV=production bundle exec jekyll build --incremental --profile
+if [[ ! $DEV ]]; then
+  JEKYLL_ENV=production bundle exec jekyll algolia push &
+  JEKYLL_ENV=production bundle exec jekyll build --incremental --profile &
+  wait
+else
+  bundle exec jekyll build --incremental --profile
+fi
 
 cd _site
 cd assets
