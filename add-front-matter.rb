@@ -5,28 +5,31 @@ def jekyll_front_matter(path)
     "ms" => "metasmoke",
     "smokey" => "SmokeDetector"
   }
-  m = ["---"]
-  m << "layout: wiki"
+  lines = []
+  def l line
+    lines << line
+
+  l "---"
+  l "layout: wiki"
   if path.include? "index.md"
     dir = "#{File.dirname path}"
-    m << "permalink: #{dir}/"
-    m << "redirect_from:"
-    m << "- #{dir}/Home.html"
-    m << "- #{dir}/Home"
-    m << "- #{dir}"
-    m << "title: Home"
+    l "permalink: #{dir}/"
+    l "redirect_from:"
+    l "- #{dir}/Home.html"
+    l "- #{dir}/Home"
+    l "- #{dir}"
+    l "title: Home"
   end
-  m << "repo_name: #{repo_names[File.basename File.dirname path]}"
-  m << "---"
-  m << ""
+  l "repo_name: #{repo_names[File.basename File.dirname path]}"
+  l "---"
+  l ""
 
-  m.join "\n"
+  lines.join "\n"
 end
 
-ARGV.reject { |path|
-    path.include? "#{File::SEPARATOR}_"
-  }.map { |path|
-    [path, File.new(path,"r").read]
-  }.each { |path, c|
+ARGV
+  .reject { |path| path.include? "#{File::SEPARATOR}_" }
+  .map { |path| [path, File.new(path,"r").read] }
+  .each do |path, c|
     File.new(path, "w").write jekyll_front_matter(path) + c
-  }
+  end
