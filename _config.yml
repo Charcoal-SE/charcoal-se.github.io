@@ -33,4 +33,4 @@ algolia:
     - testing
     - Home.md
     - '404'
-  record_css_selector: p, ul
+  record_css_selector: p, li
