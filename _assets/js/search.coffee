@@ -21,7 +21,9 @@ escapeHTML = (text) ->
   )
 
 _resolver = document.createElement 'a'
-resolve = (url) ->
+resolve = (url) =>
+  url = @searchConfig.baseUrl + url if url[0] == '/' && @searchConfig.baseUrl
+
   _resolver.href = url
   _resolver.href
 
@@ -65,7 +67,10 @@ $(window).on 'turbolinks:load', ->
           </a>
         </div>
       '''
-  ]).on 'autocomplete:selected', (_, {url, css_selector, css_selector_parent}) ->
+  ]).on 'autocomplete:selected', (_, {url, css_selector, css_selector_parent}) =>
+    if @searchConfig.baseUrl
+      url = @searchConfig.baseUrl + url
+
     if css_selector[0] == '#'
       url += css_selector
     else if css_selector_parent[0] == '#'
