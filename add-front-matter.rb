@@ -15,6 +15,7 @@ def jekyll_front_matter(path, content)
   lines = []
   def l line
     lines << line
+  end
 
   l "---"
   l "layout: wiki"
