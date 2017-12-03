@@ -94,6 +94,7 @@
       appId: '{{ site.algolia.application_id }}',
       key: '{{ site.algolia.search_key }}',
       index: '{{ site.algolia.index_name }}',
+      baseUrl: '{{ site.baseurl }}',
     }
     window.redirects = { {% for page in site.pages %}{% if page.layout == "redirect" %}"{{ page.url|xml_escape|replace:'.html','' }}": "{{ page.redirect.to|xml_escape }}", {% endif %}{% endfor %} }
   </script>
