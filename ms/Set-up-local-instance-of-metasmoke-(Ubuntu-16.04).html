@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>
     Installing Ruby and Rails | Charcoal
     
   </title>
-  <link type="text/css" rel="stylesheet" href="/assets/application-abe3a02d9caae71a96e85889fcfded7f0d982885fce3f3e6cf70ea0118eacb59.css">
+  <link type="text/css" rel="stylesheet" href="/assets/application-492ff2095ae61f0480ba99a62a71aa4ef70400b54a21fc4730a5bbe987b148f2.css">
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch"></script>
-  <script type="text/javascript" src="/assets/application-49b55bfd390519fc1a0c15f247835e230506bd0b4024e40069eb5cd21289f121.js"></script>
-  <script type="text/javascript" src="/assets/vendor-fad6853c80b4f83dd9b9327d08ae015076a89c51d5a959e0c9ef73241509de15.js"></script>
+  <script type="text/javascript" src="/assets/application-e77b97a094047b8ed7aead336de8b99e687c5d8f0b8cd3c6998cfd1231412746.js"></script>
+  <script type="text/javascript" src="/assets/vendor-0816aa2dae6748d99c683db458c7bd8b1a223dbd5e4d78072f1a81da8ab0726b.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" 
-            type="image/png" 
+  <link rel="shortcut icon"
+            type="image/png"
             href="/assets/charcoal-c0d57d82868cf7a8b169cfaf65a45179467c310868ebfdd0f10e6bd48f068816.png" />
 </head>
 <body>
@@ -30,7 +31,12 @@
       </div>
       <input type="checkbox" id="nav-toggle">
       <nav class="text-center top-nav">
-        <ul>
+        <div class="search-nav">
+          <i class="fa fa-search search-icon inline-icon fa-fw"></i>
+          <input type="text" placeholder="Search…" id="search-input">
+          <a href="#" class="inline-icon close-icon"><i class="fa fa-times fa-fw"></i></a>
+        </div>
+        <ul class="main-nav">
           <li><a href="/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a></li>
           <li><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq"><i class="fa mobile-only fa-comments-o"></i> chat</a></li>
           <li>
@@ -55,10 +61,7 @@
       </nav>
     </div>
     <div class="body">
-      
-
-
-<h2 id="installing-ruby-and-rails">Installing Ruby and Rails</h2>
+      <h2 id="installing-ruby-and-rails">Installing Ruby and Rails</h2>
 
 <p>Steps in this section are taken from a <a href="https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rvm-on-ubuntu-16-04">Digital Ocean tutorial</a></p>
 
@@ -66,25 +69,22 @@
   <li>
     <p>Add RVM’s key to the system</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Move to <code class="highlighter-rouge">/tmp</code> and start the install of the latest stable version of Rails</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> cd /tmp
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> cd /tmp
  \curl -sSL https://get.rvm.io -o rvm.sh
  cat /tmp/rvm.sh | bash -s stable --rails
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p><code class="highlighter-rouge">source</code> the RVM scripts (insert your user’s name in the command)</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> source /home/USERNAMEHERE/.rvm/scripts/rvm
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> source /home/USERNAMEHERE/.rvm/scripts/rvm
+</code></pre></div>    </div>
   </li>
   <li>
     <p>You should now be able to run <code class="highlighter-rouge">ruby --version</code> and get a response</p>
@@ -97,72 +97,64 @@
   <li>
     <p>Clone the metasmoke repository (or your fork) to a directory of your choice (probably not <code class="highlighter-rouge">/tmp</code>)</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> git clone https://github.com/Charcoal-SE/metasmoke.git
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> git clone https://github.com/Charcoal-SE/metasmoke.git
+</code></pre></div>    </div>
   </li>
   <li>Navigate to the repository you just cloned</li>
   <li>
     <p>Install a couple needed gems</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> gem install bundler 
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> gem install bundler 
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Install the metasmoke bundles</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> bundle install
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> bundle install
+</code></pre></div>    </div>
   </li>
   <li>
     <p>If there are any errors with the previous step, you will need to correct those before proceeding. The most common one is with MySQL and is usually solved by running and then repeating the previous step</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> sudo apt-get install libmysqlclient-dev
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo apt-get install libmysqlclient-dev
  gem uninstall mysql2
  gem install mysql2
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>When the bundle install has completed, you’ll get a notice about how to restart Passenger.</li>
   <li>
     <p>Log into MySQL with a user that has permissions to create a database and users. <code class="highlighter-rouge">root</code> may work best</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>mysql -u root -p
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u root -p
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Create the metasmoke database and metasmoke_test database</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>CREATE DATABASE metasmoke;
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE DATABASE metasmoke;
 CREATE DATABASE metasmoke_test;
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Create the metasmoke user and password. This user will only be able to access MySQL locally. You should still select a strong password. Grant this user privileges on the metasmoke database</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>CREATE USER 'metasmoke'@'localhost' IDENTIFIED BY 'password';
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE USER 'metasmoke'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON `metasmoke`.* TO `metasmoke`@`localhost`;
 GRANT ALL PRIVILEGES ON `metasmoke_test`.* TO `metasmoke`@`localhost`;
 FLUSH PRIVILEGES; 
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Inside the metasmoke folder, from the command line, copy the <code class="highlighter-rouge">database.sample.yml</code> to <code class="highlighter-rouge">database.yml</code>:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>cd config
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd config
 cp database.sample.yml database.yml
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Open database.yml in your editor of choice. Replace the <code class="highlighter-rouge">development:</code> section with something like this, using your password on the <code class="highlighter-rouge">password</code> line:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>development:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>development:
   adapter: mysql2
   database: metasmoke
   encoding: utf8
@@ -170,8 +162,7 @@ cp database.sample.yml database.yml
   password: yourpass
   host: 127.0.0.1
   port: 3306
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
 </ol>
 
@@ -181,9 +172,8 @@ cp database.sample.yml database.yml
   <li>
     <p>Copy the sample configuration to <code class="highlighter-rouge">config.yml</code></p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>cp config.sample.yml config.yml
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp config.sample.yml config.yml
+</code></pre></div>    </div>
   </li>
 </ol>
 
@@ -193,9 +183,8 @@ cp database.sample.yml database.yml
   <li>
     <p>You need to have Redis up and running, too.</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get install -y redis-server
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install -y redis-server
+</code></pre></div>    </div>
   </li>
 </ol>
 
@@ -205,36 +194,32 @@ cp database.sample.yml database.yml
   <li>
     <p>Time to set up the metasmoke database. Navigate back to the metasmoke root directory (you are probably in <code class="highlighter-rouge">metasmoke/config</code> right now)</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>rails db:create
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails db:create
 rails db:schema:load
 rails db:seed 
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Update nodejs</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - 
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - 
 sudo apt-get install nodejs 
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Yarn needs to be installed to properly serve the web content</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt-get update &amp;&amp; sudo apt-get install yarn
 yarn install
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Start the local server</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>foreman start
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>foreman start
+</code></pre></div>    </div>
   </li>
   <li>
     <p>Your local instance of metasmoke is now on http://localhost:5000</p>
@@ -243,43 +228,16 @@ yarn install
 
 <p>To actually use it, you’ll want to use the “Sign up” button in the web UI to create a local user, then assign admin and developer roles to this first user from the console:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    rails c
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    rails c
+</code></pre></div></div>
 
 <p>At the <code class="highlighter-rouge">irb</code> prompt, type</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>    User.first.add_role(:admin)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    User.first.add_role(:admin)
     User.first.add_role(:developer)
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>(There will be a significant amount of output from Rails after each of these commands, showing how the roles table is updated with a new role, and then the user is assigned this role.)</p>
-
-
-<div class="sidebar">
-
-
-
-<p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/Set-up-local-instance-of-metasmoke-(Ubuntu-16.04)/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
-
-<div class="sidebar-content sidebar-content-ms">
-
-  <p><strong><a href="Home">Home</a></strong></p>
-
-  <p><strong><a href="API-Documentation">API Documentation</a></strong></p>
-
-  <p><strong><a href="WebSocket-API">WebSocket API Documentation</a></strong></p>
-
-</div>
-
-
-</div>
-
-
-<div class="footer footer-insert text-center">
-<p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
-</div>
 
     </div>
     <div class="footer text-center">
@@ -287,7 +245,7 @@ yarn install
         <a href="/security">Security</a> • <a href="/pings/">Contact</a>
       </p>
       <p>
-        <a href="http://github.com/Charcoal-SE/charcoal-se.github.io">Website Source</a>
+        <a href="https://github.com/Charcoal-SE/charcoal-se.github.io">Website Source</a>
         • By
           
             <a href="https://github.com/j-f1" class="avatar-link">
@@ -303,20 +261,27 @@ yarn install
               <img class="avatar avatar-small" src="https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=16" alt="Fortunate-MAN" srcset="https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=16 1x, https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=32 2x, https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=48 3x, https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=64 4x" width="16" height="16" data-proofer-ignore="true" />Fortunate-MAN</a>,
           
           and
-          <a href="http://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
+          <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
             7 more</a>
-        
-          • <a href="/code">More gory details</a>
         
       </p>
       
+        <p>
+          <a href="/code">More gory details</a>
+          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/ms/Set-up-local-instance-of-metasmoke-(Ubuntu-16.04).md" title="ms/Set-up-local-instance-of-metasmoke-(Ubuntu-16.04).md">Edit on GitHub</a>
+          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/new/site">New Page</a>
+        </p>
+      
     </div>
   </div>
-  <div class="search text-center" style="display: none;">
-  </div>
   <script>
-    window.searchLoadPath = "/assets/search-6ad9e78a0cf31baffce21cffc74c749100f081c7988c4ca3e67fc513fdb06933.js"
-    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/announcements": "https://charcoal-se.org///announcements/", "/smokey/Home": "https://charcoal-se.org///smokey/", "/smokey/Home": "https://charcoal-se.org///smokey/", "/smokey": "https://charcoal-se.org///smokey/", "/ms/Home": "https://charcoal-se.org///ms/", "/ms/Home": "https://charcoal-se.org///ms/", "/ms": "https://charcoal-se.org///ms/", "/userscripts/": "https://charcoal-se.org///scripts.html", "/userscripts": "https://charcoal-se.org///scripts.html",  }
+    window.searchConfig = {
+      appId: 'TMPUB31BTZ',
+      key: 'c63c2f79258f929439376cfb88862440',
+      index: 'main-search',
+      baseUrl: '',
+    }
+    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
 </body>
 </html>

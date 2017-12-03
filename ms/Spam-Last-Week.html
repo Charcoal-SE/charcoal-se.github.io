@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>
-    
-      Spam Last Week | Charcoal
+    Route Name | Charcoal
     
   </title>
-  <link type="text/css" rel="stylesheet" href="/assets/application-abe3a02d9caae71a96e85889fcfded7f0d982885fce3f3e6cf70ea0118eacb59.css">
+  <link type="text/css" rel="stylesheet" href="/assets/application-492ff2095ae61f0480ba99a62a71aa4ef70400b54a21fc4730a5bbe987b148f2.css">
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch"></script>
-  <script type="text/javascript" src="/assets/application-49b55bfd390519fc1a0c15f247835e230506bd0b4024e40069eb5cd21289f121.js"></script>
-  <script type="text/javascript" src="/assets/vendor-fad6853c80b4f83dd9b9327d08ae015076a89c51d5a959e0c9ef73241509de15.js"></script>
+  <script type="text/javascript" src="/assets/application-e77b97a094047b8ed7aead336de8b99e687c5d8f0b8cd3c6998cfd1231412746.js"></script>
+  <script type="text/javascript" src="/assets/vendor-0816aa2dae6748d99c683db458c7bd8b1a223dbd5e4d78072f1a81da8ab0726b.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" 
-            type="image/png" 
+  <link rel="shortcut icon"
+            type="image/png"
             href="/assets/charcoal-c0d57d82868cf7a8b169cfaf65a45179467c310868ebfdd0f10e6bd48f068816.png" />
 </head>
 <body>
@@ -31,7 +31,12 @@
       </div>
       <input type="checkbox" id="nav-toggle">
       <nav class="text-center top-nav">
-        <ul>
+        <div class="search-nav">
+          <i class="fa fa-search search-icon inline-icon fa-fw"></i>
+          <input type="text" placeholder="Search…" id="search-input">
+          <a href="#" class="inline-icon close-icon"><i class="fa fa-times fa-fw"></i></a>
+        </div>
+        <ul class="main-nav">
           <li><a href="/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a></li>
           <li><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq"><i class="fa mobile-only fa-comments-o"></i> chat</a></li>
           <li>
@@ -56,17 +61,13 @@
       </nav>
     </div>
     <div class="body">
-      
-
-
-<h3 id="route-name">Route Name</h3>
+      <h3 id="route-name">Route Name</h3>
 <p>Spam Last Week</p>
 
 <h3 id="route-url">Route URL</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>/api/spam/last_week
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/api/spam/last_week
+</code></pre></div></div>
 
 <h3 id="description--usage">Description &amp; Usage</h3>
 <p>This route allows you to retrieve data about how many posts were marked as spam and were true positives, for each website in the past week.</p>
@@ -74,65 +75,38 @@
 <h3 id="example">Example</h3>
 <p><strong>Request:</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>HTTP/1.1 GET /api/spam/last_week
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 GET /api/spam/last_week
+</code></pre></div></div>
 
 <p><strong>Response:</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"3D Printing"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Academia"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Android Enthusiasts"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Anime &amp; Manga"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Arduino"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Arqade"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Ask Different"</span><span class="p">:</span><span class="w"> </span><span class="mi">64</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Ask Patents"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Ask Ubuntu"</span><span class="p">:</span><span class="w"> </span><span class="mi">222</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Astronomy"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Aviation"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Biblical Hermeneutics"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Bicycles"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Biology"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Bitcoin"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Chemistry"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"CiviCRM"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Code Review"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Computer Graphics"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Computer Science"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Craft CMS"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Database Administrators"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"Drupal Answers"</span><span class="p">:</span><span class="w"> </span><span class="mi">59</span><span class="p">,</span><span class="w">
-    </span><span class="err">...</span><span class="w">
-</span><span class="err">}</span><span class="w">
-</span></code></pre>
-</div>
-
-
-<div class="sidebar">
-
-
-
-<p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/Spam-Last-Week/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
-
-<div class="sidebar-content sidebar-content-ms">
-
-  <p><strong><a href="Home">Home</a></strong></p>
-
-  <p><strong><a href="API-Documentation">API Documentation</a></strong></p>
-
-  <p><strong><a href="WebSocket-API">WebSocket API Documentation</a></strong></p>
-
-</div>
-
-
-</div>
-
-
-<div class="footer footer-insert text-center">
-<p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "3D Printing": 6,
+    "Academia": 4,
+    "Android Enthusiasts": 7,
+    "Anime &amp; Manga": 4,
+    "Arduino": 4,
+    "Arqade": 5,
+    "Ask Different": 64,
+    "Ask Patents": 3,
+    "Ask Ubuntu": 222,
+    "Astronomy": 30,
+    "Aviation": 1,
+    "Biblical Hermeneutics": 1,
+    "Bicycles": 1,
+    "Biology": 1,
+    "Bitcoin": 9,
+    "Chemistry": 2,
+    "CiviCRM": 1,
+    "Code Review": 1,
+    "Computer Graphics": 1,
+    "Computer Science": 2,
+    "Craft CMS": 1,
+    "Database Administrators": 1,
+    "Drupal Answers": 59,
+    ...
+}
+</code></pre></div></div>
 
     </div>
     <div class="footer text-center">
@@ -140,7 +114,7 @@
         <a href="/security">Security</a> • <a href="/pings/">Contact</a>
       </p>
       <p>
-        <a href="http://github.com/Charcoal-SE/charcoal-se.github.io">Website Source</a>
+        <a href="https://github.com/Charcoal-SE/charcoal-se.github.io">Website Source</a>
         • By
           
             <a href="https://github.com/j-f1" class="avatar-link">
@@ -156,20 +130,27 @@
               <img class="avatar avatar-small" src="https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=16" alt="Fortunate-MAN" srcset="https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=16 1x, https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=32 2x, https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=48 3x, https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=64 4x" width="16" height="16" data-proofer-ignore="true" />Fortunate-MAN</a>,
           
           and
-          <a href="http://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
+          <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
             7 more</a>
-        
-          • <a href="/code">More gory details</a>
         
       </p>
       
+        <p>
+          <a href="/code">More gory details</a>
+          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/ms/Spam-Last-Week.md" title="ms/Spam-Last-Week.md">Edit on GitHub</a>
+          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/new/site">New Page</a>
+        </p>
+      
     </div>
   </div>
-  <div class="search text-center" style="display: none;">
-  </div>
   <script>
-    window.searchLoadPath = "/assets/search-6ad9e78a0cf31baffce21cffc74c749100f081c7988c4ca3e67fc513fdb06933.js"
-    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/announcements": "https://charcoal-se.org///announcements/", "/smokey/Home": "https://charcoal-se.org///smokey/", "/smokey/Home": "https://charcoal-se.org///smokey/", "/smokey": "https://charcoal-se.org///smokey/", "/ms/Home": "https://charcoal-se.org///ms/", "/ms/Home": "https://charcoal-se.org///ms/", "/ms": "https://charcoal-se.org///ms/", "/userscripts/": "https://charcoal-se.org///scripts.html", "/userscripts": "https://charcoal-se.org///scripts.html",  }
+    window.searchConfig = {
+      appId: 'TMPUB31BTZ',
+      key: 'c63c2f79258f929439376cfb88862440',
+      index: 'main-search',
+      baseUrl: '',
+    }
+    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
 </body>
 </html>

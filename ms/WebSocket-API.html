@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>
     
-      WebSocket API | Charcoal
+      Charcoal
     
   </title>
-  <link type="text/css" rel="stylesheet" href="/assets/application-abe3a02d9caae71a96e85889fcfded7f0d982885fce3f3e6cf70ea0118eacb59.css">
+  <link type="text/css" rel="stylesheet" href="/assets/application-492ff2095ae61f0480ba99a62a71aa4ef70400b54a21fc4730a5bbe987b148f2.css">
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch"></script>
-  <script type="text/javascript" src="/assets/application-49b55bfd390519fc1a0c15f247835e230506bd0b4024e40069eb5cd21289f121.js"></script>
-  <script type="text/javascript" src="/assets/vendor-fad6853c80b4f83dd9b9327d08ae015076a89c51d5a959e0c9ef73241509de15.js"></script>
+  <script type="text/javascript" src="/assets/application-e77b97a094047b8ed7aead336de8b99e687c5d8f0b8cd3c6998cfd1231412746.js"></script>
+  <script type="text/javascript" src="/assets/vendor-0816aa2dae6748d99c683db458c7bd8b1a223dbd5e4d78072f1a81da8ab0726b.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" 
-            type="image/png" 
+  <link rel="shortcut icon"
+            type="image/png"
             href="/assets/charcoal-c0d57d82868cf7a8b169cfaf65a45179467c310868ebfdd0f10e6bd48f068816.png" />
 </head>
 <body>
@@ -31,7 +32,12 @@
       </div>
       <input type="checkbox" id="nav-toggle">
       <nav class="text-center top-nav">
-        <ul>
+        <div class="search-nav">
+          <i class="fa fa-search search-icon inline-icon fa-fw"></i>
+          <input type="text" placeholder="Search…" id="search-input">
+          <a href="#" class="inline-icon close-icon"><i class="fa fa-times fa-fw"></i></a>
+        </div>
+        <ul class="main-nav">
           <li><a href="/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a></li>
           <li><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq"><i class="fa mobile-only fa-comments-o"></i> chat</a></li>
           <li>
@@ -56,23 +62,19 @@
       </nav>
     </div>
     <div class="body">
-      
-
-
-<p>The metasmoke websocket API allows you to have events pushed to you as they happen, which is useful to avoid having to poll the HTTP API for changes. You can subscribe to events from any model by specifying which models you want to watch when you connect.</p>
+      <p>The metasmoke websocket API allows you to have events pushed to you as they happen, which is useful to avoid having to poll the HTTP API for changes. You can subscribe to events from any model by specifying which models you want to watch when you connect.</p>
 
 <p><strong>Note:</strong> I recommend you use an ActionCable client rather than trying to communicate directly with the websocket - the latter is <em>possible</em>, but AC is weird enough that you’re better off letting someone else do that hard work for you. This documentation assumes you’re using the ActionCable JS client.</p>
 
 <h2 id="connection">Connection</h2>
 <p>Create a consumer using your ActionCable client. The consumer is the underlying connection to the websocket.</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">ActionCable</span><span class="p">.</span><span class="nx">createConsumer</span><span class="p">(</span><span class="s1">'wss://metasmoke.erwaysoftware.com/cable'</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">ActionCable</span><span class="p">.</span><span class="nx">createConsumer</span><span class="p">(</span><span class="s1">'wss://metasmoke.erwaysoftware.com/cable'</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>Using that consumer, you now need to create a subscription to the API channel. At this point, you need to specify both your API key, and which models you want to receive events from.</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">socket</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">socket</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
   <span class="na">channel</span><span class="p">:</span> <span class="s1">'ApiChannel'</span><span class="p">,</span>
   <span class="na">key</span><span class="p">:</span> <span class="s1">'abcdef012345'</span><span class="p">,</span>
   <span class="na">events</span><span class="p">:</span> <span class="s1">'posts;feedbacks;flag_logs'</span>
@@ -81,15 +83,14 @@
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>With the subscription above, you will be sent an event every time a post, feedback, or flag log is created or updated.</p>
 
 <h3 id="specifying-event-types">Specifying event types</h3>
 <p>With the example above, you will be sent all events for each model you specify - currently, that’s creates and updates. You can optionally specify which events you want sent to you by including them in your subscription creation, using this syntax:</p>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="nx">socket</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">socket</span><span class="p">.</span><span class="nx">subscriptions</span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
   <span class="na">channel</span><span class="p">:</span> <span class="s1">'ApiChannel'</span><span class="p">,</span>
   <span class="na">key</span><span class="p">:</span> <span class="s1">'abcdef012345'</span><span class="p">,</span>
   <span class="na">events</span><span class="p">:</span> <span class="s1">'statistics#create,update;posts#create'</span>
@@ -98,27 +99,24 @@
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">});</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>This example will result in you being sent events when a post is created, and when a statistic is created <em>or</em> updated.</p>
 
 <h2 id="events">Events</h2>
 <p>The full message sent to you by the websocket looks like this:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="nt">"identifier"</span><span class="p">:</span><span class="s2">"{\"channel\":\"ApiChannel\",\"key\":\"abcdef012345\",\"events\":\"announcements\"}"</span><span class="p">,</span><span class="nt">"message"</span><span class="p">:{</span><span class="nt">"event_type"</span><span class="p">:</span><span class="s2">"create"</span><span class="p">,</span><span class="nt">"event_class"</span><span class="p">:</span><span class="s2">"Announcement"</span><span class="p">,</span><span class="nt">"object"</span><span class="p">:{</span><span class="nt">"id"</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="nt">"text"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">"expiry"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">"created_at"</span><span class="p">:</span><span class="s2">"2017-07-29T23:41:59.000Z"</span><span class="p">,</span><span class="nt">"updated_at"</span><span class="p">:</span><span class="s2">"2017-07-29T23:41:59.000Z"</span><span class="p">}}}</span><span class="w">
-</span></code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"identifier":"{\"channel\":\"ApiChannel\",\"key\":\"abcdef012345\",\"events\":\"announcements\"}","message":{"event_type":"create","event_class":"Announcement","object":{"id":8,"text":null,"expiry":null,"created_at":"2017-07-29T23:41:59.000Z","updated_at":"2017-07-29T23:41:59.000Z"}}}
+</code></pre></div></div>
 
 <p>Your ActionCable client will most likely decode that for you, and just provide you with the event data itself, which looks like this:</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"create"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"event_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FlagLog"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">}</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"event_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"create"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"event_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FlagLog"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-</div>
+</span></code></pre></div></div>
 
 <ul>
   <li>The <code class="highlighter-rouge">event_type</code> parameter reflects what kind of event caused the message - a new object being created, or an existing object being updated.</li>
@@ -126,38 +124,13 @@
   <li>The <code class="highlighter-rouge">object</code> parameter is the object itself: all the fields from that object’s database row, minus any sensitive data like API tokens.</li>
 </ul>
 
-
-<div class="sidebar">
-
-
-
-<p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/WebSocket-API/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
-
-<div class="sidebar-content sidebar-content-ms">
-
-  <p><strong><a href="Home">Home</a></strong></p>
-
-  <p><strong><a href="API-Documentation">API Documentation</a></strong></p>
-
-  <p><strong><a href="WebSocket-API">WebSocket API Documentation</a></strong></p>
-
-</div>
-
-
-</div>
-
-
-<div class="footer footer-insert text-center">
-<p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
-</div>
-
     </div>
     <div class="footer text-center">
       <p>Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.<br />
         <a href="/security">Security</a> • <a href="/pings/">Contact</a>
       </p>
       <p>
-        <a href="http://github.com/Charcoal-SE/charcoal-se.github.io">Website Source</a>
+        <a href="https://github.com/Charcoal-SE/charcoal-se.github.io">Website Source</a>
         • By
           
             <a href="https://github.com/j-f1" class="avatar-link">
@@ -173,20 +146,27 @@
               <img class="avatar avatar-small" src="https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=16" alt="Fortunate-MAN" srcset="https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=16 1x, https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=32 2x, https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=48 3x, https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=64 4x" width="16" height="16" data-proofer-ignore="true" />Fortunate-MAN</a>,
           
           and
-          <a href="http://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
+          <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
             7 more</a>
-        
-          • <a href="/code">More gory details</a>
         
       </p>
       
+        <p>
+          <a href="/code">More gory details</a>
+          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/ms/WebSocket-API.md" title="ms/WebSocket-API.md">Edit on GitHub</a>
+          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/new/site">New Page</a>
+        </p>
+      
     </div>
   </div>
-  <div class="search text-center" style="display: none;">
-  </div>
   <script>
-    window.searchLoadPath = "/assets/search-6ad9e78a0cf31baffce21cffc74c749100f081c7988c4ca3e67fc513fdb06933.js"
-    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/announcements": "https://charcoal-se.org///announcements/", "/smokey/Home": "https://charcoal-se.org///smokey/", "/smokey/Home": "https://charcoal-se.org///smokey/", "/smokey": "https://charcoal-se.org///smokey/", "/ms/Home": "https://charcoal-se.org///ms/", "/ms/Home": "https://charcoal-se.org///ms/", "/ms": "https://charcoal-se.org///ms/", "/userscripts/": "https://charcoal-se.org///scripts.html", "/userscripts": "https://charcoal-se.org///scripts.html",  }
+    window.searchConfig = {
+      appId: 'TMPUB31BTZ',
+      key: 'c63c2f79258f929439376cfb88862440',
+      index: 'main-search',
+      baseUrl: '',
+    }
+    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
 </body>
 </html>
