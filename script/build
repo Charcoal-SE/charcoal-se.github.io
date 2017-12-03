@@ -43,6 +43,8 @@ git -C ./smokey rev-parse HEAD
 
 rm -r _site/assets # remove old assets
 
+export PAGES_ENV=dotcom # GitHub.com
+
 if [[ ! $DEV ]]; then
   JEKYLL_ENV=production bundle exec jekyll algolia push --trace &
   JEKYLL_ENV=production bundle exec jekyll build --incremental --profile --trace &
