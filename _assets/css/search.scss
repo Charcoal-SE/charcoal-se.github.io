@@ -1,5 +1,7 @@
 .search-nav {
-  margin-bottom: -1px;
+  @include desktop {
+    margin-bottom: -1px;
+  }
 
   .search-icon {
     color: #A9A9A9;
@@ -17,6 +19,15 @@
     right: 0;
   }
 
+  @include mobile {
+    .search-icon {
+      left: 0.5em;
+    }
+    .close-icon {
+      right: 0.5em;
+    }
+  }
+
   &.focus {
     .search-icon {
       color: $red-text;
@@ -32,15 +43,24 @@
       appearance: none;
       border: none;
       margin: 0;
-      padding: 0.5em 1.5em;
+      @include desktop {
+        padding: 0.5em 1.5em;
+      }
+      @include mobile {
+        padding: 0.5em 2em
+      }
       background: transparent;
       font: inherit;
     }
 
     .aa-input {
       border-bottom: 2px solid transparent;
+      border-radius: 0; // mobile Safari :(
       &:focus {
         outline: none;
+        border-bottom-color: $red-text;
+      }
+      @include mobile {
         border-bottom-color: $red-text;
       }
     }
@@ -54,9 +74,16 @@
       overflow: hidden;
       width: 100%;
       background-color: #fff;
-      border: 1px solid $red-text;
-      border-radius: 5px;
-      margin-top: 5px;
+      @include desktop {
+        border: 1px solid $red-text;
+        border-radius: 5px;
+        margin-top: 5px;
+      }
+
+      @include mobile {
+        font-size: 0.9em;
+        position: relative !important; // Inline styles FTL
+      }
 
       .aa-suggestion {
         text-align: left;
@@ -81,10 +108,22 @@
           margin: 0;
         }
 
+        @include mobile {
+          small {
+            max-height: 3.75em;
+            display: inline-block;
+            line-height: inherit;
+            overflow-y: hidden;
+          }
+        }
+
         .aa-link {
           text-decoration: underline;
           opacity: 0.5;
           font-size: 0.75em;
+          @include mobile {
+            display: none;
+          }
         }
       }
     }

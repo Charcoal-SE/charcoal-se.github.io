@@ -65,34 +65,49 @@ nav.nav-dropdown {
   }
 }
 
-.top-nav .search-nav {
-  opacity: 0;
-  pointer-events: none;
-  bottom: 0;
-}
-.top-nav {
-  position: relative;
-  @include desktop {
-    height: 36px;
-  }
-  &::after {
-    content: '';
-    clear: both;
-  }
-  .main-nav, .search-nav {
-    transition: opacity 0.4s;
-    position: absolute;
-    width: 100%;
-  }
-}
-.top-nav.search-mode {
-  .main-nav {
+@include desktop {
+  .top-nav .search-nav {
     opacity: 0;
     pointer-events: none;
+    bottom: 0;
   }
-  .search-nav {
-    opacity: 1;
-    pointer-events: auto;
+  .top-nav {
+    position: relative;
+    height: 36px;
+    .main-nav, .search-nav {
+      transition: opacity 0.4s;
+      position: absolute;
+      width: 100%;
+    }
+  }
+  .top-nav.search-mode {
+    .main-nav {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .search-nav {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
+@include mobile {
+  .top-nav {
+    .search-nav {
+      display: flex; // Magically removes padding at bottom of navbar
+      position: relative;
+    }
+    &:not(.search-mode) {
+      .search-nav {
+        display: none;
+      }
+    }
+    &.search-mode {
+      .main-nav {
+        display: none;
+      }
+    }
   }
 }
 

@@ -36,8 +36,11 @@ $(window).on 'turbolinks:load', ->
   $('#search-input').focus -> $('.search-nav').addClass 'focus'
   $('#search-input').blur -> $('.search-nav').removeClass 'focus'
 
+  isMobile = window.matchMedia('(max-width: 768px)').matches # from mixins.scss
+  hitsPerPage = if isMobile then 5 else 10
+
   autocomplete('#search-input', keyboardShortcuts: ['s', '/'], debug: true, [
-    source: autocomplete.sources.hits(index(), hitsPerPage: 10)
+    source: autocomplete.sources.hits(index(), { hitsPerPage })
     templates:
       suggestion: (suggestion) ->
         subsection = ''
