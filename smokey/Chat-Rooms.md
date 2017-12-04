@@ -2,12 +2,14 @@ This is a list of _Stack Exchange_ chat rooms where SmokeDetector posts reports 
 
 ### Site-specific reports are sent to:
 
+ - **Ask Ubuntu:** [Raiders of the Lost Downboat](https://chat.stackexchange.com/rooms/3877/raiders-of-the-lost-downboat)
  - **Bitcoin:** [mempool](http://chat.stackexchange.com/rooms/8089/mempool)
  - **Crafts:** [The Studio](https://chat.stackexchange.com/rooms/38932/the-studio)
  - **English:** [English Language & Usage](http://chat.stackexchange.com/rooms/95/english-language-usage)
  - **English Language Learners:** [Language Overflow](https://chat.stackexchange.com/rooms/24938/language-overflow)
  - **Ethereum:** [Whisper](http://chat.stackexchange.com/rooms/34620/whisper)
  - **Graphic Design:** [The Spam Blot](http://chat.stackexchange.com/rooms/56223/the-spam-blot)
+ - **Interpersonal Skills:** [The Awkward Silence](https://chat.stackexchange.com/rooms/61165/the-awkward-silence)
  - **Magento:** [Charcoal SmokeDetector Reports](http://chat.stackexchange.com/rooms/47869/charcoal-smokedetector-reports)
  - **Mathematics:** [C.R.U.D.E.](http://chat.stackexchange.com/rooms/2165/c-r-u-d-e)
  - **Mi Yodeya:** [V'dibarta Bam](http://chat.stackexchange.com/rooms/468/vdibarta-bam)
