@@ -12,9 +12,9 @@ def jekyll_front_matter(path, content)
     title = repo_name
   end
 
-  lines = []
+  @lines = []
   def l line
-    lines << line
+    @lines << line
   end
 
   l "---"
@@ -40,7 +40,7 @@ def jekyll_front_matter(path, content)
   end
   l ""
 
-  lines.join "\n"
+  @lines.join "\n"
 end
 
 ARGV
