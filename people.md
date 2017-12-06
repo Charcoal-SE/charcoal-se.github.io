@@ -61,7 +61,7 @@ These people help out by adding to and maintaining the miles of regexes and blac
 These people contribute in other ways, such as flagging, giving feedback, making the rest of us laugh, and being all-round cool people.
 
 *   [M.A.R.](http://chat.stackexchange.com/users/135450/m-a-r)
-*   [Kyll](http://chat.stackexchange.com/users/172397/kyll)
+*   [Paul Stenne](http://chat.stackexchange.com/users/172397/kyll)
 *   [DavidPostill](http://chat.stackexchange.com/users/133966/davidpostill)
 *   [Kaz Wolfe](http://chat.stackexchange.com/users/97389/kaz-wolfe)
 *   [Byte Commander](http://chat.stackexchange.com/users/137665/byte-commander)
@@ -75,4 +75,5 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Tetsuya Yamamoto](https://chat.stackexchange.com/users/279119/tetsuya-yamamoto)
 *   [Catija](https://chat.stackexchange.com/users/139041/catija)
 *   [Videonauth](https://chat.stackexchange.com/users/205533/videonauth)
+*   [A J](https://chat.stackexchange.com/users/205208/a-j)
 </section>
