@@ -34,7 +34,7 @@ These people have at some point contributed code of some variety, whether it be 
 *   [Glorfindel](http://chat.stackexchange.com/users/164318/glorfindel)
 *   [J F](http://chat.stackexchange.com/users/161943/j-f)
 *   [Cerbrus](http://chat.stackexchange.com/users/126657/cerbrus)
-*   [quartata](http://chat.stackexchange.com/users/167070/quartata)
+*   [quartata](http://chat.stackexchange.com/users/167070/quartata) (RO)
 *   [**Henders**](http://chat.stackexchange.com/users/211021/henders)
 
 </section>
