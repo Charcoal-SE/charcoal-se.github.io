@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    API Documentation (V2) | Charcoal
+    
+  </title>
+  <link type="text/css" rel="stylesheet" href="/assets/application-7a835de2cdbe563ad82f4bc5815ab074e2518d46f72935d0028b7eb5334bd6ef.css">
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch"></script>
+  <script type="text/javascript" src="/assets/application-171bf7db1674f7de0b9cf5d42d0ca9833c0393a006b6d2454e6ba6c5f46f1ba2.js"></script>
+  <script type="text/javascript" src="/assets/vendor-0816aa2dae6748d99c683db458c7bd8b1a223dbd5e4d78072f1a81da8ab0726b.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon"
+            type="image/png"
+            href="/assets/charcoal-c0d57d82868cf7a8b169cfaf65a45179467c310868ebfdd0f10e6bd48f068816.png" />
+</head>
+<body>
+  <div class="body-container">
+    
+    <div class="header">
+      <div class="header-icon text-center">
+        <a href="/">
+          <img src="/assets/charcoal-c0d57d82868cf7a8b169cfaf65a45179467c310868ebfdd0f10e6bd48f068816.png" height="64" width alt="charcoal.png">
+          <span class="title">
+            <span>Charcoal</span>
+            <small>spam-crusaders of the Internet</small>
+          </span>
+        </a>
+        <label class="nav-toggle-icon fa fa-bars fa-lg" for="nav-toggle"></label>
+      </div>
+      <input type="checkbox" id="nav-toggle">
+      <nav class="text-center top-nav">
+        <div class="search-nav">
+          <i class="fa fa-search search-icon inline-icon fa-fw"></i>
+          <input type="text" placeholder="Search…" id="search-input">
+          <a href="#" class="inline-icon close-icon"><i class="fa fa-times fa-fw"></i></a>
+        </div>
+        <ul class="main-nav">
+          <li><a href="/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a></li>
+          <li><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq"><i class="fa mobile-only fa-comments-o"></i> chat</a></li>
+          <li>
+            <label class="link" for="projects-toggle">
+              more projects <i class="fa fa-chevron-down"></i>
+            </label>
+            <input type="checkbox" id="projects-toggle">
+            <nav class="nav-dropdown">
+              <a href="https://metasmoke.erwaysoftware.com/" >metasmoke</a>
+            
+              <a href="https://charcoal-se.org/ms-urls" >metasmoke URL converter</a>
+            
+              <a href="https://charcoal-se.org/blaze" data-turbolinks="false">Blaze</a>
+            </nav>
+          </li>
+          <li><a href="/scripts"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a></li>
+          <li><a href="/smokey/"><i class="fa mobile-only fa-file-text-o"></i> wiki</a></li>
+          <li><a href="/ms/API-Documentation"><i class="fa mobile-only fa-book"></i> api</a></li>
+          <li><a href="https://github.com/Charcoal-SE" title="GitHub organization"><i class="fa fa-github"></i><span class="mobile-only"> GitHub</span></a></li>
+          <li><a href="#" class="search-link"><i class="fa fa-search" title="Search"></i><span class="mobile-only"> Search</span></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="body">
+      
+
+
+<h1 id="api-documentation-v2">API Documentation (V2)</h1>
+
+<p>This page contains documentation for <strong>version 2.0</strong> of the metasmoke API. If that’s not what you’re expecting, you’re in the wrong place.</p>
+
+<h3 id="authentication">Authentication</h3>
+<p>Like 1.0, you need a key to access the API. Ping an admin to get one if you don’t already have one. If you’ve previously been given a key but no longer have it, you should be able to access it at https://metasmoke.erwaysoftware.com/api/keys/mine.</p>
+
+<p>For write authentication, the same flow applies as for v1:</p>
+<ul>
+  <li>Send your user to <code class="highlighter-rouge">https://metasmoke.erwaysoftware.com/oauth/request?key=YOUR_KEY_HERE</code>.</li>
+  <li>If the user authorizes your app, they will be given a code to provide you. Ask them to enter this code, then:</li>
+  <li>Send a HTTP GET request to <code class="highlighter-rouge">https://metasmoke.erwaysoftware.com/oauth/token?key=YOUR_KEY_HERE&amp;code=THEIR_CODE_HERE</code>. The response is a JSON object containing one key, <code class="highlighter-rouge">token</code>, the value of which is your write token. Include this as the <code class="highlighter-rouge">token</code> parameter on any requests that require it.</li>
+</ul>
+
+<h3 id="filters">Filters</h3>
+<p>Filters have been totally reworked in V2 of the API; they really were that terrible in v1. Again, visit https://metasmoke.erwaysoftware.com/api/filters to create a filter, and include it as the <code class="highlighter-rouge">filter</code> parameter on any requests you need it for.</p>
+
+<p>Filters are <em>not quite</em> immutable. If the server configuration remains the same, then the same filter will always represent the same fields. However, if the server configuration changes - such as to add a new field to the API - then filters will also change. If you’re getting an SQL error on your requests, this is probably the cause - go recalculate your filters.</p>
+
+<p>You can calculate filters programmatically if you wish: send a POST request to <code class="highlighter-rouge">https://metasmoke.erwaysoftware.com/api/filters</code> with the <code class="highlighter-rouge">fields</code> parameter set to an array of field names that you want to include (i.e. <code class="highlighter-rouge">['announcements.id', 'announcements.text', 'announcements.expiry']</code>), and you will get back a JSON object containing the filter.</p>
+
+<blockquote>
+  <p><em>You</em> may <em>also include the filter-generation logic directly in your application if you really want; it’s less complex than v1’s, so that’s not too much of a liability. Bear in mind, however, that if the metasmoke implementation changes you will need to push out an update to your implementation to match.</em></p>
+</blockquote>
+
+<h2 id="routes">Routes</h2>
+<p>Routes marked with [W] are write routes; you must use a POST request and present a write token for these routes.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Path</strong></th>
+      <th><strong>Description</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Announcements</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/announcements</code></td>
+      <td>List all announcements.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/announcements/active</code></td>
+      <td>List active (non-expired) announcements.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/announcements/expired</code></td>
+      <td>List expired announcements.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/announcements/create</code></td>
+      <td>[W] Create an announcement. Requires params: <code class="highlighter-rouge">text</code> and <code class="highlighter-rouge">expiry</code>. Requires core role.</td>
+    </tr>
+    <tr>
+      <td><strong>Apps</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/apps</code></td>
+      <td>List all apps (API keys, technically).</td>
+    </tr>
+    <tr>
+      <td><strong>Commit Statuses</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/commits</code></td>
+      <td>List all commit statuses.</td>
+    </tr>
+    <tr>
+      <td><strong>Debug</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/debug</code></td>
+      <td>Return debugging information for the API. Not intended for widespread use, more for use while developing this API.</td>
+    </tr>
+    <tr>
+      <td><strong>Deletion Logs</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/deletions</code></td>
+      <td>List all deletion logs.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/deletions/post/:id</code></td>
+      <td>List deletion logs on the post identified by <code class="highlighter-rouge">id</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>Domain Tags</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/tags</code></td>
+      <td>List all domain tags.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/tags/name/:name</code></td>
+      <td>List tags with a name of <code class="highlighter-rouge">name</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/tags/:id/domains</code></td>
+      <td>List domains associated with the tag identified by <code class="highlighter-rouge">id</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>Feedbacks</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/feedback</code></td>
+      <td>List all feedbacks.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/feedbacks/post/:id</code></td>
+      <td>List feedbacks on the post identified by <code class="highlighter-rouge">id</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/feedbacks/user/:id</code></td>
+      <td>List feedbacks created by user <code class="highlighter-rouge">id</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/feedbacks/app/:id</code></td>
+      <td>List feedbacks created from the app identified by <code class="highlighter-rouge">id</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/feedbacks/post/:id/create</code></td>
+      <td>[W] Create a feedback on the post identified by <code class="highlighter-rouge">id</code>. Requires params: <code class="highlighter-rouge">type</code>. Requires reviewer role.</td>
+    </tr>
+    <tr>
+      <td><strong>Posts</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/posts</code></td>
+      <td>List all posts.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/posts/between</code></td>
+      <td>List posts created between a specified start and end date. Requires params: <code class="highlighter-rouge">from</code> and <code class="highlighter-rouge">to</code>, in ISO 8601 format (<code class="highlighter-rouge">2017-12-25T00:00:00.000000Z</code>).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/posts/site</code></td>
+      <td>List posts on a particular site. Requires params: <code class="highlighter-rouge">site</code> (e.g. <code class="highlighter-rouge">site=stackoverflow.com</code>).</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/posts/urls</code></td>
+      <td>List posts identified by particular URLs. Requires params: <code class="highlighter-rouge">urls</code> - a comma-separated list of URLs.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/posts/feedback</code></td>
+      <td>List posts that have a certain type of feedback on them. Requires params: <code class="highlighter-rouge">type</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/posts/undeleted</code></td>
+      <td>List posts that have not been recorded as deleted.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/posts/report</code></td>
+      <td>[W] Report a post to Smokey. Requires params: <code class="highlighter-rouge">url</code>. Requires reviewer role.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/posts/:ids</code></td>
+      <td>List posts identified by their IDs. <code class="highlighter-rouge">ids</code> is a comma-separated list of IDs.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/posts/:id/reasons</code></td>
+      <td>List the reasons associated with the post identified by <code class="highlighter-rouge">id</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/posts/:id/domains</code></td>
+      <td>List the domains associated with the post identified by <code class="highlighter-rouge">id</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/posts/:id/flag</code></td>
+      <td>[W] Cast a spam flag on the post identified by <code class="highlighter-rouge">id</code>. Requires reviewer role.</td>
+    </tr>
+    <tr>
+      <td><strong>Reasons</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/reasons</code></td>
+      <td>List all reasons.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/reasons/:ids</code></td>
+      <td>List reasons identified by their IDs. <code class="highlighter-rouge">ids</code> is a comma-separated list of IDs.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/reasons/:id/posts</code></td>
+      <td>List the posts that have been caught by the reason identified by <code class="highlighter-rouge">id</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>Smoke Detectors</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/smokeys</code></td>
+      <td>List all Smoke Detectors.</td>
+    </tr>
+    <tr>
+      <td><strong>Spam Domains</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/domains</code></td>
+      <td>List all spam domains.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/domains/:id/posts</code></td>
+      <td>List posts that contain the domain identified by <code class="highlighter-rouge">id</code>.</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/domains/:id/tags/add</code></td>
+      <td>[W] Add a tag to a domain. Requires params: <code class="highlighter-rouge">tag</code>. Requires core role.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="sidebar">
+
+
+
+<p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/API-Documentation-(V2)/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+
+<div class="sidebar-content sidebar-content-ms">
+
+  <p><strong><a href="Home">Home</a></strong></p>
+
+  <p><strong><a href="API-Documentation">API Documentation</a></strong></p>
+
+  <p><strong><a href="WebSocket-API">WebSocket API Documentation</a></strong></p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
+
+    </div>
+    <div class="footer text-center">
+      <p>Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.<br />
+        <a href="/security">Security</a> • <a href="/pings/">Contact</a>
+      </p>
+      <p>
+        <a href="https://github.com/Charcoal-SE/charcoal-se.github.io">Website Source</a>
+        • By
+          
+            <a href="https://github.com/j-f1" class="avatar-link">
+              <img class="avatar avatar-small" src="https://avatars2.githubusercontent.com/j-f1?v=3&s=16" alt="j-f1" srcset="https://avatars2.githubusercontent.com/j-f1?v=3&s=16 1x, https://avatars2.githubusercontent.com/j-f1?v=3&s=32 2x, https://avatars2.githubusercontent.com/j-f1?v=3&s=48 3x, https://avatars2.githubusercontent.com/j-f1?v=3&s=64 4x" width="16" height="16" data-proofer-ignore="true" />j-f1</a>,
+          
+            <a href="https://github.com/ArtOfCode-" class="avatar-link">
+              <img class="avatar avatar-small" src="https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=16" alt="ArtOfCode-" srcset="https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=16 1x, https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=32 2x, https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=48 3x, https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=64 4x" width="16" height="16" data-proofer-ignore="true" />ArtOfCode-</a>,
+          
+            <a href="https://github.com/tripleee" class="avatar-link">
+              <img class="avatar avatar-small" src="https://avatars2.githubusercontent.com/tripleee?v=3&s=16" alt="tripleee" srcset="https://avatars2.githubusercontent.com/tripleee?v=3&s=16 1x, https://avatars2.githubusercontent.com/tripleee?v=3&s=32 2x, https://avatars2.githubusercontent.com/tripleee?v=3&s=48 3x, https://avatars2.githubusercontent.com/tripleee?v=3&s=64 4x" width="16" height="16" data-proofer-ignore="true" />tripleee</a>,
+          
+            <a href="https://github.com/Fortunate-MAN" class="avatar-link">
+              <img class="avatar avatar-small" src="https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=16" alt="Fortunate-MAN" srcset="https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=16 1x, https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=32 2x, https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=48 3x, https://avatars0.githubusercontent.com/Fortunate-MAN?v=3&s=64 4x" width="16" height="16" data-proofer-ignore="true" />Fortunate-MAN</a>,
+          
+          and
+          <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
+            7 more</a>
+        
+          • <a href="/code">More gory details</a>
+        
+      </p>
+      
+    </div>
+  </div>
+  <script>
+    window.searchConfig = {
+      appId: 'TMPUB31BTZ',
+      key: 'c63c2f79258f929439376cfb88862440',
+      index: 'main-search',
+      baseUrl: '',
+    }
+    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+  </script>
+</body>
+</html>
