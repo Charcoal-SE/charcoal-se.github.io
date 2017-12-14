@@ -69,7 +69,7 @@
 <p>This page contains documentation for <strong>version 2.0</strong> of the metasmoke API. If that’s not what you’re expecting, you’re in the wrong place.</p>
 
 <h3 id="authentication">Authentication</h3>
-<p>Like 1.0, you need a key to access the API. Ping an admin to get one if you don’t already have one. If you’ve previously been given a key but no longer have it, you should be able to access it at https://metasmoke.erwaysoftware.com/api/keys/mine.</p>
+<p>Like 1.0, you need a key to access the API. Ping an admin to get one if you don’t already have one. If you’ve previously been given a key but no longer have it, you should be able to access it at <a href="https://metasmoke.erwaysoftware.com/api/keys/mine">https://metasmoke.erwaysoftware.com/api/keys/mine</a>.</p>
 
 <p>For write authentication, the same flow applies as for v1:</p>
 <ul>
@@ -79,7 +79,7 @@
 </ul>
 
 <h3 id="filters">Filters</h3>
-<p>Filters have been totally reworked in V2 of the API; they really were that terrible in v1. Again, visit https://metasmoke.erwaysoftware.com/api/filters to create a filter, and include it as the <code class="highlighter-rouge">filter</code> parameter on any requests you need it for.</p>
+<p>Filters have been totally reworked in V2 of the API; they really were that terrible in v1. Again, visit <a href="https://metasmoke.erwaysoftware.com/api/filters">https://metasmoke.erwaysoftware.com/api/filters</a> to create a filter, and include it as the <code class="highlighter-rouge">filter</code> parameter on any requests you need it for.</p>
 
 <p>Filters are <em>not quite</em> immutable. If the server configuration remains the same, then the same filter will always represent the same fields. However, if the server configuration changes - such as to add a new field to the API - then filters will also change. If you’re getting an SQL error on your requests, this is probably the cause - go recalculate your filters.</p>
 
@@ -177,7 +177,7 @@
       <td> </td>
     </tr>
     <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/feedback</code></td>
+      <td><code class="highlighter-rouge">/api/v2.0/feedbacks</code></td>
       <td>List all feedbacks.</td>
     </tr>
     <tr>
