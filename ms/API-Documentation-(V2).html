@@ -244,6 +244,10 @@
       <td>List the domains associated with the post identified by <code class="highlighter-rouge">id</code>.</td>
     </tr>
     <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/posts/:id/flags</code></td>
+      <td>List flags cast (auto and manual) on the post identified by <code class="highlighter-rouge">id</code>.</td>
+    </tr>
+    <tr>
       <td><code class="highlighter-rouge">/api/v2.0/posts/:id/flag</code></td>
       <td>[W] Cast a spam flag on the post identified by <code class="highlighter-rouge">id</code>. Requires reviewer role.</td>
     </tr>
@@ -286,6 +290,14 @@
     <tr>
       <td><code class="highlighter-rouge">/api/v2.0/domains/:id/tags/add</code></td>
       <td>[W] Add a tag to a domain. Requires params: <code class="highlighter-rouge">tag</code>. Requires core role.</td>
+    </tr>
+    <tr>
+      <td><strong>Users</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">/api/v2.0/users</code></td>
+      <td>List all users.</td>
     </tr>
   </tbody>
 </table>
