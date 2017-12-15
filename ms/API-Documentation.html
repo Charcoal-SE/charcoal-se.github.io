@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>
-    Posts by Site | Charcoal
+    API Documentation | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="/assets/application-7a835de2cdbe563ad82f4bc5815ab074e2518d46f72935d0028b7eb5334bd6ef.css">
@@ -64,51 +64,21 @@
       
 
 
-<h1 id="posts-by-site">Posts by Site</h1>
+<h1 id="api-documentation">API Documentation</h1>
 
-<h3 id="route-name">Route Name</h3>
-<p>Posts by Site</p>
+<p>We’ve got two versions of the API:</p>
 
-<h3 id="route-url">Route URL</h3>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/api/posts/site
-</code></pre></div></div>
-
-<h3 id="description--usage">Description &amp; Usage</h3>
-<p>This route allows you to fetch posts based on the Stack Exchange site they were posted on. Use the <code class="highlighter-rouge">site</code> query string parameter to specify which site you want to check: this parameter should be filled with a valid site domain to the Stack Exchange site in question (such as <code class="highlighter-rouge">stackoverflow.com</code>, or <code class="highlighter-rouge">drupal.stackexchange.com</code>.</p>
-
-<h3 id="example">Example</h3>
-<p><strong>Request:</strong></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 GET /api/posts/site?site=drupal.stackexchange.com
-</code></pre></div></div>
-
-<p><strong>Response:</strong></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    {
-        "id": 88814,
-        "title": "For Which Age Group This Face Cream Is Suitable For?",
-        "body": "&lt;truncated&gt;",
-        "link": "//drupal.stackexchange.com/questions/247905",
-        "site_id": 86,
-        "user_link": "https://drupal.stackexchange.com/users/79823/aftly-19",
-        "username": "Redacted User",
-        "why": "&lt;truncated&gt;",
-        "user_reputation": 1,
-        "stack_exchange_user_id": 77689,
-        "is_tp": true,
-        "is_fp": false,
-        "is_naa": false,
-        "deleted_at": "2017-10-12T14:11:09.000Z"
-    }
-</code></pre></div></div>
+<ul>
+  <li><a href="API-Documentation-(V1)">Read the v1 docs</a></li>
+  <li><a href="API-Documentation-(V2)">Read the v2 docs</a></li>
+</ul>
 
 
 <div class="sidebar">
 
 
 
-<p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/Posts-by-Site/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+<p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/API-Documentation/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
 
 <div class="sidebar-content sidebar-content-ms">
 
