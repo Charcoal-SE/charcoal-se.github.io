@@ -9,4 +9,6 @@ Website built from:
 * commit [`{{ site.data.commits.ms|slice:0,7 }}`](https://github.com/Charcoal-SE/metasmoke/wiki/_compare/{{ site.data.commits.ms }} '{{ site.data.commits.ms }}') on the [Charcoal-SE/metasmoke wiki](//github.com/Charcoal-SE/metasmoke/wiki)
 * commit [`{{ site.data.commits.theme|slice:0,7 }}`](https://github.com/Charcoal-SE/charcoal-jekyll-theme/commit/{{ site.data.commits.theme }} '{{ site.data.commits.theme }}') on [Charcoal-SE/charcoal-jekyll-theme](https://github.com/Charcoal-SE/charcoal-jekyll-theme)
 
+[Live build logs on Travis CI](https://travis-ci.org/Charcoal-SE/charcoal-se.github.io)
+
 This site is powered by [Jekyll](https://jekyllrb.com) [v{{ jekyll.version }}](https://github.com/jekyll/jekyll/releases/v{{ jekyll.version }})
