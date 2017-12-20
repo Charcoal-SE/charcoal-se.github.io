@@ -69,6 +69,16 @@
 
 <h1 id="api-documentation-v2">API Documentation (V2)</h1>
 
+<!--
+                                 ############################################
+                                 # DO NOT EDIT THIS DOCUMENTATION DIRECTLY! #
+                                 ############################################
+
+Well, okay, you can edit the text at the top, but leave that giant table alone unless you've regenerated it properly. TL;DR: the docs are held in the metasmoke repo, `app/api/docs`, and the table is generated from those docs by running `app/api/scripts/create_docs.rb`. Commit any changes you want to make to the repo before re-generating the table and pasting it here.
+
+Scroll down for docs.
+-->
+
 <p>This page contains documentation for <strong>version 2.0</strong> of the metasmoke API. If that’s not what you’re expecting, you’re in the wrong place.</p>
 
 <h3 id="authentication">Authentication</h3>
@@ -96,211 +106,485 @@
 <p>Routes marked with [W] are write routes; you must use a POST request and present a write token for these routes.</p>
 
 <table>
-  <thead>
-    <tr>
-      <th><strong>Path</strong></th>
-      <th><strong>Description</strong></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Announcements</strong></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/announcements</code></td>
-      <td>List all announcements.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/announcements/active</code></td>
-      <td>List active (non-expired) announcements.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/announcements/expired</code></td>
-      <td>List expired announcements.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/announcements/create</code></td>
-      <td>[W] Create an announcement. Requires params: <code class="highlighter-rouge">text</code> and <code class="highlighter-rouge">expiry</code>. Requires core role.</td>
-    </tr>
-    <tr>
-      <td><strong>Apps</strong></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/apps</code></td>
-      <td>List all apps (API keys, technically).</td>
-    </tr>
-    <tr>
-      <td><strong>Commit Statuses</strong></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/commits</code></td>
-      <td>List all commit statuses.</td>
-    </tr>
-    <tr>
-      <td><strong>Debug</strong></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/debug</code></td>
-      <td>Return debugging information for the API. Not intended for widespread use, more for use while developing this API.</td>
-    </tr>
-    <tr>
-      <td><strong>Deletion Logs</strong></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/deletions</code></td>
-      <td>List all deletion logs.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/deletions/post/:id</code></td>
-      <td>List deletion logs on the post identified by <code class="highlighter-rouge">id</code>.</td>
-    </tr>
-    <tr>
-      <td><strong>Domain Tags</strong></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/tags</code></td>
-      <td>List all domain tags.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/tags/name/:name</code></td>
-      <td>List tags with a name of <code class="highlighter-rouge">name</code>.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/tags/:id/domains</code></td>
-      <td>List domains associated with the tag identified by <code class="highlighter-rouge">id</code>.</td>
-    </tr>
-    <tr>
-      <td><strong>Feedbacks</strong></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/feedbacks</code></td>
-      <td>List all feedbacks.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/feedbacks/post/:id</code></td>
-      <td>List feedbacks on the post identified by <code class="highlighter-rouge">id</code>.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/feedbacks/user/:id</code></td>
-      <td>List feedbacks created by user <code class="highlighter-rouge">id</code>.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/feedbacks/app/:id</code></td>
-      <td>List feedbacks created from the app identified by <code class="highlighter-rouge">id</code>.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/feedbacks/post/:id/create</code></td>
-      <td>[W] Create a feedback on the post identified by <code class="highlighter-rouge">id</code>. Requires params: <code class="highlighter-rouge">type</code>. Requires reviewer role.</td>
-    </tr>
-    <tr>
-      <td><strong>Posts</strong></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/posts</code></td>
-      <td>List all posts.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/posts/between</code></td>
-      <td>List posts created between a specified start and end date. Requires params: <code class="highlighter-rouge">from</code> and <code class="highlighter-rouge">to</code>, in ISO 8601 format (<code class="highlighter-rouge">2017-12-25T00:00:00.000000Z</code>).</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/posts/site</code></td>
-      <td>List posts on a particular site. Requires params: <code class="highlighter-rouge">site</code> (e.g. <code class="highlighter-rouge">site=stackoverflow.com</code>).</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/posts/urls</code></td>
-      <td>List posts identified by particular URLs. Requires params: <code class="highlighter-rouge">urls</code> - a comma-separated list of URLs.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/posts/feedback</code></td>
-      <td>List posts that have a certain type of feedback on them. Requires params: <code class="highlighter-rouge">type</code>.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/posts/undeleted</code></td>
-      <td>List posts that have not been recorded as deleted.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/posts/report</code></td>
-      <td>[W] Report a post to Smokey. Requires params: <code class="highlighter-rouge">url</code>. Requires reviewer role.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/posts/:ids</code></td>
-      <td>List posts identified by their IDs. <code class="highlighter-rouge">ids</code> is a comma-separated list of IDs.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/posts/:id/reasons</code></td>
-      <td>List the reasons associated with the post identified by <code class="highlighter-rouge">id</code>.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/posts/:id/domains</code></td>
-      <td>List the domains associated with the post identified by <code class="highlighter-rouge">id</code>.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/posts/:id/flags</code></td>
-      <td>List flags cast (auto and manual) on the post identified by <code class="highlighter-rouge">id</code>.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/posts/:id/flag</code></td>
-      <td>[W] Cast a spam flag on the post identified by <code class="highlighter-rouge">id</code>. Requires reviewer role.</td>
-    </tr>
-    <tr>
-      <td><strong>Reasons</strong></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/reasons</code></td>
-      <td>List all reasons.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/reasons/:ids</code></td>
-      <td>List reasons identified by their IDs. <code class="highlighter-rouge">ids</code> is a comma-separated list of IDs.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/reasons/:id/posts</code></td>
-      <td>List the posts that have been caught by the reason identified by <code class="highlighter-rouge">id</code>.</td>
-    </tr>
-    <tr>
-      <td><strong>Smoke Detectors</strong></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/smokeys</code></td>
-      <td>List all Smoke Detectors.</td>
-    </tr>
-    <tr>
-      <td><strong>Spam Domains</strong></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/domains</code></td>
-      <td>List all spam domains.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/domains/:id/posts</code></td>
-      <td>List posts that contain the domain identified by <code class="highlighter-rouge">id</code>.</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/domains/:id/tags/add</code></td>
-      <td>[W] Add a tag to a domain. Requires params: <code class="highlighter-rouge">tag</code>. Requires core role.</td>
-    </tr>
-    <tr>
-      <td><strong>Users</strong></td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">/api/v2.0/users</code></td>
-      <td>List all users.</td>
-    </tr>
-  </tbody>
-</table>
+<tbody>
+<thead>
+<tr><td><strong>Path</strong></td><td><strong>Description</strong></td></tr>
+<tr><td><strong>Announcements</strong></td><td></td></tr>
+<tr><td><code>/api/v2.0/announcements </code></td><td><details><summary> List all announcements.</summary><p>Available tables: <code>announcements</code><br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 25,
+            &quot;text&quot;: &quot;Test API announcement&quot;,
+            &quot;expiry&quot;: &quot;2017-12-13T19:00:00.000Z&quot;
+        }
+    ],
+    &quot;has_more&quot;: true
+}
+</code></pre>
+</details></td></tr>
+<tr><td><code>/api/v2.0/announcements/active </code></td><td><details><summary> List active (non-expired) announcements.</summary><p>Available tables: <code>announcements</code><br />
+Output format: identical to <code>/announcements</code>.</p>
+</details></td></tr>
+<tr><td><code>/api/v2.0/announcements/expired </code></td><td><details><summary> List expired announcements.</summary><p>Available tables: <code>announcements</code><br />
+Output format: identical to <code>/announcements</code>.</p>
+</details></td></tr>
+<tr><td><code>/api/v2.0/announcements/create </code></td><td><details><summary> [W] Create an announcement.</summary><p>Available tables: N/A. All fields are returned. Filter is ignored.<br /><br />
+Requires params: <code>text</code> and <code>expiry</code>. Requires core role.<br /><br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 27,
+            &quot;text&quot;: &quot;test from API&quot;,
+            &quot;expiry&quot;: &quot;2017-01-01T00:00:00.000Z&quot;,
+            &quot;created_at&quot;: &quot;2017-12-17T23:11:55.000Z&quot;,
+            &quot;updated_at&quot;: &quot;2017-12-17T23:11:55.000Z&quot;
+        }
+    ],
+    &quot;has_more&quot;: false
+}
+</code></pre>
+</details></td></tr>
+<tr><td><strong>Apps</strong></td><td></td></tr>
+<tr><td><code>/api/v2.0/apps </code></td><td><details><summary> List all apps.</summary><p>Available tables: <code>api_keys</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 21,
+            &quot;app_name&quot;: &quot;thesecretmaster&#39;s app&quot;,
+            &quot;user_id&quot;: 298,
+            &quot;github_link&quot;: &quot;&quot;
+        }
+    ],
+    &quot;has_more&quot;: true
+}
+</code></pre>
+</details></td></tr>
+<tr><td><strong>Commit Statuses</strong></td><td></td></tr>
+<tr><td><code>/api/v2.0/commits </code></td><td><details><summary> List all commit statuses.</summary><p>Available tables: <code>commit_statuses</code>. Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 3689,
+            &quot;commit_sha&quot;: &quot;cb94d4592f0a0085302ad2dbed1b4aaa5db85d09&quot;,
+            &quot;status&quot;: &quot;success&quot;
+        }
+    ],
+    &quot;has_more&quot;: true
+}
+</code></pre>
+</details></td></tr>
+<tr><td><strong>Debug</strong></td><td></td></tr>
+<tr><td><code>/api/v2.0/debug </code></td><td><details><summary> Return debugging information for the API.</summary><p>No database queries are performed by this route; no tables are available. Not really intended for API consumer use, more for API developers.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;params&quot;: {
+        &quot;key&quot;: &quot;abcdef012345&quot;,
+        &quot;per_page&quot;: &quot;1&quot;
+    },
+    &quot;ts&quot;: &quot;2017-12-18T00:46:14.812+00:00&quot;,
+    &quot;filters&quot;: {
+        &quot;announcements&quot;: &quot;IJIHMOFFGGKIOKOGFJHMHHLOMIJFNGLLOHKMGIFKOMKLIILOGHLNNMJHJ&quot;,
+        &quot;apps&quot;: &quot;MJMFOGKMLGMHGHFNGNJJOLOJGMKMIKMMKMHMFGJGIKIHHFLJKFLFLFN&quot;,
+        &quot;commits&quot;: &quot;GFHIFKGGJLGIGLIHFJHMJHKMOINHOFGIONGGIMKOGKHMNFFNIH&quot;,
+        &quot;deletions&quot;: &quot;MOOHKNMFMOGKIIMKIIIOHLJFGJHNOGMGMHMLIMJIINGFOJJ&quot;,
+        &quot;tags&quot;: &quot;GHJNNJGMIGGGMMGJNOKOHLFFFHHIHLNIFNHJJIIJOFIHOL&quot;,
+        &quot;feedbacks&quot;: &quot;HJKLKLLJLIHMKLINOKKJIJMOIOLKOMGJHGFMHGJIGKKH&quot;,
+        &quot;posts&quot;: &quot;HKOMIKHOJJOHKLINJNOHMHMHKFGHJN&quot;,
+        &quot;reasons&quot;: &quot;HOKGJMOFKGMOIKHNHKNKLFF&quot;,
+        &quot;smokeys&quot;: &quot;ILMLMLLNNIHNHOJJ&quot;,
+        &quot;domains&quot;: &quot;INJNHOFLOMHGL&quot;,
+        &quot;users&quot;: &quot;JIKH&quot;
+    }
+}
+</code></pre>
+</details></td></tr>
+<tr><td><strong>Deletion logs</strong></td><td></td></tr>
+<tr><td><code>/api/v2.0/deletions </code></td><td><details><summary> List all deletion logs.</summary><p>Available tables: <code>deletion_logs</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 79044,
+            &quot;post_id&quot;: 78091,
+            &quot;is_deleted&quot;: true
+        }
+    ],
+    &quot;has_more&quot;: true
+}
+</code></pre>
+</details></td></tr>
+<tr><td><code>/api/v2.0/deletions/post/:id </code></td><td><details><summary> List deletion logs on the post specified.</summary><p>Available tables: <code>deletion_logs</code>.<br />
+Output format: identical to <code>/deletions</code>.</p>
+</details></td></tr>
+<tr><td><strong>Tags</strong></td><td></td></tr>
+<tr><td><code>/api/v2.0/tags </code></td><td><details><summary> List all tags.</summary><p>Available tables: <code>domain_tags</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 16,
+            &quot;name&quot;: &quot;blargle&quot;,
+            &quot;description&quot;: null
+        }
+    ],
+    &quot;has_more&quot;: true
+}
+</code></pre>
+</details></td></tr>
+<tr><td><code>/api/v2.0/tags/name/:name </code></td><td><details><summary> List tags specified by their name.</summary><p>Available tables: <code>domain_tags</code>.<br />
+Output format: identical to <code>/tags</code>.</p>
+</details></td></tr>
+<tr><td><code>/api/v2.0/tags/:id/domains </code></td><td><details><summary> List the domains that a specific tag is used on.</summary><p>Available tables: <code>spam_domains</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 12935,
+            &quot;domain&quot;: &quot;infinitemlmsoftware.com&quot;,
+            &quot;whois&quot;: null
+        }
+    ],
+    &quot;has_more&quot;: false
+}
+</code></pre>
+</details></td></tr>
+<tr><td><strong>Feedbacks</strong></td><td></td></tr>
+<tr><td><code>/api/v2.0/feedbacks </code></td><td><details><summary> List all feedbacks</summary><p>Available tables: <code>feedbacks</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 141289,
+            &quot;feedback_type&quot;: &quot;fp-&quot;,
+            &quot;post_id&quot;: 78000,
+            &quot;user_id&quot;: 7
+        }
+    ],
+    &quot;has_more&quot;: true
+}
+</code></pre>
+</details></td></tr>
+<tr><td><code>/api/v2.0/feedbacks/post/:id </code></td><td><details><summary> List all feedbacks on the post specified.</summary><p>Available tables: <code>feedbacks</code>.<br />
+Output format: identical to <code>/feedbacks</code>.</p>
+</details></td></tr>
+<tr><td><code>/api/v2.0/feedbacks/user/:id </code></td><td><details><summary> List all feedbacks by the user specified.</summary><p>Available tables: <code>feedbacks</code>.<br />
+Output format: identical to <code>/feedbacks</code>.</p>
+</details></td></tr>
+<tr><td><code>/api/v2.0/feedbacks/app/:id </code></td><td><details><summary> List all feedbacks created by the app specified.</summary><p>Available tables: <code>feedbacks</code>.<br />
+Output format: identical to <code>/feedbacks</code>.</p>
+</details></td></tr>
+<tr><td><code>/api/v2.0/feedbacks/post/:id/create </code></td><td><details><summary> [W] Create a feedback on the post specified.</summary><p>Available tables: <code>feedbacks</code>. Returns all feedbacks on the post.<br />
+<strong>Write route</strong>. Requires POST request, valid write token, and parameters: <code>type</code> (feedback type, i.e. <code>tpu-</code>).<br />
+Output format: identical to <code>/feedback</code>.</p>
+</details></td></tr>
+<tr><td><strong>Moderator Sites</strong></td><td></td></tr>
+<tr><td><code>/api/v2.0/mods </code></td><td><details><summary> List all ModeratorSites.</summary><p>Available tables: <code>moderator_sites</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 970,
+            &quot;user_id&quot;: 5,
+            &quot;site_id&quot;: 1
+        }
+    ],
+    &quot;has_more&quot;: true
+}
+</code></pre>
+</details></td></tr>
+<tr><td><code>/api/v2.0/mods/user/:id </code></td><td><details><summary> List all ModeratorSites for the specified user.</summary><p>Available tables: <code>moderator_sites</code>.<br />
+Output format: identical to <code>/mods</code>.</p>
+</details></td></tr>
+<tr><td><strong>Posts</strong></td><td></td></tr>
+<tr><td><code>/api/v2.0/posts </code></td><td><details><summary> List all posts.</summary><p>Available tables: <code>posts</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 78099,
+            &quot;title&quot;: &quot;test&quot;,
+            &quot;link&quot;: &quot;//stackoverflow.com/a/3498236&quot;,
+            &quot;site_id&quot;: 1,
+            &quot;user_link&quot;: &quot;//stackoverflow.com/u/3160466&quot;,
+            &quot;username&quot;: &quot;ArtOfCode&quot;,
+            &quot;user_reputation&quot;: 3478
+        }
+    ],
+    &quot;has_more&quot;: true
+}
+</code></pre>
+</details></td></tr>
+<tr><td><code>/api/v2.0/posts/between </code></td><td><details><summary> List posts within a specified date range.</summary><p>Requires params: <code>from</code> (range start date) and <code>to</code> (range end date). Both are in ISO 8601 format - <code>1970-01-01T00:00:00.000000Z</code>.<br />
+Available tables: <code>posts</code>.<br />
+Output format: identical to <code>/posts</code>.</p>
+</details></td></tr>
+<tr><td><code>/api/v2.0/posts/site </code></td><td><details><summary> List posts on a specific site.</summary><p>Requires params: <code>site</code> (site domain name).<br />
+Available tables: <code>posts</code>.<br />
+Output format: identical to <code>/posts</code>.</p>
+</details></td></tr>
+<tr><td><code>/api/v2.0/posts/urls </code></td><td><details><summary> List posts specified by their URLs.</summary><p>Requires params: <code>urls</code> (a <strong>comma</strong> separated list of URLs).<br />
+URLs are of the format //stackoverflow.com/a/12345 (for answers) or //stackoverflow.com/questions/12345 (for questions).<br />
+Available tables: <code>posts</code>.<br />
+Output format: identical to <code>/posts</code>.</p>
+</details></td></tr>
+<tr><td><code>/api/v2.0/posts/feedback </code></td><td><details><summary> List posts by feedback types.</summary><p>Requires params: <code>type</code> (feedback type).<br />
+Available tables: <code>posts</code>.<br />
+Output format: identical to <code>/posts</code>.</p>
+</details></td></tr>
+<tr><td><code>/api/v2.0/posts/undeleted </code></td><td><details><summary> List posts that have not yet been deleted.</summary><p>Looks for the absence of a DeletionLog record with <code>is_deleted: true</code> on the post - may not be 100% accurate; use the SE API if that&#39;s what you need.<br />
+Available tables: <code>posts</code>.<br />
+Output format: identical to <code>/posts</code>.</p>
+</details></td></tr>
+<tr><td><code>/api/v2.0/posts/:ids </code></td><td><details><summary> List posts by their IDs</summary><p><code>ids</code> is a <strong>comma</strong> separated list of post IDs to return.<br />
+Available tables: <code>posts</code>.<br />
+Output format: identical to <code>/posts</code>.</p>
+</details></td></tr>
+<tr><td><code>/api/v2.0/posts/:id/reasons </code></td><td><details><summary> List the reasons a post was caught by.</summary><p>Available tables: <code>reasons</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 106,
+            &quot;reason_name&quot;: &quot;Repeated url at end of long post&quot;,
+            &quot;weight&quot;: 99
+        }
+    ],
+    &quot;has_more&quot;: true
+}
+</code></pre>
+</details></td></tr>
+<tr><td><code>/api/v2.0/posts/:id/domains </code></td><td><details><summary> List the domain names contained in a post.</summary><p>Available tables: <code>spam_domains</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 3993,
+            &quot;domain&quot;: &quot;www.drhelpnutrition.org&quot;,
+            &quot;whois&quot;: null
+        }
+    ],
+    &quot;has_more&quot;: false
+}
+</code></pre>
+</details></td></tr>
+<tr><td><code>/api/v2.0/posts/:id/flags </code></td><td><details><summary> Get details of what automatic and manual flags have been cast on a post.</summary><p>Available tables: N/A. This route provides a specific, unfilterable subset of information.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 78000,
+            &quot;autoflagged&quot;: {
+                &quot;flagged&quot;: true,
+                &quot;users&quot;: [
+                    {
+                        &quot;id&quot;: 14,
+                        &quot;username&quot;: &quot;ProgramFOX&quot;
+                    },
+                    {
+                        &quot;id&quot;: 42,
+                        &quot;username&quot;: &quot;QPaysTaxes&quot;
+                    },
+                    {
+                        &quot;id&quot;: 226,
+                        &quot;username&quot;: &quot;guiniveretoo&quot;
+                    }
+                ]
+            },
+            &quot;manual_flags&quot;: {
+                &quot;users&quot;: [
+                    {
+                        &quot;id&quot;: 7,
+                        &quot;username&quot;: &quot;ArtOfCode&quot;
+                    }
+                ]
+            }
+        }
+    ],
+    &quot;has_more&quot;: false
+}
+</code></pre>
+</details></td></tr>
+<tr><td><code>/api/v2.0/posts/report </code></td><td><details><summary> [W] Report a post.</summary><p><strong>Write route</strong>. Requires a POST request, valid write token, and parameters: <code>url</code> (the post URL to report).<br />
+Available tables: N/A. No database information is returned from this request.<br />
+All requests to this route will be met with a 202 Accepted status; metasmoke does not know the status of reports as it just forwards them to Smokey.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;status&quot;: &quot;Accepted&quot;
+}
+</code></pre>
+</details></td></tr>
+<tr><td><code>/api/v2.0/posts/:id/flag </code></td><td><details><summary> [W] Cast a spam flag on a post.</summary><p><strong>Write route</strong>. Requires a POST request and valid write token.<br />
+Available tables: N/A. No database information is returned from this request.<br />
+<code>backoff</code> will only be set on successful requests. <code>message</code> will only be set on failed requests.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;status&quot;: &quot;success|failed&quot;,
+    &quot;backoff&quot;: &quot;10&quot;,
+    &quot;message&quot;: &quot;failure reason&quot;
+}
+</code></pre>
+</details></td></tr>
+<tr><td><strong>Reasons</strong></td><td></td></tr>
+<tr><td><code>/api/v2.0/reasons </code></td><td><details><summary> List all reasons.</summary><p>Available tables: <code>reasons</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 134,
+            &quot;reason_name&quot;: &quot;Pattern-matching email in body&quot;,
+            &quot;weight&quot;: 0
+        }
+    ],
+    &quot;has_more&quot;: true
+}
+</code></pre>
+</details></td></tr>
+<tr><td><code>/api/v2.0/reasons/:ids </code></td><td><details><summary> List reasons specified by their IDs.</summary><p>Available tables: <code>reasons</code>.<br />
+Output format: identical to <code>/reasons</code>.</p>
+</details></td></tr>
+<tr><td><code>/api/v2.0/reasons/:id/posts </code></td><td><details><summary> List posts caught by a specific reason.</summary><p>Available tables: <code>posts</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 78099,
+            &quot;title&quot;: &quot;test&quot;,
+            &quot;link&quot;: &quot;//stackoverflow.com/a/3498236&quot;,
+            &quot;site_id&quot;: 1,
+            &quot;user_link&quot;: &quot;//stackoverflow.com/u/3160466&quot;,
+            &quot;username&quot;: &quot;ArtOfCode&quot;,
+            &quot;user_reputation&quot;: 3478
+        }
+    ],
+    &quot;has_more&quot;: true
+}
+</code></pre>
+</details></td></tr>
+<tr><td><strong>Sites</strong></td><td></td></tr>
+<tr><td><code>/api/v2.0/sites </code></td><td><details><summary> List all sites</summary><p>Available tables: <code>sites</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;site_name&quot;: &quot;Stack Overflow&quot;,
+            &quot;site_url&quot;: &quot;https://stackoverflow.com&quot;
+        }
+    ],
+    &quot;has_more&quot;: true
+}
+</code></pre>
+</details></td></tr>
+<tr><td><strong>SmokeDetectors</strong></td><td></td></tr>
+<tr><td><code>/api/v2.0/smokeys </code></td><td><details><summary> List all SmokeDetector instances.</summary><p>Available tables: <code>smoke_detectors</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 17,
+            &quot;last_ping&quot;: &quot;2017-07-24T00:47:50.000Z&quot;,
+            &quot;location&quot;: &quot;The Call of Midnight&quot;,
+            &quot;user_id&quot;: 47,
+            &quot;status_color&quot;: &quot;critical&quot;
+        }
+    ],
+    &quot;has_more&quot;: true
+}
+</code></pre>
+</details></td></tr>
+<tr><td><strong>Domains</strong></td><td></td></tr>
+<tr><td><code>/api/v2.0/domains </code></td><td><details><summary> List all domains.</summary><p>Available tables: <code>spam_domains</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 12935,
+            &quot;domain&quot;: &quot;infinitemlmsoftware.com&quot;,
+            &quot;whois&quot;: null
+        }
+    ],
+    &quot;has_more&quot;: true
+}
+</code></pre>
+</details></td></tr>
+<tr><td><code>/api/v2.0/domains/:id/posts </code></td><td><details><summary> List all posts containing a specific domain.</summary><p>Available tables: <code>posts</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 77988,
+            &quot;title&quot;: &quot;Google Webmaster Tools show the error in Manual Action for my web - https://infinitemlmsoftware.com/&quot;,
+            &quot;link&quot;: &quot;//drupal.stackexchange.com/questions/242498&quot;,
+            &quot;site_id&quot;: 86,
+            &quot;user_link&quot;: &quot;https://drupal.stackexchange.com/users/77863/isha&quot;,
+            &quot;username&quot;: &quot;isha&quot;,
+            &quot;user_reputation&quot;: 1
+        }
+    ],
+    &quot;has_more&quot;: false
+}
+</code></pre>
+</details></td></tr>
+<tr><td><code>/api/v2.0/domains/:id/tags/add </code></td><td><details><summary> [W] Add a tag to a specified domain.</summary><p><strong>Write route</strong>. Requires a POST request, valid write token, and params: <code>tag</code> (the name of the tag to add).<br />
+Available tables: <code>domain_tags</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 16,
+            &quot;name&quot;: &quot;blargle&quot;,
+            &quot;description&quot;: null
+        }
+    ],
+    &quot;has_more&quot;: true
+}
+</code></pre>
+</details></td></tr>
+<tr><td><strong>Users</strong></td><td></td></tr>
+<tr><td><code>/api/v2.0/users </code></td><td><details><summary> List all users.</summary><p>Available tables: <code>users</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 311,
+            &quot;username&quot;: &quot;Art&quot;
+        }
+    ],
+    &quot;has_more&quot;: true
+}
+</code></pre>
+</details></td></tr>
+&lt;/tbody&gt;
+&lt;/table&gt;
+</thead></tbody></table>
 
 
 <div class="sidebar">
