@@ -106,10 +106,9 @@ Scroll down for docs.
 <p>Routes marked with [W] are write routes; you must use a POST request and present a write token for these routes.</p>
 
 <table>
+<tbody>
 <thead>
 <tr><td><strong>Path</strong></td><td><strong>Description</strong></td></tr>
-</thead>
-<tbody>
 <tr><td><strong>Announcements</strong></td><td></td></tr>
 <tr><td><code>/api/v2.0/announcements </code></td><td><details><summary> List all announcements.</summary><p>Available tables: <code>announcements</code><br />
 Output format:</p>
@@ -583,8 +582,23 @@ Output format:</p>
 }
 </code></pre>
 </details></td></tr>
-</tbody>
-</table>
+<tr><td><code>/api/v2.0/users/with_role/:role </code></td><td><details><summary> List all users with the specified role</summary><p>Available tables: <code>users</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 311,
+            &quot;username&quot;: &quot;Art&quot;
+        }
+    ],
+    &quot;has_more&quot;: true
+}
+</code></pre>
+</details></td></tr>
+&lt;/tbody&gt;
+&lt;/table&gt;
+</thead></tbody></table>
 
 
 <div class="sidebar">
