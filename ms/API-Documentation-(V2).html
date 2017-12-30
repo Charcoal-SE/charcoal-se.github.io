@@ -183,7 +183,8 @@ Output format:</p>
 </code></pre>
 </details></td></tr>
 <tr><td><strong>Debug</strong></td><td></td></tr>
-<tr><td><code>/api/v2.0/debug </code></td><td><details><summary> Return debugging information for the API.</summary><p>No database queries are performed by this route; no tables are available. Not really intended for API consumer use, more for API developers.<br />
+<tr><td><code>/api/v2.0/debug </code></td><td><details><summary> Return debugging information for the API.</summary><p>No database queries are performed by this route; no tables are available.<br />
+Not really intended for API consumer use, more for API developers.<br />
 Output format:</p>
 
 <pre><code>{
@@ -205,6 +206,23 @@ Output format:</p>
         &quot;domains&quot;: &quot;INJNHOFLOMHGL&quot;,
         &quot;users&quot;: &quot;JIKH&quot;
     }
+}
+</code></pre>
+</details></td></tr>
+<tr><td><code>/api/v2.0/debug/filter </code></td><td><details><summary> Decode a filter back to a list of fields.</summary><p>No database queries are performed by this route; no tables are available.<br />
+Pass a filter as the <code>filter</code> parameter to receive a list of fields the filter contains.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;fields&quot;: [
+        &quot;posts.id&quot;,
+        &quot;posts.title&quot;,
+        &quot;posts.link&quot;,
+        &quot;posts.site_id&quot;,
+        &quot;posts.user_link&quot;,
+        &quot;posts.username&quot;,
+        &quot;posts.user_reputation&quot;
+    ]
 }
 </code></pre>
 </details></td></tr>
