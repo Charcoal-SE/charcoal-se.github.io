@@ -112,14 +112,18 @@ It uses <a href="https://github.com/Manishearth/ChatExchange">ChatExchange</a> a
 </ul>
 
 <hr />
+
 <h3 id="glossary">Glossary:</h3>
 
 <ul>
   <li>
-    <p><strong>Blacklist</strong> - list of users whose every question or answer will be posted to the appropriate chatrooms. This should be used <strong>only for spammers or</strong> for users whose posts merit <strong>abusive/offensive flags.</strong></p>
+    <p><strong>User Blacklist</strong> - list of <em>users</em> (identified by site + ID) whose every question or answer will be posted to the appropriate chatrooms. This should be used <strong>only for spammers or</strong> for users whose posts merit <strong>abusive/offensive flags.</strong> This list is stored locally on every SmokeDetector instance, and is not carried between failovers.</p>
   </li>
   <li>
-    <p><strong>Whitelist</strong> - list of users which are free from username checks on their posts. Title and body will still be checked.</p>
+    <p><strong>User Whitelist</strong> - list of <em>users</em> which are free from username checks on their posts. Title and body will still be checked. This list is stored locally on every SmokeDetector instance, and is not carried between failovers.</p>
+  </li>
+  <li>
+    <p><strong>User<em>name</em> Blacklist</strong> - list of user<em>name</em> regexes which will be checked against the user’s username, and trigger a report if matching. The list can be found <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/blacklisted_usernames.txt">here</a>, and is shared between all Smokey instances.</p>
   </li>
 </ul>
 
