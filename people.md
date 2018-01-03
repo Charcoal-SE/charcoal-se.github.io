@@ -53,7 +53,7 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [John Dvorak](http://chat.stackexchange.com/users/56166/john-dvorak)
 *   [Yvette Colomb](http://chat.stackexchange.com/users/178825/yvette-colomb)
 *   [paper1111](https://chat.stackexchange.com/users/281674/paper1111)
-*   [bwDraco](https://chat.stackexchange.com/users/11606/bwdraco)
+*   [**bwDraco**](https://chat.stackexchange.com/users/11606/bwdraco)
 
 </section>
 <section>
