@@ -78,4 +78,5 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Videonauth](https://chat.stackexchange.com/users/205533/videonauth)
 *   [A J](https://chat.stackexchange.com/users/205208/a-j)
 *   [Rob](https://chat.stackexchange.com/users/158742/rob)
+*   [iBug](https://chat.stackexchange.com/users/275329/ibug)
 </section>
