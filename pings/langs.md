@@ -5,7 +5,7 @@ If you're looking for someone who speaks a particular language, please check thi
 
 * **Arabic**: [M.A.R.](http://stackexchange.com/users/3841881/m-a-r)
 * **Azerbaijani**: [M.A.R.](http://stackexchange.com/users/3841881/m-a-r)
-* **Chinese**: [iBug](https://stackexchange.com/users/7886663/ibug) (all written variants of Chinese)
+* **Chinese**: [iBug](https://stackexchange.com/users/7886663/ibug) and [paper1111](https://stackexchange.com/users/9926590/paper1111) (Both all written variants of Chinese)
 * **Czech**: [Martin Sleziak](https://stackexchange.com/users/267077/martin-sleziak)
 * **Dutch**: [Glorfindel](http://stackexchange.com/users/6085540/glorfindel), [Ferrybig](https://stackexchange.com/users/1677570/ferrybig), and [rene](https://stackexchange.com/users/281857/rene)
 * **Finnish**: [tripleee](https://stackexchange.com/users/468289/tripleee)
