@@ -77,4 +77,5 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Catija](https://chat.stackexchange.com/users/139041/catija)
 *   [Videonauth](https://chat.stackexchange.com/users/205533/videonauth)
 *   [A J](https://chat.stackexchange.com/users/205208/a-j)
+*   [Rob](https://chat.stackexchange.com/users/158742/rob)
 </section>
