@@ -1,7 +1,8 @@
 const key = '1658080a59604fa5386e39290dd415ed5270dc6f12fab053cd4cc3d32cb154d4'
+const filter = 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAR8A' // black magic :)
 
 function getUsers(page = 1, users = []) {
-  return fetch(`https://metasmoke.erwaysoftware.com/api/users?per_page=100&key=${key}&page=${page}`)
+  return fetch(`https://metasmoke.erwaysoftware.com/api/users?per_page=100&key=${key}&page=${page}&filter=${filter}`)
     .then(res => res.json())
     .then(({ has_more: hasMore, items }) => {
       users = users.concat(items)
