@@ -60,7 +60,7 @@ J F, angussidney, and ArtOfCode are the primary authors of the website.
 
 ### I'd like to speak with a moderator about something Charcoal-related {#mods}
 
-If you find a post that needs moderator attention in general, please just **flag it** on the site. However, if you need to speak to a moderator about something specifically Charcoal-related, [these mods](/pings/mods) should be able to help you.
+If you find a post that needs moderator attention in general, please just **flag it** on the site. However, if you need to speak to a moderator about something specifically Charcoal-related, [these mods](/pings/mods) might be able to help you.
 </section>
 <section>
 
