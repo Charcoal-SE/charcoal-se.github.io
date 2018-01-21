@@ -31,6 +31,10 @@ body {
   }
 }
 
+pre, code {
+  font-family: 'Fira Code', monospace;
+}
+
 a, a:visited, a:hover, a:active {
   color: $red-text;
   text-decoration: underline;
