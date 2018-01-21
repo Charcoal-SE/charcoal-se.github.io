@@ -3,7 +3,7 @@ title: ''
 search_title: Home
 ---
 
-{% img name.png height:"100" width %}
+{% img name.png height:"100" width class:"block-center" %}
 
 > **Autoflagging**
 >
