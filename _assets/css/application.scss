@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Dosis:300,500|Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono|Fira+Sans|Maven+Pro');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css');
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
@@ -16,7 +16,7 @@
 
 body {
   margin: 0;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Fira Sans', sans-serif;
   @include desktop {
     background: $gray-bg;
   }
