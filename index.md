@@ -3,7 +3,7 @@ title: ''
 search_title: Home
 ---
 
-# we are charcoal
+{% img name.png height:"100" width %}
 
 > **Autoflagging**
 >
