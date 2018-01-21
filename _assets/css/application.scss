@@ -185,6 +185,7 @@ blockquote {
   padding: 1px 20px;
 }
 
-.center {
-  text-align: center;
+.block-center {
+  display: block;
+  margin: 0 auto;
 }
