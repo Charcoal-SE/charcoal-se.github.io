@@ -54,6 +54,8 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [Yvette Colomb](http://chat.stackexchange.com/users/178825/yvette-colomb)
 *   [paper1111](https://chat.stackexchange.com/users/281674/paper1111)
 *   [**bwDraco**](https://chat.stackexchange.com/users/11606/bwdraco)
+*   [CalvT](http://chat.stackexchange.com/users/64521/calvt)
+*   [iBug](https://chat.stackexchange.com/users/275329/ibug)
 
 </section>
 <section>
@@ -67,7 +69,6 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Kaz Wolfe](http://chat.stackexchange.com/users/97389/kaz-wolfe)
 *   [Byte Commander](http://chat.stackexchange.com/users/137665/byte-commander)
 *   [DJMcMayhem](http://chat.stackexchange.com/users/144962/djmcmayhem)
-*   [CalvT](http://chat.stackexchange.com/users/64521/calvt)
 *   [QPaysTaxes](http://chat.stackexchange.com/users/137388/qpaystaxes)
 *   [Nisse Engström](https://chat.stackexchange.com/users/155243/nisse-engstrom)
 *   [bummi](https://chat.stackexchange.com/users/54902/bummi)
@@ -78,6 +79,5 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Videonauth](https://chat.stackexchange.com/users/205533/videonauth)
 *   [A J](https://chat.stackexchange.com/users/205208/a-j)
 *   [Rob](https://chat.stackexchange.com/users/158742/rob)
-*   [iBug](https://chat.stackexchange.com/users/275329/ibug)
 *   [Mego](https://chat.stackexchange.com/users/169713/mego)
 </section>
