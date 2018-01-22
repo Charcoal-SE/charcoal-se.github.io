@@ -20,7 +20,8 @@
   align-items: center;
   width: 32px;
   box-sizing: content-box;
-  
+  transition: all 0.4s;
+
   &:not(:hover) {
     filter: grayscale(100%);
     opacity: 0.4;
