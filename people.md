@@ -80,4 +80,5 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [A J](https://chat.stackexchange.com/users/205208/a-j)
 *   [Rob](https://chat.stackexchange.com/users/158742/rob)
 *   [Mego](https://chat.stackexchange.com/users/169713/mego)
+*   [WELZ](https://chat.stackexchange.com/users/210948/welz)
 </section>
