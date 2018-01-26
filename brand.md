@@ -59,7 +59,7 @@ We use three primary fonts across Charcoal:
 
 Maven Pro is our display font, and is used for major headings and most graphics. In web formats, including our organization website, it is used for all heading tags. In documents, it should be used for the document title and subtitle, but not for content headings.
 
-### Fira Sans
+### <span style="font-family: Fira Sans">Fira Sans</span>
 
 Fira Sans is our primary content font. It is an easily readable, well-spaced and well-sized sans-serif font. Use it everywhere that isn’t covered by either of the other fonts.
 
