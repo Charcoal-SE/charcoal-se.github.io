@@ -1,4 +1,5 @@
 ---
+
 ---
 
 # Charcoal Branding Guidelines ![](images/image2.png)
@@ -20,8 +21,8 @@ Use this idea in combination with what we are not, below, when describing Charco
 We are not:
 
 * **Official.** We are not part of Stack Exchange, Inc; we are not affiliated with them, nor are we specifically endorsed by them.
-*   **Legal.** We are not a legally-organized company; there is no legal corporate structure to Charcoal. We are an organization, but in the sense that we are an organized group of individuals not that we are legally defined.
-*   **Exclusive.** We are not a clique nor a secret cabal. We are open in what we do and we are welcoming of new members and expertise.
+* **Legal.** We are not a legally-organized company; there is no legal corporate structure to Charcoal. We are an organization, but in the sense that we are an organized group of individuals not that we are legally defined.
+* **Exclusive.** We are not a clique nor a secret cabal. We are open in what we do and we are welcoming of new members and expertise.
 
 When communicating about Charcoal, avoid implying that we are any of these things.
 
@@ -29,17 +30,17 @@ When communicating about Charcoal, avoid implying that we are any of these thing
 
 As an organization, these things are important to us:
 
-*   **Openness.** We are open in our methods, our processes, and our tools. We like contributing to the open-source ecosystem and to the Stack Exchange community.
-*   **Agility.** We appreciate being able to move quickly and not be bogged down by heavy decision-making processes or build systems.
-*   **Inclusiveness.** We value contribution and expertise bundled with respect for others. We welcome anyone, including dogs.
+* **Openness.** We are open in our methods, our processes, and our tools. We like contributing to the open-source ecosystem and to the Stack Exchange community.
+* **Agility.** We appreciate being able to move quickly and not be bogged down by heavy decision-making processes or build systems.
+* **Inclusiveness.** We value contribution and expertise bundled with respect for others. We welcome anyone, including dogs.
 
 # How We Communicate
 
 Talking to other people who are not part of Charcoal comes up regularly. Sometimes it’s in the line of work; other times in casual conversation. In either case it is important to communicate:
 
-*   **Clearly.** If you’re talking, speak slowly and clearly. If you’re using digital media, read your messages before you send them. Always think about whether you’re making sense, and be prepared to revise or repeat what you’ve said to help others understand.
-*   **Calmly.** If you individually, or the group at large, is being accused of something or shouted at, remain calm. Yelling back never helps! Remember you can call on other team members if you don’t feel able to carry on.
-*   **In a friendly manner.** Unless it would obviously be inappropriate (read: you’re talking to the Queen of England), talk as if you’re talking to a friend. Be personable and amicable.
+* **Clearly.** If you’re talking, speak slowly and clearly. If you’re using digital media, read your messages before you send them. Always think about whether you’re making sense, and be prepared to revise or repeat what you’ve said to help others understand.
+* **Calmly.** If you individually, or the group at large, is being accused of something or shouted at, remain calm. Yelling back never helps! Remember you can call on other team members if you don’t feel able to carry on.
+* **In a friendly manner.** Unless it would obviously be inappropriate (read: you’re talking to the Queen of England), talk as if you’re talking to a friend. Be personable and amicable.
 
 Obviously, this only applies if you’re talking about Charcoal in more than a casual manner. If it happens to come up in normal conversation and you say a couple sentences and move on, then don’t worry about thinking too hard about How To Communicate!
 
@@ -94,7 +95,6 @@ Our big thing. SmokeDetector scans all new and updated content, across the Stack
 metasmoke is the web dashboard for SmokeDetector. Primarily, it stores SmokeDetector’s reports and users’ feedback, but it also has a number of other purposes for other organizational functions.
 
 Document version 0.1.3.  
-Contact ArtOfCode <[art@charcoal-se.org](mailto:art@charcoal-se.org)\> for changes.
 
 ---
 
