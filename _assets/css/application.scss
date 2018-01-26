@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Mono|Fira+Sans|Maven+Pro');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Maven+Pro');
+@import url('https://cdn.rawgit.com/tonsky/FiraCode/e68b88dc/distr/fira_code.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css');
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
@@ -32,7 +33,7 @@ body {
 }
 
 pre, code {
-  font-family: 'Fira Code', 'Fira Mono', monospace;
+  font-family: 'Fira Code', monospace;
 }
 
 a, a:visited, a:hover, a:active {
