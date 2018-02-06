@@ -34,7 +34,7 @@ The other concern is making sure users are aware that autoflags aren't a get-out
 <section>
 ## Is it any good? {#any-good}
 
-Yep. As mentioned previously, users are given some leeway to choose how accurate they want autoflags cast using their account to be, but all autoflags must be cast under a policy that is at least 99.5% accurate over a sample of 1000 posts. The suggested flag policy (also known as a flag condition) has an accuracy of 99.99%.
+Yep. As mentioned previously, users are given some leeway to choose how accurate they want autoflags cast using their account to be, but all autoflags must be cast under a policy that is at least 99.5% accurate over a sample of 1000 posts. The suggested flag policy (also known as a flag condition) has an accuracy of 100% to the nearest 0.01%.
 </section>
 <section>
 ## How does it work? {#technical-details}
