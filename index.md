@@ -42,6 +42,7 @@ A slightly more detailed introduction is available in this Meta post from early 
 **Fact:** If you wrote all our spam tests out vertically at point size 36, they'd be as tall as the
 [One World Trade Center](https://en.wikipedia.org/wiki/One_World_Trade_Center).
 </section>
+
 <section>
 ## How does it work? {#technical-details}
 
