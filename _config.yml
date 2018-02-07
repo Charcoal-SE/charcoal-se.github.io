@@ -18,6 +18,7 @@ assets:
       - "> 1%"
   assets:
     - branding.css
+    - charcoal.png
 plugins:
   - jekyll-redirect-from
   - jekyll-avatar
