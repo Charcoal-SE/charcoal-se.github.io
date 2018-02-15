@@ -245,6 +245,27 @@ Output format:</p>
 <tr><td><code>/api/v2.0/deletions/post/:id </code></td><td><details><summary> List deletion logs on the post specified.</summary><p>Available tables: <code>deletion_logs</code>.<br />
 Output format: identical to <code>/deletions</code>.</p>
 </details></td></tr>
+<tr><td><code>/api/v2.0/deletions/post/:id </code></td><td><details><summary> [W] Add a deletion log to a post.</summary><p><strong>Write route.</strong> Requires a POST request, trusted key, and valid write token.<br />
+Available tables: N/A. All fields on the created deletion log are returned.<br />
+Parameters: <code>is_deleted</code> (Boolean, required), <code>uncertainty</code> (Integer, seconds uncertainty, optional), <code>timestamp</code> (DateTime, deletion timestamp, optional)<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 106575,
+            &quot;post_id&quot;: 100000,
+            &quot;is_deleted&quot;: true,
+            &quot;created_at&quot;: &quot;2021-01-01T00:00:00.000Z&quot;,
+            &quot;updated_at&quot;: &quot;2018-02-15T21:12:02.000Z&quot;,
+            &quot;api_key_id&quot;: 1,
+            &quot;uncertainty&quot;: 0
+        }
+    ],
+    &quot;has_more&quot;: false
+}
+</code></pre>
+</details></td></tr>
 <tr><td><strong>Tags</strong></td><td></td></tr>
 <tr><td><code>/api/v2.0/tags </code></td><td><details><summary> List all tags.</summary><p>Available tables: <code>domain_tags</code>.<br />
 Output format:</p>
