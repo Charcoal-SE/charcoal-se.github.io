@@ -69,7 +69,7 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Kaz Wolfe](http://chat.stackexchange.com/users/97389/kaz-wolfe)
 *   [Byte Commander](http://chat.stackexchange.com/users/137665/byte-commander)
 *   [DJMcMayhem](http://chat.stackexchange.com/users/144962/djmcmayhem)
-*   [QPaysTaxes](http://chat.stackexchange.com/users/137388/qpaystaxes)
+*   [Nic Hartley](http://chat.stackexchange.com/users/137388/qpaystaxes)
 *   [Nisse Engström](https://chat.stackexchange.com/users/155243/nisse-engstrom)
 *   [bummi](https://chat.stackexchange.com/users/54902/bummi)
 *   [JoErNanO](https://chat.stackexchange.com/users/130836/joernano)
