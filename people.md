@@ -81,4 +81,5 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Rob](https://chat.stackexchange.com/users/158742/rob)
 *   [Mego](https://chat.stackexchange.com/users/169713/mego)
 *   [WELZ](https://chat.stackexchange.com/users/210948/welz)
+*   [Jake Symons](https://chat.stackexchange.com/users/318454/jake-symons)
 </section>
