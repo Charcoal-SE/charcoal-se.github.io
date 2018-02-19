@@ -56,6 +56,7 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [**bwDraco**](https://chat.stackexchange.com/users/11606/bwdraco)
 *   [CalvT](http://chat.stackexchange.com/users/64521/calvt)
 *   [iBug](https://chat.stackexchange.com/users/275329/ibug)
+*   [Byte Commander](http://chat.stackexchange.com/users/137665/byte-commander)
 
 </section>
 <section>
@@ -67,7 +68,6 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Paul Stenne](http://chat.stackexchange.com/users/172397/kyll)
 *   [DavidPostill](http://chat.stackexchange.com/users/133966/davidpostill)
 *   [Kaz Wolfe](http://chat.stackexchange.com/users/97389/kaz-wolfe)
-*   [Byte Commander](http://chat.stackexchange.com/users/137665/byte-commander)
 *   [DJMcMayhem](http://chat.stackexchange.com/users/144962/djmcmayhem)
 *   [Nic Hartley](http://chat.stackexchange.com/users/137388/qpaystaxes)
 *   [Nisse Engström](https://chat.stackexchange.com/users/155243/nisse-engstrom)
