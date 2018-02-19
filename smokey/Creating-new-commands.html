@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    Creating new commands | Charcoal
+    
+  </title>
+  <link type="text/css" rel="stylesheet" href="/assets/application-5f0fea1c21ed0af532e01089ff2278d8e9e4ec41d4809fad4d3b56333e5d4177.css">
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch"></script>
+  <script type="text/javascript" src="/assets/application-171bf7db1674f7de0b9cf5d42d0ca9833c0393a006b6d2454e6ba6c5f46f1ba2.js"></script>
+  <script type="text/javascript" src="/assets/vendor-0816aa2dae6748d99c683db458c7bd8b1a223dbd5e4d78072f1a81da8ab0726b.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon"
+            type="image/png"
+            href="/assets/charcoal-fd5b673dc87bbcf444be78adbf43a1198e981d2133de0a3eab4810ca047efbb7.png" />
+</head>
+<body>
+  <div class="body-container">
+    
+    <div class="header">
+      <div class="header-icon text-center">
+        <a href="/">
+          <img src="/assets/charcoal-fd5b673dc87bbcf444be78adbf43a1198e981d2133de0a3eab4810ca047efbb7.png" height="64" width alt="charcoal.png">
+          <span class="title">
+            <span>Charcoal</span>
+            <small>spam-crusaders of the Internet</small>
+          </span>
+        </a>
+        <label class="nav-toggle-icon fa fa-bars fa-lg" for="nav-toggle"></label>
+      </div>
+      <input type="checkbox" id="nav-toggle">
+      <nav class="text-center top-nav">
+        <div class="search-nav">
+          <i class="fa fa-search search-icon inline-icon fa-fw"></i>
+          <input type="text" placeholder="Search…" id="search-input">
+          <a href="#" class="inline-icon close-icon"><i class="fa fa-times fa-fw"></i></a>
+        </div>
+        <ul class="main-nav">
+          <li><a href="/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a></li>
+          <li><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq"><i class="fa mobile-only fa-comments-o"></i> chat</a></li>
+          <li>
+            <label class="link" for="projects-toggle">
+              more projects <i class="fa fa-chevron-down"></i>
+            </label>
+            <input type="checkbox" id="projects-toggle">
+            <nav class="nav-dropdown">
+              <a href="https://metasmoke.erwaysoftware.com/" >metasmoke</a>
+            
+              <a href="https://charcoal-se.org/ms-urls" >metasmoke URL converter</a>
+            
+              <a href="https://charcoal-se.org/blaze" data-turbolinks="false">Blaze</a>
+            </nav>
+          </li>
+          <li><a href="/scripts"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a></li>
+          <li><a href="/smokey/"><i class="fa mobile-only fa-file-text-o"></i> wiki</a></li>
+          <li>
+            <a href="/ms/API-Documentation-(V2)"><i class="fa mobile-only fa-book"></i> api</a>
+            (<a href="/ms/API-Documentation-(V1)">v1</a>)
+          </li>
+          <li><a href="https://github.com/Charcoal-SE" title="GitHub organization"><i class="fa fa-github"></i><span class="mobile-only"> GitHub</span></a></li>
+          <li><a href="#" class="search-link"><i class="fa fa-search" title="Search"></i><span class="mobile-only"> Search</span></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="body">
+      
+
+
+<h1 id="creating-new-commands">Creating new commands</h1>
+
+<blockquote>
+  <p>This document covers how to create a new command, which basically means that is it a guide on <code class="highlighter-rouge">chatcommands.py</code>.</p>
+</blockquote>
+
+<h2 id="1-the-perfect-function">1. The perfect function</h2>
+
+<p>Define a function that is the same name as the command you want. If you want a command called <code class="highlighter-rouge">!!/createcommand</code>, you would write a function like this:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">createcommand</span><span class="p">():</span>
+    <span class="k">return</span> <span class="bp">None</span>
+</code></pre></div></div>
+
+<p>This command will do nothing. The function returns a string or <code class="highlighter-rouge">None</code>. If a string is returned, the string will be posted to chat. If <code class="highlighter-rouge">None</code> is returned, nothing will be posted to chat. You can put anything (read: the thing you want to do with this command) inside the function body.</p>
+
+<h2 id="2-configuration-of-the-command">2. Configuration of the <code class="highlighter-rouge">@command()</code></h2>
+
+<p>To tweak the settings of your command, you have to edit the parameters inside <code class="highlighter-rouge">@command()</code></p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">whole_msg</code> - <code class="highlighter-rouge">True</code> or <code class="highlighter-rouge">False</code>: If <code class="highlighter-rouge">True</code>, you can include a parameter <code class="highlighter-rouge">msg</code> in your function. <code class="highlighter-rouge">msg</code> is a <a href="https://github.com/Manishearth/ChatExchange">ChatExchange</a> message object. The default is <code class="highlighter-rouge">False</code>.</p>
+
+    <p>Example:</p>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@command</span><span class="p">(</span><span class="n">whole_msg</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">createcommand</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">None</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">privileged</code> - <code class="highlighter-rouge">True</code> or <code class="highlighter-rouge">False</code>: If <code class="highlighter-rouge">True</code>, the user has to have <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/Privileges#smokedetector-privileges-sd">SD privileges</a> to execute the command. The default is <code class="highlighter-rouge">False</code>.</p>
+
+    <p>Example:</p>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@command</span><span class="p">(</span><span class="n">privileged</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">createcommand</span><span class="p">():</span>
+    <span class="k">return</span> <span class="bp">None</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">aliases</code> - an array of strings: In addition to the function name, the function will be executed if the command is equal to the alias.</p>
+
+    <p>Example:</p>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@command</span><span class="p">(</span><span class="n">aliases</span><span class="o">=</span><span class="p">[</span><span class="s">'create-command'</span><span class="p">,</span> <span class="s">'create_command'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">createcommand</span><span class="p">():</span>
+    <span class="k">return</span> <span class="bp">None</span>
+</code></pre></div>    </div>
+    <p>The function will be executed with <code class="highlighter-rouge">!!/create-command</code>, <code class="highlighter-rouge">!!/create_command</code> or<code class="highlighter-rouge">!!/createcommand</code>.</p>
+  </li>
+  <li>
+    <p>Command arguments - Type (<code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">str</code> etc): The arguments of the command and the type, So <code class="highlighter-rouge">!!/foo bar</code> would translate to <code class="highlighter-rouge">@command(str)</code> and <code class="highlighter-rouge">!!/foo 1 bar</code> would be <code class="highlighter-rouge">@command(int, str)</code>.</p>
+
+    <p>Example:</p>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@command</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">createcommand</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">None</span>
+</code></pre></div>    </div>
+    <p>The command type will translate to an argument.</p>
+
+    <p><strong>NOTE</strong>: When mixing with <code class="highlighter-rouge">whole_msg</code>, the <code class="highlighter-rouge">msg</code> argument will come first while the <code class="highlighter-rouge">whole_msg</code> argument will come after the command arguments, like</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@command</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">whole_msg</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">createcommand</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">None</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">give_name</code> - <code class="highlighter-rouge">True</code> or <code class="highlighter-rouge">False</code>: When <code class="highlighter-rouge">True</code>, a parameter called <code class="highlighter-rouge">alias_used</code> can be added, which shows which alias was used. See <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/3fae27a1f1a2fc5053c438047a55359f963eb013/chatcommands.py#L287">L287 of <code class="highlighter-rouge">chatcommands.py</code></a>.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">arity</code> - tuple of <code class="highlighter-rouge">int</code>s: Allows the number of command argument to be in the range. (eg <code class="highlighter-rouge">arity=(0,2)</code>) allows the command to have 0, 1 or 2 arguments.</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">reply</code> - <code class="highlighter-rouge">True</code> or <code class="highlighter-rouge">False</code>: Defaults to <code class="highlighter-rouge">False</code>. If <code class="highlighter-rouge">True</code>, the command will only execute if it is a reply or by <code class="highlighter-rouge">sd</code> feedback, not <code class="highlighter-rouge">!!/</code>. If <code class="highlighter-rouge">False</code>, the command will only execute if <code class="highlighter-rouge">!!/</code> is used.</p>
+  </li>
+</ul>
+
+<h2 id="3-post-something">3. Post something</h2>
+
+<p>To post data that is what you expected, simply execute <code class="highlighter-rouge">return "your message here"</code></p>
+
+<p>If you encounter an error, you can raise a <code class="highlighter-rouge">CmdException</code> with a string as the error message. The string will be sent to chat.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">somerandomcommand</span><span class="p">():</span>
+    <span class="k">if</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">CmdException</span><span class="p">(</span><span class="s">"Error: this error will be fixed in 6 to 8 weeks! HAHA"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">None</span>
+</code></pre></div></div>
+
+<p>If you want to send a message to all the rooms that Smokey is running in, use <code class="highlighter-rouge">tell_rooms</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tell_rooms</span><span class="p">(</span><span class="s">"A message"</span><span class="p">)</span>
+</code></pre></div></div>
+
+
+
+<div class="sidebar">
+
+
+
+<p><strong><a href="//github.com/Charcoal-SE/SmokeDetector/wiki/Creating-new-commands/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+
+<div class="sidebar-content sidebar-content-smokey">
+
+  <p><strong><a href="Home">Home</a></strong></p>
+
+  <p><strong><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a></strong></p>
+
+  <p><strong><a href="http://charcoal-se.org/">Charcoal Website</a></strong></p>
+
+  <p><strong><a href="https://metasmoke.erwaysoftware.com">metasmoke</a></strong></p>
+
+  <p><strong><a href="https://github.com/Charcoal-SE/userscripts">Userscripts</a></strong></p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>Smokey is made with &lt;3 by the <a href="https://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/SmokeDetector/graphs/contributors">contributors</a> from <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
+
+    </div>
+    <div class="footer text-center">
+      <p>Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.<br />
+        <a href="/security">Security</a> • <a href="/pings/">Contact</a>
+      </p>
+      <p>
+        <a href="https://github.com/Charcoal-SE/charcoal-se.github.io">Website Source</a>
+        • By
+          
+            <a href="https://github.com/j-f1" class="avatar-link">
+              <img class="avatar avatar-small" src="https://avatars2.githubusercontent.com/j-f1?v=3&s=16" alt="j-f1" srcset="https://avatars2.githubusercontent.com/j-f1?v=3&s=16 1x, https://avatars2.githubusercontent.com/j-f1?v=3&s=32 2x, https://avatars2.githubusercontent.com/j-f1?v=3&s=48 3x, https://avatars2.githubusercontent.com/j-f1?v=3&s=64 4x" width="16" height="16" data-proofer-ignore="true" />j-f1</a>,
+          
+            <a href="https://github.com/ArtOfCode-" class="avatar-link">
+              <img class="avatar avatar-small" src="https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=16" alt="ArtOfCode-" srcset="https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=16 1x, https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=32 2x, https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=48 3x, https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=64 4x" width="16" height="16" data-proofer-ignore="true" />ArtOfCode-</a>,
+          
+            <a href="https://github.com/angussidney" class="avatar-link">
+              <img class="avatar avatar-small" src="https://avatars1.githubusercontent.com/angussidney?v=3&s=16" alt="angussidney" srcset="https://avatars1.githubusercontent.com/angussidney?v=3&s=16 1x, https://avatars1.githubusercontent.com/angussidney?v=3&s=32 2x, https://avatars1.githubusercontent.com/angussidney?v=3&s=48 3x, https://avatars1.githubusercontent.com/angussidney?v=3&s=64 4x" width="16" height="16" data-proofer-ignore="true" />angussidney</a>,
+          
+            <a href="https://github.com/tripleee" class="avatar-link">
+              <img class="avatar avatar-small" src="https://avatars2.githubusercontent.com/tripleee?v=3&s=16" alt="tripleee" srcset="https://avatars2.githubusercontent.com/tripleee?v=3&s=16 1x, https://avatars2.githubusercontent.com/tripleee?v=3&s=32 2x, https://avatars2.githubusercontent.com/tripleee?v=3&s=48 3x, https://avatars2.githubusercontent.com/tripleee?v=3&s=64 4x" width="16" height="16" data-proofer-ignore="true" />tripleee</a>,
+          
+          and
+          <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
+            11 more</a>
+        
+          • <a href="/code">More gory details</a>
+        
+      </p>
+      
+    </div>
+  </div>
+  <script>
+    window.searchConfig = {
+      appId: 'TMPUB31BTZ',
+      key: 'c63c2f79258f929439376cfb88862440',
+      index: 'main-search',
+      baseUrl: '',
+    }
+    window.redirects = { "/m": "https://metasmoke.erwaysoftware.com", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+  </script>
+  <!-- Hotjar Tracking Code for charcoal-se.org -->
+  <script>
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:771814,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</body>
+</html>
