@@ -44,8 +44,9 @@ As always, use your best judgement, and ask if you're not sure.
 
 -----
 
-
+[Next: Privileges][3]
 
 
 [def]: https://meta.stackexchange.com/q/58032
 [post]: https://metasmoke.erwaysoftware.com/post/108626
+[3]: /training/privileges

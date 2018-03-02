@@ -40,9 +40,9 @@ so if we've missed one, reporting it is good.
 
 -----
 
-[Next: Handling reports][3]
+[Next: Handling reports][4]
 
 
 [commands]: https://charcoal-se.org/smokey/Commands#privileged-commands
 [wiki]: https://charcoal-se.org/smokey/Privileges
-[3]: /training/reports
+[4]: /training/reports
