@@ -6,8 +6,8 @@ When a report comes into Charcoal HQ, there are two major things we need to do w
 and feed back.
 
 ## Flagging
-This you should be familiar with. Follow the link to look at the post, decide if it needs
-flagging, and flag it with the appropriate flag if so.
+This you should be familiar with, since you have experience on Stack Exchange. Follow the link to look 
+at the post, decide if it needs flagging, and flag it with the appropriate flag if so.
 
 ## Feedback
 The point of feedback is to record whether the post was correctly detected or not. Feedback
@@ -25,7 +25,7 @@ The canonical covers-all guide to feedback is [in the wiki][wiki].
 ## Self-promotion
 While persistent, undisclosed self-promotion is classed as spam, it's a less clear-cut issue
 than regular advertising spam. Some sites are more lenient on the issue than others. You
-should exercise judgement while dealing with self-promotion.
+should exercise judgment while dealing with self-promotion.
 
  - Take a look at the user's profile. If this is their first post, they almost certainly
    just aren't aware of the policy about disclosure. You can let it go without flagging.
