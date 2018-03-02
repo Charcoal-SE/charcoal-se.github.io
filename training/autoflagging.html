@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>
-    Code | Charcoal
+    Autoflagging | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="/assets/application-653f7809aed0d91c1959b62956cbb95bbe41d2ab5c390fa766d03deeaa8f1ee6.css">
@@ -64,18 +64,52 @@
       </nav>
     </div>
     <div class="body">
-      <p>Website built from:</p>
+      <h1 id="5-autoflagging">5. Autoflagging</h1>
+<p>In January 2017, we started <a href="https://meta.stackexchange.com/questions/291301">automatically flagging spam</a> through metasmoke. This page
+details that system.</p>
 
-<ul>
-  <li>commit <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/commit/68f91958c6b864f3f72bf8ef6ddd65b1f6d6c10e" title="68f91958c6b864f3f72bf8ef6ddd65b1f6d6c10e"><code class="highlighter-rouge">68f9195</code></a> on <a href="https://github.com/Charcoal-SE/charcoal-se.github.io">Charcoal-SE/charcoal-se.github.io</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/_compare/027b8c752d4a5518ba836f25006667764ddee8dd" title="027b8c752d4a5518ba836f25006667764ddee8dd"><code class="highlighter-rouge">027b8c7</code></a> on the <a href="//github.com/Charcoal-SE/SmokeDetector/wiki">Charcoal-SE/SmokeDetector wiki</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/metasmoke/wiki/_compare/f2bbd5667def3959ed48048b7a6fae003ba6d8dd" title="f2bbd5667def3959ed48048b7a6fae003ba6d8dd"><code class="highlighter-rouge">f2bbd56</code></a> on the <a href="//github.com/Charcoal-SE/metasmoke/wiki">Charcoal-SE/metasmoke wiki</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/charcoal-jekyll-theme/commit/abbc3f27aa88bcbf5126e85c506beba03d732598" title="abbc3f27aa88bcbf5126e85c506beba03d732598"><code class="highlighter-rouge">abbc3f2</code></a> on <a href="https://github.com/Charcoal-SE/charcoal-jekyll-theme">Charcoal-SE/charcoal-jekyll-theme</a></li>
-</ul>
+<h2 id="whats-autoflagging">What’s autoflagging?</h2>
+<p>Autoflagging is the subsystem of metasmoke that lets us automatically cast spam flags on
+posts that we’re confident are spam. Users sign up for their accounts to be added to a pool
+of available flags, which are used when spam comes in. We send up to 3 autoflags on a post,
+halving the number of human spam flags required to remove the post.</p>
 
-<p><a href="https://travis-ci.org/Charcoal-SE/charcoal-se.github.io">Live build logs on Travis CI</a></p>
+<h2 id="how-accurate-is-it">How accurate is it?</h2>
+<p>While SmokeDetector aims for zero false negatives, autoflagging aims for zero false
+positives. That is, SmokeDetector aims to catch all spam at the expense of a few caught
+legitimate posts; autoflagging aims to flag <em>only</em> spam without hitting any legitimate posts.
+Of course, neither of them hit their goals 100%; that’s to be expected. Autoflagging is,
+however, extremely accurate.</p>
 
-<p>This site is powered by <a href="https://jekyllrb.com">Jekyll</a> <a href="https://github.com/jekyll/jekyll/releases/v3.6.2">v3.6.2</a></p>
+<p>Users set up conditions that govern how confident they want to be that a post is spam before
+their account can be used to flag it. All conditions have to be more than 99.5% accurate
+before the system will accept them; the default recommended conditions are 100% accurate to
+the nearest 0.01%.</p>
+
+<h2 id="how-can-you-sign-up">How can you sign up?</h2>
+<p>Make sure you have a metasmoke account. You can sign up for a metasmoke account
+<a href="https://metasmoke.erwaysoftware.com/users/sign_up">here</a> if you don’t; make sure you authenticate using Stack Exchange so that we can
+associate your SE account with your MS account.</p>
+
+<p>Visit the <a href="https://metasmoke.erwaysoftware.com/authentication/status">authentication page</a> on metasmoke. If you’re happy with the disclaimer,
+click the Authenticate with Write Access button to get a write token for metasmoke to use.</p>
+
+<p>Finally, visit the <a href="https://metasmoke.erwaysoftware.com/flagging/ocs">autoflagging wizard</a> to set up your account for autoflagging.
+We recommend using the one-click setup wizard first, then customizing your settings later -
+that way, you know you’ve got valid settings.</p>
+
+<p>You’re good to go! Flags will now be cast automatically in your name from metasmoke. If you’d
+like a report of what’s been flagged under your account, that’s also on metasmoke - from the
+<a href="https://metasmoke.erwaysoftware.com/flagging">flagging dashboard</a>, click the link under Flagging &amp; You.</p>
+
+<hr />
+
+<p>Congrats, you’re done! The next two pages in the training guide give some detail about
+further privileges you can earn through contribution to Charcoal. Feel free to read those if
+you want to, but they’re not essential.</p>
+
+<p><a href="/training/core">Next: Further Privileges: Core</a></p>
+
 
     </div>
     <div class="footer text-center">
@@ -106,7 +140,7 @@
       
         <p>
           <a href="/code">More gory details</a>
-          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/code.md" title="code.md">Edit on GitHub</a>
+          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/training/autoflagging.md" title="training/autoflagging.md">Edit on GitHub</a>
           • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/new/site">New Page</a>
         </p>
       
