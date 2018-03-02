@@ -12,10 +12,10 @@ understand or if you still have questions. Don't worry if you're still not 100% 
 everything - you'll pick it up as you go.
 
 ## Participation
-Just so we're clear on this one - there are no minimum participation requirements for
+Just so we're clear on this - there are no minimum participation requirements for
 Charcoal. I know being linked to an intimidating series of documents with serious titles
 like TRAINING kinda brings that feeling with it, but rest easy. You're equally awesome if
-you handle 1 spam post a month as if you handle 1000 - this training series is just making
+you handle 1 spam post a month or if you handle 1000. This training series is just making
 sure we're all doing it consistently.
 
 ## Training Index

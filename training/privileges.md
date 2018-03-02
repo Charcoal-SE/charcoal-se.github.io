@@ -4,20 +4,20 @@
 # 3. Privileges
 SmokeDetector has a limited number of commands that are available for anyone to use. However,
 all its major functionality requires additional "privileges" to use. Being a privileged user
-entails your user ID being added to a list in SmokeDetector's code, which entitles you to
+means your user ID has been added to a list in SmokeDetector's code, which entitles you to
 use privileged functionality.
 
 ## What do they let you do?
-Like I said - they let you use privileged functionality. That includes running privileged
-commands, a list of which is available [in the wiki][commands], and feeding back on reports.
-More detail on feedback to come in the next training section. While you can follow along
-with reports from SmokeDetector and flag spam without privileges, if you want to interact
-with SmokeDetector or the wider system, you'll need to be given privileges.
+They let you use privileged functionality. That includes running privileged
+commands. We have a full list available [in the wiki][commands]. You can also provide feedback 
+on SmokeDetector reports. More detail on [feedback][4] is provided in the next section. You can 
+follow along with reports from SmokeDetector and flag spam without privileges, but if you want to 
+interact with SmokeDetector or the wider system, you'll need to be given privileges.
 
 ## How do you get them?
 Privileges are called that for a reason - they're a privilege, not something everyone gets.
 We're pretty free with who we give them out to, but there is a short list of guidelines
-to help your case. Those are detailed in full [in the wiki][wiki], the TL;DR of which is that
+to help your case. Those are detailed in full [in the wiki][wiki]. The TL;DR version is that
 we want to make sure you're sane and have at least some experience of Stack Exchange and
 community moderation. We expect everyone with privileges to be able to get along and act
 like an adult.

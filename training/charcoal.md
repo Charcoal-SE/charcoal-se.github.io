@@ -2,16 +2,16 @@
 ---
 
 # 1. What's Charcoal?
-Charcoal is a user-run volunteer organisation that aims to help keep Stack Exchange sites
+Charcoal is a user-run, volunteer organisation that aims to help keep Stack Exchange sites
 free of spam.
 
-To do that, we have a [team of people][people], and a bot, [SmokeDetector][sd].
+To do that, we have a [team of people][people], and a bot named [SmokeDetector][sd].
 SmokeDetector detects spam and reports it to our chatroom, [Charcoal HQ][hq]; the people
 present in that room review the reports and take whatever actions are necessary on them.
 
 We keep track of the spam we've caught in our web dashboard, [metasmoke][ms], to enable us
 to analyse our results and improve our detection techniques. We don't aim for zero false
-positives, but for zero false negatives - ideally, we'd like to never miss a spam post.
+positives, but for zero false negatives. Ideally, we'd like to never miss a spam post.
 
 ## Who's Who?
 We try to keep hierarchy to a minimum, but of course there has to be a minimal amount. We

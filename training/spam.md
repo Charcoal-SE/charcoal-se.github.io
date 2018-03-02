@@ -2,7 +2,7 @@
 ---
 
 # 2. What's spam?
-Stack Exchange uses a specific definition of spam that's different to the definition used
+Stack Exchange uses a specific definition of spam that's different from the definition used
 by many other sites. It's most concisely detailed in the flag dialog:
 
 > Exists only to promote a product or service, does not disclose the author's affiliation.
@@ -21,8 +21,9 @@ That means this is spam:
 > exactly the function of Malegenix today?  
 > Visit here \<spammy link\>
 
-(That's a [real post][post], by the way.) This is also spam, if the blog belongs to the
-post's author:
+(That's a [real post][post], by the way.) 
+
+This is also spam, if the blog belongs to the post's author:
 
 > Visit this awesome blog (link) to find the answer!
 
@@ -31,16 +32,17 @@ However, this is not:
 > To fix your problem, you should foo your bar and pass your baz to quux.  
 > I wrote about this in more detail on my blog (link).
 
-That post discloses the fact that the blog is the author's, so it's okay. This isn't spam
-either:
+That post discloses the fact that the blog is the author's, so it's okay. 
+
+This isn't spam either:
 
 > delete me delete me delete me delete me delete me
 
-If you come across something along those lines, it's most likely self-vandalism - where a
+If you come across something along those lines, it's most likely self-vandalism, which is where a
 post's author has removed a post's content in an effort to delete it. That's not something
 Stack Exchange allows, but it's not spam.
 
-As always, use your best judgement, and ask if you're not sure.
+As always, use your best judgment, and ask if you're not sure.
 
 -----
 

@@ -25,7 +25,7 @@ the nearest 0.01%.
 
 ## How can you sign up?
 Make sure you have a metasmoke account. You can sign up for a metasmoke account
-[here][ms-su] if you don't; make sure you authenticate using Stack Exchange so that we can
+[here][ms-su] if you don't already have an account. Authenticate using Stack Exchange so that we can
 associate your SE account with your MS account.
 
 Visit the [authentication page][ms-auth] on metasmoke. If you're happy with the disclaimer,
