@@ -29,7 +29,7 @@ There are some privacy concerns with this system. The major one of those is abou
 
 We deal with this by having clear, prominent disclaimers on metasmoke where any privacy issues are raised. These disclaimers detail exactly what a user is signing up for when clicking a link or button, and what privacy concerns there are. It is then left up to the user to make their own judgement about whether to trust the host.
 
-The other concern is making sure users are aware that autoflags aren't a get-out-of-jail-free card: flags cast on a Stack Exchange account are the responsiblity of the account holder, whether they were cast by an automated system or not, and bad flagging may result in moderators getting involved. This is partially mitigated by mandating accuracy in the system - while users are given some leeway to what the system can flag with their account, a 99.5% accuracy ratio over a sample of 1000 posts is mandatory. There is also another disclaimer used to detail the relevant concerns before users sign up for autoflagging.
+The other concern is making sure users are aware that autoflags aren't a get-out-of-jail-free card: flags cast on a Stack Exchange account are the responsiblity of the account holder, whether they were cast by an automated system or not, and bad flagging may result in moderators getting involved. This is partially mitigated by mandating accuracy in the system - while users are given some leeway to what the system can flag with their account, a 99.75% accuracy ratio over a sample of 1000 posts is mandatory. There is also another disclaimer used to detail the relevant concerns before users sign up for autoflagging.
 </section>
 <section>
 ## Is it any good? {#any-good}
