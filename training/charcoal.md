@@ -11,7 +11,8 @@ present in that room review the reports and take whatever actions are necessary 
 
 We keep track of the spam we've caught in our web dashboard, [metasmoke][ms], to enable us
 to analyse our results and improve our detection techniques. We don't aim for zero false
-positives, but for zero false negatives. Ideally, we'd like to never miss a spam post.
+positives (i.e. legitimate posts caught), but for zero false negatives (i.e. spam posts
+missed).
 
 ## Who's Who?
 We try to keep hierarchy to a minimum, but of course there has to be a minimal amount. We

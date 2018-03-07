@@ -19,7 +19,7 @@ Of course, neither of them hit their goals 100%; that's to be expected. Autoflag
 however, extremely accurate.
 
 Users set up conditions that govern how confident they want to be that a post is spam before
-their account can be used to flag it. All conditions have to be more than 99.5% accurate
+their account can be used to flag it. All conditions have to be more than 99.75% accurate
 before the system will accept them; the default recommended conditions are 100% accurate to
 the nearest 0.01%.
 

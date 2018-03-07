@@ -20,7 +20,9 @@ feedback: true positives, false positives, and NAA. You should feed back as foll
  - If the reported post is self-vandalism, reply to the report with `tp-`.
  - If the reported post is a legitimate post, reply to the report with `f`.
 
-The canonical covers-all guide to feedback is [in the wiki][wiki].
+If that list doesn't cover the post you're looking at, you can assume it's a false positive
+unless someone says otherwise. The canonical covers-all guide to feedback is
+[in the wiki][wiki].
 
 ## Self-promotion
 While persistent, undisclosed self-promotion is classed as spam, it's a less clear-cut issue

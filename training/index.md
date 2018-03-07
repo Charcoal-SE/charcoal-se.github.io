@@ -26,9 +26,8 @@ This is a list of all the documents in the series. Start at the top and work you
  - [Privileges][3]
  - [Handling reports][4]
  - [Autoflagging][5]
- - Further privileges: Core
- - Further privileges: Code Admin
-
+ - [Further privileges: Core][6]
+ - [Further privileges: Code Admin][7]
 
 [hq]: https://chat.stackexchange.com/rooms/11540/charcoal-hq
 [1]: /training/charcoal
@@ -36,3 +35,5 @@ This is a list of all the documents in the series. Start at the top and work you
 [3]: /training/privileges
 [4]: /training/reports
 [5]: /training/autoflagging
+[6]: /training/core
+[7]: /training/code-admin
