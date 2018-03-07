@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>
-    Handling reports | Charcoal
+    Further Privileges: Code Admin | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="/assets/application-235f04ebe9a8ed0bfe01a07f28978a81955371c2fe39853d76456ee7d9174b4e.css">
@@ -64,55 +64,42 @@
       </nav>
     </div>
     <div class="body">
-      <h1 id="4-handling-reports">4. Handling reports</h1>
-<p>When a report comes into Charcoal HQ, there are two major things we need to do with it: flag
-and feed back.</p>
+      <h1 id="7-further-privileges-code-admin">7. Further Privileges: Code Admin</h1>
+<p>When you’ve been working within Charcoal for a while, there are further levels of privileges
+that you may be interested in getting. One of these is Code Admin, which deals with our
+blacklisting systems.</p>
 
-<h2 id="flagging">Flagging</h2>
-<p>This you should be familiar with, since you have experience on Stack Exchange. Follow the link to look 
-at the post, decide if it needs flagging, and flag it with the appropriate flag if so.</p>
+<h2 id="what-does-code-admin-give-you">What does code admin give you?</h2>
+<p>Code admin gives you the ability to <code class="highlighter-rouge">!!/blacklist</code> and <code class="highlighter-rouge">!!/watch</code> independently - that is,
+without review from another code admin. If you don’t know what that means, you’re not ready
+for it yet.</p>
 
-<h2 id="feedback">Feedback</h2>
-<p>The point of feedback is to record whether the post was correctly detected or not. Feedback
-gets stored in metasmoke so that we can use it for analysis. We have three major types of
-feedback: true positives, false positives, and NAA. You should feed back as follows:</p>
+<h2 id="how-do-you-get-it">How do you get it?</h2>
+<p>The grant for code admin is fully manual. If you’ve contributed a significant number of
+blacklist items and you seem to know what you’re doing, you’re likely to be given the code
+admin role. That’s deliberately <em>not</em> a hard criterion; it’s subjective, because subjective
+humans are the people granting it.</p>
 
-<ul>
-  <li>If the reported post is <strong>spam or abusive</strong>, it’s a true positive. Reply to the report
-message with <code class="highlighter-rouge">k</code>.</li>
-  <li>If the reported post is Not An Answer, reply to the report with <code class="highlighter-rouge">n</code>.</li>
-  <li>If the reported post is self-vandalism, reply to the report with <code class="highlighter-rouge">tp-</code>.</li>
-  <li>If the reported post is a legitimate post, reply to the report with <code class="highlighter-rouge">f</code>.</li>
-</ul>
+<h2 id="how-do-you-use-it">How do you use it?</h2>
+<p>Exactly the same as you’ve been using the <code class="highlighter-rouge">!!/blacklist</code> and <code class="highlighter-rouge">!!/watch</code> commands up to this
+point, except now your actions will take effect immediately without waiting for the pull
+request to be reviewed by another code admin.</p>
 
-<p>If that list doesn’t cover the post you’re looking at, you can assume it’s a false positive
-unless someone says otherwise. The canonical covers-all guide to feedback is
-<a href="https://charcoal-se.org/smokey/Feedback-Guidance">in the wiki</a>.</p>
-
-<h2 id="self-promotion">Self-promotion</h2>
-<p>While persistent, undisclosed self-promotion is classed as spam, it’s a less clear-cut issue
-than regular advertising spam. Some sites are more lenient on the issue than others. You
-should exercise judgment while dealing with self-promotion.</p>
+<p>To reiterate our current blacklisting guidelines:</p>
 
 <ul>
-  <li>Take a look at the user’s profile. If this is their first post, they almost certainly
-just aren’t aware of the policy about disclosure. You can let it go without flagging.</li>
-  <li>If you think it is worth a flag (perhaps because they’ve been doing this a lot),
-consider using a custom moderator attention flag rather than a spam flag. Those will
-take longer to be dealt with, but make it much easier for moderators to figure out <em>why</em>
-you flagged.</li>
+  <li><strong>Watching</strong> is for keywords or websites that have been seen in spam. Past that, anything
+is game. Items may be removed as they fall out of use.</li>
+  <li><strong>Blacklisting websites</strong> should be done when a site has been used repeatedly in spam
+recently (5+ times in the last 6 months), without any false positives. Make sure at least
+one of the posts was under the default autoflagging threshold (280).</li>
+  <li><strong>Blacklisting keywords</strong> is for phrases that get used in spam particularly frequently,
+and have no false positives.</li>
 </ul>
 
-<h2 id="userscripts">Userscripts</h2>
-<p>While responding to SmokeDetector in chat is the original way of feeding back, over time
-we’ve streamlined the process. Most Charcoal members now use FIRE, a userscript that
-simplifies the process of viewing the post, flagging, and feeding back, down to two clicks.
-You can find it, and all our other userscripts, on the <a href="/scripts">userscripts page</a>.</p>
-
-<hr />
-
-<p><a href="/training/autoflagging">Next: Autoflagging</a></p>
-
+<p>With all blacklists, remember to search on Stack Exchange as well as on metasmoke to check
+for false positives. Searching for spam amongst a dataset of spam is more than likely going
+to get some hits, but a Stack Exchange search reveals the real accuracy.</p>
 
     </div>
     <div class="footer text-center">
@@ -143,7 +130,7 @@ You can find it, and all our other userscripts, on the <a href="/scripts">usersc
       
         <p>
           <a href="/code">More gory details</a>
-          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/training/reports.md" title="training/reports.md">Edit on GitHub</a>
+          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/training/code-admin.md" title="training/code-admin.md">Edit on GitHub</a>
           • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/new/site">New Page</a>
         </p>
       
