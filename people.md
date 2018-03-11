@@ -10,13 +10,13 @@ If you're wondering who you should talk to about something, [there's a guide for
 <section>
 ## Administrators {#admins}
 
-These people get pinged a lot. (GH) indicates a GitHub organisation admin, and (MS) indicates an admin on metasmoke.
+These people get pinged a lot. They all have administrative access on metasmoke and the [GitHub organisation](https://github.com/Charcoal-SE).
 
-*   [**Undo**](http://chat.stackexchange.com/users/73046/undo) (GH, MS, RO)
-*   [**ArtOfCode**](http://chat.stackexchange.com/users/121520/artofcode) (GH, MS, RO)
-*   [**Andy**](http://chat.stackexchange.com/users/66258/andy) (GH, MS, RO)
-*   [**angussidney**](http://chat.stackexchange.com/users/145827/angussidney) (GH, MS, RO)
-*   [**tripleee**](http://chat.stackexchange.com/users/62118/tripleee) (GH, MS, RO)
+*   [**Undo**](http://chat.stackexchange.com/users/73046/undo) (RO)
+*   [**ArtOfCode**](http://chat.stackexchange.com/users/121520/artofcode) (RO)
+*   [**Andy**](http://chat.stackexchange.com/users/66258/andy) (RO)
+*   [**angussidney**](http://chat.stackexchange.com/users/145827/angussidney) (RO)
+*   [**tripleee**](http://chat.stackexchange.com/users/62118/tripleee) (RO)
 </section>
 <section>
 ## Developers {#devs}
