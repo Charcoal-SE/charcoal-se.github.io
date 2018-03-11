@@ -14,9 +14,9 @@ These people get pinged a lot. (GH) indicates a GitHub organisation admin, and (
 
 *   [**Undo**](http://chat.stackexchange.com/users/73046/undo) (GH, MS, RO)
 *   [**ArtOfCode**](http://chat.stackexchange.com/users/121520/artofcode) (GH, MS, RO)
-*   [**Andy**](http://chat.stackexchange.com/users/66258/andy) (MS, RO)
-*   [**angussidney**](http://chat.stackexchange.com/users/145827/angussidney) (MS, RO)
-*   [**tripleee**](http://chat.stackexchange.com/users/62118/tripleee) (MS, RO)
+*   [**Andy**](http://chat.stackexchange.com/users/66258/andy) (GH, MS, RO)
+*   [**angussidney**](http://chat.stackexchange.com/users/145827/angussidney) (GH, MS, RO)
+*   [**tripleee**](http://chat.stackexchange.com/users/62118/tripleee) (GH, MS, RO)
 </section>
 <section>
 ## Developers {#devs}
