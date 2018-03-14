@@ -36,6 +36,7 @@ These people have at some point contributed code of some variety, whether it be 
 *   [Cerbrus](http://chat.stackexchange.com/users/126657/cerbrus)
 *   [quartata](http://chat.stackexchange.com/users/167070/quartata) (RO)
 *   [**Henders**](http://chat.stackexchange.com/users/211021/henders)
+*   [iBug](https://chat.stackexchange.com/users/275329/ibug)
 
 </section>
 <section>
@@ -55,7 +56,6 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [paper1111](https://chat.stackexchange.com/users/281674/paper1111)
 *   [**bwDraco**](https://chat.stackexchange.com/users/11606/bwdraco)
 *   [CalvT](http://chat.stackexchange.com/users/64521/calvt)
-*   [iBug](https://chat.stackexchange.com/users/275329/ibug)
 *   [Byte Commander](http://chat.stackexchange.com/users/137665/byte-commander)
 
 </section>
