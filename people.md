@@ -57,6 +57,8 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [**bwDraco**](https://chat.stackexchange.com/users/11606/bwdraco)
 *   [CalvT](http://chat.stackexchange.com/users/64521/calvt)
 *   [Byte Commander](http://chat.stackexchange.com/users/137665/byte-commander)
+*   [WELZ](https://chat.stackexchange.com/users/210948/welz)
+*   [A J](https://chat.stackexchange.com/users/205208/a-j)
 
 </section>
 <section>
@@ -77,9 +79,7 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Tetsuya Yamamoto](https://chat.stackexchange.com/users/279119/tetsuya-yamamoto)
 *   [Catija](https://chat.stackexchange.com/users/139041/catija)
 *   [Videonauth](https://chat.stackexchange.com/users/205533/videonauth)
-*   [A J](https://chat.stackexchange.com/users/205208/a-j)
 *   [Rob](https://chat.stackexchange.com/users/158742/rob)
 *   [Mego](https://chat.stackexchange.com/users/169713/mego)
-*   [WELZ](https://chat.stackexchange.com/users/210948/welz)
 *   [Jake Symons](https://chat.stackexchange.com/users/318454/jake-symons)
 </section>
