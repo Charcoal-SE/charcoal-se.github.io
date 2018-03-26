@@ -59,6 +59,7 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [Byte Commander](http://chat.stackexchange.com/users/137665/byte-commander)
 *   [WELZ](https://chat.stackexchange.com/users/210948/welz)
 *   [A J](https://chat.stackexchange.com/users/205208/a-j)
+*   [K.Davis](https://chat.stackexchange.com/users/223524/k-ds)
 
 </section>
 <section>
