@@ -48,7 +48,7 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [Magisch](http://chat.stackexchange.com/users/171054/magisch)
 *   [dorukayhan](http://chat.stackexchange.com/users/209140/dorukayhan)
 *   [doppelgreener](https://chat.stackexchange.com/users/2562/doppelgreener)
-*   [**Mithrandir**](http://chat.stackexchange.com/users/133031/mithrandir)
+*   [**Mithrandir**](http://chat.stackexchange.com/users/133031/mithrandir)
 *   [**NobodyNada**](http://chat.stackexchange.com/users/139423/nobodynada) (RO)
 *   [suraj](https://chat.stackexchange.com/users/262693/suraj)
 *   [John Dvorak](http://chat.stackexchange.com/users/56166/john-dvorak)
@@ -81,6 +81,6 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Videonauth](https://chat.stackexchange.com/users/205533/videonauth)
 *   [Rob](https://chat.stackexchange.com/users/158742/rob)
 *   [Mego](https://chat.stackexchange.com/users/169713/mego)
-*   [Jake Symons](https://chat.stackexchange.com/users/318454/jake-symons)
-*   [Tinkeringbell](https://chat.stackexchange.com/users/305737/Tinkeringbell)
+*   [Jake Symons](https://chat.stackexchange.com/users/318454/jake-symons)
+*   [Tinkeringbell](https://chat.stackexchange.com/users/305737/Tinkeringbell)
 </section>
