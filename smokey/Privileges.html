@@ -96,6 +96,8 @@ If your request for privileges is supported by a regular of one of the <a href="
 <h4 id="for-moderators">For Moderators</h4>
 <p>If you’re a Stack Exchange network moderator, <strong>you’re automatically privileged</strong> with SmokeDetector in <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a> (and in <a href="http://chat.stackoverflow.com/rooms/41570/so-close-vote-reviewers">SOCVR</a> if you are a Stack Overflow moderator). You don’t need to be added to the explicit privilege lists, as your diamond also gives you privileges with SmokeDetector. We assume that moderators are, on the whole, pretty good at moderation.</p>
 
+<p>Moderators can also see additional information on their <a href="https://metasmoke.erwaysoftware.com/sites/dash">site dashboard</a> in relation to spammers and autoflagging participants.</p>
+
 <h2 id="privilege-levels">Privilege Levels</h2>
 
 <p>There are multiple privilege levels on SmokeDetector and metasmoke, each giving you access to different commands, tools, etc. There isn’t any exact threshold that you have to meet in order to be eligible for many of these privileges; rather the admins will grant them to you at their own discretion. If you think that you should have some of these privileges but you don’t, please contact <a href="https://charcoal-se.org/people#admins">an admin</a>.</p>
@@ -139,6 +141,7 @@ If your request for privileges is supported by a regular of one of the <a href="
 <ul>
   <li>Increased autoflagging frequency (see <a href="https://charcoal-se.org/smokey/Set-Up-Autoflagging#i-opted-in-but-i-dont-see-any-flags">this</a> page for details)</li>
   <li>Access to the <a href="https://metasmoke.erwaysoftware.com/data">data explorer</a></li>
+  <li>Ability to download <a href="https://metasmoke.erwaysoftware.com/dumps">database dumps</a></li>
   <li>Can create <a href="https://metasmoke.erwaysoftware.com/announcements/new">new announcements</a> (please don’t use this if you don’t know what you’re doing)</li>
   <li>Can edit domain records, and add/edit domain tags</li>
 </ul>
@@ -147,7 +150,7 @@ If your request for privileges is supported by a regular of one of the <a href="
 
 <ul>
   <li>Can <code class="highlighter-rouge">!!/watch</code> and <code class="highlighter-rouge">!!/blacklist</code> without approval. Please make sure that you read the <a href="https://charcoal-se.org/smokey/Guidance-for-Blacklisting-and-Watching">blacklisting guidelines</a> before using these commands.</li>
-  <li>Can approve other user’s watches and blacklists on GitHub. Simply add a comment on the auto-generated PR containing the command <code class="highlighter-rouge">!!/approve</code>, and metasmoke will handle the rest. Note that you will need to be added to PullApprove for this to work properly (which in turn requires you to have a GitHub account which is known to us and added to the <a href="https://github.com/orgs/Charcoal-SE/teams/oaps/members">Other Awesome People team on GitHub</a>); ping ArtOfCode and he will be able to set you up.</li>
+  <li>Can approve other user’s watches and blacklists on GitHub. Simply add a comment on the auto-generated PR containing the command <code class="highlighter-rouge">!!/approve</code>, and metasmoke will handle the rest. Note that you will need to be added to PullApprove for this to work properly (which in turn requires you to have a GitHub account which is known to us and added to the <a href="https://github.com/orgs/Charcoal-SE/teams/oaps/members">Other Awesome People team on GitHub</a>); ping an admin and they will set you up. <em>(note to admin: if things are failing, press the ‘Sync with GitHub’ button <a href="https://pullapprove.com/Charcoal-SE/SmokeDetector/settings/">here</a>)</em></li>
   <li>Can failover standby instances from the <a href="https://metasmoke.erwaysoftware.com/status">status</a> page. Normally metasmoke handles this automatically if an instance goes down for more than 5 minutes, but you can use this if Smokey isn’t working properly. Make sure that you follow the <a href="https://charcoal-se.org/pings/#dead">troubleshooting guidelines</a> first.</li>
 </ul>
 
@@ -187,6 +190,7 @@ If your request for privileges is supported by a regular of one of the <a href="
   <li>View, edit, enable/disable and delete other users’ autoflagging conditions</li>
   <li>Invalidate autoflagging API tokens in the event of an emergency</li>
   <li>Edit global autoflagging settings (e.g. enabled/disabled, min accuracy and post count, dry run, and max flags - note that the latter is also hard-coded for extra security)</li>
+  <li>Edit metasmoke site settings</li>
   <li>Destroy domain records and domain tags</li>
   <li>De-authorize a rogue SmokeDetector instance</li>
   <li>Kill all SmokeDetector instances</li>
