@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>
-    Code | Charcoal
+    Exit codes | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="/assets/application-235f04ebe9a8ed0bfe01a07f28978a81955371c2fe39853d76456ee7d9174b4e.css">
@@ -64,18 +64,82 @@
       </nav>
     </div>
     <div class="body">
-      <p>Website built from:</p>
+      
 
-<ul>
-  <li>commit <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/commit/5c30010fdffee9424792ef29a13390d9bb5cb28e" title="5c30010fdffee9424792ef29a13390d9bb5cb28e"><code class="highlighter-rouge">5c30010</code></a> on <a href="https://github.com/Charcoal-SE/charcoal-se.github.io">Charcoal-SE/charcoal-se.github.io</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/_compare/43ece27b96246eeb59da583dc0d606a3e719bc70" title="43ece27b96246eeb59da583dc0d606a3e719bc70"><code class="highlighter-rouge">43ece27</code></a> on the <a href="//github.com/Charcoal-SE/SmokeDetector/wiki">Charcoal-SE/SmokeDetector wiki</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/metasmoke/wiki/_compare/f2bbd5667def3959ed48048b7a6fae003ba6d8dd" title="f2bbd5667def3959ed48048b7a6fae003ba6d8dd"><code class="highlighter-rouge">f2bbd56</code></a> on the <a href="//github.com/Charcoal-SE/metasmoke/wiki">Charcoal-SE/metasmoke wiki</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/charcoal-jekyll-theme/commit/abbc3f27aa88bcbf5126e85c506beba03d732598" title="abbc3f27aa88bcbf5126e85c506beba03d732598"><code class="highlighter-rouge">abbc3f2</code></a> on <a href="https://github.com/Charcoal-SE/charcoal-jekyll-theme">Charcoal-SE/charcoal-jekyll-theme</a></li>
-</ul>
 
-<p><a href="https://travis-ci.org/Charcoal-SE/charcoal-se.github.io">Live build logs on Travis CI</a></p>
+<h1 id="exit-codes">Exit codes</h1>
 
-<p>This site is powered by <a href="https://jekyllrb.com">Jekyll</a> <a href="https://github.com/jekyll/jekyll/releases/v3.6.2">v3.6.2</a></p>
+<p>SmokeDetector is usually run via <code class="highlighter-rouge">nocrash.py</code>, which takes care of recovering when the bot crashes. It also handles various minor exceptional tasks between restarts based on the exit code returned from the program. These exit codes are documented here.</p>
+
+<p>Only exit codes that have some special action attached to them are in this document. Unused exit codes incur a 5-second sleep followed by a restart - if you want to define a new exit code for some other purpose, you’ll need to add it to <code class="highlighter-rouge">nocrash.py</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Exit code</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>3</td>
+      <td><code class="highlighter-rouge">!!/pull</code> - runs <code class="highlighter-rouge">git checkout deploy</code>, <code class="highlighter-rouge">git pull</code>, and <code class="highlighter-rouge">git submodule update</code>, in that order. Does nothing on Windows.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Crash code - increments a crash counter, and enters reverted mode if the crash count is too high (i.e. the commit is bad).</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Straight reboot - resets the restart count, and reboots Smokey.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Stop code - fully exits the program and returns control to the caller.</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Standby - adds <code class="highlighter-rouge">standby</code> to the persistent argument list, and restarts Smokey in standby mode.</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><code class="highlighter-rouge">!!/master</code> - runs <code class="highlighter-rouge">git checkout deploy</code> and resets restart and crash counter before rebooting Smokey.</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Socket failure - sleeps for 5 seconds before rebooting to let the network stabilize.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="sidebar">
+
+
+
+<p><strong><a href="//github.com/Charcoal-SE/SmokeDetector/wiki/Exit-codes/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+
+<div class="sidebar-content sidebar-content-smokey">
+
+  <p><strong><a href="Home">Home</a></strong></p>
+
+  <p><strong><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a></strong></p>
+
+  <p><strong><a href="http://charcoal-se.org/">Charcoal Website</a></strong></p>
+
+  <p><strong><a href="https://metasmoke.erwaysoftware.com">metasmoke</a></strong></p>
+
+  <p><strong><a href="https://github.com/Charcoal-SE/userscripts">Userscripts</a></strong></p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>Smokey is made with &lt;3 by the <a href="https://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/SmokeDetector/graphs/contributors">contributors</a> from <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
 
     </div>
     <div class="footer text-center">
@@ -102,13 +166,9 @@
           <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
             11 more</a>
         
+          • <a href="/code">More gory details</a>
+        
       </p>
-      
-        <p>
-          <a href="/code">More gory details</a>
-          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/code.md" title="code.md">Edit on GitHub</a>
-          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/new/site">New Page</a>
-        </p>
       
     </div>
   </div>
