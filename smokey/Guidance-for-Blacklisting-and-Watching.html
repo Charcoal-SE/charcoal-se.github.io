@@ -101,6 +101,7 @@
   <li><strong>Blacklisted websites:</strong> reserved for sites which we are highly confident that are used only in spam. You may add a site to this list if <em>one of</em> the following is true.
     <ul>
       <li>The site has at least five hits in Metasmoke, with no false positives, and at least one of them is below the default autoflagging threshold (currently, 280) and no older than six months.</li>
+      <li>The site has at least three hits in Metasmoke, with no false positives, and it is part of an ongoing campaign. (See below.)</li>
       <li>There are more than twenty hits in the last six months, and no false positives.</li>
       <li>There are recent hits, and more than 30 hits overall, and no false positives.</li>
     </ul>
@@ -118,6 +119,10 @@
     </ul>
   </li>
 </ul>
+
+<h3 id="ongoing-campaign">Ongoing Campaign</h3>
+
+<p>The blacklisting guidance relaxes the criteria for blacklisting a web site when it is promoted in a spam post which we identify as being part of an “ongoing campaign”. This basically means that the spam incident is substantially similar to a number of other recent spam posts which already fulfill the stricter blacklisting criteria.  In practice, this helps us trigger blacklisting early for sites which are clearly part of an ongoing promotion, where we can be reasonably sure that the only purpose of the site is to have a different URL than the other sites used in the campaign. (This is called “snowshoe spamming” – the tactic is to spread your footprint across many sites so as to evade trivial duplicate detection.)</p>
 
 <h2 id="how-to-blacklist-or-watch-something">How to Blacklist or Watch Something</h2>
 
