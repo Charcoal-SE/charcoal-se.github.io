@@ -390,6 +390,10 @@ Output format: identical to <code>/posts</code>.</p>
 Available tables: <code>posts</code>.<br />
 Output format: identical to <code>/posts</code>.</p>
 </details></td></tr>
+<tr><td><code>/api/v2.0/posts/uid/:api_param/:native_id </code></td><td><details><summary> Get a post by its API site parameter and SE-native ID.</summary><p>Finds posts on the site specified by <code>:api_param</code> with the post ID specified in <code>:native_id</code>, and returns them.<br />
+Available tables: <code>posts</code>.<br />
+Output format: identical to <code>/posts</code>.</p>
+</details></td></tr>
 <tr><td><code>/api/v2.0/posts/:ids </code></td><td><details><summary> List posts by their IDs</summary><p><code>ids</code> is a <strong>comma</strong> separated list of post IDs to return.<br />
 Available tables: <code>posts</code>.<br />
 Output format: identical to <code>/posts</code>.</p>
@@ -436,15 +440,24 @@ Output format:</p>
                 &quot;users&quot;: [
                     {
                         &quot;id&quot;: 14,
-                        &quot;username&quot;: &quot;ProgramFOX&quot;
+                        &quot;username&quot;: &quot;ProgramFOX&quot;,
+                        &quot;stackexchange_chat_id&quot;: 123456,
+                        &quot;stackoverflow_chat_id&quot;: 123456,
+                        &quot;meta_chat_id&quot;: 123456
                     },
                     {
                         &quot;id&quot;: 42,
-                        &quot;username&quot;: &quot;QPaysTaxes&quot;
+                        &quot;username&quot;: &quot;QPaysTaxes&quot;,
+                        &quot;stackexchange_chat_id&quot;: 123456,
+                        &quot;stackoverflow_chat_id&quot;: 123456,
+                        &quot;meta_chat_id&quot;: 123456
                     },
                     {
                         &quot;id&quot;: 226,
-                        &quot;username&quot;: &quot;guiniveretoo&quot;
+                        &quot;username&quot;: &quot;guiniveretoo&quot;,
+                        &quot;stackexchange_chat_id&quot;: 123456,
+                        &quot;stackoverflow_chat_id&quot;: 123456,
+                        &quot;meta_chat_id&quot;: 123456
                     }
                 ]
             },
@@ -452,7 +465,10 @@ Output format:</p>
                 &quot;users&quot;: [
                     {
                         &quot;id&quot;: 7,
-                        &quot;username&quot;: &quot;ArtOfCode&quot;
+                        &quot;username&quot;: &quot;ArtOfCode&quot;,
+                        &quot;stackexchange_chat_id&quot;: 123456,
+                        &quot;stackoverflow_chat_id&quot;: 123456,
+                        &quot;meta_chat_id&quot;: 123456
                     }
                 ]
             }
