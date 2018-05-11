@@ -7,12 +7,12 @@ We do this with the aid of some software that we've written, called
 [SmokeDetector](https://github.com/Charcoal-SE/SmokeDetector).
 
 Even if you are unfamiliar with the Stack Exchange network,
-you have probably heard of or even participated on its flagship site,
+you may have heard of or even participated on its flagship site,
 [Stack Overflow](//stackoverflow.com/).
-But the network contains hundreds of similar sites about various topics, including [law](//law.stackexchange.com/),
-[photography](//photography.stackexchange.com/),
+The rest of the network contains hundreds of similar sites about various topics, including [law](//law.stackexchange.com/),
+[photography](//photography.stackexchange.com/), and
 [cooking](//cooking.stackexchange.com/),
-etc.
+among others.
 
 The Stack Exchange network empowers and
 [strongly encourages its users to participate in quality assurance and moderation][1]
@@ -23,11 +23,9 @@ and anti-abuse rules that the network community as a collective have established
 
   [1]: https://stackoverflow.blog/2009/05/18/a-theory-of-moderation/
 
-You should also understand that Stack Exchange
-has a reputation system
-which gives users more control over moderation tools
-as they earn the trust of their peers.
-For example, an anonymous visitor or a new user can't flag posts or participate in chat.
+Stack Exchange also has a reputation system which gives users more control over moderation tools
+as they earn the trust of their peers. For example, an anonymous visitor or a new user can't flag posts
+or participate in chat.
 
 On a typical day, we process on the order of a hundred spam reports across the network.
 Identified spam is deleted when enough users click a button to flag it as spam;
@@ -47,6 +45,5 @@ please feel free to visit the
 [Charcoal HQ chat room](https://chat.stackexchange.com/rooms/11540/charcoal-hq)
 where most of our activity takes place.
 
-[Our web site](https://charcoal-se.org/)
-has much more information about the technical implementation of our system
-and the processes we have developed around it.
+There is more information about the technical implementation of our system
+and the processes we have developed around it available [around our website](/).
