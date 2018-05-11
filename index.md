@@ -5,17 +5,23 @@ search_title: Home
 
 {% img name.png height:"100" width class:"block-center" %}
 
+[Charcoal](http://chat.stackexchange.com/rooms/11540) are the people behind
+[SmokeDetector](https://github.com/Charcoal-SE/SmokeDetector),
+a community bot to detect spam on the
+[Stack Exchange network](http://stackexchange.com).
+
+If you don't understand what that means,
+or want to read more about who we are and how we are organized,
+please see
+[About Us](/about).
+
+
 > **Autoflagging**
 >
 > Charcoal are currently running an autoflagging initiative,
 > to flag spam posts automatically based on past collected data.
 > To find out more, go to [Autoflagging](/flagging).
 {: .alert.link}
-
-[Charcoal](http://chat.stackexchange.com/rooms/11540) are the people behind
-[SmokeDetector](https://github.com/Charcoal-SE/SmokeDetector),
-a community bot to detect spam on the
-[Stack Exchange network](http://stackexchange.com).
 
 <section>
 ## What is SmokeDetector? {#whats-smokey}
