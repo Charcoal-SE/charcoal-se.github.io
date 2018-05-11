@@ -7,9 +7,10 @@ We do this with the aid of some software that we've written, called
 [SmokeDetector](https://github.com/Charcoal-SE/SmokeDetector).
 
 Even if you are unfamiliar with the Stack Exchange network,
-you may have heard of or even participated on its flagship site,
+you may have heard of or even participated on its flagship site for programming questions,
 [Stack Overflow](//stackoverflow.com/).
-The rest of the network contains hundreds of similar sites about various topics, including [law](//law.stackexchange.com/),
+The rest of the network contains hundreds of similar sites about various topics, including
+[law](//law.stackexchange.com/),
 [photography](//photography.stackexchange.com/), and
 [cooking](//cooking.stackexchange.com/),
 among others.
@@ -17,14 +18,15 @@ among others.
 The Stack Exchange network empowers and
 [strongly encourages its users to participate in quality assurance and moderation][1]
 of the content on its sites.
-We are, generally speaking, regular users who are doing what we can
+We in the Charcoal team are, generally speaking, regular users who are doing what we can
 to make the best of this mandate, and help enforce the anti-spam
 and anti-abuse rules that the network community as a collective have established.
 
   [1]: https://stackoverflow.blog/2009/05/18/a-theory-of-moderation/
 
-Stack Exchange also has a reputation system which gives users more control over moderation tools
-as they earn the trust of their peers. For example, an anonymous visitor or a new user can't flag posts
+Stack Exchange also has a reputation system which gives users more control
+over moderation tools as they earn the trust of their peers.
+For example, an anonymous visitor or a new user can't flag posts
 or participate in chat.
 
 On a typical day, we process on the order of a hundred spam reports across the network.
