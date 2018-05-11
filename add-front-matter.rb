@@ -25,7 +25,6 @@ def jekyll_front_matter(path, content)
     l "redirect_from:"
     l "- #{dir}/Home.html"
     l "- #{dir}/Home"
-    l "- #{dir}"
     l "title: Home"
   else
     l "title: #{title}"
