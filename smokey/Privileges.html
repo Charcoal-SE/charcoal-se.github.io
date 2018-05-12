@@ -111,6 +111,7 @@ If your request for privileges is supported by a regular of one of the <a href="
 <ul>
   <li>Give feedback via chat</li>
   <li>Use the privileged commands listed <a href="./Commands#privileged-commands">here</a>.</li>
+  <li>Add comments to posts from chat (simply reply to any SD report)</li>
   <li>Stop autoflagging in the event of an emergency using <code class="highlighter-rouge">!!/stopflagging</code>. After this, autoflagging can only be re-enabled by an admin.</li>
 </ul>
 
@@ -126,6 +127,7 @@ If your request for privileges is supported by a regular of one of the <a href="
   <li>Associate your chat feedback with your metasmoke account when <a href="https://metasmoke.erwaysoftware.com/authentication/status">you connect your SE account</a> (this should be done when you sign up, older users may need to do this manually)</li>
   <li>Overwrite and invalidate your own feedback</li>
   <li>Use the <a href="https://metasmoke.erwaysoftware.com/flagging/conditions/sandbox">autoflagging conditions sandbox</a></li>
+  <li>Add comments to posts from metasmoke</li>
 </ul>
 
 <h3 id="flagger-ms">Flagger (MS)</h3>
@@ -140,10 +142,11 @@ If your request for privileges is supported by a regular of one of the <a href="
 <p>Benefits include:</p>
 <ul>
   <li>Increased autoflagging frequency (see <a href="https://charcoal-se.org/smokey/Set-Up-Autoflagging#i-opted-in-but-i-dont-see-any-flags">this</a> page for details)</li>
-  <li>Access to the <a href="https://metasmoke.erwaysoftware.com/data">data explorer</a></li>
+  <li>Access to the <a href="https://metasmoke.erwaysoftware.com/data/sql">SQL</a> and <a href="https://metasmoke.erwaysoftware.com/data">JavaScript</a> data explorers</li>
   <li>Ability to download <a href="https://metasmoke.erwaysoftware.com/dumps">database dumps</a></li>
   <li>Can create <a href="https://metasmoke.erwaysoftware.com/announcements/new">new announcements</a> (please don’t use this if you don’t know what you’re doing)</li>
   <li>Can edit domain records, and add/edit domain tags</li>
+  <li>Can create abuse reports &amp; contacts</li>
 </ul>
 
 <h3 id="code-admin-aka-blacklister-ms">Code admin a.k.a. blacklister (MS)</h3>
@@ -191,6 +194,8 @@ If your request for privileges is supported by a regular of one of the <a href="
   <li>Invalidate autoflagging API tokens in the event of an emergency</li>
   <li>Edit global autoflagging settings (e.g. enabled/disabled, min accuracy and post count, dry run, and max flags - note that the latter is also hard-coded for extra security)</li>
   <li>Edit metasmoke site settings</li>
+  <li>Edit and delete abuse reports &amp; contacts</li>
+  <li>Edit and delete comments</li>
   <li>Destroy domain records and domain tags</li>
   <li>De-authorize a rogue SmokeDetector instance</li>
   <li>Kill all SmokeDetector instances</li>
@@ -203,6 +208,7 @@ If your request for privileges is supported by a regular of one of the <a href="
 
 <ul>
   <li>Can see production logs</li>
+  <li>Can deploy metasmoke</li>
   <li>Can refresh the site list cache</li>
   <li>Can refresh the per-post feedback cache</li>
   <li>Can send messages down metasmoke’s websockets for testing and development purposes</li>
