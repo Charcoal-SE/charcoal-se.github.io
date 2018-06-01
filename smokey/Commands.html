@@ -130,6 +130,8 @@ Note that <code class="highlighter-rouge">why</code> data is only kept for the l
   <li><code class="highlighter-rouge">!!/reboot</code> — Reboots SmokeDetector.</li>
   <li><code class="highlighter-rouge">!!/stappit</code> — Stops all SmokeDetector instances.</li>
   <li><code class="highlighter-rouge">!!/stappit &lt;string&gt;</code> — Stops all SmokeDetector instances where <code class="highlighter-rouge">string</code> is included in the location (e.g. <code class="highlighter-rouge">!!/stappit undo</code> would stop <code class="highlighter-rouge">Undo/EC2</code> and <code class="highlighter-rouge">Undo/DO</code>, but not <code class="highlighter-rouge">teward/aroura</code></li>
+  <li><code class="highlighter-rouge">!!/standby &lt;string&gt;</code> - Places that instance into standby mode.</li>
+  <li><code class="highlighter-rouge">!!/standby-except</code> <string> - Places all other instances into standby mode, use if multiple instances are running.</string></li>
   <li><code class="highlighter-rouge">!!/pull</code> — Pulls new revisions from GitHub.</li>
   <li><code class="highlighter-rouge">!!/master</code> — When SmokeDetector enters reverted mode, use this command to go back to the <code class="highlighter-rouge">master</code> branch.</li>
   <li><code class="highlighter-rouge">!!/errorlogs &lt;N&gt;</code> — Shows the last <em>N</em> lines of the error logs.</li>
