@@ -134,7 +134,7 @@ Note that <code class="highlighter-rouge">why</code> data is only kept for the l
   <li><code class="highlighter-rouge">!!/standby-except &lt;string&gt;</code> <string> - Places all other instances into standby mode, use if multiple instances are running.</string></li>
   <li><code class="highlighter-rouge">!!/pull</code> — Pulls new revisions from GitHub.</li>
   <li><code class="highlighter-rouge">!!/master</code> — When SmokeDetector enters reverted mode, use this command to go back to the <code class="highlighter-rouge">master</code> branch.</li>
-  <li><code class="highlighter-rouge">!!/errorlogs &lt;N&gt;</code> — Shows the last <em>N</em> lines of the error logs. (You can also use <code class="highlighter-rouge">!!/errlog</code> or `!!/errlogs)</li>
+  <li><code class="highlighter-rouge">!!/errorlogs &lt;N&gt;</code> — Shows the last <em>N</em> lines of the error logs. (You can also use <code class="highlighter-rouge">!!/errorlog</code>, <code class="highlighter-rouge">!!/errlog</code> or <code class="highlighter-rouge">!!/errlogs</code>)</li>
   <li><code class="highlighter-rouge">!!/block &lt;N&gt;</code> — Blocks SmokeDetector globally for <em>N</em> seconds; no alerts will be posted. Example: <code class="highlighter-rouge">!!/block 600</code> blocks globally for 10 minutes.</li>
   <li><code class="highlighter-rouge">!!/block &lt;N&gt; &lt;room_id&gt;</code> — Blocks SmokeDetector in the specific room for <em>N</em> seconds; no alerts will be posted there. Example: <code class="highlighter-rouge">!!/block 3600 89</code> blocks alerts in the Tavern for one hour.</li>
   <li><code class="highlighter-rouge">!!/unblock</code> — Unblock SmokeDetector manually, resetting global block only.</li>
