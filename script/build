@@ -1,14 +1,16 @@
+#!/bin/bash
+
 for i in "$@"
 do
-case $i in
+  case $i in
     --dev)
-    DEV=YES
-    shift # past argument with no value
-    ;;
+      DEV=YES
+      shift # past argument with no value
+      ;;
     *)
-            # unknown option
-    ;;
-esac
+      # unknown option
+      ;;
+  esac
 done
 
 function force-fetch {
@@ -27,7 +29,7 @@ force-fetch smokey "https://github.com/Charcoal-SE/SmokeDetector.wiki" &
 wait
 
 for file in **/Home.md; do
-    mv "$file" "`dirname "$file"`/index.md"
+  mv "$file" "`dirname "$file"`/index.md"
 done
 
 ./add-front-matter.rb ms/** smokey/** &
@@ -60,10 +62,10 @@ cd assets
 mkdir css images
 
 for file in branding*.css; do
-    cp "$file" css/branding.css
+  cp "$file" css/branding.css
 done
 for file in charcoal*.png; do
-    cp "$file" images/charcoal.png
+  cp "$file" images/charcoal.png
 done
 
 cd ..
