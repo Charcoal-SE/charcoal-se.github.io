@@ -1,14 +1,16 @@
+#!/bin/bash
+
 for i in "$@"
 do
-case $i in
+  case $i in
     --deploy)
-    DEPLOY=YES
-    shift # past argument with no value
-    ;;
+      DEPLOY=YES
+      shift # past argument with no value
+      ;;
     *)
-            # unknown option
-    ;;
-esac
+      # unknown option
+      ;;
+  esac
 done
 
 function force-fetch {

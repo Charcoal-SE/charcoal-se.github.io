@@ -3,3 +3,7 @@ _site/
 .asset-cache
 .jekyll-metadata
 .idea
+
+/vendor/
+/ms/
+/smokey/
