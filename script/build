@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Process environment variables
+if [[ "$TRAVIS_PULL_REQUEST" =~ ^[0-9]+$ ]]; then
+  DEV=YES
+  echo "Building pull request #$TRAVIS_PULL_REQUEST, dev mode enabled" >&2
+fi
+
+
 for i in "$@"
 do
   case $i in
