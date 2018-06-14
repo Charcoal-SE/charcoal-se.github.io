@@ -2,8 +2,10 @@
 
 # Process environment variables
 if [[ "$TRAVIS_PULL_REQUEST" =~ ^[0-9]+$ ]]; then
-  DEV=YES
   echo "Building pull request #$TRAVIS_PULL_REQUEST, dev mode enabled" >&2
+
+  DEV=YES
+  unset GH_TOKEN TRAVIS_GITHUB_TOKEN
 fi
 
 
@@ -66,7 +68,7 @@ fi
 
 cd _site
 cd assets
-mkdir css images
+mkdir -p css images
 
 for file in branding*.css; do
   cp "$file" css/branding.css
