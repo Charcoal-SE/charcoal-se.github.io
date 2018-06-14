@@ -37,6 +37,7 @@ These people have at some point contributed code of some variety, whether it be 
 *   [quartata](http://chat.stackexchange.com/users/167070/quartata) (RO)
 *   [**Henders**](http://chat.stackexchange.com/users/211021/henders)
 *   [iBug](https://chat.stackexchange.com/users/275329/ibug)
+*   [thesecretmaster](https://chat.stackexchange.com/users/162795/thesecretmaster)
 
 </section>
 <section>
