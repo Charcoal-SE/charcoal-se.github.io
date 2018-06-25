@@ -81,7 +81,7 @@ which is itself complex enough that it's a story for another day.
 
 Since early 2017, we also have the possibility to automatically
 flag a post on behalf of volunteers who signed up for autoflagging.
-A post will never receive more than three of these automatic flags;
+A post will never receive more than four of these automatic flags;
 we want to make sure every post is also reviewed by humans.
 </section>
 <section>
