@@ -133,29 +133,31 @@ If your request for privileges is supported by a regular of one of the <a href="
 </ul>
 
 <h3 id="flagger-ms">Flagger (MS)</h3>
-<p>Everyone who signs up to metasmoke gets this by default. This privilege will be revoked if you abuse the system.</p>
+<p>Everyone who signs up to metasmoke gets this by default (unless that’s turned off, which it usually isn’t).</p>
 <ul>
   <li>Allows you to set up your account so that it will be used for autoflagging</li>
 </ul>
 
 <h3 id="core-ms">Core (MS)</h3>
-<p>Given to people who have contributed to Charcoal in a non-trivial way (e.g. by giving 60+ feedbacks in 30 day, contributing code, or frequenting CHQ). This signals that you are a core member of our team.</p>
+<p>Given to people who have contributed to Charcoal in a significant way. This signals that you are a core member of our team.</p>
 
 <p>Benefits include:</p>
 <ul>
   <li>Increased autoflagging frequency (see <a href="https://charcoal-se.org/smokey/Set-Up-Autoflagging#i-opted-in-but-i-dont-see-any-flags">this</a> page for details)</li>
   <li>Access to the <a href="https://metasmoke.erwaysoftware.com/data/sql">SQL</a> and <a href="https://metasmoke.erwaysoftware.com/data">JavaScript</a> data explorers</li>
-  <li>Ability to download <a href="https://metasmoke.erwaysoftware.com/dumps">database dumps</a></li>
+  <li>Ability to download <a href="https://metasmoke.erwaysoftware.com/dumps">database dumps</a>*</li>
   <li>Can create <a href="https://metasmoke.erwaysoftware.com/announcements/new">new announcements</a> (please don’t use this if you don’t know what you’re doing)</li>
   <li>Can edit domain records, and add/edit domain tags</li>
-  <li>Can create abuse reports &amp; contacts</li>
+  <li>Can create abuse reports &amp; contacts and change their statuses</li>
 </ul>
+
+<p><sup>* Although downloading database dumps is restricted to core users, you’re welcome to distribute them onwards to other people who ask for them too.</sup></p>
 
 <h3 id="code-admin-aka-blacklister-ms">Code admin a.k.a. blacklister (MS)</h3>
 
 <ul>
   <li>Can <code class="highlighter-rouge">!!/watch</code> and <code class="highlighter-rouge">!!/blacklist</code> without approval. Please make sure that you read the <a href="https://charcoal-se.org/smokey/Guidance-for-Blacklisting-and-Watching">blacklisting guidelines</a> before using these commands.</li>
-  <li>Can approve other user’s watches and blacklists on GitHub. Simply add a comment on the auto-generated PR containing the command <code class="highlighter-rouge">!!/approve</code>, and metasmoke will handle the rest. Note that you will need to be added to PullApprove for this to work properly (which in turn requires you to have a GitHub account which is known to us and added to the <a href="https://github.com/orgs/Charcoal-SE/teams/oaps/members">Other Awesome People team on GitHub</a>); ping an admin and they will set you up. <em>(note to admin: if things are failing, press the ‘Sync with GitHub’ button <a href="https://pullapprove.com/Charcoal-SE/SmokeDetector/settings/">here</a>)</em></li>
+  <li>Can approve other users’ watches and blacklists on GitHub. Simply add a comment on the auto-generated PR containing the command <code class="highlighter-rouge">!!/approve</code>, and metasmoke will handle the rest. Note that you will need to be added to PullApprove for this to work properly (which in turn requires you to have a GitHub account which is known to us and added to the <a href="https://github.com/orgs/Charcoal-SE/teams/oaps/members">Other Awesome People team on GitHub</a>); ping an admin and they will set you up. <em>(note to admin: if things are failing, press the ‘Sync with GitHub’ button <a href="https://pullapprove.com/Charcoal-SE/SmokeDetector/settings/">here</a>)</em></li>
   <li>Can failover standby instances from the <a href="https://metasmoke.erwaysoftware.com/status">status</a> page. Normally metasmoke handles this automatically if an instance goes down for more than 3 minutes, but you can use this if Smokey isn’t working properly. Make sure that you follow the <a href="https://charcoal-se.org/pings/#dead">troubleshooting guidelines</a> first.</li>
 </ul>
 
