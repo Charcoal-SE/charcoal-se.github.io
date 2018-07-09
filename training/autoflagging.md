@@ -8,8 +8,8 @@ details that system.
 ## What's autoflagging?
 Autoflagging is the subsystem of metasmoke that lets us automatically cast spam flags on
 posts that we're confident are spam. Users sign up for their accounts to be added to a pool
-of available flags, which are used when spam comes in. We send up to 3 autoflags on a post,
-halving the number of human spam flags required to remove the post.
+of available flags, which are used when spam comes in. We send up to 4 autoflags on a post,
+significantly reducing the number of spam flags humans need to raise to remove the post.
 
 ## How accurate is it?
 While SmokeDetector aims for zero false negatives, autoflagging aims for zero false
