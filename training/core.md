@@ -14,7 +14,7 @@ core users.
 ## How do you get it?
 The Core role is granted, and potentially removed, manually by metasmoke admins. There's no
 specific criteria which must be met. It's granted when the admins feel that it's
-appropriate, based on the person's contributions to the project. While Admins can remove
+appropriate, based on the person's contributions to the project. While admins can remove
 the Core role, it's rarely done, even if the person takes a hiatus from the project.
 
 -----
