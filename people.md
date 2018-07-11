@@ -87,4 +87,6 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Mego](https://chat.stackexchange.com/users/169713/mego)
 *   [Jake Symons](https://chat.stackexchange.com/users/318454/jake-symons)
 *   [Tinkeringbell](https://chat.stackexchange.com/users/305737/Tinkeringbell)
+*   [Frenzy Li](https://chat.stackexchange.com/users/40662/frenzy-li)
+*   [Erik the Outgolfer](https://chat.stackexchange.com/users/80316/erik-the-outgolfer)
 </section>
