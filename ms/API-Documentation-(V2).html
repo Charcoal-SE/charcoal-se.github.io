@@ -514,9 +514,10 @@ Output format:</p>
 }
 </code></pre>
 </details></td></tr>
-<tr><td><code>/api/v2.0/posts/:id/flag </code></td><td><details><summary> [W] Cast a spam flag on a post.</summary><p><strong>Write route</strong>. Requires a POST request and valid write token.<br />
+<tr><td><code>/api/v2.0/posts/:id/flag </code></td><td><details><summary> [W] Cast a flag on a post.</summary><p><strong>Write route</strong>. Requires a POST request and valid write token.<br />
 Available tables: N/A. No database information is returned from this request.<br />
 <code>backoff</code> will only be set on successful requests. <code>message</code> will only be set on failed requests.<br />
+Specify the <code>flag_type</code> param to choose your flag type: either <code>spam</code> (default) or <code>abusive</code> for an R/A flag.<br />
 Output format:</p>
 
 <pre><code>{
