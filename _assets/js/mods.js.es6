@@ -20,7 +20,7 @@ getUsers().then(users => {
   for (const user of users) {
     // HACK: Remove @Catija from the list since she’s a CM and therefore
     // has a diamond on all sites.
-    if (user.stack_exchange_account_id === 1703573) continue
+    if (user.stack_exchange_account_id === 3979517) continue
     for (const site of user.moderator_sites) {
       sites[site.id] = site
       modSites[site.id] = modSites[site.id] || []
