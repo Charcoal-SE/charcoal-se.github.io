@@ -38,6 +38,7 @@ These people have at some point contributed code of some variety, whether it be 
 *   [**Henders**](http://chat.stackexchange.com/users/211021/henders)
 *   [iBug](https://chat.stackexchange.com/users/275329/ibug) (RO)
 *   [thesecretmaster](https://chat.stackexchange.com/users/162795/thesecretmaster)
+*   [Makyen](https://chat.stackexchange.com/users/156050/makyen)
 
 </section>
 <section>
@@ -61,7 +62,6 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [WELZ](https://chat.stackexchange.com/users/210948/welz)
 *   [A J](https://chat.stackexchange.com/users/205208/a-j)
 *   [K.Davis](https://chat.stackexchange.com/users/223524/k-ds)
-*   [Makyen](https://chat.stackexchange.com/users/156050/makyen)
 *   [Zoe](https://chat.stackexchange.com/users/165415/zoe)
 
 </section>
