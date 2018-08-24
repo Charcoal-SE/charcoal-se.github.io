@@ -104,6 +104,11 @@ Scroll down for docs.
   <p><em>You</em> may <em>also include the filter-generation logic directly in your application if you really want; it’s less complex than v1’s, so that’s not too much of a liability. Bear in mind, however, that if the metasmoke implementation changes you will need to push out an update to your implementation to match.</em></p>
 </blockquote>
 
+<h3 id="pagination">Pagination</h3>
+<p>Responses from the API are paginated (that is, a long list of results will be split into pages and only the first page of results returned; further pages may be fetched by additional requests specifying a page number). The <code class="highlighter-rouge">has_more</code> field in the response indicates whether or not more pages are available beyond the current page.</p>
+
+<p>The default page size is 10 items; you can control this using the <code class="highlighter-rouge">per_page</code> parameter. To fetch pages beyond 1, specify the requested page number in the <code class="highlighter-rouge">page</code> parameter.</p>
+
 <h2 id="routes">Routes</h2>
 <p>Routes marked with [W] are write routes; you must use a POST request and present a write token for these routes.</p>
 
