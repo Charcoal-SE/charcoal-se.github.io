@@ -5,6 +5,9 @@
 
 fail = -> console.error(arguments)
 
+# source: https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding#Solution_1_–_escaping_the_string_before_encoding_it
+decodeUTF8 = (b64) -> decodeURIComponent(atob(str).split('').map((c) -> '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''))
+
 setTimeout (_f = ->
   $.get 'https://img.shields.io/travis/Charcoal-SE/userscripts.json', (reply) -> $('.build span').text reply.value
   $.get
@@ -28,7 +31,7 @@ initUserscripts = (tree) ->
     $li = $("<li/>").text "Loading #{file.path} info…"
     $ul.append $li
     $.get file.url, (blob) ->
-      text = atob blob.content
+      text = decodeUTF8 blob.content
       meta = userscriptParser text
 
       authors = (meta.author || []).concat meta.contributor || []
