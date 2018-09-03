@@ -36,7 +36,7 @@ These people have at some point contributed code of some variety, whether it be 
 *   [Cerbrus](http://chat.stackexchange.com/users/126657/cerbrus)
 *   [quartata](http://chat.stackexchange.com/users/167070/quartata) (RO)
 *   [**Henders**](http://chat.stackexchange.com/users/211021/henders)
-*   [iBug](https://chat.stackexchange.com/users/275329/ibug) (RO)
+*   [**iBug**](https://chat.stackexchange.com/users/275329/ibug) (RO)
 *   [thesecretmaster](https://chat.stackexchange.com/users/162795/thesecretmaster)
 *   [Makyen](https://chat.stackexchange.com/users/156050/makyen) (RO)
 
