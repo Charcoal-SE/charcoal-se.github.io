@@ -89,23 +89,23 @@
 
 <p>If you’ve determined that a new check is necessary, now you need to actually write it. The preferred way of doing this is a regex — these are (usually) simpler and easier to maintain than the alternatives. Writing a regex check is pretty easy: just write the regex. You can use regex-checking websites like <a href="http://regex101.com">regex101</a> to check if you’ve written it right — doing this is encouraged, because regex is not an easy language to speak.</p>
 
-<p>The alternative, which should only be used if a regex doesn’t do the job, is to write a check method. This is done by writing a new method in <code class="highlighter-rouge">findspam.py</code>, which takes three parameters: <code class="highlighter-rouge">s</code>, <code class="highlighter-rouge">site</code>, and <code class="highlighter-rouge">*args</code> (to catch any additional arguments passed, though you won’t need them). <code class="highlighter-rouge">s</code> is a string of stuff that you need to check (like the title, username, or post body), and <code class="highlighter-rouge">site</code> is the site that the post is on. Give your method a descriptive name, so that its purpose can be judged at a glance.</p>
+<p>The alternative, which should only be used if a regex doesn’t do the job, is to write a check method. This is done by writing a new method in <code class="highlighter-rouge">findspam.py</code>, which takes two parameters: <code class="highlighter-rouge">s</code> and <code class="highlighter-rouge">site</code>. <code class="highlighter-rouge">s</code> is a string of stuff that you need to check (like the title, username, or post body), and <code class="highlighter-rouge">site</code> is the site that the post is on. Give your method a descriptive name, so that its purpose can be judged at a glance.</p>
 
-<p>Your method should return a pair of values. The first is a boolean, indicating whether or not you think the post is spam. The second is a string, which is the <code class="highlighter-rouge">why</code> data for the post (and if you don’t know what that means, you should probably be letting someone more experienced write the check — or go learn about it).</p>
+<p>Your method should return a pair of values. The first is a boolean, indicating whether or not you think the post is spam. The second is a string, the <code class="highlighter-rouge">why</code> data for the post. It should be a short descriptive text that describes why you think it’s spam, e.g. <em>Contains keyword *male-enhancement*</em>.</p>
 
 <p>Here’s an example check method. This method will say that any <code class="highlighter-rouge">s</code> longer than 3 characters is spam.</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">ridiculous_spam_check</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">site</span><span class="p">):</span>
-  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
-       <span class="k">return</span> <span class="bp">True</span><span class="p">,</span> <span class="s">"Length is greater than 3 characters"</span>
-  <span class="k">else</span><span class="p">:</span>
-       <span class="k">return</span> <span class="bp">False</span><span class="p">,</span> <span class="s">""</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">True</span><span class="p">,</span> <span class="s">"Length is greater than 3 characters"</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span><span class="p">,</span> <span class="s">""</span>
 </code></pre></div></div>
 
 <h2 id="3-endless-lists">3. Endless Lists</h2>
-<p>Checks are our ammunition against spam; now you need a gun to fire it from. In our case, it’s a GLOCK — a Giant List of Checks and Keywords.</p>
+<p>Checks are our ammunition against spam; now you need a gun to fire it from. In our case, it’s a GLoCK — a Giant List of Checks and Keywords.</p>
 
-<p>Scroll to the <code class="highlighter-rouge">rules</code> array, which is <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/findspam.py#L641">somewhere around line 641 in <code class="highlighter-rouge">findspam.py</code></a>. This structure describes all the checks that SmokeDetector runs, and how to apply them. (N.B.: It’s not actually JSON, don’t make that mistake — it’s Python dicts.)</p>
+<p>Scroll to the <code class="highlighter-rouge">rules</code> array, which is <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/findspam.py#L1146">somewhere around line 1150 in <code class="highlighter-rouge">findspam.py</code></a>. This structure describes all the checks that SmokeDetector runs, and how to apply them. (N.B.: It’s not actually JSON, don’t make that mistake — it’s Python dicts.)</p>
 
 <p>You need to add a new entry to this array that describes your check. The general format of this dictionary is:</p>
 
