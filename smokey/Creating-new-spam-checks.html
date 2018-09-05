@@ -91,7 +91,7 @@
 
 <p>The alternative, which should only be used if a regex doesn’t do the job, is to write a check method. This is done by writing a new method in <code class="highlighter-rouge">findspam.py</code>, which takes two parameters: <code class="highlighter-rouge">s</code> and <code class="highlighter-rouge">site</code>. <code class="highlighter-rouge">s</code> is a string of stuff that you need to check (like the title, username, or post body), and <code class="highlighter-rouge">site</code> is the site that the post is on. Give your method a descriptive name, so that its purpose can be judged at a glance.</p>
 
-<p>Your method should return a pair of values. The first is a boolean, indicating whether or not you think the post is spam. The second is a string, the <code class="highlighter-rouge">why</code> data for the post. It should be a short descriptive text that describes why you think it’s spam, e.g. <em>Contains keyword *male-enhancement*</em>.</p>
+<p>Your method should return a pair of values. The first is a boolean, indicating whether or not you think the post is spam. The second is a string, the <code class="highlighter-rouge">why</code> data for the post. It should be a short descriptive text that describes why you think it’s spam, e.g. <em>Contains keyword *male-enhancement*</em>. See the text box under the reasons list of <a href="https://m.erwaysoftware.com/post/130809">a metasmoke record</a> for an example.</p>
 
 <p>Here’s an example check method. This method will say that any <code class="highlighter-rouge">s</code> longer than 3 characters is spam.</p>
 
@@ -112,20 +112,20 @@
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
     <span class="s">'regex'</span><span class="p">:</span> <span class="s">r"Include your regex here if it's a regex-based check"</span><span class="p">,</span>
     <span class="s">'method'</span><span class="p">:</span> <span class="n">method_name</span><span class="p">,</span>  <span class="c"># Pass the name of your method here if it's a method-based check,</span>
-    <span class="s">'all'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>  <span class="c"># True if you want to scan all sites in the network, False otherwise,</span>
-    <span class="s">'sites'</span><span class="p">:</span> <span class="p">[],</span>  <span class="c"># If `all` is true, these sites are excluded; otherwise, they are the only sites to get scanned</span>
+    <span class="s">'all'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>            <span class="c"># True if you want to scan all sites in the network, False otherwise,</span>
+    <span class="s">'sites'</span><span class="p">:</span> <span class="p">[],</span>            <span class="c"># If `all` is true, these sites are excluded; otherwise, they are the only sites to get scanned</span>
     <span class="s">'reason'</span><span class="p">:</span> <span class="s">"Name of the reason you're categorising these posts as (bad keyword, link at end of body, etc)"</span><span class="p">,</span>
-    <span class="s">'title'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>  <span class="c"># True if you want to scan post titles, False otherwise</span>
-    <span class="s">'body'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>  <span class="c"># True if you want to scan post bodies, False otherwise</span>
-    <span class="s">'username'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>  <span class="c"># True if you want to scan owner usernames, False otherwise</span>
+    <span class="s">'title'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>         <span class="c"># True if you want to scan post titles, False otherwise</span>
+    <span class="s">'body'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>           <span class="c"># True if you want to scan post bodies, False otherwise</span>
+    <span class="s">'username'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>      <span class="c"># True if you want to scan owner usernames, False otherwise</span>
     <span class="s">'body_summary'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>  <span class="c"># True if you want to scan body summaries, False otherwise</span>
     <span class="s">'stripcodeblocks'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>  <span class="c"># True if you want code removed before getting passed to your check</span>
-    <span class="s">'max_rep'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>  <span class="c"># Posts from users above this reputation will not be scanned</span>
-    <span class="s">'max_score'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>  <span class="c"># Posts scoring above this value will not be scanned</span>
+    <span class="s">'max_rep'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>          <span class="c"># Posts from users above this reputation will not be scanned</span>
+    <span class="s">'max_score'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>         <span class="c"># Posts scoring above this value will not be scanned</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>You should only include <em>one</em> of <code class="highlighter-rouge">regex</code> or <code class="highlighter-rouge">method</code> — checks should not be both at the same time.</p>
+<p>You should only include <em>either</em> <code class="highlighter-rouge">regex</code> or <code class="highlighter-rouge">method</code> — checks should not be both at the same time.</p>
 
 
 <div class="sidebar">
