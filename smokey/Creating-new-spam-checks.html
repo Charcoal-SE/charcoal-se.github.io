@@ -102,6 +102,8 @@
         <span class="k">return</span> <span class="bp">False</span><span class="p">,</span> <span class="s">""</span>
 </code></pre></div></div>
 
+<p>If you need to combine multiple pieces of information from a post (e.g <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/5374e226dabb574a974bdebd826d8c9a9921fc93/findspam.py#L607">Username similar to website</a>, where you need both the post body and the username), see section 4 below.</p>
+
 <h2 id="3-endless-lists">3. Endless Lists</h2>
 <p>Checks are our ammunition against spam; now you need a gun to fire it from. In our case, it’s a GLoCK — a Giant List of Checks and Keywords.</p>
 
@@ -112,20 +114,60 @@
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
     <span class="s">'regex'</span><span class="p">:</span> <span class="s">r"Include your regex here if it's a regex-based check"</span><span class="p">,</span>
     <span class="s">'method'</span><span class="p">:</span> <span class="n">method_name</span><span class="p">,</span>  <span class="c"># Pass the name of your method here if it's a method-based check,</span>
+    <span class="c"># You should include only one of above, not both</span>
+
     <span class="s">'all'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>            <span class="c"># True if you want to scan all sites in the network, False otherwise,</span>
     <span class="s">'sites'</span><span class="p">:</span> <span class="p">[],</span>            <span class="c"># If `all` is true, these sites are excluded; otherwise, they are the only sites to get scanned</span>
     <span class="s">'reason'</span><span class="p">:</span> <span class="s">"Name of the reason you're categorising these posts as (bad keyword, link at end of body, etc)"</span><span class="p">,</span>
     <span class="s">'title'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>         <span class="c"># True if you want to scan post titles, False otherwise</span>
     <span class="s">'body'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>           <span class="c"># True if you want to scan post bodies, False otherwise</span>
     <span class="s">'username'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>      <span class="c"># True if you want to scan owner usernames, False otherwise</span>
-    <span class="s">'body_summary'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>  <span class="c"># True if you want to scan body summaries, False otherwise</span>
+    <span class="s">'body_summary'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>  <span class="c"># True if you want to scan body summaries, for a preemptive check</span>
     <span class="s">'stripcodeblocks'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>  <span class="c"># True if you want code removed before getting passed to your check</span>
     <span class="s">'max_rep'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>          <span class="c"># Posts from users above this reputation will not be scanned</span>
     <span class="s">'max_score'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>         <span class="c"># Posts scoring above this value will not be scanned</span>
+
+    <span class="s">'questions'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>      <span class="c"># False if questions shouldn't be checked, optional</span>
+    <span class="s">'answers'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>        <span class="c"># False if answers shouldn't be checked, optional</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
 <p>You should only include <em>either</em> <code class="highlighter-rouge">regex</code> or <code class="highlighter-rouge">method</code> — checks should not be both at the same time.</p>
+
+<h2 id="4-other-neat-things">4. Other neat things</h2>
+
+<h4 id="partial-reason">Partial reason</h4>
+
+<p>If a check is designed to check multiple aspects of a post individually, you may want separate reasons for the aspects checked. For example, <em>bad keyword in title</em>, <em>bad keyword in body</em> and <em>bad keyword in username</em> are three reasons.</p>
+
+<p>To keep things minimal, you can use a pair of curly brackets in the reason, which will be replaced by one of <code class="highlighter-rouge">title</code>, <code class="highlighter-rouge">body</code> and <code class="highlighter-rouge">username</code>, if the corresponding part of the post is caught as spam. So you can write this as a reason:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="s">'title'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">'body'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">'body_summary'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">'username'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="s">'reason'</span><span class="p">:</span> <span class="s">'bad keyword in {}'</span> 
+</code></pre></div></div>
+
+<p>Note: We’re currently using <code class="highlighter-rouge">str.replace()</code> to insert the post aspect instead of using <code class="highlighter-rouge">.format()</code>, so only bare braces are supported.</p>
+
+<h4 id="whole_post-check"><code class="highlighter-rouge">whole_post</code> check</h4>
+
+<p>If you need multiple pieces of information from a post, instead of checking title, body and username separately, you can define a method like this (<a href="https://github.com/Charcoal-SE/SmokeDetector/blob/5374e226dabb574a974bdebd826d8c9a9921fc93/findspam.py#L607">example</a>):</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">another_ridiculous_check</span><span class="p">(</span><span class="n">post</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">post</span><span class="o">.</span><span class="n">user_name</span> <span class="ow">in</span> <span class="n">post</span><span class="o">.</span><span class="n">body</span> <span class="ow">and</span> <span class="n">post</span><span class="o">.</span><span class="n">user_name</span> <span class="ow">in</span> <span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span> <span class="s">"Username in both title and body"</span>
+    <span class="k">return</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="s">""</span>
+</code></pre></div></div>
+
+<p>The method should take one <code class="highlighter-rouge">post</code> object. You can find its available properties starting from <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/5374e226dabb574a974bdebd826d8c9a9921fc93/classes/_Post.py#L180">here</a>. Then you can perform the check with the information provided in the object.</p>
+
+<p>The return value is also a bit different from a standard check. A <code class="highlighter-rouge">whole_post</code> check should return 4 values, the format of which would be</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="n">title_is_spam</span><span class="p">,</span> <span class="n">username_is_spam</span><span class="p">,</span> <span class="n">body_is_spam</span><span class="p">,</span> <span class="n">why</span>
+</code></pre></div></div>
+
+<p>The first three boolean values indicate whether you think the title, the username or the post body is spam. The last value is <code class="highlighter-rouge">why</code> data, which is identical to the <code class="highlighter-rouge">why</code> data mentioned above.</p>
+
+<p>Then, when defining the entry for your check, you need to add <code class="highlighter-rouge">'whole_post': True</code> to the dict, so that the check dispatcher can provide the post object to your method, instead of <code class="highlighter-rouge">s, site</code>.</p>
 
 
 <div class="sidebar">
