@@ -88,11 +88,15 @@
 
 <h2 id="2-configuration-of-the-command">2. Configuration of the <code class="highlighter-rouge">@command()</code></h2>
 
+<p>Supported arguments:</p>
+
+<p><strong>command</strong>(<em>privileged=False</em>, <em>whole_msg=False</em>, <em>arity=None</em>, <em>aliases=[]</em>, <em>give_name=False</em>, <em>reply=False</em>)</p>
+
 <p>To tweak the settings of your command, you have to edit the parameters inside <code class="highlighter-rouge">@command()</code></p>
 
 <ul>
   <li>
-    <p><code class="highlighter-rouge">whole_msg</code> - <code class="highlighter-rouge">True</code> or <code class="highlighter-rouge">False</code>: If <code class="highlighter-rouge">True</code>, you can include a parameter <code class="highlighter-rouge">msg</code> in your function. <code class="highlighter-rouge">msg</code> is a <a href="https://github.com/Manishearth/ChatExchange">ChatExchange</a> message object. The default is <code class="highlighter-rouge">False</code>.</p>
+    <p><code class="highlighter-rouge">whole_msg</code> - <code class="highlighter-rouge">True</code> or <code class="highlighter-rouge">False</code>: If <code class="highlighter-rouge">True</code>, you can include a parameter <code class="highlighter-rouge">msg</code> in your function. <code class="highlighter-rouge">msg</code> is a <a href="https://github.com/Manishearth/ChatExchange">ChatExchange</a> message object. The default is <code class="highlighter-rouge">False</code>. The <code class="highlighter-rouge">msg</code> argument will always come first, if there is any other argument.</p>
 
     <p>Example:</p>
     <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@command</span><span class="p">(</span><span class="n">whole_msg</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
@@ -108,6 +112,15 @@
 <span class="k">def</span> <span class="nf">createcommand</span><span class="p">():</span>
     <span class="k">return</span> <span class="bp">None</span>
 </code></pre></div>    </div>
+
+    <p>You can also manually return the non-privileged response if you want:</p>
+
+    <p>```python
+@command(whole_msg=True)
+def createcommand(msg):
+  if not is_privileged(msg.owner, msg.room):
+    raise CmdException(GlobalVars.not_privileged_warning)
+  return “Hello”</p>
   </li>
   <li>
     <p><code class="highlighter-rouge">aliases</code> - an array of strings: In addition to the function name, the function will be executed if the command is equal to the alias.</p>
@@ -137,10 +150,10 @@
 </code></pre></div>    </div>
   </li>
   <li>
-    <p><code class="highlighter-rouge">give_name</code> - <code class="highlighter-rouge">True</code> or <code class="highlighter-rouge">False</code>: When <code class="highlighter-rouge">True</code>, a parameter called <code class="highlighter-rouge">alias_used</code> can be added, which shows which alias was used. See <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/3fae27a1f1a2fc5053c438047a55359f963eb013/chatcommands.py#L287">L287 of <code class="highlighter-rouge">chatcommands.py</code></a>.</p>
+    <p><code class="highlighter-rouge">give_name</code> - <code class="highlighter-rouge">True</code> or <code class="highlighter-rouge">False</code>: When <code class="highlighter-rouge">True</code>, a parameter called <code class="highlighter-rouge">alias_used</code> can be added, which shows which alias was used. See <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/3fae27a1f1a2fc5053c438047a55359f963eb013/chatcommands.py#L287">L287 of <code class="highlighter-rouge">chatcommands.py</code></a>. This parameter will be supplied as a keyword argument.</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">arity</code> - tuple of <code class="highlighter-rouge">int</code>s: Allows the number of command argument to be in the range. (eg <code class="highlighter-rouge">arity=(0,2)</code>) allows the command to have 0, 1 or 2 arguments.</p>
+    <p><code class="highlighter-rouge">arity</code> - tuple of <code class="highlighter-rouge">int</code>s: Allows the number of command argument to be in the range. (eg <code class="highlighter-rouge">arity=(0,2)</code>) allows the command to have 0, 1 or 2 arguments. Absent values will be provided as <code class="highlighter-rouge">None</code>.</p>
   </li>
   <li>
     <p><code class="highlighter-rouge">reply</code> - <code class="highlighter-rouge">True</code> or <code class="highlighter-rouge">False</code>: Defaults to <code class="highlighter-rouge">False</code>. If <code class="highlighter-rouge">True</code>, the command will only execute if it is a reply or by <code class="highlighter-rouge">sd</code> feedback, not <code class="highlighter-rouge">!!/</code>. If <code class="highlighter-rouge">False</code>, the command will only execute if <code class="highlighter-rouge">!!/</code> is used.</p>
@@ -149,9 +162,9 @@
 
 <h2 id="3-post-something">3. Post something</h2>
 
-<p>To post data that is what you expected, simply execute <code class="highlighter-rouge">return "your message here"</code></p>
+<p>To post data that is what you expected, simply execute <code class="highlighter-rouge">return "some message"</code></p>
 
-<p>If you encounter an error, you can raise a <code class="highlighter-rouge">CmdException</code> with a string as the error message. The string will be sent to chat.</p>
+<p>If you encounter an error, you can raise a <code class="highlighter-rouge">CmdException</code> with a string as the error message. The string will be sent to chat. The difference is that with <code class="highlighter-rouge">return</code>, the response can be suppressed if the command is issued in “silent mode” (ends with an additional hyphen, e.g. <code class="highlighter-rouge">!!/command-</code>). With <code class="highlighter-rouge">raise CmdException</code>, the response suppression will be ignored and Smokey will always response with the string in the exception.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@command</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">somerandomcommand</span><span class="p">():</span>
@@ -163,6 +176,11 @@
 <p>If you want to send a message to all the rooms that Smokey is running in, use <code class="highlighter-rouge">tell_rooms</code>:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tell_rooms</span><span class="p">(</span><span class="s">"A message"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>It’s recommended that you send messages to rooms that are interested in debug messages, instead of spamming all rooms. You can use <code class="highlighter-rouge">tell_rooms_with</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tell_rooms_with</span><span class="p">(</span><span class="s">'debug'</span><span class="p">,</span> <span class="s">"A debug message"</span><span class="p">)</span>
 </code></pre></div></div>
 
 
