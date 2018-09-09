@@ -52,6 +52,8 @@ git -C ./ms rev-parse HEAD
 echo -n "Smokey wiki commit: "
 git -C ./smokey rev-parse HEAD
 
+COMMIT_INFO="$(git log -1 --pretty="[%h] %B")"
+
 rm -r _site/assets # remove old assets
 
 export PAGES_ENV=dotcom # GitHub.com
@@ -82,5 +84,5 @@ cd ..
 if [[ ! $DEV ]]; then
   git add --all .
   git config --global push.default tracking
-  ../push.sh
+  ../push.sh -m "$COMMIT_INFO"
 fi
