@@ -4,6 +4,10 @@ _site/
 .jekyll-metadata
 .idea
 
+# Bundler install
 /vendor/
+
+# Other stuff
 /ms/
 /smokey/
+/_data/commits.json
