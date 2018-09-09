@@ -26,8 +26,8 @@ function force-fetch {
     echo "Force-fetching $1..."
     bash -c "cd $1 && git reset -q --hard HEAD && git fetch && git checkout -q origin/master && git checkout -q -B master"
   else
-    rm -rf $1
-    git clone --depth 1 -q -b master $2 $1
+    rm -rf "$1"
+    git clone --depth 1 -q -b master "$2" "$1"
   fi
 }
 

@@ -3,10 +3,8 @@ rvm: 2.2
 cache:
   directories:
     - vendor/bundle
-    - _site
     - smokey
     - ms
-    - .tmp
     - .asset-cache
 install: script/install --deploy
 script: script/build
