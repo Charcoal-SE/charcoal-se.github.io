@@ -13,19 +13,6 @@ do
   esac
 done
 
-function force-fetch {
-  if [[ -d $1/.git ]]; then
-    echo "Force-fetching $1..."
-    bash -c "cd $1 && git reset -q --hard HEAD && git fetch && git checkout -q origin/master && git checkout -q -B master"
-  else
-    rm -rf $1
-    git clone --depth 1 -q -b master $2 $1
-  fi
-}
-
-force-fetch .tmp "https://github.com/Charcoal-SE/charcoal-jekyll-theme"
-cp -r .tmp/* ./
-
 if [[ $DEPLOY ]]; then
   bundle install --deployment
 else
