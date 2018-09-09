@@ -77,22 +77,27 @@ done
 popd # _site/assets
 
 if [[ ! $DEV ]]; then
-  git add --all .
+  git add --all
   git config --global push.default tracking
-  EMAIL="smokey@erwaysoftware.com"
-  AUTHOR="SmokeDetector"
+  ORIGINAL_NAME="$(git config --get user.name)"
+  ORIGINAL_EMAIL="$(git config --get user.email)"
+  git config user.name "SmokeDetector"
+  git config user.email "smokey@erwaysoftware.com"
 
   if [ -n "$TRAVIS_COMMIT" ]; then
-    git commit --allow-empty -q --author="'$AUTHOR <$EMAIL>'"\
+    git commit --allow-empty -q \
       -m "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER:-<unknown>}" \
       -m "${COMMIT_INFO:-$TRAVIS_COMMIT}"
     git push -q
   else
-    git commit --allow-empty -q --author="'$AUTHOR <$EMAIL>'"\
+    git commit --allow-empty -q \
       -m "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER:-<unknown>}" \
       -m "${COMMIT_INFO:-$TRAVIS_COMMIT}"
     echo -e "Skipped push to GitHub Pages."
   fi
+
+  git config user.name "$ORIGINAL_NAME"
+  git config user.email "$ORIGINAL_EMAIL"
 fi
 
 popd # _site
