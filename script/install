@@ -1,16 +1,15 @@
 #!/bin/bash
 
-for i in "$@"
-do
-  case $i in
+while [ $# -ne 0 ]; do
+  case $1 in
     --deploy)
       DEPLOY=YES
-      shift # past argument with no value
       ;;
     *)
       # unknown option
       ;;
   esac
+  shift
 done
 
 if [[ $DEPLOY ]]; then

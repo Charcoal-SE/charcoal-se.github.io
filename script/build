@@ -40,8 +40,8 @@ for file in **/Home.md; do
   mv "$file" "$(dirname "$file")/index.md"
 done
 
-./add-front-matter.rb ms/** smokey/** &
-./create-data-files.rb &
+script/add-front-matter.rb ms/** smokey/** &
+script/create-data-files.rb &
 wait
 
 git -C ./ms     log -1 --pretty="MS wiki commit:     [%h] %s"
