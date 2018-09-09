@@ -82,11 +82,10 @@
 <h2 id="standby-mode">Standby mode</h2>
 
 <p>SmokeDetector can be run in standby mode as a backup copy, just in case the main Smokey breaks down.
-While in Standby mode, SmokeDetector will not make reports in chat, send posts to Metasmoke or listen
+While in Standby mode, SmokeDetector won’t make any reports in chat, send posts to Metasmoke or listen
 to commands.</p>
 
-<p>Standby mode can be deactivated by running the <code class="highlighter-rouge">!!/failover</code> command. This will restart a backup 
-instance so that it begins to run like the standard SmokeDetector.</p>
+<p>If the main Smokey fails to respond to status pings for a few minutes, metasmoke will automatically choose a standby instance to failover. Any instance can also be manually failovered from the <a href="https://metasmoke.erwaysoftware.com/status">status page</a> (note: code admin privileges required). The failovered instance will then begin to take over the normal duties of the main SmokeDetector.</p>
 
 <blockquote>
   <p>SmokeDetector host note: you can run <code class="highlighter-rouge">python3 nocrash.py standby</code> to start Smokey directly into Standby mode.</p>
