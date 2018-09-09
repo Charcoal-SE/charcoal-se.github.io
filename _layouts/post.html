@@ -1,0 +1,7 @@
+---
+layout: default
+---
+<h1>{{ page.title }}</h1>
+<em>{% if page.author %}by {{ page.author }} on{% endif %}{{ page.date|date:"%A, %B %e, %Y at %H:%M %Z" }}</em>
+
+{{ content }}
