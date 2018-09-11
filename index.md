@@ -18,9 +18,7 @@ please see
 
 > **Autoflagging**
 >
-> Charcoal are currently running an autoflagging initiative,
-> to flag spam posts automatically based on past collected data.
-> To find out more, go to [Autoflagging](/flagging).
+> If you're looking for details on our autoflagging system, go to [Autoflagging](/flagging).
 {: .alert.link}
 
 <section>
