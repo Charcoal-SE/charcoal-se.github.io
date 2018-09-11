@@ -6,7 +6,7 @@
     Autoflagging | Charcoal
     
   </title>
-  <link type="text/css" rel="stylesheet" href="/assets/application-235f04ebe9a8ed0bfe01a07f28978a81955371c2fe39853d76456ee7d9174b4e.css">
+  <link type="text/css" rel="stylesheet" href="/assets/application-53745f24ee810cdc043ee84603a23b1655a324ab8a497de1b352fa473e07c2ed.css">
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch"></script>
   <script type="text/javascript" src="/assets/application-1095bd655285b7e43a3f0882bc8f661d08f477c2df0859dbf6c335406c616894.js"></script>
   <script type="text/javascript" src="/assets/vendor-ecc837bbd5d3e5dbfb38524f3faaf1406e7e5490330a1bd2b4728be17a5fffa7.js"></script>
@@ -69,58 +69,58 @@
       <h1 id="autoflagging">Autoflagging</h1>
 
 <section>
-  <p>## What is autoflagging? {#whats-flagging}</p>
+  <h2 id="whats-flagging">What is autoflagging?</h2>
 
   <p>Autoflagging is a subsystem of <a href="https://metasmoke.erwaysoftware.com/">metasmoke</a> that lets us automatically cast spam flags
-  on Stack Exchange posts if we’re certain enough that they’re spam. To gain that certainty, we calculate the historical
-  accuracy of the spam checks that caught the post in question, and - essentially - if they’re over a certain mark, we cast
-  some flags. More detail on how exactly that works is at the bottom of this page.</p>
+on Stack Exchange posts if we’re certain enough that they’re spam. To gain that certainty, we calculate the historical
+accuracy of the spam checks that caught the post in question, and - essentially - if they’re over a certain mark, we cast
+some flags. More detail on how exactly that works is at the bottom of this page.</p>
 </section>
 
 <section>
-  <p>## How good is it? {#how-good}</p>
+  <h2 id="how-good">How good is it?</h2>
 
   <p>In the period from 2017-02-01 through 2018-09-11, we successfully cast 114,089 spam flags. Of those, 113,570 were correctly
-  cast - that is, cast on a confirmed spam post - and 519 were cast in error on legitimate posts. Overall, that’s a 99.55%
-  accuracy rate.</p>
+cast - that is, cast on a confirmed spam post - and 519 were cast in error on legitimate posts. Overall, that’s a 99.55%
+accuracy rate.</p>
 
   <p>This is the chart of flags over time for that period. The <code class="highlighter-rouge">tp_count</code> series represents flags cast on spam; the <code class="highlighter-rouge">fp_count</code>
-  series flags cast on legitimate posts.</p>
+series flags cast on legitimate posts.</p>
 
   <p><img src="https://i.stack.imgur.com/Hcp12.png" alt="Line chart of count against date containing two series, tp_count and fp_count. tp_count is consistently high, around 1000,
-    while fp_count remains low, around 10." /></p>
+  while fp_count remains low, around 10." /></p>
 </section>
 
 <section>
-  <p>## How many flags does it cast? {#how-many}</p>
+  <h2 id="how-many">How many flags does it cast?</h2>
 
   <p>Autoflagging can cast up to four flags on a post it is confident is spam. However, that’s not a flat value - the number of
-  flags cast varies with the degree of certainty we have. If the system is more than 99.75%* certain, we cast three flags;
-  above 99.90%*, we cast four flags.</p>
+flags cast varies with the degree of certainty we have. If the system is more than 99.75%* certain, we cast three flags;
+above 99.90%*, we cast four flags.</p>
 
   <p>This doesn’t apply on sites where the number of flags required for auto-deletion of a post is lower. On most Stack Exchange
-  sites, posts require 6 flags to be automatically deleted as spam by the system. However, on
-  <a href="https://workplace.stackexchange.com/">The Workplace</a> and on <a href="https://english.stackexchange.com/">English Language &amp; Usage</a>,
-  the requirement has been dropped to 3. Hence, on these two sites, autoflagging only ever casts one flag automatically, 
-  regardless of certainty.</p>
+sites, posts require 6 flags to be automatically deleted as spam by the system. However, on
+<a href="https://workplace.stackexchange.com/">The Workplace</a> and on <a href="https://english.stackexchange.com/">English Language &amp; Usage</a>,
+the requirement has been dropped to 3. Hence, on these two sites, autoflagging only ever casts one flag automatically, 
+regardless of certainty.</p>
 
   <p><sup>* Correct as of 2018-09-11; subject to change.</sup></p>
 </section>
 
 <section>
-  <p>## Where do the flags come from? {#where-flags}</p>
+  <h2 id="where-flags">Where do the flags come from?</h2>
 
   <p>We are able to cast more than one spam flag on each post by using regular users’ spam flags. Stack Exchange users may grant 
-  permission for their accounts to be used for autoflagging by
-  <a href="https://metasmoke.erwaysoftware.com/flagging/ocs">signing up on metasmoke</a>. Once signed up, they may specify under what 
-  conditions their flags can be used; this enables metasmoke to cast flags in their name.</p>
+permission for their accounts to be used for autoflagging by
+<a href="https://metasmoke.erwaysoftware.com/flagging/ocs">signing up on metasmoke</a>. Once signed up, they may specify under what 
+conditions their flags can be used; this enables metasmoke to cast flags in their name.</p>
 
   <p>Moderators’ flags will never be used, regardless of whether their settings allow it or not; we don’t want to automatically
-  nuke posts.</p>
+nuke posts.</p>
 </section>
 
 <section>
-  <p>## How does it work? {#how-work}</p>
+  <h2 id="how-work">How does it work?</h2>
 
   <p>This has been alluded to in a number of places here, but for the sake of completeness, autoflagging works along these lines:</p>
 
@@ -136,11 +136,11 @@ value, the system works out if the post is eligible for flagging, and if so whic
   </ul>
 
   <p>If you’d like more information on the technical side of the system, drop into
-  <a href="https://chat.stackexchange.com/rooms/11540">Charcoal HQ</a> to have a chat about it.</p>
+<a href="https://chat.stackexchange.com/rooms/11540">Charcoal HQ</a> to have a chat about it.</p>
 </section>
 
 <section>
-  <p>## More information {#more-info}</p>
+  <h2 id="more-info">More information</h2>
 
   <ul>
     <li>metasmoke has a <a href="https://metasmoke.erwaysoftware.com/flagging">flagging dashboard</a></li>
