@@ -69,16 +69,18 @@
       <h1 id="autoflagging">Autoflagging</h1>
 
 <section>
-  <p>## What is autoflagging? {#whats-flagging}
-  Autoflagging is a subsystem of <a href="https://metasmoke.erwaysoftware.com/">metasmoke</a> that lets us automatically cast spam flags
+  <p>## What is autoflagging? {#whats-flagging}</p>
+
+  <p>Autoflagging is a subsystem of <a href="https://metasmoke.erwaysoftware.com/">metasmoke</a> that lets us automatically cast spam flags
   on Stack Exchange posts if we’re certain enough that they’re spam. To gain that certainty, we calculate the historical
   accuracy of the spam checks that caught the post in question, and - essentially - if they’re over a certain mark, we cast
   some flags. More detail on how exactly that works is at the bottom of this page.</p>
 </section>
 
 <section>
-  <p>## How good is it? {#how-good}
-  In the period from 2017-02-01 through 2018-09-11, we successfully cast 114,089 spam flags. Of those, 113,570 were correctly
+  <p>## How good is it? {#how-good}</p>
+
+  <p>In the period from 2017-02-01 through 2018-09-11, we successfully cast 114,089 spam flags. Of those, 113,570 were correctly
   cast - that is, cast on a confirmed spam post - and 519 were cast in error on legitimate posts. Overall, that’s a 99.55%
   accuracy rate.</p>
 
@@ -90,8 +92,9 @@
 </section>
 
 <section>
-  <p>## How many flags does it cast? {#how-many}
-  Autoflagging can cast up to four flags on a post it is confident is spam. However, that’s not a flat value - the number of
+  <p>## How many flags does it cast? {#how-many}</p>
+
+  <p>Autoflagging can cast up to four flags on a post it is confident is spam. However, that’s not a flat value - the number of
   flags cast varies with the degree of certainty we have. If the system is more than 99.75%* certain, we cast three flags;
   above 99.90%*, we cast four flags.</p>
 
@@ -105,8 +108,9 @@
 </section>
 
 <section>
-  <p>## Where do the flags come from? {#where-flags}
-  We are able to cast more than one spam flag on each post by using regular users’ spam flags. Stack Exchange users may grant 
+  <p>## Where do the flags come from? {#where-flags}</p>
+
+  <p>We are able to cast more than one spam flag on each post by using regular users’ spam flags. Stack Exchange users may grant 
   permission for their accounts to be used for autoflagging by
   <a href="https://metasmoke.erwaysoftware.com/flagging/ocs">signing up on metasmoke</a>. Once signed up, they may specify under what 
   conditions their flags can be used; this enables metasmoke to cast flags in their name.</p>
@@ -116,8 +120,9 @@
 </section>
 
 <section>
-  <p>## How does it work? {#how-work}
-  This has been alluded to in a number of places here, but for the sake of completeness, autoflagging works along these lines:</p>
+  <p>## How does it work? {#how-work}</p>
+
+  <p>This has been alluded to in a number of places here, but for the sake of completeness, autoflagging works along these lines:</p>
 
   <ul>
     <li><strong>Users sign up</strong> and grant permission for their flags to be used on metasmoke.<br />
@@ -136,6 +141,7 @@ value, the system works out if the post is eligible for flagging, and if so whic
 
 <section>
   <p>## More information {#more-info}</p>
+
   <ul>
     <li>metasmoke has a <a href="https://metasmoke.erwaysoftware.com/flagging">flagging dashboard</a></li>
     <li>We’ve written a couple of posts on Meta Stack Exchange: <a href="https://meta.stackexchange.com/q/291301">here’s the first</a> and
