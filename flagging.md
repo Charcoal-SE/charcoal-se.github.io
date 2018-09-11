@@ -22,8 +22,7 @@ accuracy rate.
 This is the chart of flags over time for that period. The `tp_count` series represents flags cast on spam; the `fp_count`
 series flags cast on legitimate posts.
 
-![Line chart of count against date containing two series, tp_count and fp_count. tp_count is consistently high, around 1000,
-  while fp_count remains low, around 10.](https://i.stack.imgur.com/Hcp12.png)
+{% img https://i.stack.imgur.com/Hcp12.png height:"400" width class:"block-center" %}
 </section>
 
 <section>
