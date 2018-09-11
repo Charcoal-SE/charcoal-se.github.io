@@ -5,6 +5,7 @@
 
 <section>
   ## What is autoflagging? {#whats-flagging}
+  
   Autoflagging is a subsystem of [metasmoke](https://metasmoke.erwaysoftware.com/) that lets us automatically cast spam flags
   on Stack Exchange posts if we're certain enough that they're spam. To gain that certainty, we calculate the historical
   accuracy of the spam checks that caught the post in question, and - essentially - if they're over a certain mark, we cast
@@ -13,6 +14,7 @@
 
 <section>
   ## How good is it? {#how-good}
+  
   In the period from 2017-02-01 through 2018-09-11, we successfully cast 114,089 spam flags. Of those, 113,570 were correctly
   cast - that is, cast on a confirmed spam post - and 519 were cast in error on legitimate posts. Overall, that's a 99.55%
   accuracy rate.
@@ -26,6 +28,7 @@
 
 <section>
   ## How many flags does it cast? {#how-many}
+  
   Autoflagging can cast up to four flags on a post it is confident is spam. However, that's not a flat value - the number of
   flags cast varies with the degree of certainty we have. If the system is more than 99.75%* certain, we cast three flags;
   above 99.90%*, we cast four flags.
@@ -41,6 +44,7 @@
  
 <section>
   ## Where do the flags come from? {#where-flags}
+  
   We are able to cast more than one spam flag on each post by using regular users' spam flags. Stack Exchange users may grant 
   permission for their accounts to be used for autoflagging by
   [signing up on metasmoke](https://metasmoke.erwaysoftware.com/flagging/ocs). Once signed up, they may specify under what 
@@ -52,6 +56,7 @@
 
 <section>
   ## How does it work? {#how-work}
+  
   This has been alluded to in a number of places here, but for the sake of completeness, autoflagging works along these lines:
   
    - **Users sign up** and grant permission for their flags to be used on metasmoke.  
@@ -69,6 +74,7 @@
 
 <section>
   ## More information {#more-info}
+  
    - metasmoke has a [flagging dashboard](https://metasmoke.erwaysoftware.com/flagging)
    - We've written a couple of posts on Meta Stack Exchange: [here's the first](https://meta.stackexchange.com/q/291301) and
      [here's the second](https://meta.stackexchange.com/q/307585)
