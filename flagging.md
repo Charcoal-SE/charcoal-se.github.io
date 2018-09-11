@@ -20,9 +20,9 @@ cast - that is, cast on a confirmed spam post - and 519 were cast in error on le
 accuracy rate.
 
 This is the chart of flags over time for that period. The `tp_count` series represents flags cast on spam; the `fp_count`
-series flags cast on legitimate posts.
+series flags cast on legitimate posts. Click for larger version.
 
-<img src="https://i.stack.imgur.com/Hcp12.png" height="400" width class="block-center" />
+<a href="https://i.stack.imgur.com/Hcp12.png"><img src="https://i.stack.imgur.com/Hcp12.png" height="400" width class="block-center" /></a>
 </section>
 
 <section>
