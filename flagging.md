@@ -35,6 +35,8 @@
   [The Workplace](https://workplace.stackexchange.com/) and on [English Language & Usage](https://english.stackexchange.com/),
   the requirement has been dropped to 3. Hence, on these two sites, autoflagging only ever casts one flag automatically, 
   regardless of certainty.
+  
+  <sup>* Correct as of 2018-09-11; subject to change.</sup>
 </section>
  
 <section>
