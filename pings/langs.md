@@ -3,14 +3,15 @@
 Charcoal includes people from around the world.
 If you're looking for someone who speaks a particular language, please check this list:
 
+* **Afrikaans**: [Fabby](https://stackexchange.com/users/5269210/fabby)
 * **Arabic**: [M.A.R.](http://stackexchange.com/users/3841881/m-a-r)
 * **Azerbaijani**: [M.A.R.](http://stackexchange.com/users/3841881/m-a-r)
 * **Chinese**: [iBug](https://stackexchange.com/users/7886663/ibug) and [paper1111](https://stackexchange.com/users/9926590/paper1111) (Both all written variants of Chinese)
 * **Czech**: [Martin Sleziak](https://stackexchange.com/users/267077/martin-sleziak)
-* **Dutch**: [Glorfindel](http://stackexchange.com/users/6085540/glorfindel), [Ferrybig](https://stackexchange.com/users/1677570/ferrybig), and [rene](https://stackexchange.com/users/281857/rene)
+* **Dutch**: [Glorfindel](http://stackexchange.com/users/6085540/glorfindel), [Ferrybig](https://stackexchange.com/users/1677570/ferrybig), [rene](https://stackexchange.com/users/281857/rene), and [Fabby](https://stackexchange.com/users/5269210/fabby)
 * **Finnish**: [tripleee](https://stackexchange.com/users/468289/tripleee)
-* **French**: [Kyll](http://stackexchange.com/users/5221606/kyll)
-* **German**: [Magisch](https://stackexchange.com/users/7034529/magisch), [Wrzlprmft](https://stackexchange.com/users/2437491/wrzlprmft), [Glorfindel](http://stackexchange.com/users/6085540/glorfindel), and [rene](https://stackexchange.com/users/281857/rene)
+* **French**: [Kyll](http://stackexchange.com/users/5221606/kyll) and [Fabby](https://stackexchange.com/users/5269210/fabby)
+* **German**: [Magisch](https://stackexchange.com/users/7034529/magisch), [Wrzlprmft](https://stackexchange.com/users/2437491/wrzlprmft), [Glorfindel](http://stackexchange.com/users/6085540/glorfindel), [Fabby](https://stackexchange.com/users/5269210/fabby), and [rene](https://stackexchange.com/users/281857/rene)
 * **Hebrew**: [Mithrandir](http://stackexchange.com/users/5129611/mithrandir)
 * **Persian**: [M.A.R.](http://stackexchange.com/users/3841881/m-a-r)
 * **Polish**: [Michał Perłakowski](http://stackexchange.com/users/4768421/micha%c5%82-per%c5%82akowski)
