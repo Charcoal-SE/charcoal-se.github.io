@@ -6,7 +6,7 @@ When an organisation such as Charcoal is maintaining several large projects with
 
 ### I have a question about how to use SmokeDetector, metasmoke, or one of the userscripts {#question}
 
-Just ask in [Charcoal HQ](http://chat.stackexchange.com/rooms/11540/charcoal-hq)! There are always lots of regulars there willing to answer your questions. We also have a [wiki](https://charcoal-se.org/smokey) for SmokeDetector and the MS API which should answer many of your questions.
+Just ask in [Charcoal HQ](https://chat.stackexchange.com/rooms/11540/charcoal-hq)! There are always lots of regulars there willing to answer your questions. We also have a [wiki](https://charcoal-se.org/smokey) for SmokeDetector and the MS API which should answer many of your questions.
 </section>
 <section>
 
@@ -82,7 +82,7 @@ If even that fails, panicking is acceptable (but of course, you know where your 
 
 ### Someone is being disruptive in Charcoal HQ, who can sort the situation out? {#behavior}
 
-Ping one of the [Room Owners](http://chat.stackexchange.com/rooms/info/11540/charcoal-hq#room-ownercards), they will calm down the situation and take further action if necessary. If someone has violated SE's Be Nice policy, you can contact any diamond Moderator.
+Ping one of the [Room Owners](https://chat.stackexchange.com/rooms/info/11540/charcoal-hq#room-ownercards), they will calm down the situation and take further action if necessary. If someone has violated SE's Be Nice policy, you can contact any diamond Moderator.
 </section>
 <section>
 

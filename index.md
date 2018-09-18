@@ -5,10 +5,10 @@ search_title: Home
 
 {% img name.png height:"100" width class:"block-center" %}
 
-[Charcoal](http://chat.stackexchange.com/rooms/11540) are the people behind
+[Charcoal](https://chat.stackexchange.com/rooms/11540) are the people behind
 [SmokeDetector](https://github.com/Charcoal-SE/SmokeDetector),
 a community bot to detect spam on the
-[Stack Exchange network](http://stackexchange.com).
+[Stack Exchange network](https://stackexchange.com).
 
 If you don't understand what that means,
 or want to read more about who we are and how we are organized,
@@ -29,14 +29,14 @@ all new and updated content across the Stack Exchange network to try to detect s
 And by 'everything', we mean 'everything' - that's every new post, on every SE site,
 plus every edit and other update.
 If it appears on the Stack Exchange-wide
-[real-time page](http://stackexchange.com/questions?tab=realtime),
+[real-time page](https://stackexchange.com/questions?tab=realtime),
 Smokey has seen it.
 That's about 100,000 posts scanned every day.
 Also, the bot is pretty accurate these days -
 some of the reasons that trip our filters have an accuracy of over 99%.
 
 It's administered and developed by the [team of people](/people) you can find in
-[Charcoal HQ](http://chat.stackexchange.com/rooms/11540),
+[Charcoal HQ](https://chat.stackexchange.com/rooms/11540),
 our co-ordination chatroom.
 That's also where the posts that Smokey thinks are spam get reported to.
 
@@ -53,7 +53,7 @@ A slightly more detailed introduction is available in this Meta post from early 
 *Warning: technical programming details ahead.*
 
 SmokeDetector sets up a websocket connection to the same feed that powers the
-[Stack Exchange realtime page](http://stackexchange.com/questions?tab=realtime).
+[Stack Exchange realtime page](https://stackexchange.com/questions?tab=realtime).
 This websocket provides us with the feed of posts to scan.
 
 Every time a post comes in, we grab the full details of the post from the
@@ -86,7 +86,7 @@ we want to make sure every post is also reviewed by humans.
 ## Want to get involved? {#get-involved}
 
 Anybody is welcome to get involved; the best way to do this is to drop into
-[Charcoal HQ](http://chat.stackexchange.com/rooms/11540)
+[Charcoal HQ](https://chat.stackexchange.com/rooms/11540)
 and observe.
 Get yourself familiar with what goes on there;
 chat to some of the regulars about the system,
