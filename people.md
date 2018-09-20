@@ -63,6 +63,7 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [A J](https://chat.stackexchange.com/users/205208/a-j)
 *   [K.Davis](https://chat.stackexchange.com/users/223524/k-ds)
 *   [Zoe](https://chat.stackexchange.com/users/165415/zoe)
+*   [Tetsuya Yamamoto](https://chat.stackexchange.com/users/279119/tetsuya-yamamoto)
 
 </section>
 <section>
@@ -80,7 +81,6 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [bummi](https://chat.stackexchange.com/users/54902/bummi)
 *   [JoErNanO](https://chat.stackexchange.com/users/130836/joernano)
 *   [Federico](https://chat.stackexchange.com/users/109603/federico)
-*   [Tetsuya Yamamoto](https://chat.stackexchange.com/users/279119/tetsuya-yamamoto)
 *   [Catija](https://chat.stackexchange.com/users/139041/catija)
 *   [Videonauth](https://chat.stackexchange.com/users/205533/videonauth)
 *   [Rob](https://chat.stackexchange.com/users/158742/rob)
