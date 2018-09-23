@@ -31,13 +31,13 @@ These people have at some point contributed code of some variety, whether it be 
 *   [**Thomas Ward**](https://chat.stackexchange.com/users/10145/thomas-ward) (RO)
 *   [Brock Adams](https://chat.stackexchange.com/users/30477/brock-adams)
 *   [rene](https://chat.stackexchange.com/users/60548/rene)
-*   [Glorfindel](https://chat.stackexchange.com/users/164318/glorfindel)
+*   [Glorfindel](https://chat.stackexchange.com/users/164318/glorfindel) (RO)
 *   [J F](https://chat.stackexchange.com/users/161943/j-f) (RO)
 *   [Cerbrus](https://chat.stackexchange.com/users/126657/cerbrus)
 *   [quartata](https://chat.stackexchange.com/users/167070/quartata) (RO)
 *   [**Henders**](https://chat.stackexchange.com/users/211021/henders)
 *   [**iBug**](https://chat.stackexchange.com/users/275329/ibug) (RO)
-*   [thesecretmaster](https://chat.stackexchange.com/users/162795/thesecretmaster)
+*   [thesecretmaster](https://chat.stackexchange.com/users/162795/thesecretmaster) (RO)
 *   [Makyen](https://chat.stackexchange.com/users/156050/makyen) (RO)
 
 </section>
@@ -64,6 +64,7 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [K.Davis](https://chat.stackexchange.com/users/223524/k-ds)
 *   [Zoe](https://chat.stackexchange.com/users/165415/zoe)
 *   [Tetsuya Yamamoto](https://chat.stackexchange.com/users/279119/tetsuya-yamamoto)
+*   [Shree](https://chat.stackexchange.com/users/340148/shree)
 
 </section>
 <section>
