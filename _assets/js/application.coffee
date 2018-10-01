@@ -7,11 +7,6 @@ $ ->
     parent: 'html'
 
   $(window).on 'load turbolinks:load', ->
-    $('.hash-target').removeClass 'hash-target'
-
-    if location.hash != ""
-      $(location.hash).parent().addClass 'hash-target'
-
     date = new Date()
     p = (n, length = 2) ->
       n = String n
