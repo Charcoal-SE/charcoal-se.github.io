@@ -18,4 +18,4 @@ You'll need to build the website based on the markdown files, then run the serve
     - Download and process the Wiki pages
 - `script/serve`
     - This runs the server that lets you preview what the website will look like once deployed.
-    - Parameters used: `--incremental`, `--livereload`
+    - Using this script instead of `bundle exec jekyll serve` will make the server only rebuild changed pages and automatically reload open pages in the browser when rebuilding.
