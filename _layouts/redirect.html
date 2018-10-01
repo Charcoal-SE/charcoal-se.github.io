@@ -1,0 +1,8 @@
+<!-- Thanks DuckDuckGo! -->
+<html>{% assign dest = page.redirect.to|replace_first:'///','/' %}
+<head><meta charset="utf-8"><title>Redirecting&hellip;</title><meta name='referrer' content='origin'><link rel="canonical" href="{{ dest }}"></head>
+<body><noscript><META http-equiv='refresh' content="0;URL='{{ dest }}'"></noscript>
+<h1>Redirecting…</h1>
+<a href="{{ dest }}">Click here if you are not redirected.</a>
+<script language='JavaScript'>(window.Turbolinks && window.Turbolinks.visit) ? Turbolinks.visit("{{ dest }}", { action: "replace" }) : window.parent.location.replace("{{ dest }}");</script>
+</body></html>

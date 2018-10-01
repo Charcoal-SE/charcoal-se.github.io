@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    {% if page.fullTitle.size > 0 %}{{ page.fullTitle }}
+    {% elsif page.title.size > 0 %}{{ page.title }} | {{ site.title }}
+    {% else %}
+      {% if page.layout == 'wiki' %}{{ page.name|replace:'.md',''|replace:'-',' ' }} | {% endif %}{{ site.title }}
+    {% endif %}
+  </title>
+  {% css application %}
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch"></script>
+  {% js application %}
+  {% js vendor %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon"
+            type="image/png"
+            href="{% asset_path charcoal.png %}" />
+</head>
+<body>
+  <div class="body-container">
+    {% if jekyll.environment == 'development' %}<div class="dev-warning">Dev!</div>{% endif %}
+    <div class="header">
+      <div class="header-icon text-center">
+        <a href="{{ '/' | relative_url }}">
+          {% img charcoal.png height:"64" width title:"Charcoal\: spam-crusaders of the Internet" %}
+          <span class="title">
+            <span>Charcoal{% if jekyll.environment == 'development' %}<div class="dev-warning mobile">Dev!</div>{% endif %}</span>
+            <small>spam-crusaders of the Internet</small>
+          </span>
+        </a>
+        <label class="nav-toggle-icon fa fa-bars fa-lg" for="nav-toggle"></label>
+      </div>
+      <input type="checkbox" id="nav-toggle">
+      <nav class="text-center top-nav">
+        <div class="search-nav">
+          <i class="fa fa-search search-icon inline-icon fa-fw"></i>
+          <input type="text" placeholder="Search…" id="search-input">
+          <a href="#" class="inline-icon close-icon"><i class="fa fa-times fa-fw"></i></a>
+        </div>
+        <ul class="main-nav">
+          <li><a href="{{ '/' | relative_url }}"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a></li>
+          <li><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq"><i class="fa mobile-only fa-comments-o"></i> chat</a></li>
+          <li>
+            <label class="link" for="projects-toggle">
+              more projects <i class="fa fa-chevron-down"></i>
+            </label>
+            <input type="checkbox" id="projects-toggle">
+            <nav class="nav-dropdown">{% for project in site.data.projects %}
+              <a href="{{ project.link }}" {{ project.link_extra }}>{{ project.name }}</a>
+            {% endfor %}</nav>
+          </li>
+          <li><a href="{{ '/scripts' | relative_url }}"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a></li>
+          <li><a href="{{ '/smokey/' | relative_url }}"><i class="fa mobile-only fa-file-text-o"></i> wiki</a></li>
+          <li>
+            <a href="{{ '/ms/API-Documentation-(V2)' | relative_url }}"><i class="fa mobile-only fa-book"></i> api</a>
+            (<a href="{{ '/ms/API-Documentation-(V1)' | relative_url }}">v1</a>)
+          </li>
+          <li><a href="https://github.com/Charcoal-SE" title="GitHub organization"><i class="fa fa-github"></i><span class="mobile-only"> GitHub</span></a></li>
+          <li><a href="#" class="search-link"><i class="fa fa-search" title="Search"></i><span class="mobile-only"> Search</span></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="body">
+      {{ content }}
+    </div>
+    <div class="footer text-center">
+      <p>Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.<br />
+        <a href="/security">Security</a> • <a href="/pings/">Contact</a>
+      </p>
+      <p>
+        <a href="{{ site.github.repository_url }}">Website Source</a>
+        • By
+          {% for user in site.github.contributors limit:4 %}
+            <a href="{{ user.html_url }}" class="avatar-link">
+              {% avatar user=user.login size=16 %}{{ user.login }}</a>,
+          {% endfor %}
+          and
+          <a href="{{ site.github.repository_url }}/graphs/contributors">
+            {{ site.github.contributors.size|minus:4 }} more</a>
+        {% if page.layout == 'wiki' %}
+          • <a href="/code">More gory details</a>
+        {% endif %}
+      </p>
+      {% if page.layout != 'wiki' %}
+        <p>
+          <a href="/code">More gory details</a>
+          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/{{ page.path }}" title="{{ page.path }}">Edit on GitHub</a>
+          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/new/site">New Page</a>
+        </p>
+      {% endif %}
+    </div>
+  </div>
+  <script>
+    window.searchConfig = {
+      appId: '{{ site.algolia.application_id }}',
+      key: '{{ site.algolia.search_key }}',
+      index: '{{ site.algolia.index_name }}',
+      baseUrl: '{{ site.baseurl }}',
+    }
+    window.redirects = { {% for page in site.pages %}{% if page.layout == "redirect" %}"{{ page.url|xml_escape|replace:'.html','' }}": "{{ page.redirect.to|xml_escape }}", {% endif %}{% endfor %} }
+  </script>
+  <!-- Hotjar Tracking Code for charcoal-se.org -->
+  <script>
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:771814,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</body>
+</html>
