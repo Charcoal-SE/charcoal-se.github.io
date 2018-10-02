@@ -31,7 +31,7 @@ function force-fetch {
   fi
 }
 
-if [ -z "$GH_TOKEN" ]
+if [ -z "$GH_TOKEN" ]; then
   DEV=YES
   echo "No token provided. Cannot push changes."
   force-fetch _site "https://github.com/${TRAVIS_REPO_SLUG:-Charcoal-SE/charcoal-se.github.io}" &
