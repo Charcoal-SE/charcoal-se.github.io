@@ -59,6 +59,11 @@ initUserscripts = (tree) ->
                 .attr "href", "https://github.com/Charcoal-SE/userscripts/raw/master/#{file.path}"
                 .css
                   marginLeft: "0.5em"
+              $ "<p style=\"display:inline\" />"
+                .text " | "
+              $ "<a />"
+                .text "Github"
+                .attr "href", "https://github.com/Charcoal-SE/userscripts/blob/master/#{file.path}"
             )
           )
           .append description
