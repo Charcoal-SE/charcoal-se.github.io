@@ -62,7 +62,7 @@ initUserscripts = (tree) ->
               $ "<p style=\"display:inline\" />"
                 .text " | "
               $ "<a />"
-                .text "Github"
+                .text "GitHub"
                 .attr "href", "https://github.com/Charcoal-SE/userscripts/blob/master/#{file.path}"
             )
           )
