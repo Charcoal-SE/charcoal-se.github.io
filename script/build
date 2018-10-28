@@ -31,12 +31,13 @@ function force-fetch {
   fi
 }
 
+: ${TRAVIS_REPO_SLUG:=Charcoal-SE/charcoal-se.github.io}
 if [ -z "$GH_TOKEN" ]; then
   DEV=YES
   echo "No token provided. Cannot push changes."
-  force-fetch _site "https://github.com/${TRAVIS_REPO_SLUG:-Charcoal-SE/charcoal-se.github.io}" &
+  force-fetch _site "https://github.com/${TRAVIS_REPO_SLUG}" &
 else
-  force-fetch _site "https://$GH_TOKEN@github.com/${TRAVIS_REPO_SLUG:-Charcoal-SE/charcoal-se.github.io}" &
+  force-fetch _site "https://$GH_TOKEN@github.com/${TRAVIS_REPO_SLUG}" &
 fi
 force-fetch ms "https://github.com/Charcoal-SE/metasmoke.wiki" &
 force-fetch smokey "https://github.com/Charcoal-SE/SmokeDetector.wiki" &
@@ -50,8 +51,10 @@ script/add-front-matter.rb ms/** smokey/** &
 script/create-data-files.rb &
 wait
 
+echo
 git -C ./ms     log -1 --pretty="MS wiki commit:     [%h] %s"
 git -C ./smokey log -1 --pretty="Smokey wiki commit: [%h] %s"
+echo
 
 COMMIT_INFO="$(git log -1 --pretty="[%h] %B")"
 
@@ -69,8 +72,8 @@ else
   bundle exec jekyll build --incremental --profile --trace
 fi
 
-pushd _site # _site
-pushd assets # _site/assets
+pushd _site  # _site
+pushd assets  # _site/assets
 mkdir -p css images
 
 for file in branding*.css; do
@@ -80,9 +83,10 @@ for file in charcoal*.png; do
   cp "$file" images/charcoal.png
 done
 
-popd # _site/assets
+popd # OLDPWD=_site/assets/; PWD=_site/
 
-if [[ ! $DEV ]]; then
+if [ -z "$DEV" ]; then
+  touch .nojekyll
   git add --all
   git config --global push.default tracking
   ORIGINAL_NAME="$(git config --get user.name)"
@@ -106,4 +110,4 @@ if [[ ! $DEV ]]; then
   git config user.email "$ORIGINAL_EMAIL"
 fi
 
-popd # _site
+popd # OLDPWD=_site/; PWD=(git root)

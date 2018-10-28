@@ -3,12 +3,13 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
-  - '*.sh'
-  - script/*
-  - '*.rb'
-  - Gemfile*
-  - vendor/bundle
+  - script/
+  - vendor/
   - .asset-cache
+keep_files:
+  - .git
+  - .nojekyll
+  - README.md
 kramdown:
   parse_block_html: true
 assets:
@@ -19,6 +20,7 @@ assets:
   assets:
     - branding.css
     - charcoal.png
+  compression: true
 plugins:
   - jekyll-redirect-from
   - jekyll-avatar
