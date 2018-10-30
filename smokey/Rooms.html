@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>
-    Rooms YAML file documentation | Charcoal
+    Rooms | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="/assets/application-69535cb472e56bc2e8f5dba783e23606511c3045322b357c25bcd0d40ffb997f.css">
@@ -69,16 +69,39 @@
       
 
 
-<h1 id="rooms-yaml-file-documentation">Rooms YAML file documentation</h1>
+<h1 id="rooms">Rooms</h1>
 
-<h3 id="structure-of-the-file">Structure of the file:</h3>
+<p>A new configuration file, rooms.yml, has been added. This is the structure:</p>
+
+<chat host="">:
+  <room>:
+    commands: true/false,
+    msg_types:
+      - <role string...="">
+      - ...
+
+    privileges: 
+      - <user id...="">
+      - ...
+This compactly defines all of the rooms SmokeDetector interacts with. The commands and privileges keys, as you might suspect, define whether SmokeDetector listens for commands in the room and who can run privileged commands respectively. The only thing that's new, really, is msg_types. The msg_types, in essence, defines the kinds of messages the room will receive. A few of the special ones:
+
+debug: this is what Charcoal HQ or your main room would have set. Rooms with this set will receive startup messages and other debugging information (basically anything that would have previously been done with GlobalVars.charcoal_hq.send_message).
+
+all or site-<site>: This dictates what sites will have their spam reported to the room. Rooms with all will receive reports from any site, while site-<site> (e.g site-askubuntu.com or site-codegolf.stackexchange.com) will receive reports from those particular sites.
+
+no-<reason>: This room won't receive reports with the specified reason (e.g no-all-caps title)
+
+metatavern: A special role I made for the Tavern on Meta, currently it just receives messages about blocks (for Town Halls).
+
+experimental: Only rooms with this role will receive reports consisting of only experimental reasons (watchlist).
+</reason></site></site></user></role></room></chat>
 
 
 <div class="sidebar">
 
 
 
-<p><strong><a href="//github.com/Charcoal-SE/SmokeDetector/wiki/Rooms-YAML-file-documentation/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+<p><strong><a href="//github.com/Charcoal-SE/SmokeDetector/wiki/Rooms/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
 
 <div class="sidebar-content sidebar-content-smokey">
 
