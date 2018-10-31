@@ -151,6 +151,11 @@ A nice bonus of all this is that I've made it so that `chatcommunicate` stores a
 
 where `message` is a ChatExchange message. Note that this dictionary is pickled along with last messages in the new `messageData.p`.
 
+### Method call for the rooms YAML file
+
+The `rooms.yml` file is called from within the `parse_room_config` method in `chatcommunicate.py` where the `site, site_rooms, roomid, privileges` are passed. 
+
+The method itself is called within the object instance. 
 </bool></max></min></bool></bool></name></bool></name_of_command></reason></site></site></user></role></room>
 
 
