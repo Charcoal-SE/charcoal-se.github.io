@@ -178,9 +178,19 @@ def createcommand(msg):
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tell_rooms</span><span class="p">(</span><span class="s">"A message"</span><span class="p">)</span>
 </code></pre></div></div>
 
+<p>The longhand version of this (which allows additional configuration) is:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tell_rooms</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="p">(</span><span class="n">roles</span> <span class="n">to</span> <span class="n">have</span><span class="o">...</span><span class="p">),</span> <span class="p">(</span><span class="n">roles</span> <span class="ow">not</span> <span class="n">to</span> <span class="n">have</span><span class="o">...</span><span class="p">))</span>
+</code></pre></div></div>
+
 <p>It’s recommended that you send messages to rooms that are interested in debug messages, instead of spamming all rooms. You can use <code class="highlighter-rouge">tell_rooms_with</code>:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tell_rooms_with</span><span class="p">(</span><span class="s">'debug'</span><span class="p">,</span> <span class="s">"A debug message"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>You can also use <code class="highlighter-rouge">tell_rooms_without</code> to post to all rooms without a specific role:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tell_rooms_without</span><span class="p">(</span><span class="s">"metatavern"</span><span class="p">,</span> <span class="s">"Tavern on the Meta sucks"</span><span class="p">)</span>
 </code></pre></div></div>
 
 
