@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>
-    Code | Charcoal
+    Auto Mod Flags | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="/assets/application-69535cb472e56bc2e8f5dba783e23606511c3045322b357c25bcd0d40ffb997f.css">
@@ -66,17 +66,71 @@
       </nav>
     </div>
     <div class="body">
-      <p>Website built from:</p>
+      
+
+
+<h1 id="auto-mod-flags">Auto Mod Flags</h1>
+
+<!--
+	EDITORS PLEASE NOTE:
+	This page is intended as a quick "WTF is this?" reference for network moderators who've just come across an automatic
+	"other" flag from Smokey about a deleted potential FP. Bear this in mind when editing - the audience here is _not_
+	Charcoal members, and a majority of the audience will have little to no familiarity with Charcoal systems or nuances.
+-->
+
+<p>If you’re reading this page, you’ve probably just found an automatic flag cast by SmokeDetector that says something about a post having had Charcoal members flag it as spam but then decided it wasn’t. This page is an explanation of what that’s about.</p>
+
+<h2 id="what-are-these-flags">What are these flags?</h2>
+<p>These flags are mostly informational for you. There is very little visibility into posts that have been deleted by the community for moderators, including cases where posts were deleted with spam flags. This can lead to some undesirable situations, where posts are unnecessarily marked as spam or, in the worst cases, users are penalized, if the flaggers got it wrong. The automatic “other” flags that SmokeDetector casts are there to alert you to cases of posts that were deleted, and had some spam flags on them, but might not have been spam. These cases need a moderator (that’s you!) to look at them and make sure the spam flags were appropriate.</p>
+
+<h2 id="when-are-they-cast">When are they cast?</h2>
+<p>Rarely. These flags are cast when all of the following are true:</p>
 
 <ul>
-  <li>commit <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/commit/757a7edf914b71186ee69890913f2e825566f3b8" title="757a7edf914b71186ee69890913f2e825566f3b8"><code class="highlighter-rouge">757a7ed</code></a> on <a href="https://github.com/Charcoal-SE/charcoal-se.github.io">Charcoal-SE/charcoal-se.github.io</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/_compare/eefed2a4778b6b317c0d234b25b4ce28b7657933" title="eefed2a4778b6b317c0d234b25b4ce28b7657933"><code class="highlighter-rouge">eefed2a</code></a> on the <a href="//github.com/Charcoal-SE/SmokeDetector/wiki">Charcoal-SE/SmokeDetector wiki</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/metasmoke/wiki/_compare/224ca4359f3423e2763c10611fac84aef2387808" title="224ca4359f3423e2763c10611fac84aef2387808"><code class="highlighter-rouge">224ca43</code></a> on the <a href="//github.com/Charcoal-SE/metasmoke/wiki">Charcoal-SE/metasmoke wiki</a></li>
+  <li>SmokeDetector reported the post as being potentially spam.</li>
+  <li>Charcoal members (people looking at the report) manually cast at least one spam flag on the post.</li>
+  <li>The post was later classified as not being spam - either as a false positive or just not an answer (NAA).</li>
+  <li>The post was later deleted.</li>
 </ul>
 
-<p><a href="https://travis-ci.org/Charcoal-SE/charcoal-se.github.io">Live build logs on Travis CI</a></p>
+<p>In terms of frequency, we see these cases about once every 10 days or so, network-wide. Many small sites on the SE network will never see one of these flags; even the large sites are unlikely to get more than one or two a month. This makes these flags much rarer than most Community auto-flags.</p>
 
-<p>This site is powered by <a href="https://jekyllrb.com">Jekyll</a> <a href="https://github.com/jekyll/jekyll/releases/v3.7.4">v3.7.4</a></p>
+<h2 id="what-do-you-need-to-do">What do you need to do?</h2>
+<p>Take a look at the post that was flagged. If there are spam flags on it that weren’t retracted, check the post was actually spam - if it was, all is well. If it <em>wasn’t</em>, you may want to dispute (via post mod menu &gt; “clear spam/offensive flags”) or decline the spam flags. If the post shouldn’t have been deleted <em>at all</em>, now is also your opportunity to undelete it.</p>
+
+<p>If you feel like it, we’d also appreciate you letting us know in <a href="https://chat.stackexchange.com/rooms/11540">Charcoal HQ</a> that the spam flags were inappropriate. This lets us keep track of where we’re getting it wrong, and helps us to make improvements to our systems and policies for the future.</p>
+
+<h2 id="what-if-you-dont-want-these-flags">What if you don’t want these flags?</h2>
+<p>That’s cool. Have a discussion with your local mod team, and reach agreement on whether or not you want these flags. If you decide you don’t, ping Undo and/or ArtOfCode in <a href="https://chat.stackexchange.com/rooms/11540">Charcoal HQ</a>, and we’ll flip them off for your site.</p>
+
+
+<div class="sidebar">
+
+
+
+<p><strong><a href="//github.com/Charcoal-SE/SmokeDetector/wiki/Auto-Mod-Flags/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+
+<div class="sidebar-content sidebar-content-smokey">
+
+  <p><strong><a href="Home">Home</a></strong></p>
+
+  <p><strong><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a></strong></p>
+
+  <p><strong><a href="http://charcoal-se.org/">Charcoal Website</a></strong></p>
+
+  <p><strong><a href="https://metasmoke.erwaysoftware.com">metasmoke</a></strong></p>
+
+  <p><strong><a href="https://github.com/Charcoal-SE/userscripts">Userscripts</a></strong></p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>Smokey is made with &lt;3 by the <a href="https://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/SmokeDetector/graphs/contributors">contributors</a> from <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
 
     </div>
     <div class="footer text-center">
@@ -103,13 +157,9 @@
           <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
             15 more</a>
         
+          • <a href="/code">More gory details</a>
+        
       </p>
-      
-        <p>
-          <a href="/code">More gory details</a>
-          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/code.md" title="code.md">Edit on GitHub</a>
-          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/new/site">New Page</a>
-        </p>
       
     </div>
   </div>
