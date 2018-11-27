@@ -18,7 +18,7 @@ First, put your idea out the folks in Charcoal HQ. If there seems to be a genera
 
 ### I'd like to contact the SmokeDetector maintainers {#smokey-maintainers}
 
-Ping whichever of the following people happen to be in the room at the moment: Undo, ArtOfCode, angussidney, Thomas Ward, Andy, tripleee.
+Ping whichever of the following people happen to be in the room at the moment: Undo, ArtOfCode, angussidney, Thomas Ward, Andy, tripleee and iBug.
 </section>
 <section>
 
@@ -54,7 +54,7 @@ Take a look at the script's listing on the [userscripts page](/scripts), the mai
 
 ### I'd like to contact one of the maintainers of the website {#site}
 
-J F, angussidney, and ArtOfCode are the primary authors of the website.
+J F, angussidney, ArtOfCode, and iBug are the primary authors and maintainers of the website.
 </section>
 <section>
 
