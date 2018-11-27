@@ -89,42 +89,48 @@
 
 <p>Each section contains the following structure:</p>
 
-<p>```<chat host="">:</chat></p>
-<room>:
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;chat host&gt;:
+  &lt;room id&gt;:
     commands: true/false,
     watcher: true/false,
     msg_types:
-      - <role string...="">
+      - &lt;role string...&gt;
       - ...
 
     privileges: 
-      - <user id...="">
+      - &lt;user id...&gt;
       - ...
-```
-### Glossary
+</code></pre></div></div>
+<h3 id="glossary">Glossary</h3>
 
-- room id - room id for the rooms with which SmokeDetector interacts. For example: 12345:
-commands - true/false boolean flag which determines if SmokeDetector listens for commands in the room
-- msg_types - kinds of messages the room will receive, as described in the role_string types below
-- role_string - 
-   * `debug`: this is what Charcoal HQ or your main room would have set. Rooms with this set will receive startup messages and other debugging information (basically anything that would have previously been done with GlobalVars.charcoal_hq.send_message).
-   * `all` or `site-<site>`: This dictates what sites will have their spam reported to the room. Rooms with all will receive reports from any site, while site-<site> (e.g site-askubuntu.com or site-codegolf.stackexchange.com) will receive reports from those particular sites.
-  * `no-<reason>`: This room won't receive reports with the specified reason (e.g no-all-caps title)
-  * `metatavern`: A special role created for the Tavern on Meta, currently it just receives messages about blocks (for Town Halls).
-  * `delay`: Introduces a 5 minute delay for reports; reports won't be posted if the post has been marked as false positive or deleted within the 5 minute window
-- privileges - who can run privileged commands
+<ul>
+  <li>chat host - The domain in which the chat host is a sub-domain. Stack Exchange has 3 chat domains: chat.stackexchange.com, chat.meta.stackexchange.com, and chat.stackoverflow.com. The correct entries for <code class="highlighter-rouge">&lt;chat host&gt;</code> corresponding to these domains are stackexchange.com, meta.stackexchange.com, and stackoverflow.com.  Each chat server has independent rate limiting for the chat messages a single user can post. If you’re making a test room into which the SmokeDetector user is going to be posting lots of messages, then please create the room on either meta.stackexchange.com or stackoverflow.com. SmokeDetector currently posts most of it’s messages to the stackexchange.com chat server, which means it’s the one that gets rate-limited the most.</li>
+  <li>room id - room id for the rooms with which SmokeDetector interacts. For example: 12345:
+commands - true/false boolean flag which determines if SmokeDetector listens for commands in the room</li>
+  <li>msg_types - kinds of messages the room will receive, as described in the role_string types below</li>
+  <li>role_string -
+    <ul>
+      <li><code class="highlighter-rouge">debug</code>: this is what Charcoal HQ or your main room would have set. Rooms with this set will receive startup messages and other debugging information (basically anything that would have previously been done with GlobalVars.charcoal_hq.send_message).</li>
+      <li><code class="highlighter-rouge">all</code> or <code class="highlighter-rouge">site-&lt;site&gt;</code>: This dictates what sites will have their spam reported to the room. Rooms with all will receive reports from any site, while site-<site> (e.g site-askubuntu.com or site-codegolf.stackexchange.com) will receive reports from those particular sites.</site></li>
+      <li><code class="highlighter-rouge">no-&lt;reason&gt;</code>: This room won’t receive reports with the specified reason (e.g no-all-caps title)</li>
+      <li><code class="highlighter-rouge">metatavern</code>: A special role created for the Tavern on Meta, currently it just receives messages about blocks (for Town Halls).</li>
+      <li><code class="highlighter-rouge">delay</code>: Introduces a 5 minute delay for reports; reports won’t be posted if the post has been marked as false positive or deleted within the 5 minute window</li>
+    </ul>
+  </li>
+  <li>privileges - who can run privileged commands</li>
+</ul>
 
-### Configuring rooms for development
+<h3 id="configuring-rooms-for-development">Configuring rooms for development</h3>
 
-During development, you probably want to avoid posting a bunch of reports and debug messages to our main rooms. In this case, you can set up a custom rooms.yml file to configure where Smokey will post messages. 
+<p>During development, you probably want to avoid posting a bunch of reports and debug messages to our main rooms. In this case, you can set up a custom rooms.yml file to configure where Smokey will post messages.</p>
 
-Simply create a file named `rooms_custom.yml`, and fill it in using the format described above. If you need a spare room to test in, we have one available for your use:
+<p>Simply create a file named <code class="highlighter-rouge">rooms_custom.yml</code>, and fill it in using the format described above. If you need a spare room to test in, we have one available for your use:</p>
 
- - [Charcoal Test](https://chat.stackexchange.com/rooms/65945/charcoal-test)
+<ul>
+  <li><a href="https://chat.stackexchange.com/rooms/65945/charcoal-test">Charcoal Test</a></li>
+</ul>
 
-
-If you don't want Smokey to post any chat messages, you can simply leave the file blank.
-</reason></site></site></user></role></room>
+<p>If you don’t want Smokey to post any chat messages, you can simply leave the file blank.</p>
 
 
 <div class="sidebar">
