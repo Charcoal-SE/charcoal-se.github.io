@@ -37,7 +37,7 @@ These people have at some point contributed code of some variety, whether it be 
 *   [quartata](https://chat.stackexchange.com/users/167070/quartata) (RO)
 *   [**Henders**](https://chat.stackexchange.com/users/211021/henders)
 *   [**iBug**](https://chat.stackexchange.com/users/275329/ibug) (RO)
-*   [thesecretmaster](https://chat.stackexchange.com/users/162795/thesecretmaster) (RO)
+*   [**thesecretmaster**](https://chat.stackexchange.com/users/162795/thesecretmaster) (RO)
 *   [Makyen](https://chat.stackexchange.com/users/156050/makyen) (RO)
 
 </section>
@@ -46,7 +46,7 @@ These people have at some point contributed code of some variety, whether it be 
 
 These people help out by adding to and maintaining the miles of regexes and blacklists which do all the heavy lifting in detecting spam.
 
-*   [Ashish Ahuja](https://chat.stackexchange.com/users/181293/ashish-ahuja)
+*   [**Ashish Ahuja**](https://chat.stackexchange.com/users/181293/ashish-ahuja)
 *   [Magisch](https://chat.stackexchange.com/users/171054/magisch)
 *   [dorukayhan](https://chat.stackexchange.com/users/209140/dorukayhan)
 *   [doppelgreener](https://chat.stackexchange.com/users/2562/doppelgreener)
@@ -56,7 +56,7 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [John Dvorak](https://chat.stackexchange.com/users/56166/john-dvorak)
 *   [Yvette Colomb](https://chat.stackexchange.com/users/178825/yvette-colomb)
 *   [paper1111](https://chat.stackexchange.com/users/281674/paper1111)
-*   [**bwDraco**](https://chat.stackexchange.com/users/11606/bwdraco)
+*   [bwDraco](https://chat.stackexchange.com/users/11606/bwdraco)
 *   [CalvT](https://chat.stackexchange.com/users/64521/calvt)
 *   [Byte Commander](https://chat.stackexchange.com/users/137665/byte-commander)
 *   [WELZ](https://chat.stackexchange.com/users/210948/welz)
