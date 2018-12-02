@@ -1,13 +1,19 @@
+dist: xenial
 language: ruby
-rvm: 2.3
+rvm: 2.5.3
+# Prefer preinstalled Ruby versions:
+# https://docs.travis-ci.com/user/reference/xenial
+
 cache:
   directories:
     - vendor/bundle
     - smokey
     - ms
     - .asset-cache
+
 install: script/install --deploy
 script: script/build --deploy
+
 branches:
   only:
     - site
