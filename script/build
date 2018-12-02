@@ -24,7 +24,7 @@ done
 function force-fetch {
   if [[ -d $1/.git ]]; then
     echo "Force-fetching $1..."
-    bash -c "cd $1 && git fetch -q && git reset --hard origin/master"
+    bash -c "cd $1 && git fetch -q && git reset --hard -q origin/master"
   else
     rm -rf "$1"
     git clone --depth 1 -q -b master "$2" "$1"
