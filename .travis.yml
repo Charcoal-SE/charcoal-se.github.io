@@ -7,7 +7,7 @@ cache:
     - ms
     - .asset-cache
 install: script/install --deploy
-script: script/build
+script: script/build --deploy
 branches:
   only:
     - site

@@ -19,7 +19,7 @@ Before you can develop and contribute to the Charcoal website, you'll need to in
 
 ## Running the Charcoal website locally
 You'll need to build the website based on the markdown files, then run the server that serves up the compiled website.
-- `script/build --dev`
+- `script/build`
     - Download and process this repository, as well as the Wiki pages
 - `script/serve`
     - This runs the server that lets you preview what the website will look like once deployed.

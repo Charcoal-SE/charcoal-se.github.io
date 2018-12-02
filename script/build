@@ -2,17 +2,17 @@
 
 # Process environment variables
 if [[ "$TRAVIS_PULL_REQUEST" =~ ^[0-9]+$ ]]; then
-  echo "Building pull request #$TRAVIS_PULL_REQUEST, dev mode enabled" >&2
+  echo "Building pull request #$TRAVIS_PULL_REQUEST, disabled deploy" >&2
 
-  DEV=YES
+  NO_DEPLOY=true
   unset GH_TOKEN TRAVIS_GITHUB_TOKEN
 fi
 
-
+unset DEPLOY # should not appear in environment
 while [ $# -ne 0 ]; do
   case $1 in
-    --dev)
-      DEV=YES
+    --deploy)
+      [ -z "$NO_DEPLOY" ] && DEPLOY=true
       ;;
     *)
       # unknown option
@@ -33,7 +33,6 @@ function force-fetch {
 
 : ${TRAVIS_REPO_SLUG:=Charcoal-SE/charcoal-se.github.io}
 if [ -z "$GH_TOKEN" ]; then
-  DEV=YES
   echo "No token provided. Cannot push changes."
   force-fetch _site "https://github.com/${TRAVIS_REPO_SLUG}" &
 else
@@ -73,7 +72,7 @@ rm -r _site/assets # remove old assets
 
 export PAGES_ENV=dotcom # GitHub.com
 
-if [ -z "$DEV" ]; then
+if [ -n "$DEPLOY" ]; then
   export JEKYLL_ENV=production
 
   bundle exec jekyll algolia push --trace &
@@ -96,8 +95,8 @@ done
 
 popd # OLDPWD=_site/assets/; PWD=_site/
 
-if [ -z "$DEV" ]; then
-  touch .nojekyll
+if [ -n "$DEPLOY" ]; then
+  :> .nojekyll
   git add --all
   git config --global push.default tracking
   ORIGINAL_NAME="$(git config --get user.name)"
