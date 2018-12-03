@@ -32,7 +32,10 @@ function force-fetch {
 }
 
 : ${TRAVIS_REPO_SLUG:=Charcoal-SE/charcoal-se.github.io}
-if [ -z "$GH_TOKEN" ]; then
+if [ -z "$DEPLOY" ]; then
+  echo "Not in deploy mode, not pushing changes."
+  force-fetch _site "https://github.com/${TRAVIS_REPO_SLUG}" &
+elif [ -z "$GH_TOKEN" ]; then
   echo "No token provided. Cannot push changes."
   force-fetch _site "https://github.com/${TRAVIS_REPO_SLUG}" &
 else
