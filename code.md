@@ -12,5 +12,5 @@ Website built from:
 
 This site is powered by [Jekyll](https://jekyllrb.com) [v{{ jekyll.version }}](https://github.com/jekyll/jekyll/releases/v{{ jekyll.version }})
 
-{% img name.svg height: "1" width %}
-{% img charcoal.svg height: "1" width %}
+{% img name.svg height:"1" width %}  
+{% img charcoal.svg height:"1" width %}
