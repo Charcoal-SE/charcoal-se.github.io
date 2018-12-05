@@ -107,32 +107,65 @@
 <h2 id="3-endless-lists">3. Endless Lists</h2>
 <p>Checks are our ammunition against spam; now you need a gun to fire it from. In our case, it’s a GLoCK — a Giant List of Checks and Keywords.</p>
 
-<p>Scroll to the <code class="highlighter-rouge">rules</code> array, which is <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/findspam.py#L1146">somewhere around line 1150 in <code class="highlighter-rouge">findspam.py</code></a>. This structure describes all the checks that SmokeDetector runs, and how to apply them. (N.B.: It’s not actually JSON, don’t make that mistake — it’s Python dicts.)</p>
+<p>Read the code of the existing checks in <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/findspam.py"><code class="highlighter-rouge">findspam.py</code></a>, there are two kinds of them:</p>
 
-<p>You need to add a new entry to this array that describes your check. The general format of this dictionary is:</p>
+<ul>
+  <li>
+    <p>RegEx-based checks are created and registered into the GLoCK with a call to <code class="highlighter-rouge">create_rule</code>:</p>
 
-<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
-    <span class="s">'regex'</span><span class="p">:</span> <span class="s">r"Include your regex here if it's a regex-based check"</span><span class="p">,</span>
-    <span class="s">'method'</span><span class="p">:</span> <span class="n">method_name</span><span class="p">,</span>  <span class="c"># Pass the name of your method here if it's a method-based check,</span>
-    <span class="c"># You should include only one of above, not both</span>
+    <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">create_rule</span><span class="p">(</span><span class="s">"bad keyword in post"</span><span class="p">,</span> <span class="s">r"male\W?enhancement"</span><span class="p">,</span> <span class="n">max_rep</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">max_score</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Functional checks are created by using <code class="highlighter-rouge">create_rule</code> as a decorator (<a href="https://www.python.org/dev/peps/pep-0318/">PEP 318</a>):</p>
 
-    <span class="s">'all'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>            <span class="c"># True if you want to scan all sites in the network, False otherwise,</span>
-    <span class="s">'sites'</span><span class="p">:</span> <span class="p">[],</span>            <span class="c"># If `all` is true, these sites are excluded; otherwise, they are the only sites to get scanned</span>
-    <span class="s">'reason'</span><span class="p">:</span> <span class="s">"Name of the reason you're categorising these posts as (bad keyword, link at end of body, etc)"</span><span class="p">,</span>
-    <span class="s">'title'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>         <span class="c"># True if you want to scan post titles, False otherwise</span>
-    <span class="s">'body'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>           <span class="c"># True if you want to scan post bodies, False otherwise</span>
-    <span class="s">'username'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>      <span class="c"># True if you want to scan owner usernames, False otherwise</span>
-    <span class="s">'body_summary'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>  <span class="c"># True if you want to scan body summaries, for a preemptive check</span>
-    <span class="s">'stripcodeblocks'</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>  <span class="c"># True if you want code removed before getting passed to your check</span>
-    <span class="s">'max_rep'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>          <span class="c"># Posts from users above this reputation will not be scanned</span>
-    <span class="s">'max_score'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>         <span class="c"># Posts scoring above this value will not be scanned</span>
+    <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nd">@create_rule</span><span class="p">(</span><span class="s">"spam answer"</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+ <span class="k">def</span> <span class="nf">ridiculous_check</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">site</span><span class="p">):</span>
+   <span class="k">return</span> <span class="bp">True</span><span class="p">,</span> <span class="s">"All answers are spam"</span>
+</code></pre></div>    </div>
 
-    <span class="s">'questions'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>      <span class="c"># False if questions shouldn't be checked, optional</span>
-    <span class="s">'answers'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>        <span class="c"># False if answers shouldn't be checked, optional</span>
-<span class="p">}</span>
+    <p>This way, the function <code class="highlighter-rouge">ridiculous_check</code> is wrapped into a <code class="highlighter-rouge">Rule</code> object and registered to the GLoCK.</p>
+  </li>
+</ul>
+
+<h4 id="master-rule-creator">Master Rule Creator</h4>
+
+<p>The prototype of the master Rule Creator™ function is</p>
+
+<blockquote>
+  <p><strong>create_post</strong>(reason, regex=None, **kwargs)</p>
+</blockquote>
+
+<p>Accepted keyword arguments are:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">title</code>, <code class="highlighter-rouge">username</code>, <code class="highlighter-rouge">body</code>, <code class="highlighter-rouge">body_summary</code>: These are the different parts of a post. Set them to <em>True</em> if your check should be performed against these aspects</li>
+  <li><code class="highlighter-rouge">all</code> and <code class="highlighter-rouge">sites</code>: <code class="highlighter-rouge">all</code> defines whether the check should apply on all sites, and <code class="highlighter-rouge">sites</code> define exception sites. If <code class="highlighter-rouge">all=True</code>, then posts <em>not</em> from a site in <code class="highlighter-rouge">sites</code> will be checked (whitelisted). If <code class="highlighter-rouge">all=False</code>, then only posts on <code class="highlighter-rouge">sites</code> will be checked.</li>
+  <li><code class="highlighter-rouge">max_rep</code>, <code class="highlighter-rouge">max_score</code>: Upper limits of owner reputation and post score. Generally, if the owner has more reputation or the post has a high score, it’s unlikely that it will be spam.</li>
+  <li><code class="highlighter-rouge">question</code>, <code class="highlighter-rouge">answer</code>: Whether the check is designed for questions and answers. For example, you probably want to specify <code class="highlighter-rouge">answer=False</code> for a “bad question” check. Note that they’re in the singular form.</li>
+  <li><code class="highlighter-rouge">stripcodeblocks</code>: Whether code blocks <code class="highlighter-rouge">like this</code> should be stripped before running the check.</li>
+  <li><code class="highlighter-rouge">whole_post</code>: See below</li>
+  <li><code class="highlighter-rouge">disabled</code>: Just a neat way to create a rule without putting it into production 😃.</li>
+</ul>
+
+<p>The default values for those options are:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">create_rule</span><span class="p">(</span><span class="n">reason</span><span class="p">,</span>
+    <span class="nb">all</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">sites</span><span class="o">=</span><span class="p">[],</span>
+    <span class="n">title</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">body</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">username</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">body_summary</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">max_rep</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">max_score</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">question</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">answer</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">stripcodeblocks</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">whole_post</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+    <span class="n">disabled</span><span class="o">=</span><span class="bp">False</span>
+<span class="p">)</span>
 </code></pre></div></div>
-
-<p>You should only include <em>either</em> <code class="highlighter-rouge">regex</code> or <code class="highlighter-rouge">method</code> — checks should not be both at the same time.</p>
 
 <h2 id="4-other-neat-things">4. Other neat things</h2>
 
@@ -142,8 +175,7 @@
 
 <p>To keep things minimal, you can use a pair of curly brackets in the reason, which will be replaced by one of <code class="highlighter-rouge">title</code>, <code class="highlighter-rouge">body</code> and <code class="highlighter-rouge">username</code>, if the corresponding part of the post is caught as spam. So you can write this as a reason:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="s">'title'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">'body'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">'body_summary'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="s">'username'</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
-    <span class="s">'reason'</span><span class="p">:</span> <span class="s">'bad keyword in {}'</span> 
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">create_rule</span><span class="p">(</span><span class="s">"bad keyword in {}"</span><span class="p">,</span> <span class="s">"male</span><span class="err">\</span><span class="s">W?enhancement"</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>Note: We’re currently using <code class="highlighter-rouge">str.replace()</code> to insert the post aspect instead of using <code class="highlighter-rouge">.format()</code>, so only bare braces are supported.</p>
@@ -152,7 +184,8 @@
 
 <p>If you need multiple pieces of information from a post, instead of checking title, body and username separately, you can define a method like this (<a href="https://github.com/Charcoal-SE/SmokeDetector/blob/5374e226dabb574a974bdebd826d8c9a9921fc93/findspam.py#L607">example</a>):</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">another_ridiculous_check</span><span class="p">(</span><span class="n">post</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@create_rule</span><span class="p">(</span><span class="s">"this is a reason"</span><span class="p">,</span> <span class="n">whole_post</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">another_ridiculous_check</span><span class="p">(</span><span class="n">post</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">post</span><span class="o">.</span><span class="n">user_name</span> <span class="ow">in</span> <span class="n">post</span><span class="o">.</span><span class="n">body</span> <span class="ow">and</span> <span class="n">post</span><span class="o">.</span><span class="n">user_name</span> <span class="ow">in</span> <span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span> <span class="s">"Username in both title and body"</span>
     <span class="k">return</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="s">""</span>
@@ -167,7 +200,7 @@
 
 <p>The first three boolean values indicate whether you think the title, the username or the post body is spam. The last value is <code class="highlighter-rouge">why</code> data, which is identical to the <code class="highlighter-rouge">why</code> data mentioned above.</p>
 
-<p>Then, when defining the entry for your check, you need to add <code class="highlighter-rouge">'whole_post': True</code> to the dict, so that the check dispatcher can provide the post object to your method, instead of <code class="highlighter-rouge">s, site</code>.</p>
+<p>When defining the entry for your check, you need to add <code class="highlighter-rouge">whole_post=True</code> to the rule creator, so that the check dispatcher can provide the post object to your method, instead of <code class="highlighter-rouge">s, site</code>.</p>
 
 
 <div class="sidebar">
