@@ -119,9 +119,9 @@
   <li>
     <p>Functional checks are created by using <code class="highlighter-rouge">create_rule</code> as a decorator (<a href="https://www.python.org/dev/peps/pep-0318/">PEP 318</a>):</p>
 
-    <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nd">@create_rule</span><span class="p">(</span><span class="s">"spam answer"</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
- <span class="k">def</span> <span class="nf">ridiculous_check</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">site</span><span class="p">):</span>
-   <span class="k">return</span> <span class="bp">True</span><span class="p">,</span> <span class="s">"All answers are spam"</span>
+    <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@create_rule</span><span class="p">(</span><span class="s">"spam answer"</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">ridiculous_check</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">site</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">True</span><span class="p">,</span> <span class="s">"All answers are spam"</span>
 </code></pre></div>    </div>
 
     <p>This way, the function <code class="highlighter-rouge">ridiculous_check</code> is wrapped into a <code class="highlighter-rouge">Rule</code> object and registered to the GLoCK.</p>
@@ -166,6 +166,8 @@
     <span class="n">disabled</span><span class="o">=</span><span class="bp">False</span>
 <span class="p">)</span>
 </code></pre></div></div>
+
+<p>Implementation details: <code class="highlighter-rouge">create_rule</code> takes an optional <code class="highlighter-rouge">regex</code> argument. If it’s provided, then it creates a regular expression check. If no regex is provided, it returns a decorator that can be used to decorate a function-based check. This is how it works in two ways.</p>
 
 <h2 id="4-other-neat-things">4. Other neat things</h2>
 
