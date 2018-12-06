@@ -193,6 +193,10 @@ Output format:</p>
 <tr><td><code>/api/v2.0/comments/post/:id </code></td><td><details><summary> List all comments on a specified post.</summary><p>Available tables: <code>post_comments</code>.<br />
 Output format: identical to <code>/comments</code>.</p>
 </details></td></tr>
+<tr><td><code>/api/v2.0/comments/post/:id/add </code></td><td><details><summary> Add a comment to a post.</summary><p>Requires parameters: <code>text</code>.<br />
+Available tables: N/A. All fields on the created comment are returned.<br />
+Output format: identical to <code>/comments</code>.</p>
+</details></td></tr>
 <tr><td><code>/api/v2.0/comments/post/:id </code></td><td><details><summary> [W] [Smokey] Add an automatic comment to a post.</summary><p><strong>This route is for use by SmokeDetector instances only.</strong><br />
 Requires parameters: <code>text</code>, <code>chat_user_id</code>, and <code>chat_host</code>.<br />
 Available tables: N/A. All fields on the created comment are returned.<br />
