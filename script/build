@@ -2,7 +2,7 @@
 
 # Process environment variables
 if [[ "$TRAVIS_PULL_REQUEST" =~ ^[0-9]+$ ]]; then
-  echo "Building pull request #$TRAVIS_PULL_REQUEST, disabled deploy" >&2
+  echo "Building pull request #$TRAVIS_PULL_REQUEST, will skip deploy" >&2
 
   NO_DEPLOY=true
   unset GH_TOKEN TRAVIS_GITHUB_TOKEN
@@ -22,9 +22,9 @@ while [ $# -ne 0 ]; do
 done
 
 function force-fetch {
-  if [[ -d $1/.git ]]; then
+  if [[ -d "$1/.git" ]]; then
     echo "Force-fetching $1..."
-    bash -c "cd $1 && git fetch -q && git reset --hard -q origin/master"
+    bash -c "cd '$1' && git checkout master && git fetch -q && git reset --hard -q origin/master"
   else
     rm -rf "$1"
     git clone --depth 1 -q -b master "$2" "$1"
