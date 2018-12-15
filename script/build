@@ -69,7 +69,7 @@ git -C ./smokey log -1 --pretty="Smokey wiki commit: [%h] %s"
 echo -ne "\e[0m"
 echo
 
-COMMIT_INFO="$(git log -1 --pretty="[%h] %B")"
+COMMIT_INFO="$(git log -1 --pretty="[%h] %an: %B")"
 
 rm -r _site/assets # remove old assets
 
@@ -85,8 +85,8 @@ else
   bundle exec jekyll build --incremental --profile --trace
 fi
 
-pushd _site  # _site
-pushd assets  # _site/assets
+pushd _site &>/dev/null  # _site
+pushd assets &>/dev/null  # _site/assets
 mkdir -p css images
 
 for file in branding*.css; do
@@ -96,7 +96,7 @@ for file in charcoal*.png; do
   cp "$file" images/charcoal.png
 done
 
-popd # OLDPWD=_site/assets/; PWD=_site/
+popd &>/dev/null  # OLDPWD=_site/assets/; PWD=_site/
 
 if [ -n "$DEPLOY" ]; then
   :> .nojekyll
@@ -110,12 +110,12 @@ if [ -n "$DEPLOY" ]; then
   if [ -n "$TRAVIS_COMMIT" ]; then
     git commit --allow-empty -q \
       -m "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER:-<unknown>}" \
-      -m "${COMMIT_INFO:-$TRAVIS_COMMIT}"
+      -m "${COMMIT_INFO}"
     git push -q
   else
     git commit --allow-empty -q \
       -m "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER:-<unknown>}" \
-      -m "${COMMIT_INFO:-$TRAVIS_COMMIT}"
+      -m "${COMMIT_INFO}"
     echo -e "Skipped push to GitHub Pages."
   fi
 
@@ -123,4 +123,4 @@ if [ -n "$DEPLOY" ]; then
   git config user.email "$ORIGINAL_EMAIL"
 fi
 
-popd # OLDPWD=_site/; PWD=(git root)
+popd &>/dev/null  # OLDPWD=_site/; PWD=(git root)
