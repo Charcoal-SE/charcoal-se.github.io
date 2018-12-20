@@ -80,7 +80,9 @@
 <ul>
   <li><code class="highlighter-rouge">!!/alive</code> or <code class="highlighter-rouge">!!/live</code> — Replies a random message taken from a list so you can see that SmokeDetector is still running.</li>
   <li><code class="highlighter-rouge">!!/status</code> — Shows the UTC date when SmokeDetector started running.</li>
-  <li><code class="highlighter-rouge">!!/ms-status</code> — Shows the status of MetaSmoke.</li>
+  <li><code class="highlighter-rouge">!!/ms-status</code> — Shows the status of metasmoke. If SmokeDetector is unable to communicate with metasmoke, then SmokeDetector will assume that metasmoke is down and continue processing posts and reporting them into chat without attempting to communicate with metasmoke.</li>
+  <li><code class="highlighter-rouge">!!/ms-up</code> — Instructs SmokeDetector that metasmoke is up. SmokeDetector will attempt to communicate with metasmoke. This is the normal, default state.</li>
+  <li><code class="highlighter-rouge">!!/ms-down</code> — Instructs SmokeDetector that metasmoke is down. SmokeDetector will not attempt to communicate with metasmoke.</li>
   <li><code class="highlighter-rouge">!!/rev</code> or <code class="highlighter-rouge">!!/ver</code> — Shows the running Git revision.</li>
   <li><code class="highlighter-rouge">!!/help</code>, <code class="highlighter-rouge">!!/info</code>, <code class="highlighter-rouge">!!/commands</code> — Shows a small help message about SmokeDetector.</li>
   <li><code class="highlighter-rouge">!!/apiquota</code> — Shows the remaining API quota of SmokeDetector.</li>
