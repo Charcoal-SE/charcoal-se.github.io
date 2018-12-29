@@ -31,6 +31,7 @@ $(window).on 'turbolinks:load', ->
 
   $('.search-link, .search-nav .close-icon').click ->
     $('.top-nav').toggleClass('search-mode')
+    $('#search-input').focus()
     false
 
   $('#search-input').focus -> $('.search-nav').addClass 'focus'
