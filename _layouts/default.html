@@ -36,8 +36,8 @@
       <nav class="text-center top-nav">
         <div class="search-nav">
           <i class="fa fa-search search-icon inline-icon fa-fw"></i>
-          <input type="text" placeholder="Search…" id="search-input">
-          <a href="#" class="inline-icon close-icon"><i class="fa fa-times fa-fw"></i></a>
+          <input type="text" placeholder="Search…" id="search-input" tabindex="-1">
+          <a href="#" id="search-close" class="inline-icon close-icon" tabindex="-1"><i class="fa fa-times fa-fw"></i></a>
         </div>
         <ul class="main-nav">
           <li><a href="{{ '/' | relative_url }}"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a></li>
