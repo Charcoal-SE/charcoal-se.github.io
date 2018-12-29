@@ -66,11 +66,6 @@ nav.nav-dropdown {
 }
 
 @include desktop {
-  .top-nav .search-nav {
-    opacity: 0;
-    pointer-events: none;
-    bottom: 0;
-  }
   .top-nav {
     position: relative;
     height: 36px;
@@ -79,15 +74,19 @@ nav.nav-dropdown {
       position: absolute;
       width: 100%;
     }
+    .search-nav {
+      display: none;
+    }
+    .main-nav {
+      display: block;
+    }
   }
   .top-nav.search-mode {
     .main-nav {
-      opacity: 0;
-      pointer-events: none;
+      display: none;
     }
     .search-nav {
-      opacity: 1;
-      pointer-events: auto;
+      display: block;
     }
   }
 }
