@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    Set up local instance of metasmoke (Linux macOS Windows WSL  v16170) | Charcoal
+    
+  </title>
+  <link type="text/css" rel="stylesheet" href="/assets/application-b887cbb6fe127c3c42207d907bb1eb6857559c94edc785cdc8a700244519ad56.css">
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch"></script>
+  <script type="text/javascript" src="/assets/application-34365d34bcb636de56f3e69c4efa1ec76d11b59d80ae19aaf8d16e124a1b3aaf.js"></script>
+  <script type="text/javascript" src="/assets/vendor-ecc837bbd5d3e5dbfb38524f3faaf1406e7e5490330a1bd2b4728be17a5fffa7.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon"
+            type="image/png"
+            href="/assets/charcoal-fd5b673dc87bbcf444be78adbf43a1198e981d2133de0a3eab4810ca047efbb7.png" />
+</head>
+<body>
+  <div class="body-container">
+    
+    <div class="header">
+      <div class="header-icon text-center">
+        <a href="/">
+          <img src="/assets/charcoal-fd5b673dc87bbcf444be78adbf43a1198e981d2133de0a3eab4810ca047efbb7.png" height="64" width title="Charcoal: spam-crusaders of the Internet" alt="charcoal.png">
+          <span class="title">
+            <span>Charcoal</span>
+            <small>spam-crusaders of the Internet</small>
+          </span>
+        </a>
+        <label class="nav-toggle-icon fa fa-bars fa-lg" for="nav-toggle"></label>
+      </div>
+      <input type="checkbox" id="nav-toggle">
+      <nav class="text-center top-nav">
+        <div class="search-nav">
+          <i class="fa fa-search search-icon inline-icon fa-fw"></i>
+          <input type="text" placeholder="Search…" id="search-input">
+          <a href="#" id="search-close" class="inline-icon close-icon"><i class="fa fa-times fa-fw"></i></a>
+        </div>
+        <ul class="main-nav">
+          <li><a href="/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a></li>
+          <li><a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq"><i class="fa mobile-only fa-comments-o"></i> chat</a></li>
+          <li>
+            <label class="link" for="projects-toggle">
+              more projects <i class="fa fa-chevron-down"></i>
+            </label>
+            <input type="checkbox" id="projects-toggle">
+            <nav class="nav-dropdown">
+              <a href="https://metasmoke.erwaysoftware.com/" >metasmoke</a>
+            
+              <a href="https://charcoal-se.org/ms-urls" >metasmoke URL converter</a>
+            
+              <a href="https://flovis.charcoal-se.org/" >Farmhouse (Flovis)</a>
+            
+              <a href="https://charcoal-se.org/blaze" data-turbolinks="false">Blaze</a>
+            </nav>
+          </li>
+          <li><a href="/scripts"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a></li>
+          <li><a href="/smokey/"><i class="fa mobile-only fa-file-text-o"></i> wiki</a></li>
+          <li>
+            <a href="/ms/API-Documentation-(V2)"><i class="fa mobile-only fa-book"></i> api</a>
+            (<a href="/ms/API-Documentation-(V1)">v1</a>)
+          </li>
+          <li><a href="https://github.com/Charcoal-SE" title="GitHub organization"><i class="fa fa-github"></i><span class="mobile-only"> GitHub</span></a></li>
+          <li><a href="#" class="search-link"><i class="fa fa-search" title="Search"></i><span class="mobile-only"> Search</span></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="body">
+      
+
+
+<h1 id="set-up-local-instance-of-metasmoke-linux-macos-windows-wsl--v16170">Set up local instance of metasmoke (Linux macOS Windows WSL  v16170)</h1>
+
+<p>Setting up a MS development environment is a bit involved, but it’s not too bad, and it works well once everything is set up. If you run into problems, feel free to ask for help in <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+
+<h1 id="prereq-supported-platforms">Prereq: Supported Platforms</h1>
+<p>metasmoke can be installed and will work on the following platforms:</p>
+
+<ul>
+  <li>Ubuntu</li>
+  <li>Debian</li>
+  <li>macOS</li>
+  <li>probably most Linux flavors</li>
+</ul>
+
+<p>metasmoke <em>does</em> work on WSL, but it’s significantly slower and takes much more effort in terms of solving the random errors you get from WSL’s lack of support for things. You’ll need a Windows build over 16170; builds before that <a href="https://github.com/Microsoft/WSL/issues/2245#issuecomment-310546134">don’t support mdns</a>, which crashes the server on boot.</p>
+
+<p>If you can make metasmoke work on Windows, you’re a better developer than most of us, but Windows is not and will not be officially supported.</p>
+
+<!-- language-all: lang-none -->
+
+<h1 id="install-dependencies">Install dependencies</h1>
+
+<h3 id="mac">Mac:</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install mysql
+brew services start mysql
+</code></pre></div></div>
+
+<h3 id="linux">Linux:</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update
+sudo apt install git mysql-client mysql-server libmysqlclient-dev libsqlite3-dev yarn
+</code></pre></div></div>
+
+<h2 id="install-nodejs-no-macos-instructions-yet">Install NodeJS (no macOS instructions yet)</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - 
+    sudo apt-get install nodejs 
+</code></pre></div></div>
+
+<h2 id="install-ruby">Install Ruby</h2>
+
+<p>The easiest way to install Ruby is with <a href="https://rvm.io">RVM</a>. To install Ruby 2.5 (other ruby versions may work, but metasmoke runs on 2.5.0 as of 3/9/2018):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+$ curl -sSL https://get.rvm.io | bash -s stable
+$ source ~/.rvm/scripts/rvm
+$ rvm install 2.5.0
+</code></pre></div></div>
+
+<p>You can also use a less popular alternative, <a href="https://github.com/rbenv/rbenv#basic-github-checkout">rbenv</a> with <a href="https://github.com/rbenv/ruby-build#installation">ruby-build</a>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+$ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' &gt;&gt; ~/.bash_profile
+$ ~/.rbenv/bin/rbenv init
+</code></pre></div></div>
+
+<p>Now follow the instructions. They will typically involve appending something to your <code class="highlighter-rouge">.bash_profile</code> or other shell config file. Then, install ruby build with:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir -p "$(rbenv root)"/plugins
+$ git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+</code></pre></div></div>
+
+<p>Then actually install ruby:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rbenv install 2.5.0
+</code></pre></div></div>
+
+<h1 id="clone-metasmoke">Clone metasmoke</h1>
+
+<p>To clone using HTTPS:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/Charcoal-SE/metasmoke
+</code></pre></div></div>
+
+<p>To clone using SSH:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone git@github.com:Charcoal-SE/metasmoke
+</code></pre></div></div>
+
+<h1 id="install-metasmoke-dependencies">Install metasmoke dependencies</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd metasmoke
+$ gem install bundler
+$ bundle install
+$ yarn install
+</code></pre></div></div>
+
+<p>If there are any errors with the previous step, you will need to correct those before proceeding. The most common one is with MySQL and is usually solved by running and then repeating the previous step</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install libmysqlclient-dev
+gem uninstall mysql2
+gem install mysql2
+</code></pre></div></div>
+
+<h1 id="set-up-redis">Set up redis</h1>
+
+<p>Since most package managers have old versions, you’ll need to maually build redis from git. Fear not, there are no dependencies, and it usually builds in under 5 minutes. You’ll want to be in the <code class="highlighter-rouge">metasmoke</code> directory, which you should already be in from the last step (if not, <code class="highlighter-rouge">cd metasmoke</code>):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/antirez/redis redis-git
+$ cd redis-git
+$ make
+</code></pre></div></div>
+
+<p>And, if you feel extra careful</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make test
+</code></pre></div></div>
+
+<p>Then, you’ll need to build our redis module. You’ll want to be in the <code class="highlighter-rouge">metasmoke</code> directory, so if you’re continuing from the last step, <code class="highlighter-rouge">cd ..</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/Charcoal-SE/redis-zhregex zhregex
+$ cd zhregex
+</code></pre></div></div>
+
+<p>The module depends on the c pcre library, which can be installed on macOS with:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew install pcre
+</code></pre></div></div>
+
+<p>or on ubuntu with</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ apt-get install libpcre3-dev
+</code></pre></div></div>
+
+<p>On other platforms, you’ll need to figure out some way to get it installed.</p>
+
+<p>Then, build the module:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+</code></pre></div></div>
+
+<p>Now you’ve built everything you’ll need for redis. We’ll come back to run it in a later step.</p>
+
+<h2 id="adding-redis-to-path-optional">Adding redis to PATH (optional)</h2>
+
+<p>You may want to add <code class="highlighter-rouge">redis-git/src/redis-cli</code> and <code class="highlighter-rouge">redis-git/src/redis-server</code> to your PATH variable so that you can run the correct version of the CLI/server without prefixing it with all that mess. This step is fully optional, just makes your life easier if you’re working closely with redis.</p>
+
+<h1 id="set-up-a-database">Set up a database</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mysql -u root -p
+</code></pre></div></div>
+
+<p>You will be prompted for your MySQL root password; this should be the same password you entered during installation. (When I tried it, MySQL refused to authenticate me; <a href="https://stackoverflow.com/a/46908573/3476191">this Stack Overflow answer</a> fixed it for me).</p>
+
+<p>In the MySQL command line:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt; CREATE DATABASE metasmoke;
+mysql&gt; CREATE DATABASE metasmoke_test;
+mysql&gt; CREATE DATABASE metasmoke_production;
+mysql&gt; CREATE USER metasmoke@localhost IDENTIFIED BY '&lt;password to set for the metasmoke database&gt;';
+mysql&gt; GRANT ALL PRIVILEGES ON metasmoke.* TO metasmoke@localhost;
+mysql&gt; GRANT ALL PRIVILEGES ON metasmoke_test.* TO metasmoke@localhost;
+mysql&gt; GRANT ALL PRIVILEGES ON metasmoke_production.* TO metasmoke@localhost;
+mysql&gt; FLUSH PRIVILEGES;
+</code></pre></div></div>
+
+<p>Now exit the MySQL command line using ^D or <code class="highlighter-rouge">exit</code>.</p>
+
+<h1 id="configure-metasmoke-to-use-the-newly-created-database">Configure metasmoke to use the newly-created database</h1>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd config
+$ cp config.sample.yml config.yml
+$ cp database.sample.yml database.yml
+</code></pre></div></div>
+
+<p>Now edit <code class="highlighter-rouge">database.yml</code>, and change it to the following:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>default: &amp;default
+  adapter: mysql2
+  database: metasmoke
+  encoding: utf8
+  username: metasmoke
+  password: &lt;the metasmoke database password you set in the last step&gt;
+  host: 127.0.0.1
+  port: 3306
+
+development:
+  &lt;&lt;: *default
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  &lt;&lt;: *default
+  database: metasmoke_test
+
+production:
+  &lt;&lt;: *default
+  database: metasmoke_production
+</code></pre></div></div>
+
+<p>Change the <code class="highlighter-rouge">default</code> section to have the same contents as well.</p>
+
+<p>If you want integrations to work, you will need to update <code class="highlighter-rouge">config.yml</code> with real credentials for SES, Github, and/or StackExchange. The redirect URLs in the Stack Exchange settings should point back to your instance. This is not necessary, unless you’re trying to work on a feature which requires them (almost never).</p>
+
+<p>Now <code class="highlighter-rouge">cd</code> back up out of <code class="highlighter-rouge">config</code> and run:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails db:create
+$ rails db:schema:load
+$ rails db:migrate # in case the schema is out of date. it shouldn't be, but you never no.
+$ rails db:seed
+</code></pre></div></div>
+
+<p>If this fails, run <code class="highlighter-rouge">rails db:drop</code> and then run the previous commands again.</p>
+
+<hr />
+
+<p>At this point, you should be good to go! Run <code class="highlighter-rouge">rails c</code> to get a REPL, and <code class="highlighter-rouge">foreman start</code> to launch a server on <code class="highlighter-rouge">localhost:5000</code>.</p>
+
+<p>To create an account, start the server, and click “sign up” in the top bar.  Email doesn’t matter, pick a username, and pick a password (security doesn’t really matter). To give yourself admin privileges, open a console with <code class="highlighter-rouge">rails c</code> and run:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User.where(username: "&lt;the username you picked&gt;").first.add_role :developer
+User.where(username: "&lt;the username you picked&gt;").first.add_role :admin
+</code></pre></div></div>
+
+<p>(There will be a significant amount of output from Rails after each of these commands, showing how the roles table is updated with a new role, and then the user is assigned this role.)</p>
+
+<p>You can then go into Tools-&gt;User Permissions and grant yourself all the roles you’d like.</p>
+
+<h1 id="appendix-required-versions">Appendix: Required Versions</h1>
+<p>This is a list of known version requirements of various software that metasmoke requires, usually derived from required features or bugs in other versions.</p>
+
+<ul>
+  <li>WSL: Windows &gt;= 16170 (<a href="https://github.com/Microsoft/WSL/issues/2245#issuecomment-310546134">mdns</a>)</li>
+  <li>This is obviously only an issue if you are actually using WSL to provide a Linux-compatible platform on Windows</li>
+  <li>Ruby: &gt;= 2.3 (<a href="http://mitrev.net/ruby/2015/11/13/the-operator-in-ruby/">SNO</a>)</li>
+  <li>MySQL: &gt;= 5.7.6 (<a href="https://stackoverflow.com/a/16592722/3160466"><code class="highlighter-rouge">CREATE USER IF NOT EXISTS</code></a>)</li>
+</ul>
+
+<hr />
+<p><sup>Adapted from <a href="https://chat.stackexchange.com/rooms/11540/conversation/setting-up-metasmoke-development">Setting up metasmoke development</a>. Tested on macOS and Linux.</sup></p>
+
+
+<div class="sidebar">
+
+
+
+<p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/Set-up-local-instance-of-metasmoke-(Linux-macOS-Windows-WSL--v16170)/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+
+<div class="sidebar-content sidebar-content-ms">
+
+  <p><strong><a href="Home">Home</a></strong></p>
+
+  <p><strong><a href="API-Documentation-(V2)">API Documentation</a> (<a href="API-Documentation-(V1)">V1</a>)</strong></p>
+
+  <p><strong><a href="WebSocket-API">WebSocket API Documentation</a></strong></p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
+
+    </div>
+    <div class="footer text-center">
+      <p>Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.<br />
+        <a href="/security">Security</a> • <a href="/pings/">Contact</a>
+      </p>
+      <p>
+        <a href="https://github.com/Charcoal-SE/charcoal-se.github.io">Website Source</a>
+        • By
+          
+            <a href="https://github.com/j-f1" class="avatar-link">
+              <img class="avatar avatar-small" alt="j-f1" width="16" height="16" data-proofer-ignore="true" src="https://avatars2.githubusercontent.com/j-f1?v=3&s=16" srcset="https://avatars2.githubusercontent.com/j-f1?v=3&s=16 1x, https://avatars2.githubusercontent.com/j-f1?v=3&s=32 2x, https://avatars2.githubusercontent.com/j-f1?v=3&s=48 3x, https://avatars2.githubusercontent.com/j-f1?v=3&s=64 4x" />j-f1</a>,
+          
+            <a href="https://github.com/ArtOfCode-" class="avatar-link">
+              <img class="avatar avatar-small" alt="ArtOfCode-" width="16" height="16" data-proofer-ignore="true" src="https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=16" srcset="https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=16 1x, https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=32 2x, https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=48 3x, https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=64 4x" />ArtOfCode-</a>,
+          
+            <a href="https://github.com/iBug" class="avatar-link">
+              <img class="avatar avatar-small" alt="iBug" width="16" height="16" data-proofer-ignore="true" src="https://avatars0.githubusercontent.com/iBug?v=3&s=16" srcset="https://avatars0.githubusercontent.com/iBug?v=3&s=16 1x, https://avatars0.githubusercontent.com/iBug?v=3&s=32 2x, https://avatars0.githubusercontent.com/iBug?v=3&s=48 3x, https://avatars0.githubusercontent.com/iBug?v=3&s=64 4x" />iBug</a>,
+          
+            <a href="https://github.com/angussidney" class="avatar-link">
+              <img class="avatar avatar-small" alt="angussidney" width="16" height="16" data-proofer-ignore="true" src="https://avatars1.githubusercontent.com/angussidney?v=3&s=16" srcset="https://avatars1.githubusercontent.com/angussidney?v=3&s=16 1x, https://avatars1.githubusercontent.com/angussidney?v=3&s=32 2x, https://avatars1.githubusercontent.com/angussidney?v=3&s=48 3x, https://avatars1.githubusercontent.com/angussidney?v=3&s=64 4x" />angussidney</a>,
+          
+          and
+          <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
+            15 more</a>
+        
+          • <a href="/code">More gory details</a>
+        
+      </p>
+      
+    </div>
+  </div>
+  <script>
+    window.searchConfig = {
+      appId: 'TMPUB31BTZ',
+      key: 'c63c2f79258f929439376cfb88862440',
+      index: 'main-search',
+      baseUrl: '',
+    }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+  </script>
+  <!-- Hotjar Tracking Code for charcoal-se.org -->
+  <script>
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:771814,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</body>
+</html>
