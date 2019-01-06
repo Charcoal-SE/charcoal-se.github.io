@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>
-    Set up local instance of metasmoke (Linux macOS Windows WSL  v16170) | Charcoal
+    Set up local instance of metasmoke (Linux macOS Windows WSL   v16170) | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="/assets/application-b887cbb6fe127c3c42207d907bb1eb6857559c94edc785cdc8a700244519ad56.css">
@@ -69,7 +69,7 @@
       
 
 
-<h1 id="set-up-local-instance-of-metasmoke-linux-macos-windows-wsl--v16170">Set up local instance of metasmoke (Linux macOS Windows WSL  v16170)</h1>
+<h1 id="set-up-local-instance-of-metasmoke-linux-macos-windows-wsl---v16170">Set up local instance of metasmoke (Linux macOS Windows WSL   v16170)</h1>
 
 <p>Setting up a MS development environment is a bit involved, but it’s not too bad, and it works well once everything is set up. If you run into problems, feel free to ask for help in <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
 
@@ -205,6 +205,12 @@ $ cd zhregex
 
 <p>Now you’ve built everything you’ll need for redis. We’ll come back to run it in a later step.</p>
 
+<h2 id="getting-a-data-dump">Getting a data dump</h2>
+
+<p>This step is technically optional, but metasmoke will not work correctly without it. You really should use both a database dump and a redis dump when getting a metasmoke instance set up.</p>
+
+<p>Download a redis dump from https://metasmoke.erwaysoftware.com/dumps, and unzip it to <code class="highlighter-rouge">"#{Rails.root}/dump.rdb"</code>. That’s where redis will look for it, in the root of your rails app with the name “dump.rdb”.</p>
+
 <h2 id="adding-redis-to-path-optional">Adding redis to PATH (optional)</h2>
 
 <p>You may want to add <code class="highlighter-rouge">redis-git/src/redis-cli</code> and <code class="highlighter-rouge">redis-git/src/redis-server</code> to your PATH variable so that you can run the correct version of the CLI/server without prefixing it with all that mess. This step is fully optional, just makes your life easier if you’re working closely with redis.</p>
@@ -309,7 +315,7 @@ User.where(username: "&lt;the username you picked&gt;").first.add_role :admin
 
 
 
-<p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/Set-up-local-instance-of-metasmoke-(Linux-macOS-Windows-WSL--v16170)/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+<p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/Set-up-local-instance-of-metasmoke-(Linux-macOS-Windows-WSL---v16170)/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
 
 <div class="sidebar-content sidebar-content-ms">
 
