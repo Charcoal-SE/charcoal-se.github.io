@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    Set Up and Run SmokeDetector | Charcoal
+    
+  </title>
+  <link type="text/css" rel="stylesheet" href="/assets/application-b887cbb6fe127c3c42207d907bb1eb6857559c94edc785cdc8a700244519ad56.css">
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch"></script>
+  <script type="text/javascript" src="/assets/application-34365d34bcb636de56f3e69c4efa1ec76d11b59d80ae19aaf8d16e124a1b3aaf.js"></script>
+  <script type="text/javascript" src="/assets/vendor-ecc837bbd5d3e5dbfb38524f3faaf1406e7e5490330a1bd2b4728be17a5fffa7.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon"
+            type="image/png"
+            href="/assets/charcoal-fd5b673dc87bbcf444be78adbf43a1198e981d2133de0a3eab4810ca047efbb7.png" />
+</head>
+<body>
+  <div class="body-container">
+    
+    <div class="header">
+      <div class="header-icon text-center">
+        <a href="/">
+          <img src="/assets/charcoal-fd5b673dc87bbcf444be78adbf43a1198e981d2133de0a3eab4810ca047efbb7.png" height="64" width title="Charcoal: spam-crusaders of the Internet" alt="charcoal.png">
+          <span class="title">
+            <span>Charcoal</span>
+            <small>spam-crusaders of the Internet</small>
+          </span>
+        </a>
+        <label class="nav-toggle-icon fa fa-bars fa-lg" for="nav-toggle"></label>
+      </div>
+      <input type="checkbox" id="nav-toggle">
+      <nav class="text-center top-nav">
+        <div class="search-nav">
+          <i class="fa fa-search search-icon inline-icon fa-fw"></i>
+          <input type="text" placeholder="Search…" id="search-input">
+          <a href="#" id="search-close" class="inline-icon close-icon"><i class="fa fa-times fa-fw"></i></a>
+        </div>
+        <ul class="main-nav">
+          <li><a href="/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a></li>
+          <li><a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq"><i class="fa mobile-only fa-comments-o"></i> chat</a></li>
+          <li>
+            <label class="link" for="projects-toggle">
+              more projects <i class="fa fa-chevron-down"></i>
+            </label>
+            <input type="checkbox" id="projects-toggle">
+            <nav class="nav-dropdown">
+              <a href="https://metasmoke.erwaysoftware.com/" >metasmoke</a>
+            
+              <a href="https://charcoal-se.org/ms-urls" >metasmoke URL converter</a>
+            
+              <a href="https://flovis.charcoal-se.org/" >Farmhouse (Flovis)</a>
+            
+              <a href="https://charcoal-se.org/blaze" data-turbolinks="false">Blaze</a>
+            </nav>
+          </li>
+          <li><a href="/scripts"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a></li>
+          <li><a href="/smokey/"><i class="fa mobile-only fa-file-text-o"></i> wiki</a></li>
+          <li>
+            <a href="/ms/API-Documentation-(V2)"><i class="fa mobile-only fa-book"></i> api</a>
+            (<a href="/ms/API-Documentation-(V1)">v1</a>)
+          </li>
+          <li><a href="https://github.com/Charcoal-SE" title="GitHub organization"><i class="fa fa-github"></i><span class="mobile-only"> GitHub</span></a></li>
+          <li><a href="#" class="search-link"><i class="fa fa-search" title="Search"></i><span class="mobile-only"> Search</span></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="body">
+      
+
+
+<h1 id="setting-up-smokedetector">Setting up SmokeDetector</h1>
+
+<h2 id="basic-setup">Basic setup</h2>
+
+<p>To set up SmokeDetector (SD), please execute the following commands:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/Charcoal-SE/SmokeDetector.git
+cd SmokeDetector
+git config user.email "smokey@erwaysoftware.com"
+git config user.name "SmokeDetector"
+git checkout deploy
+sudo pip3 install -r requirements.txt --upgrade
+pip3 install --user -r user_requirements.txt --upgrade
+</code></pre></div></div>
+
+<p>Next, copy <code class="highlighter-rouge">config.sample</code> to a new file called <code class="highlighter-rouge">config</code>, and edit the values required. If you are going to be running this SmokeDetector instance as a normal SD instance with metasmoke, see <a href="#user-content-the-config-file">the “config” file with MS</a> below.</p>
+
+<p>You should now be able to <a href="#user-content-running-smokedetector">run SmokeDetector</a>.</p>
+
+<h2 id="running-smokedetector-with-metasmoke">Running SmokeDetector with metasmoke</h2>
+<p>You will need a <a href="https://keybase.io/">keybase</a> account. You will also need to have the “smoke detector runner” role on metasmoke (MS). Contact an MS admin to request the role. When given the role, you should separately be added to the “charcoal” channel on keybase.</p>
+
+<h3 id="the-config-file-with-ms">The “config” file with MS</h3>
+<p>In the files section for the keybase “charcoal” channel, there is a “config” file. You should use that config file as a basis for the “config” file you use in your “SmokeDetector” directory.</p>
+<ul>
+  <li>Set <code class="highlighter-rouge">location</code> to the name you choose for your SD instance. This should be your username, followed by a slash and an identifier that’s unique among all your Smokey instances. This is the name that your instance will display in messages in chat and what will be displayed on MS for status.</li>
+  <li>Set <code class="highlighter-rouge">metasmoke_key</code>
+    <ul>
+      <li>On metasmoke in the dropdown for your username, select “My SmokeDetectors”.</li>
+      <li>Click on “create a new key” and enter the name you used for <code class="highlighter-rouge">location</code> above.</li>
+      <li>Once you complete the dialog, your SD instance will be listed and you can copy the “Key” to <code class="highlighter-rouge">metasmoke_key</code>.</li>
+    </ul>
+  </li>
+  <li>Save the “config” file, as those are the only changes you need.</li>
+</ul>
+
+<h3 id="run-smokedetector">Run SmokeDetector</h3>
+<p>At this point, you should be able to <a href="#user-content-running-smokedetector">run SmokeDetector using the instructions below</a>.</p>
+
+<h2 id="setting-up-an-aws-ec2-linux-instance-for-smokedetector">Setting up an AWS EC2 linux instance for SmokeDetector</h2>
+<p>Using a AWS EC2 instance can be a quick way to get an SD instance up and running. Based on reports from @iBug in chat, a t2.micro instance, what’s available from the AWS Free Tier for 12 months, doesn’t have enough CPU credits for the instance to be the active SD instance full-time. It’s expected that a t3.micro, which actually costs less than a t2.micro, once past the free period, should be sufficient for a full-time active SD instance. However, a t2.micro instance does appear to be enough for SD to run as a standby instance to fill in on an irregular basis.</p>
+
+<p>To set-up a t2.micro instance for SD you can do the following:</p>
+<ul>
+  <li>Create the EC2 instance (<a href="https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/">launch a AWS instance tutorial</a>)
+    <ul>
+      <li>Create an AWS account (address, verifiable phone number, and credit card required) and Sign-in to the AWS console.</li>
+      <li>Click “Launch Instance -&gt;”</li>
+      <li>Click “Select” for “Amazon Linux AMI 2018.03.0 (HVM), SSD Volume Type - ami-0cd3dfa4e37921605” (the first one in the list)</li>
+      <li>Click “Review and Launch”</li>
+      <li>Click “Launch”</li>
+      <li>Create a public key pair, or use one you’ve previously created.
+        <ul>
+          <li>If creating a new public key pair, download the private key to somewhere on your system from which you can run <code class="highlighter-rouge">ssh</code>.</li>
+        </ul>
+      </li>
+      <li>Click “View Instances”</li>
+      <li>Select the new instance</li>
+      <li>Click “Connect”</li>
+      <li>Use ssh to connect to EC2 instance:
+        <ul>
+          <li>Copy-&amp;-paste the example ssh line in the popup into a command line running in the directory where you stored the .pem file with the private key (created or selected earlier).</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Execute the following commands (you can copy-&amp;-paste all of them at one time):</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  sudo yum -y update
+  sudo yum -y install gcc
+  sudo yum -y install git
+  sudo yum -y install python36
+  sudo yum -y install python36-devel
+  sudo python3 -m pip install pip --upgrade
+
+  git clone https://github.com/Charcoal-SE/SmokeDetector.git
+  cd SmokeDetector
+  git config user.email "smokey@erwaysoftware.com"
+  git config user.name "SmokeDetector"
+  git checkout deploy
+  sudo /usr/local/bin/pip3 install -r requirements.txt --upgrade
+  pip3 install --user -r user_requirements.txt --upgrade
+</code></pre></div>    </div>
+  </li>
+  <li>Create the “config” file
+    <ul>
+      <li>See <a href="#user-content-the-config-file">The “config” file with MS</a> above if you are going to use this SD instance with metasmoke.</li>
+      <li>If you are not going to run this SD instance with metasmoke, then copy <code class="highlighter-rouge">config.sample</code> to a new file called <code class="highlighter-rouge">config</code>, and edit the values required.</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="running-smokedetector">Running SmokeDetector</h1>
+<p>To run, use <code class="highlighter-rouge">python3 nocrash.py</code>, or <code class="highlighter-rouge">python3 nocrash.py standby</code> (preferably in a daemon-able mode, like a <code class="highlighter-rouge">screen</code> session).
+You can also use <code class="highlighter-rouge">python3 ws.py</code>, but then SmokeDetector will be shut down after 6 hours;
+when running from <code class="highlighter-rouge">nocrash.py</code>, <code class="highlighter-rouge">ws.py</code> will automatically be restarted.
+(This is to be sure that closed WebSockets, if any, are reopened.)</p>
+
+<h4 id="nocrashpy"><code class="highlighter-rouge">nocrash.py</code></h4>
+<p><code class="highlighter-rouge">nocrash.py</code> is the controlling Python code for SmokeDetector. It runs <code class="highlighter-rouge">ws.py</code>, which is the SD instance, in a sub process and restarts it when it stops. <code class="highlighter-rouge">ws.py</code> may stop as the result of <code class="highlighter-rouge">!!/</code> commands given to SD in chat, or do to errors. The syntax for <code class="highlighter-rouge">nocrash.py</code> is:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nocrash.py [standby]
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">standby</code> option starts the SD instance in <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/SmokeDetector-Statuses#standby-mode">standby mode</a>.</p>
+
+
+
+<div class="sidebar">
+
+
+
+<p><strong><a href="//github.com/Charcoal-SE/SmokeDetector/wiki/Set-Up-and-Run-SmokeDetector/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+
+<div class="sidebar-content sidebar-content-smokey">
+
+  <p><strong><a href="Home">Home</a></strong></p>
+
+  <p><strong><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a></strong></p>
+
+  <p><strong><a href="http://charcoal-se.org/">Charcoal Website</a></strong></p>
+
+  <p><strong><a href="https://metasmoke.erwaysoftware.com">metasmoke</a></strong></p>
+
+  <p><strong><a href="https://github.com/Charcoal-SE/userscripts">Userscripts</a></strong></p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>Smokey is made with &lt;3 by the <a href="https://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/SmokeDetector/graphs/contributors">contributors</a> from <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
+
+    </div>
+    <div class="footer text-center">
+      <p>Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.<br />
+        <a href="/security">Security</a> • <a href="/pings/">Contact</a>
+      </p>
+      <p>
+        <a href="https://github.com/Charcoal-SE/charcoal-se.github.io">Website Source</a>
+        • By
+          
+            <a href="https://github.com/j-f1" class="avatar-link">
+              <img class="avatar avatar-small" alt="j-f1" width="16" height="16" data-proofer-ignore="true" src="https://avatars2.githubusercontent.com/j-f1?v=3&s=16" srcset="https://avatars2.githubusercontent.com/j-f1?v=3&s=16 1x, https://avatars2.githubusercontent.com/j-f1?v=3&s=32 2x, https://avatars2.githubusercontent.com/j-f1?v=3&s=48 3x, https://avatars2.githubusercontent.com/j-f1?v=3&s=64 4x" />j-f1</a>,
+          
+            <a href="https://github.com/ArtOfCode-" class="avatar-link">
+              <img class="avatar avatar-small" alt="ArtOfCode-" width="16" height="16" data-proofer-ignore="true" src="https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=16" srcset="https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=16 1x, https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=32 2x, https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=48 3x, https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=64 4x" />ArtOfCode-</a>,
+          
+            <a href="https://github.com/iBug" class="avatar-link">
+              <img class="avatar avatar-small" alt="iBug" width="16" height="16" data-proofer-ignore="true" src="https://avatars0.githubusercontent.com/iBug?v=3&s=16" srcset="https://avatars0.githubusercontent.com/iBug?v=3&s=16 1x, https://avatars0.githubusercontent.com/iBug?v=3&s=32 2x, https://avatars0.githubusercontent.com/iBug?v=3&s=48 3x, https://avatars0.githubusercontent.com/iBug?v=3&s=64 4x" />iBug</a>,
+          
+            <a href="https://github.com/angussidney" class="avatar-link">
+              <img class="avatar avatar-small" alt="angussidney" width="16" height="16" data-proofer-ignore="true" src="https://avatars1.githubusercontent.com/angussidney?v=3&s=16" srcset="https://avatars1.githubusercontent.com/angussidney?v=3&s=16 1x, https://avatars1.githubusercontent.com/angussidney?v=3&s=32 2x, https://avatars1.githubusercontent.com/angussidney?v=3&s=48 3x, https://avatars1.githubusercontent.com/angussidney?v=3&s=64 4x" />angussidney</a>,
+          
+          and
+          <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
+            15 more</a>
+        
+          • <a href="/code">More gory details</a>
+        
+      </p>
+      
+    </div>
+  </div>
+  <script>
+    window.searchConfig = {
+      appId: 'TMPUB31BTZ',
+      key: 'c63c2f79258f929439376cfb88862440',
+      index: 'main-search',
+      baseUrl: '',
+    }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+  </script>
+  <!-- Hotjar Tracking Code for charcoal-se.org -->
+  <script>
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:771814,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</body>
+</html>
