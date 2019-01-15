@@ -69,9 +69,10 @@
       
 
 
-<h1 id="setting-up-smokedetector">Setting up SmokeDetector</h1>
+<h1 id="setting-up-and-running-smokedetector">Setting Up and Running SmokeDetector</h1>
 
-<h2 id="basic-setup">Basic setup</h2>
+<h2 id="setting-up-smokedetector">Setting Up SmokeDetector</h2>
+<h3 id="basic-setup">Basic setup</h3>
 
 <p>To set up SmokeDetector (SD), please execute the following commands:</p>
 
@@ -88,10 +89,10 @@ pip3 install --user -r user_requirements.txt --upgrade
 
 <p>You should now be able to <a href="#user-content-running-smokedetector">run SmokeDetector</a>.</p>
 
-<h2 id="running-smokedetector-with-metasmoke">Running SmokeDetector with metasmoke</h2>
+<h3 id="running-smokedetector-with-metasmoke">Running SmokeDetector with metasmoke</h3>
 <p>You will need a <a href="https://keybase.io/">keybase</a> account. You will also need to have the “smoke detector runner” role on metasmoke (MS). Contact an MS admin to request the role. When given the role, you should separately be added to the “charcoal” channel on keybase.</p>
 
-<h3 id="the-config-file-with-ms">The “config” file with MS</h3>
+<h4 id="the-config-file-with-ms">The “config” file with MS</h4>
 <p>In the files section for the keybase “charcoal” channel, there is a “config” file. You should use that config file as a basis for the “config” file you use in your “SmokeDetector” directory.</p>
 <ul>
   <li>Set <code class="highlighter-rouge">location</code> to the name you choose for your SD instance. This should be your username, followed by a slash and an identifier that’s unique among all your Smokey instances. This is the name that your instance will display in messages in chat and what will be displayed on MS for status.</li>
@@ -105,10 +106,10 @@ pip3 install --user -r user_requirements.txt --upgrade
   <li>Save the “config” file, as those are the only changes you need.</li>
 </ul>
 
-<h3 id="run-smokedetector">Run SmokeDetector</h3>
+<h4 id="run-smokedetector">Run SmokeDetector</h4>
 <p>At this point, you should be able to <a href="#user-content-running-smokedetector">run SmokeDetector using the instructions below</a>.</p>
 
-<h2 id="setting-up-an-aws-ec2-linux-instance-for-smokedetector">Setting up an AWS EC2 linux instance for SmokeDetector</h2>
+<h3 id="setting-up-an-aws-ec2-linux-instance-for-smokedetector">Setting up an AWS EC2 linux instance for SmokeDetector</h3>
 <p>Using a AWS EC2 instance can be a quick way to get an SD instance up and running. Based on reports from @iBug in chat, a t2.micro instance, what’s available from the AWS Free Tier for 12 months, doesn’t have enough CPU credits for the instance to be the active SD instance full-time. It’s expected that a t3.micro, which actually costs less than a t2.micro, once past the free period, should be sufficient for a full-time active SD instance. However, a t2.micro instance does appear to be enough for SD to run as a standby instance to fill in on an irregular basis.</p>
 
 <p>To set-up a t2.micro instance for SD you can do the following:</p>
@@ -162,14 +163,14 @@ pip3 install --user -r user_requirements.txt --upgrade
   </li>
 </ul>
 
-<h1 id="running-smokedetector">Running SmokeDetector</h1>
+<h2 id="running-smokedetector">Running SmokeDetector</h2>
 <p>To run, use <code class="highlighter-rouge">python3 nocrash.py</code>, or <code class="highlighter-rouge">python3 nocrash.py standby</code> (preferably in a daemon-able mode, like a <code class="highlighter-rouge">screen</code> session).
 You can also use <code class="highlighter-rouge">python3 ws.py</code>, but then SmokeDetector will be shut down after 6 hours;
 when running from <code class="highlighter-rouge">nocrash.py</code>, <code class="highlighter-rouge">ws.py</code> will automatically be restarted.
 (This is to be sure that closed WebSockets, if any, are reopened.)</p>
 
 <h4 id="nocrashpy"><code class="highlighter-rouge">nocrash.py</code></h4>
-<p><code class="highlighter-rouge">nocrash.py</code> is the controlling Python code for SmokeDetector. It runs <code class="highlighter-rouge">ws.py</code>, which is the SD instance, in a sub process and restarts it when it stops. <code class="highlighter-rouge">ws.py</code> may stop as the result of <code class="highlighter-rouge">!!/</code> commands given to SD in chat, or do to errors. The syntax for <code class="highlighter-rouge">nocrash.py</code> is:</p>
+<p><code class="highlighter-rouge">nocrash.py</code> is the controlling Python code for SmokeDetector. It runs <code class="highlighter-rouge">ws.py</code>, which is the SD instance, in a sub process and restarts the SD instance when it stops. <code class="highlighter-rouge">ws.py</code> may stop as the result of various chat <code class="highlighter-rouge">!!/</code> commands, or do to errors. The syntax for <code class="highlighter-rouge">nocrash.py</code> is:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nocrash.py [standby]
 </code></pre></div></div>
