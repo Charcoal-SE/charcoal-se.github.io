@@ -69,7 +69,7 @@
       
 
 
-<h1 id="setting-up-and-running-smokedetector">Setting Up and Running SmokeDetector</h1>
+<h1 id="set-up-and-run-smokedetector">Set Up and Run SmokeDetector</h1>
 
 <h2 id="setting-up-smokedetector">Setting Up SmokeDetector</h2>
 <h3 id="basic-setup">Basic setup</h3>
@@ -118,7 +118,11 @@ pip3 install --user -r user_requirements.txt --upgrade
     <ul>
       <li>Create an AWS account (address, verifiable phone number, and credit card required) and Sign-in to the AWS console.</li>
       <li>Click “Launch Instance -&gt;”</li>
-      <li>Click “Select” for “Amazon Linux AMI 2018.03.0 (HVM), SSD Volume Type - ami-0cd3dfa4e37921605” (the first one in the list)</li>
+      <li>Click “Select” for “Amazon Linux AMI 2018.03.0 (HVM), SSD Volume Type - ami-0cd3dfa4e37921605” (the first one in the list)
+        <ul>
+          <li>You can pick any flavour of Linux you’re familiar with, just remember to substitute installation commands for the correct package manager.</li>
+        </ul>
+      </li>
       <li>Click “Review and Launch”</li>
       <li>Click “Launch”</li>
       <li>Create a public key pair, or use one you’ve previously created.
@@ -139,11 +143,11 @@ pip3 install --user -r user_requirements.txt --upgrade
   <li>
     <p>Execute the following commands (you can copy-&amp;-paste all of them at one time):</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  sudo yum -y update
-  sudo yum -y install gcc
-  sudo yum -y install git
-  sudo yum -y install python36
-  sudo yum -y install python36-devel
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  sudo apt-get -y update
+  sudo apt-get -y install gcc
+  sudo apt-get -y install git
+  sudo apt-get -y install python36
+  sudo apt-get -y install python36-devel
   sudo python3 -m pip install pip --upgrade
 
   git clone https://github.com/Charcoal-SE/SmokeDetector.git
@@ -170,9 +174,9 @@ when running from <code class="highlighter-rouge">nocrash.py</code>, <code class
 (This is to be sure that closed WebSockets, if any, are reopened.)</p>
 
 <h4 id="nocrashpy"><code class="highlighter-rouge">nocrash.py</code></h4>
-<p><code class="highlighter-rouge">nocrash.py</code> is the controlling Python code for SmokeDetector. It runs <code class="highlighter-rouge">ws.py</code>, which is the SD instance, in a sub process and restarts the SD instance when it stops. <code class="highlighter-rouge">ws.py</code> may stop as the result of various chat <code class="highlighter-rouge">!!/</code> commands, or do to errors. The syntax for <code class="highlighter-rouge">nocrash.py</code> is:</p>
+<p><code class="highlighter-rouge">nocrash.py</code> is the controlling Python code for SmokeDetector. It runs <code class="highlighter-rouge">ws.py</code>, which is the SD instance, in a subprocess and restarts the SD instance when it stops. <code class="highlighter-rouge">ws.py</code> may stop as the result of various chat <code class="highlighter-rouge">!!/</code> commands, or do to errors. The syntax for <code class="highlighter-rouge">nocrash.py</code> is:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nocrash.py [standby]
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nocrash.py [standby] [--loglevel=(debug|info|warning|error)]
 </code></pre></div></div>
 
 <p>The <code class="highlighter-rouge">standby</code> option starts the SD instance in <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/SmokeDetector-Statuses#standby-mode">standby mode</a>.</p>
