@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>
-    Code | Charcoal
+    Decision Tree Experiments | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="/assets/application-b887cbb6fe127c3c42207d907bb1eb6857559c94edc785cdc8a700244519ad56.css">
@@ -66,20 +66,47 @@
       </nav>
     </div>
     <div class="body">
-      <p>Website built from:</p>
+      
 
-<ul>
-  <li>commit <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/commit/599e2832b6bb7f3284bd660cce4ca705c09322b8" title="599e2832b6bb7f3284bd660cce4ca705c09322b8"><code class="highlighter-rouge">599e283</code></a> on <a href="https://github.com/Charcoal-SE/charcoal-se.github.io">Charcoal-SE/charcoal-se.github.io</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/_compare/a96c4119c113ed16de5ecbda37e476602f4f5b94" title="a96c4119c113ed16de5ecbda37e476602f4f5b94"><code class="highlighter-rouge">a96c411</code></a> on the <a href="//github.com/Charcoal-SE/SmokeDetector/wiki">Charcoal-SE/SmokeDetector wiki</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/metasmoke/wiki/_compare/6f187357edb8dbd908e87269b2162c19e3febadd" title="6f187357edb8dbd908e87269b2162c19e3febadd"><code class="highlighter-rouge">6f18735</code></a> on the <a href="//github.com/Charcoal-SE/metasmoke/wiki">Charcoal-SE/metasmoke wiki</a></li>
-</ul>
 
-<p><a href="https://travis-ci.org/Charcoal-SE/charcoal-se.github.io">Live build logs on Travis CI</a></p>
+<h1 id="decision-tree-experiments">Decision Tree Experiments</h1>
 
-<p>This site is powered by <a href="https://jekyllrb.com">Jekyll</a> <a href="https://github.com/jekyll/jekyll/releases/v3.7.4">v3.7.4</a></p>
+<p>A journal / scratchpad.</p>
 
-<p><img src="/assets/name-5de9a71538fc786fdf76e741ab91a156a34d0ff6c4b23b01cc1ddd0c9378449e.svg" height="1" width="" alt="name.svg" /><br />
-<img src="/assets/charcoal-888c6d37bc302c2fce9de890f351cfd3354bd3455d2315d7752c3bdfe30504e6.svg" height="1" width="" alt="charcoal.svg" /></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select p.id, HOUR(p.created_at), p.user_reputation, p.revision_count, r.id, r.reason_name, p.is_tp, p.is_fp
+from posts p
+inner join posts_reasons pr on pr.post_id = p.id
+inner join reasons r on r.id = pr.reason_id
+where p.site_id IS NOT NULL
+and p.created_at &gt;= '2018-07-01'
+and (p.is_tp = 1 OR p.is_fp = 1)
+and p.is_tp != p.is_fp
+</code></pre></div></div>
+
+
+<div class="sidebar">
+
+
+
+<p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/Decision-Tree-Experiments/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+
+<div class="sidebar-content sidebar-content-ms">
+
+  <p><strong><a href="Home">Home</a></strong></p>
+
+  <p><strong><a href="API-Documentation-(V2)">API Documentation</a> (<a href="API-Documentation-(V1)">V1</a>)</strong></p>
+
+  <p><strong><a href="WebSocket-API">WebSocket API Documentation</a></strong></p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>metasmoke is made with &lt;3 by the <a href="http://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/metasmoke/graphs/contributors">contributors</a> from <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
 
     </div>
     <div class="footer text-center">
@@ -106,13 +133,9 @@
           <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
             15 more</a>
         
+          • <a href="/code">More gory details</a>
+        
       </p>
-      
-        <p>
-          <a href="/code">More gory details</a>
-          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/code.md" title="code.md">Edit on GitHub</a>
-          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/new/site">New Page</a>
-        </p>
       
     </div>
   </div>
