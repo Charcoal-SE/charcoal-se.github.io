@@ -73,7 +73,7 @@
 
 <p>A journal / scratchpad.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select p.id, HOUR(p.created_at), p.user_reputation, p.revision_count, r.id, r.reason_name, p.is_tp, p.is_fp
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select p.id, HOUR(p.created_at), p.user_reputation, p.revision_count, r.id as reason_id, r.reason_name, p.is_tp, p.is_fp
 from posts p
 inner join posts_reasons pr on pr.post_id = p.id
 inner join reasons r on r.id = pr.reason_id
@@ -81,7 +81,9 @@ where p.site_id IS NOT NULL
 and p.created_at &gt;= '2018-07-01'
 and (p.is_tp = 1 OR p.is_fp = 1)
 and p.is_tp != p.is_fp
+and revision_count IS NOT NULL
 </code></pre></div></div>
+
 
 
 <div class="sidebar">
