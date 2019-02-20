@@ -25,5 +25,5 @@ If you're not on this list, please ping `@JF` or another website maintainer in c
 to get yourself added. 
 
 > **Warning**: These people have **not** volunteered for random translation tasks.
-> Please only ask them for help **only** with posts reported by Smokey
+> Please **only** ask them for help with posts reported by Smokey
 > that a machine translator is having trouble understanding.
