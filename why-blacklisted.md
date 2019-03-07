@@ -3,6 +3,11 @@ published: false
 ---
 <!-- Please delete the above Front Matter key when this page is ready to be published -->
 
+# Why is X domain blacklisted?
+
+One of the major parts of SmokeDetector is a set of blacklists of varying degrees of severity. These encompass a large number of
+keywords and domain names, and it's not always clear why a particular item was added to the list. This information should help clarify
+that; if you need more detail, feel free to ping a member of the Charcoal team or [email us](mailto:smokey@charcoal-se.org).
 
 <section>
 # Why is domain *xxx* inside "watched keywords" or "blacklisted websites"
