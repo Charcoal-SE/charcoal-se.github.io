@@ -5,9 +5,9 @@ published: false
 
 # Why is the domain *example.com* in the "watched keywords" or "blacklisted websites" list?
 
-Charcoal's goal is to detect and delete every spam post on the Stack Exchange network that violates the [self-promotion guidelines](https://stackoverflow.com/help/promotion). Our bot, [SmokeDetector](/#whats-smokey), uses a variety of methods to detect this spam, including watching for any mentions of particular keywords/websites in our series of curated watchlists/blacklists.
+Charcoal's goal is to detect and delete every spam post on the Stack Exchange network that violates the [self-promotion guidelines](https://stackoverflow.com/help/promotion). Our bot, [SmokeDetector](/#whats-smokey), uses a variety of methods to detect this spam, including watching for any mentions of particular keywords/websites in our series of curated watchlists/blacklists. These lists encompass a large number of keywords and domain names, and it's not always clear why a particular item was added to the list. This information should help clarify that; if you need more detail, feel free to ping a member of the Charcoal team or [email us](mailto:smokey@charcoal-se.org).
 
-For a summary (TL;DR) of this page, [see here](#tldr)
+For a summary (TL;DR) of this page, [see here](#tldr).
 
 <section>
 
