@@ -13,6 +13,7 @@ If you're looking for someone who speaks a particular language, please check thi
 * **French**: [Kyll](https://stackexchange.com/users/5221606/kyll) and [Fabby](https://stackexchange.com/users/5269210/fabby)
 * **German**: [Magisch](https://stackexchange.com/users/7034529/magisch), [Wrzlprmft](https://stackexchange.com/users/2437491/wrzlprmft), [Glorfindel](https://stackexchange.com/users/6085540/glorfindel), [Fabby](https://stackexchange.com/users/5269210/fabby), and [rene](https://stackexchange.com/users/281857/rene)
 * **Hebrew**: [Mithrandir](https://stackexchange.com/users/5129611/mithrandir)
+* **Hindi**: [A J](https://stackexchange.com/users/6132527/a-j)
 * **Persian**: [M.A.R.](https://stackexchange.com/users/3841881/m-a-r)
 * **Polish**: [Michał Perłakowski](https://stackexchange.com/users/4768421/micha%c5%82-per%c5%82akowski)
 * **Russian**: [D-side](https://stackexchange.com/users/2372500/d-side) and [Nick Volynkin](https://stackexchange.com/users/3318283/nick-volynkin)
