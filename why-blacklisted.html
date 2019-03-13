@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>
-    Code | Charcoal
+    
+      Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="/assets/application-b887cbb6fe127c3c42207d907bb1eb6857559c94edc785cdc8a700244519ad56.css">
@@ -66,20 +67,75 @@
       </nav>
     </div>
     <div class="body">
-      <p>Website built from:</p>
+      <section>
+  <h1 id="why-is-the-domain-examplecom-in-the-watched-keywords-or-blacklisted-websites-list">Why is the domain <em>example.com</em> in the “watched keywords” or “blacklisted websites” list?</h1>
 
-<ul>
-  <li>commit <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/commit/d2a57321e2b04964620241a394aa10d661ed406c" title="d2a57321e2b04964620241a394aa10d661ed406c"><code class="highlighter-rouge">d2a5732</code></a> on <a href="https://github.com/Charcoal-SE/charcoal-se.github.io">Charcoal-SE/charcoal-se.github.io</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/_compare/7c376a650d2af8a9c38fda7469f0cefd73a6348b" title="7c376a650d2af8a9c38fda7469f0cefd73a6348b"><code class="highlighter-rouge">7c376a6</code></a> on the <a href="//github.com/Charcoal-SE/SmokeDetector/wiki">Charcoal-SE/SmokeDetector wiki</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/metasmoke/wiki/_compare/e4dfcecc619de743a74271bfaadaa7e2d7f3a99f" title="e4dfcecc619de743a74271bfaadaa7e2d7f3a99f"><code class="highlighter-rouge">e4dfcec</code></a> on the <a href="//github.com/Charcoal-SE/metasmoke/wiki">Charcoal-SE/metasmoke wiki</a></li>
-</ul>
+  <p>Charcoal’s goal is to detect and delete every spam post on the Stack Exchange network that violates the <a href="https://stackoverflow.com/help/promotion">self-promotion guidelines</a>. Our bot, <a href="/#whats-smokey">SmokeDetector</a>, uses a variety of methods to detect this spam, including watching for any mentions of particular keywords/websites in our series of curated watchlists/blacklists. These lists encompass a large number of keywords and domain names, and it’s not always clear why a particular item was added to the list. This information should help clarify that; if you need more detail, feel free to ping a member of the Charcoal team or <a href="mailto:smokey@charcoal-se.org">email us</a>.</p>
 
-<p><a href="https://travis-ci.org/Charcoal-SE/charcoal-se.github.io">Live build logs on Travis CI</a></p>
+  <p>For a summary (TL;DR) of this page, <a href="#tldr">scroll down</a>.</p>
+</section>
 
-<p>This site is powered by <a href="https://jekyllrb.com">Jekyll</a> <a href="https://github.com/jekyll/jekyll/releases/v3.7.4">v3.7.4</a></p>
+<section>
+  <h2 id="why-watched">Why do domains get watched?</h2>
 
-<p><img src="/assets/name-5de9a71538fc786fdf76e741ab91a156a34d0ff6c4b23b01cc1ddd0c9378449e.svg" height="1" width="" alt="name.svg" /><br />
-<img src="/assets/charcoal-888c6d37bc302c2fce9de890f351cfd3354bd3455d2315d7752c3bdfe30504e6.svg" height="1" width="" alt="charcoal.svg" /></p>
+  <p>From our past experience, websites that have appeared on Stack Exchange in confirmed spam posts are likely to appear again in future spam posts, so we “watch” them upon spotting any <em>potentially suspicious</em> appearance. This brings any future posts containing the link to our attention, so we can further review the posts to determine if they’re actually unsuitable on Stack Exchange.</p>
+
+  <p>That says, being on the watchlist doesn’t imply that the website is definitely spam, but rather one of our members <em>thinks it <strong>might</strong> be correlated to spam</em>, and is worth future attention.</p>
+</section>
+
+<section>
+  <h2 id="why-blacklisted">Why do domains get blacklisted?</h2>
+
+  <p>In the future, if the website turns out to be legitimate (i.e. not spam) then we remove it from the watchlist. However, if this is not the case, and the website continues to appear in future spam posts, then we may decide to ‘upgrade’ the site from the watchlist to the <strong>blacklist</strong>. The blacklist is subject to several stronger criteria than the watchlist, <a href="/smokey/Guidance-for-Blacklisting-and-Watching">as documented here</a> - at present, we require that a website appear in a sufficient number of spam posts with no legitimate standing.</p>
+
+  <p>If a website appears on our blacklist, it means that the website is a <strong>strong indicator of spam on the Stack Exchange network</strong>. As such, blacklisted websites carry a greater weight in our system.</p>
+
+  <p>Similar to the watchlists, websites may be removed from the blacklist; however, this is a rarer occurence. Any external parties requesting for a domain to be removed from the blacklist must follow the <a href="/smokey/Process-for-blacklist-removal">defined process</a>.</p>
+</section>
+
+<section>
+  <h2 id="scam">So, does that mean that it’s a scam?</h2>
+
+  <p>Not necessarily. Our watchlists/blacklists are designed to help identify content on the Stack Exchange network that would be classified by their rules as spam: <em>“exists only to promote a product or service, and does not disclose the author’s affiliation.”</em>.</p>
+
+  <p>There are several websites on our lists that are generally considered legitimate (e.g. <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/3df3268/watched_keywords.txt#L6326">fiverr</a>), but are watched because they are commonly used in self-promotion on Stack Exchange. Similarly, there are many scammy or otherwise unsavory websites that do not appear on our lists, because they have not been seen in Stack Exchange spam before. Because of this, <strong>we do not recommend using our lists to judge the legitimacy of a website</strong>, rather we suggest that you perform further research of your own.</p>
+</section>
+
+<section>
+  <h2 id="investigation">How should I look for further details regarding a blacklisted website?</h2>
+
+  <p>Glad you asked. <a href="https://metasmoke.erwaysoftware.com/search">Here</a> is the search page for our backend database, <a href="https://metasmoke.erwaysoftware.com">metasmoke</a>. Using this tool, you can access data for every post that we have ever classified, including archived post text, feedback on whether or not it was spam, why it was caught, and any general comments. The <a href="https://metasmoke.erwaysoftware.com/domains">domain tracking tool</a> may also be of use to track down related posts. You can use these tools to investigate the context in which any websites/keywords have been used on Stack Exchange in spam.</p>
+
+  <p>We also suggest exploring other avenues of research:</p>
+  <ul>
+    <li>The Stack Exchange <a href="https://stackexchange.com/search">network-wide search page</a> - if a website appears in several posts by trusted Stack Exchange users, then it adds to the credibility of the website</li>
+    <li>Searching the name of the spammer and any prominent individuals related to the website may reveal any spamming activities outside Stack Exchange, as well as LinkedIn profiles etc</li>
+    <li>Performing a reverse image search of the profile picture of the spammer/prominent personnel (e.g. CEO etc) - if the image is taken from a stock image provider, there is a good chance that the website is a scam (legitimate companies will be staffed by - surprise - actual people)</li>
+    <li>Check to see if the website/service is mentioned by any other prominent/trustworthy figures e.g. bloggers, YouTubers etc</li>
+  </ul>
+
+  <p>When in doubt, it may be worth getting in contact with the website/company directly - if the service is legitimate, then they should be more than happy to answer your concerns. It is always possible that their spam posts on Stack Exchange were simply a misunderstanding of the self-promotion rules. Whatever the case, it is up to you to make an informed decision about the service based on all the information avaliable.</p>
+</section>
+
+<section>
+  <h2 id="tldr">What should I take from all this, anyway?</h2>
+
+  <p>As a summary:</p>
+  <ul>
+    <li>We watch/blacklist sites that are featured in spam on Stack Exchange in order to help identify future questionable posts</li>
+    <li>Just because a site is on on our lists does not mean that it is a scam</li>
+    <li>You should always do further research and make your own informed decision based on this information</li>
+    <li>We have tools which can assist you in doing this research</li>
+  </ul>
+
+  <p>Hopefully this page has answered all of your concerns. If you have any further questions, feel free to contact <code class="highlighter-rouge">smokey@charcoal-se.org</code> and we will be happy to help.</p>
+</section>
+
+<section>
+  <h2 id="legal">A legal note</h2>
+
+  <p>This page does not constitute legal advice. Charcoal does not condone or take any responsibility for any contact, interactions or business deals between any third parties (including Stack Exchange), as a result of, or in relation to, the information presented on this page.</p>
+</section>
 
     </div>
     <div class="footer text-center">
@@ -110,7 +166,7 @@
       
         <p>
           <a href="/code">More gory details</a>
-          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/code.md" title="code.md">Edit on GitHub</a>
+          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/why-blacklisted.md" title="why-blacklisted.md">Edit on GitHub</a>
           • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/new/site">New Page</a>
         </p>
       
