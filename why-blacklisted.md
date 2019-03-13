@@ -1,8 +1,3 @@
----
-published: false
----
-<!-- Please delete the above Front Matter key when this page is ready to be published -->
-
 <section>
 # Why is the domain *example.com* in the "watched keywords" or "blacklisted websites" list?
 
