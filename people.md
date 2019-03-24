@@ -17,6 +17,7 @@ These people get pinged a lot. They all have administrative access on metasmoke 
 *   [**Andy**](https://chat.stackexchange.com/users/66258/andy) (RO)
 *   [**angussidney**](https://chat.stackexchange.com/users/145827/angussidney) (RO)
 *   [**tripleee**](https://chat.stackexchange.com/users/62118/tripleee) (RO)
+*   [**Makyen**](https://chat.stackexchange.com/users/156050/makyen) (RO)
 </section>
 <section>
 ## Developers {#devs}
@@ -38,7 +39,6 @@ These people have at some point contributed code of some variety, whether it be 
 *   [**Henders**](https://chat.stackexchange.com/users/211021/henders)
 *   [**iBug**](https://chat.stackexchange.com/users/275329/ibug) (RO)
 *   [**thesecretmaster**](https://chat.stackexchange.com/users/162795/thesecretmaster) (RO)
-*   [**Makyen**](https://chat.stackexchange.com/users/156050/makyen) (RO)
 
 </section>
 <section>
