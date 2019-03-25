@@ -36,13 +36,13 @@ Ping one of the authors of the userscript, ArtOfCode or angussidney.
 
 ### I'd like to contact the AIM maintainers {#aim-maintainers}
 
-Ping one of the authors of the userscript, J F or Glorfindel.
+Ping one of the authors of the userscript, J F, Glorfindel, or Makyen.
 </section>
 <section>
 
 ### I'd like to contact the FIRE maintainer {#fire-maintainers}
 
-Ping Cerbrus, the author of the userscript.
+Ping Cerbrus or Makyen.
 </section>
 <section>
 
