@@ -1,5 +1,6 @@
 title: Charcoal
 exclude:
+  - .git
   - Gemfile
   - Gemfile.lock
   - README.md

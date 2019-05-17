@@ -7,5 +7,5 @@ group :jekyll_plugins do
   gem 'github-pages'
   gem 'jekyll-assets'
   gem 'jekyll-livereload'
-  gem 'algoliasearch-jekyll', '~> 0.9.0'
+  gem 'jekyll-algolia', '~> 1.0'
 end

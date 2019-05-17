@@ -78,7 +78,9 @@ export PAGES_ENV=dotcom # GitHub.com
 if [ -n "$DEPLOY" ]; then
   export JEKYLL_ENV=production
 
-  bundle exec jekyll algolia push --trace &
+  if [ -n "$ALGOLIA_API_KEY" ]; then
+    bundle exec jekyll algolia push --trace &
+  fi
   bundle exec jekyll build --incremental --profile --trace &
   wait
 else
