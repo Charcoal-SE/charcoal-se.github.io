@@ -31,7 +31,7 @@ function force-fetch {
   fi
 }
 
-: ${TRAVIS_REPO_SLUG:=Charcoal-SE/charcoal-se.github.io}
+: "${TRAVIS_REPO_SLUG:=Charcoal-SE/charcoal-se.github.io}"
 if [ -z "$DEPLOY" ]; then
   echo "Not in deploy mode, not pushing changes."
   force-fetch _site "https://github.com/${TRAVIS_REPO_SLUG}" &
@@ -53,20 +53,20 @@ script/add-front-matter.rb ms/** smokey/** &
 script/create-data-files.rb &
 wait
 
-self_time=$(date -d $(git log -1 --pretty=%cI) +%s)
-ms_wiki_time=$(date -d $(git -C ./ms log -1 --pretty=%cI) +%s)
-smokey_wiki_time=$(date -d $(git -C ./smokey log -1 --pretty=%cI) +%s)
+self_time="$(date -d "$(git log -1 --pretty=%cI)" +%s)"
+ms_wiki_time="$(date -d "$(git -C ./ms log -1 --pretty=%cI)" +%s)"
+smokey_wiki_time="$(date -d "$(git -C ./smokey log -1 --pretty=%cI)" +%s)"
 
 echo
-test $self_time -ge $ms_wiki_time -a $self_time -ge $smokey_wiki_time && echo -ne "\e[32;1m"
+test $self_time -ge $ms_wiki_time -a $self_time -ge $smokey_wiki_time && echo -ne '\e[32;1m'
 git             log -1 --pretty="Website commit:     [%h] %s"
-echo -ne "\e[0m"
-test $ms_wiki_time -ge $self_time -a $ms_wiki_time -ge $smokey_wiki_time && echo -ne "\e[32;1m"
+echo -ne '\e[0m'
+test $ms_wiki_time -ge $self_time -a $ms_wiki_time -ge $smokey_wiki_time && echo -ne '\e[32;1m'
 git -C ./ms     log -1 --pretty="MS wiki commit:     [%h] %s"
-echo -ne "\e[0m"
-test $smokey_wiki_time -ge $self_time -a $smokey_wiki_time -ge $ms_wiki_time && echo -ne "\e[32;1m"
+echo -ne '\e[0m'
+test $smokey_wiki_time -ge $self_time -a $smokey_wiki_time -ge $ms_wiki_time && echo -ne '\e[32;1m'
 git -C ./smokey log -1 --pretty="Smokey wiki commit: [%h] %s"
-echo -ne "\e[0m"
+echo -ne '\e[0m'
 echo
 
 COMMIT_INFO="$(git log -1 --pretty="[%h] %an: %B")"
@@ -87,8 +87,8 @@ else
   bundle exec jekyll build --incremental --profile --trace
 fi
 
-pushd _site &>/dev/null  # _site
-pushd assets &>/dev/null  # _site/assets
+pushd _site &>/dev/null # _site
+pushd assets &>/dev/null # _site/assets
 mkdir -p css images
 
 for file in branding*.css; do
