@@ -78,8 +78,6 @@
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/Charcoal-SE/SmokeDetector.git
 cd SmokeDetector
-git config user.email "smokey@erwaysoftware.com"
-git config user.name "SmokeDetector"
 git checkout deploy
 sudo pip3 install -r requirements.txt --upgrade
 pip3 install --user -r user_requirements.txt --upgrade
@@ -120,7 +118,7 @@ pip3 install --user -r user_requirements.txt --upgrade
       <li>Click “Launch Instance -&gt;”</li>
       <li>Click “Select” for “Amazon Linux AMI 2018.03.0 (HVM), SSD Volume Type - ami-0cd3dfa4e37921605” (the first one in the Amazon Machine Image (AMI) list)
         <ul>
-          <li>You can pick any flavor of Linux you’re familiar with, just remember to substitute installation commands for the correct package manager. For example, the above version of Linux uses <code class="highlighter-rouge">yum</code>. Other versions may use <code class="highlighter-rouge">apt-get</code>, <code class="highlighter-rouge">rpm</code>, etc. In addition, other versions of Linux may already have versions of some of the packages installed in the commands below, or may be missing yet other packages. The commands listed below were only tested in the AMI mentioned above. <!-- Other than being the first AMI in the list and a very basic Linux install, there's really nothing special about the AMI selected above. It is the one with which the commands below have been tested, so if you change this choice, then please test and/or change the commands listed below. If you do change the AMI mentioned above, it's a good idea to keep it to one that's eligible for the AWS Free Tier and one that permits per-second billing, rather than per-hour billing.--></li>
+          <li>You can pick any flavor of Linux you’re familiar with, just remember to substitute installation commands for the correct package manager. For example, the above version of Linux uses <code class="highlighter-rouge">yum</code>. Other versions may use <code class="highlighter-rouge">apt-get</code>, <code class="highlighter-rouge">rpm</code>, or <code class="highlighter-rouge">pacman</code> etc. In addition, other versions of Linux may already have versions of some of the packages installed in the commands below, or may be missing yet other packages. The commands listed below were only tested in the AMI mentioned above. <!-- Other than being the first AMI in the list and a very basic Linux install, there's really nothing special about the AMI selected above. It is the one with which the commands below have been tested, so if you change this choice, then please test and/or change the commands listed below. If you do change the AMI mentioned above, it's a good idea to keep it to one that's eligible for the AWS Free Tier and one that permits per-second billing, rather than per-hour billing.--></li>
         </ul>
       </li>
       <li>Click “Review and Launch”</li>
