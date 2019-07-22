@@ -16,7 +16,7 @@ missed).
 
 ## Who's Who?
 We try to keep hierarchy to a minimum, but of course there has to be a minimal amount. We
-have five admins, who keep an eye on the chatroom and the system and make sure everything
+have six admins, who keep an eye on the chatroom and the system and make sure everything
 keeps running smoothly. Those five are:
 
  - [Undo]
@@ -24,6 +24,7 @@ keeps running smoothly. Those five are:
  - [angussidney]
  - [Andy]
  - [tripleee]
+ - [Makyen]
 
 There are more people involved than that, of course - there's a
 [more extensive list][people] on the website.
@@ -42,4 +43,5 @@ There are more people involved than that, of course - there's a
 [angussidney]: https://gaming.stackexchange.com/u/104515
 [Andy]: https://stackoverflow.com/u/189134
 [tripleee]: https://stackoverflow.com/u/874188
+[Makyen]: https://stackoverflow.com/users/3773011/makyen
 [2]: /training/spam
