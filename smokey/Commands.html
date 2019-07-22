@@ -99,7 +99,8 @@
   <li><code class="highlighter-rouge">!!/amicodeprivileged</code> — Lets you know whether or not you have code privileges (i.e. you can blacklist without approval)</li>
   <li><code class="highlighter-rouge">!!/notify &lt;chatroom_ID_number&gt; &lt;site_domain&gt;</code> — Tells SmokeDetector to ping you, in the given chatroom, when a post is reported on the given site.<br />
 Example:  <code class="highlighter-rouge">!!/notify- 89 parenting.stackexchange.com</code><br />
-Note: Please use the squelch suffix (<code class="highlighter-rouge">-</code>) and avoid spamming the chat room with too many requests. See <a href="http://chat.meta.stackexchange.com/transcript/message/4157790#4157790">this chat message</a> and the surrounding context.</li>
+Note: Please use the squelch suffix (<code class="highlighter-rouge">-</code>) and avoid spamming the chat room with too many requests. See <a href="http://chat.meta.stackexchange.com/transcript/message/4157790#4157790">this chat message</a> and the surrounding context.<br />
+Note 2: The list of who to notify is maintained separately by each SmokeDetector instance. This means that if the active instance is switched to a different one, you will need to run a <code class="highlighter-rouge">!!/notify-</code> command again, if you haven’t previously done so for the newly active SmokeDetector instance.</li>
   <li><code class="highlighter-rouge">!!/unnotify &lt;chatroom_ID_number&gt; &lt;site_domain&gt;</code> — Cancels the previously set notification.  Also, accepts the silent mode suffix (<code class="highlighter-rouge">-</code>).</li>
   <li><code class="highlighter-rouge">!!/unnotify-all</code> - Removes all notifications.</li>
   <li><code class="highlighter-rouge">!!/willbenotified &lt;chatroom_ID_number&gt; &lt;site_domain&gt;</code> — Reports whether you will be pinged, in the given room, about spam on the given site.</li>
@@ -116,7 +117,7 @@ Note that <code class="highlighter-rouge">why</code> data is only kept for the l
 
 <h2 id="privileged-commands">Privileged commands</h2>
 
-<p>These commands require privileges. Note that some commands may be disabled in some rooms. You may talk to others to understand why.
+<p>These commands require <a href="https://charcoal-se.org/smokey/Privileges#smokedetector-privileges-sd">privileges</a>. Note that some commands may be disabled in some rooms. You may talk to others to understand why.
 <!-- These were not in any order. Recommend most-used/useful up top. --></p>
 
 <ul>
@@ -147,7 +148,7 @@ Note that <code class="highlighter-rouge">why</code> data is only kept for the l
 <h4 id="user-blacklist-and-user-whitelist">User-blacklist and user-whitelist</h4>
 <p>These lists are maintained <em>per SmokeDetector instance</em>. The SmokeDetector instances do not share these lists between themselves.</p>
 <h5 id="user-blacklist">User-blacklist</h5>
-<p>The user-blacklist is a list of users which have all of their posts reported by SmokeDetector. The user-blacklist is quite dynamic. Users are primarily added to the user-blacklist when someone gives <code>tp<b>u</b></code> feedback to a post the user has authored. Users are automatically removed from the user-blacklist when <code class="highlighter-rouge">fp</code> feedback is given for a post they have authored. Users can also be explicitly added or removed with the following commands:</p>
+<p>The user-blacklist is a dynamic list of users which have all of their posts reported by SmokeDetector. Users are primarily added to the user-blacklist when someone gives <code>tp<b>u</b></code> feedback to a post the user has authored. Users are automatically removed from the user-blacklist when <code class="highlighter-rouge">fp</code> feedback is given for a post they have authored. Users can also be explicitly added or removed with the following commands:</p>
 <ul>
   <li><code class="highlighter-rouge">!!/addblu</code> (same syntax as <code class="highlighter-rouge">!!/addwlu</code>) — Adds a user to the blacklist (this means that any post of this user will be reported).</li>
   <li><code class="highlighter-rouge">!!/rmblu</code> (same syntax as <code class="highlighter-rouge">!!/rmwlu</code>) — Removes a user from the blacklist.
@@ -167,7 +168,7 @@ Note that <code class="highlighter-rouge">why</code> data is only kept for the l
 
 <p>When adding to the blacklists, any exact match in the watchlists to what you are adding to the blacklist will be automatically removed from the watchlists.</p>
 
-<p>For all <code class="highlighter-rouge">!!/blacklist-*</code> and <code class="highlighter-rouge">!!/watch*</code> commands, if you are a code admin on metasmoke, your change will apply immediately, once CI passes; otherwise, a pull request will be created for your changes so that it can be reviewed.</p>
+<p>For all <code class="highlighter-rouge">!!/blacklist-*</code> and <code class="highlighter-rouge">!!/watch*</code> commands, if you are a <a href="https://charcoal-se.org/smokey/Privileges#code-admin-aka-blacklister-ms">code admin</a> on metasmoke, your change will apply immediately, once CI passes. If you are not a code admin, a pull request will be created for your changes, so they can be reviewed.</p>
 
 <ul>
   <li><code class="highlighter-rouge">!!/blacklist</code> — <strong>This command is deprecated.</strong> Use one of the four specialized blacklist commands instead, which are shown below. If run, this command will print a help.</li>
