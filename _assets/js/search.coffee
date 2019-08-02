@@ -1,5 +1,3 @@
----
----
 #= require vendor/autocomplete
 #= require vendor/algoliasearchLite
 
@@ -62,11 +60,11 @@ $(window).on 'turbolinks:load', ->
             <small class="aa-link">#{resolve escapeHTML suggestion.url}</small>
         </p>
         """
-      footer: '''
+      footer: """
         <div class="aa-footer">
-          <a href="https://algolia.com">{% img search-by-algolia.svg height:"16" alt:"Search by Algolia" %}</a>
+          <a href="https://algolia.com">#{window.algoliaLogoHTML}</a>
         </div>
-      '''
+      """
   ]).on 'autocomplete:selected', (_, {url, css_selector, css_selector_parent}) =>
     if @searchConfig.baseUrl
       url = @searchConfig.baseUrl + url
