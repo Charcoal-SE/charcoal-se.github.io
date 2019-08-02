@@ -1,3 +1,5 @@
+---
+---
 #= require vendor/autocomplete
 #= require vendor/algoliasearchLite
 
@@ -53,22 +55,16 @@ $(window).on 'turbolinks:load', ->
         """
         <p>
           <strong>
-            #{escapeHTML(suggestion._highlightResult.title?.value ? suggestion.title) ? 'Home'}
+            #{suggestion._highlightResult.title?.value ? escapeHTML(suggestion.title ? 'Home')}
             #{subsection}
           </strong><br>
-          <small>#{escapeHTML(suggestion._highlightResult.text?.value ? suggestion.text)}</small><br>
-          <small class="aa-link">#{resolve escapeHTML suggestion.url}</small>
+          <small>#{suggestion._highlightResult.text?.value ? escapeHTML(suggestion.text)}</small><br>
+            <small class="aa-link">#{resolve escapeHTML suggestion.url}</small>
         </p>
         """
       footer: '''
         <div class="aa-footer">
-          <a href="https://algolia.com">
-            <img
-              src="https://www.algolia.com/static_assets/images/press/downloads/search-by-algolia.svg"
-              height="16"
-              alt="search by Algolia"
-            >
-          </a>
+          <a href="https://algolia.com">{% img search-by-algolia.svg height:"16" alt:"Search by Algolia" %}</a>
         </div>
       '''
   ]).on 'autocomplete:selected', (_, {url, css_selector, css_selector_parent}) =>
