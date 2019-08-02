@@ -53,10 +53,10 @@ $(window).on 'turbolinks:load', ->
         """
         <p>
           <strong>
-            #{escapeHTML(suggestion._highlightResult.title.value) ? 'Home'}
+            #{escapeHTML(suggestion._highlightResult.title?.value ? suggestion.title) ? 'Home'}
             #{subsection}
           </strong><br>
-          <small>#{escapeHTML suggestion._highlightResult.text.value}</small><br>
+          <small>#{escapeHTML(suggestion._highlightResult.text?.value ? suggestion.text)}</small><br>
           <small class="aa-link">#{resolve escapeHTML suggestion.url}</small>
         </p>
         """
