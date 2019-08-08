@@ -42,7 +42,7 @@ are archived in a back-end system called
 where you can search for posts and see various metrics we collect.
 
 If you are a registered user on the Stack Exchange network
-and have earned the privileges to participate in chat,
+and have earned the [privileges to participate in chat,](https://stackoverflow.com/help/privileges/chat)
 please feel free to visit the
 [Charcoal HQ chat room](https://chat.stackexchange.com/rooms/11540/charcoal-hq)
 where most of our activity takes place.
