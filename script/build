@@ -53,23 +53,35 @@ script/add-front-matter.rb ms/** smokey/** &
 script/create-data-files.rb &
 wait
 
-self_time="$(date -d "$(git log -1 --pretty=%cI)" +%s)"
-ms_wiki_time="$(date -d "$(git -C ./ms log -1 --pretty=%cI)" +%s)"
+# yes I know this space padding is strange, but it looks tidy, no?
+self_time="$(       date -d "$(git             log -1 --pretty=%cI)" +%s)"
+ms_wiki_time="$(    date -d "$(git -C ./ms     log -1 --pretty=%cI)" +%s)"
 smokey_wiki_time="$(date -d "$(git -C ./smokey log -1 --pretty=%cI)" +%s)"
 
-echo
-test $self_time -ge $ms_wiki_time -a $self_time -ge $smokey_wiki_time && echo -ne '\e[32;1m'
-git             log -1 --pretty="Website commit:     [%h] %s"
-echo -ne '\e[0m'
-test $ms_wiki_time -ge $self_time -a $ms_wiki_time -ge $smokey_wiki_time && echo -ne '\e[32;1m'
-git -C ./ms     log -1 --pretty="MS wiki commit:     [%h] %s"
-echo -ne '\e[0m'
-test $smokey_wiki_time -ge $self_time -a $smokey_wiki_time -ge $ms_wiki_time && echo -ne '\e[32;1m'
-git -C ./smokey log -1 --pretty="Smokey wiki commit: [%h] %s"
-echo -ne '\e[0m'
-echo
+self_info="$(       git             log -1 --pretty="Website commit:     [%h] %s")"
+ms_wiki_info="$(    git -C ./ms     log -1 --pretty="MS wiki commit:     [%h] %s")"
+smokey_wiki_info="$(git -C ./smokey log -1 --pretty="Smokey wiki commit: [%h] %s")"
 
-COMMIT_INFO="$(git log -1 --pretty="[%h] %an: %B")"
+# Find out which one is last changed, highlight it in log output
+# and use it in the commit message of the built website
+if [ $self_time -ge $ms_wiki_time -a $self_time -ge $smokey_wiki_time ]; then
+  COMMIT_INFO="$(     git             log -1         --pretty="[%h] %an: %B")"
+  self_info="$(       git             log -1 --color --pretty="%C(green bold)Website commit:     [%h] %s%Creset")"
+elif [ $ms_wiki_time -ge $self_time -a $ms_wiki_time -ge $smokey_wiki_time ]; then
+  COMMIT_INFO="$(     git -C ./ms     log -1         --pretty="[%h] MS wiki: %B")"
+  ms_wiki_info="$(    git -C ./ms     log -1 --color --pretty="%C(green bold)MS wiki commit:     [%h] %s%Creset")"
+elif [ $smokey_wiki_time -ge $self_time -a $smokey_wiki_time -ge $ms_wiki_time ]; then
+  COMMIT_INFO="$(     git -C ./smokey log -1         --pretty="[%h] Smokey wiki: %B")"
+  smokey_wiki_info="$(git -C ./smokey log -1 --color --pretty="%C(green bold)Smokey wiki commit: [%h] %s%Creset")"
+else  # nonsense condition
+  COMMIT_INFO="Something wrong???"
+fi
+
+echo
+echo "$self_info"
+echo "$ms_wiki_info"
+echo "$smokey_wiki_info"
+echo
 
 rm -r _site/assets # remove old assets
 
@@ -103,26 +115,22 @@ popd &>/dev/null  # OLDPWD=_site/assets/; PWD=_site/
 if [ -n "$DEPLOY" ]; then
   :> .nojekyll
   git add --all
-  git config --global push.default tracking
-  ORIGINAL_NAME="$(git config --get user.name)"
-  ORIGINAL_EMAIL="$(git config --get user.email)"
-  git config user.name "SmokeDetector"
-  git config user.email "smokey@erwaysoftware.com"
-
+  git config push.default tracking
   if [ -n "$TRAVIS_COMMIT" ]; then
-    git commit --allow-empty -q \
+    git -c user.name=SmokeDetector -c user.email=smokey@erwaysoftware.com \
+      commit --allow-empty -q \
       -m "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER:-<unknown>}" \
-      -m "${COMMIT_INFO}"
+      -m "Changed: ${COMMIT_INFO}"
     git push -q
   else
-    git commit --allow-empty -q \
-      -m "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER:-<unknown>}" \
-      -m "${COMMIT_INFO}"
-    echo -e "Skipped push to GitHub Pages."
+    git -c user.name=SmokeDetector -c user.email=smokey@erwaysoftware.com \
+      commit --allow-empty -q \
+      -m "Website built from $(git -C .. log -1 --pretty="%h")" \
+      -m "Changed: ${COMMIT_INFO}"
+    echo -e "Not on Travis CI, skipped push to GitHub Pages."
   fi
-
-  git config user.name "$ORIGINAL_NAME"
-  git config user.email "$ORIGINAL_EMAIL"
 fi
 
 popd &>/dev/null  # OLDPWD=_site/; PWD=(git root)
+
+# vim: set et sts=2 sw=2:
