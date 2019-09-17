@@ -17,7 +17,7 @@ missed).
 ## Who's Who?
 We try to keep hierarchy to a minimum, but of course there has to be a minimal amount. We
 have six admins, who keep an eye on the chatroom and the system and make sure everything
-keeps running smoothly. Those five are:
+keeps running smoothly. Those six are:
 
  - [Undo]
  - [ArtOfCode]
