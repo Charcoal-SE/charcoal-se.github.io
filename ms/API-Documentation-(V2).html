@@ -321,7 +321,7 @@ Output format:</p>
 <tr><td><code>/api/v2.0/tags/name/:name </code></td><td><details><summary> List tags specified by their name.</summary><p>Available tables: <code>domain_tags</code>.<br />
 Output format: identical to <code>/tags</code>.</p>
 </details></td></tr>
-<tr><td><code>/api/v2.0/tags/:id/domains </code></td><td><details><summary> List the domains that a specific tag is used on.</summary><p>Available tables: <code>spam_domains</code>.<br />
+<tr><td><code>/api/v2.0/tags/:id/domains </code></td><td><details><summary> List the domains that a specific tag is used on.</summary><p>Available tables: <code>spam_domains</code>. Also available is <code>/api/v2.0/tags/name/:name/domains</code>, which returns domains on a tag specified by its name.<br />
 Output format:</p>
 
 <pre><code>{
@@ -514,8 +514,7 @@ Output format:</p>
 }
 </code></pre>
 </details></td></tr>
-<tr><td><code>/api/v2.0/posts/report </code></td><td><details><summary> [W] Report a post.</summary><p><strong>Write route</strong>. Requires a POST request, valid write token, and parameters: <code>url</code> (the post URL to report).<br />
-Available tables: N/A. No database information is returned from this request.<br />
+<tr><td><code>/api/v2.0/posts/report </code></td><td><details><summary> [W] Report a post.</summary><p><strong>Write route</strong>. Requires a POST request, valid write token, and parameters: <code>url</code> (the post URL to report).<br /> Available tables: N/A. No database information is returned from this request.<br />
 All requests to this route will be met with a 202 Accepted status; metasmoke does not know the status of reports as it just forwards them to Smokey.<br />
 Output format:</p>
 
