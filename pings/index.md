@@ -6,7 +6,7 @@ When an organisation such as Charcoal is maintaining several large projects with
 
 ### In general - who has access to what {#general}
 
-If you're not sure who has access to which systems, the general rule is this: our six [admins](/people) have the vast majority of access to the vast majority of systems; you'll probably do well to ping one of them. If they don't know, they'll certainly know who to pass it on to. Beyond that, our three metasmoke developers (Undo, ArtOfCode, thesecretmaster) have even higher accesses to metasmoke systems, and Undo runs the system and has total control.
+If you're not sure who has access to which systems, the general rule is this: our six [admins](/people) have the vast majority of access to the vast majority of systems; you'll probably do well to ping one of them. If they don't know, they'll certainly know who to pass it on to. Beyond that, our four metasmoke developers (Undo, ArtOfCode, thesecretmaster, and Makyen) have even higher accesses to metasmoke systems, and Undo runs the system and has total control.
 </section>
 <section>
 
@@ -18,13 +18,13 @@ Just ask in [Charcoal HQ](https://chat.stackexchange.com/rooms/11540/charcoal-hq
 
 ### I have a feature request for one of the projects {#feature-request}
 
-First, put your idea out the folks in Charcoal HQ. If there seems to be a general consensus that it sounds like a good idea, make an issue on the appropriate GitHub repository. That way it's easier to track and discuss, and we won't forget about it.
+First, put your idea out to the folks in Charcoal HQ (CHQ). If there seems to be a general consensus that it sounds like a good idea, make an issue on the appropriate GitHub repository. That way it's easier to track and discuss, and we won't forget about it.
 </section>
 <section>
 
 ### I'd like to contact the SmokeDetector maintainers {#smokey-maintainers}
 
-Ping whichever of the following people happen to be in the room at the moment: Undo, ArtOfCode, angussidney, Thomas Ward, Andy, tripleee and iBug.
+Ping whichever of the following people happen to be in the room at the moment: Undo, ArtOfCode, angussidney, Thomas Ward, Andy, tripleee, iBug, and Makyen.
 </section>
 <section>
 
@@ -78,9 +78,9 @@ If you find a post that needs moderator attention in general, please just **flag
 
 ### It's dead Jim! {#dead}
 
-First of all, check that Smokey isn't responding to any commands. You can also try rebooting Smokey from either SOCVR or Tavern on the Meta, more often than not Smokey has just lost connection to CHQ. Next, check if the instance is still connected to MS [here](https://metasmoke.erwaysoftware.com/status) - if it is, something really bad has happened and you'll need to ask the person who owns the instance to shut it down. In the meantime, you can ask a code admin (`!!/whois code_admin`) to failover a new instance.
+First of all, check that Smokey isn't responding to any commands (e.g. `!!/location`, `!!/alive`, etc.). You can also try rebooting Smokey (i.e. `!!/reboot`) from Charcoal Test, SOCVR, or Tavern on the Meta. More often than not, Smokey has just lost connection to Charcoal HQ. Next, check if the instance is still connected to MS [here](https://metasmoke.erwaysoftware.com/status) - if it is, something really bad has happened and you'll need to ask the person who owns the instance to shut it down. In the meantime, you can ask a blacklister (`!!/whois blacklister`) to failover to a new instance.
 
-If all else fails, please ping one of the people with a **bold name** on [this list](/people), they will be able to start a backup instance of SmokeDetector.
+If all else fails, please ping one of the people with a **bold name** on [this list](/people), they will be able to start a backup instance of SmokeDetector, or reboot metasmoke.
 
 If even that fails, panicking is acceptable (but of course, you know where your towel is and will remain calm). Ping ArtOfCode or Undo - they have a few extra tools in metasmoke that may yet be able to resolve the issue.
 </section>
@@ -88,7 +88,7 @@ If even that fails, panicking is acceptable (but of course, you know where your 
 
 ### Someone is being disruptive in Charcoal HQ, who can sort the situation out? {#behavior}
 
-Ping one of the [Room Owners](https://chat.stackexchange.com/rooms/info/11540/charcoal-hq#room-ownercards), they will calm down the situation and take further action if necessary. If someone has violated SE's Be Nice policy, you can contact any diamond Moderator.
+Ping one of the [Room Owners](https://chat.stackexchange.com/rooms/info/11540/charcoal-hq#room-ownercards). They will calm down the situation and take further action if necessary. If someone has violated SE's Code of Conduct, you can contact any diamond Moderator using flags.
 </section>
 <section>
 
@@ -112,7 +112,7 @@ Ping Undo, ArtOfCode or angussidney, and they will give you push access to the r
 
 ### There's some other code that I'd like to contribute, who can I talk to to get it included? {#code}
 
-Just make a pull request to one of our repositories on GitHub, and one of the maintainers will review your code and merge it in. Note that some projects have Continuous Integration (CI) tests that needs to be passed before that can happen.
+Just make a pull request to one of our repositories on GitHub. One of the maintainers will review your code and merge it in. Note that some projects have Continuous Integration (CI) tests that needs to be passed before that can happen.
 </section>
 <section>
 

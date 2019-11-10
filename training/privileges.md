@@ -9,8 +9,9 @@ use privileged functionality.
 
 ## What do they let you do?
 They let you use privileged functionality. That includes running privileged
-commands. We have a full list available [in the wiki][commands]. You can also provide feedback 
-on SmokeDetector reports. More detail on [feedback][4] is provided in the next section. You can 
+commands and providing feedback on SmokeDetector reports.
+We have a full list of privileges available [in the wiki][commands]. More detail on [feedback][4]
+is provided in the next section. You can
 follow along with reports from SmokeDetector and flag spam without privileges, but if you want to 
 interact with SmokeDetector or the wider system, you'll need to be given privileges.
 
@@ -33,7 +34,7 @@ here it is in black and white:
  - **Report** posts that would be "red-flaggable" on the site. That is, if it could be
    spam- or abusive-flagged, you can report it to Smokey.
  - **Don't report**... well, anything else. In particular, don't report NAAs (posts that
-   are flaggable as Not An Answer), or self-vandalism.
+   are flaggable as Not An Answer), self-vandalism, or plagiarism.
 
 The general principle we work on is that we _want to_ catch anything that's red-flaggable,
 so if we've missed one, reporting it is good.
@@ -42,7 +43,9 @@ so if we've missed one, reporting it is good.
 
 [Next: Handling reports][4]
 
+[Return to Introduction Index][8]
 
 [commands]: https://charcoal-se.org/smokey/Commands#privileged-commands
 [wiki]: https://charcoal-se.org/smokey/Privileges
 [4]: /training/reports
+[8]: /training/index

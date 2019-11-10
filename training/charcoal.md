@@ -33,6 +33,8 @@ There are more people involved than that, of course - there's a
 
 [Next: What's spam?][2]
 
+[Return to Introduction Index][8]
+
 
 [people]: https://charcoal-se.org/people
 [sd]: https://github.com/Charcoal-SE/SmokeDetector
@@ -45,3 +47,4 @@ There are more people involved than that, of course - there's a
 [tripleee]: https://stackoverflow.com/u/874188
 [Makyen]: https://stackoverflow.com/users/3773011/makyen
 [2]: /training/spam
+[8]: /training/index

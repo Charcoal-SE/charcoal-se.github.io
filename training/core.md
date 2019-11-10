@@ -19,6 +19,9 @@ the Core role, it's rarely done, even if the person takes a hiatus from the proj
 
 -----
 
-[Next: Further Privileges: Code Admin][7]
+[Next: Further Privileges: Blacklister][7]
 
-[7]: /training/code-admin
+[Return to Introduction Index][8]
+
+[7]: /training/blacklister
+[8]: /training/index

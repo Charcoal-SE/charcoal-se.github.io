@@ -47,6 +47,7 @@ you want to, but they're not essential.
 
 [Next: Further Privileges: Core][6]
 
+[Return to Introduction Index][8]
 
 [meta]: https://meta.stackexchange.com/questions/291301
 [ms-su]: https://metasmoke.erwaysoftware.com/users/sign_up
@@ -54,3 +55,4 @@ you want to, but they're not essential.
 [ms-wiz]: https://metasmoke.erwaysoftware.com/flagging/ocs
 [ms-fd]: https://metasmoke.erwaysoftware.com/flagging
 [6]: /training/core
+[8]: /training/index

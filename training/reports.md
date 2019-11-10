@@ -31,10 +31,26 @@ should exercise judgment while dealing with self-promotion.
 
  - Take a look at the user's profile. If this is their first post, they almost certainly
    just aren't aware of the policy about disclosure. You can let it go without flagging.
+ - On sites you're familiar with, many well-meaning users respond well a polite comment
+   requesting the author to edit in disclosure. If the post content is good it's definitely
+   preferred to have disclosure added by the author.
  - If you think it is worth a flag (perhaps because they've been doing this a lot),
    consider using a custom moderator attention flag rather than a spam flag. Those will
    take longer to be dealt with, but make it much easier for moderators to figure out _why_
    you flagged.
+
+## Comments on reported posts
+You should not leave comments under a post reported by SmokeDetector, unless you are otherwise
+familiar with that Stack Exchange site. In general, that means you participate on the site for
+more than responding to SmokeDetector reports and/or viewing a few Hot Network Questions.
+Unfortunately, we've had a case or two where comments left by people responding to a SmokeDetector
+report were taken negatively by the user and moderators of the site.
+
+When you're not otherwise familiar with the Stack Exchange site, instead of leaving a comment, you
+can raise a custom moderator flag explaining what the issue is.
+
+Note: This isn't a restriction on leaving comments *on metasmoke* on post reports, just on the
+actual posts on Stack Exchange sites.
 
 ## Userscripts
 While responding to SmokeDetector in chat is the original way of feeding back, over time
@@ -46,7 +62,10 @@ You can find it, and all our other userscripts, on the [userscripts page][us].
 
 [Next: Autoflagging][5]
 
+[Return to Introduction Index][8]
+
 
 [wiki]: https://charcoal-se.org/smokey/Feedback-Guidance
 [us]: /scripts
 [5]: /training/autoflagging
+[8]: /training/index
