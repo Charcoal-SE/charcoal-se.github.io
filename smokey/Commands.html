@@ -154,10 +154,12 @@ Note that <code class="highlighter-rouge">why</code> data is only kept for the l
 <p>The user-blacklist is a dynamic list of users which have all of their posts reported by SmokeDetector. Users are primarily added to the user-blacklist when someone gives <code>tp<b>u</b></code> feedback to a post the user has authored. Users are automatically removed from the user-blacklist when <code class="highlighter-rouge">fp</code> feedback is given for a post they have authored. Users can also be explicitly added or removed with the following commands:</p>
 <ul>
   <li><code class="highlighter-rouge">!!/addblu</code> (same syntax as <code class="highlighter-rouge">!!/addwlu</code>) — Adds a user to the blacklist (this means that any post of this user will be reported).</li>
-  <li><code class="highlighter-rouge">!!/rmblu</code> (same syntax as <code class="highlighter-rouge">!!/rmwlu</code>) — Removes a user from the blacklist.
-    <h5 id="user-whitelist">User-whitelist</h5>
-    <p>The user-whitelist is a list of users for which posts will not be reported if the only detections are on the user’s username. If there are other detections, then the post will be reported with the username detections included. Users are added to the list if their post receives <code>fp<b>u</b></code> feedback. Users can also be explicitly added or removed with the following commands:</p>
-  </li>
+  <li><code class="highlighter-rouge">!!/rmblu</code> (same syntax as <code class="highlighter-rouge">!!/rmwlu</code>) — Removes a user from the blacklist.</li>
+</ul>
+
+<h5 id="user-whitelist">User-whitelist</h5>
+<p>The user-whitelist is a list of users for which posts will not be reported if the only detections are on the user’s username. If there are other detections, then the post will be reported with the username detections included. Users are added to the list if their post receives <code>fp<b>u</b></code> feedback. Users can also be explicitly added or removed with the following commands:</p>
+<ul>
   <li><code class="highlighter-rouge">!!/addwlu &lt;profile_URL&gt;</code> or <code class="highlighter-rouge">!!/addwlu &lt;user_ID&gt; &lt;site_name&gt;</code> — Adds a user to the whitelist (this means that if the username for that user matches one of the regexes, this will be ignored).</li>
   <li><code class="highlighter-rouge">!!/rmwlu &lt;profile_URL&gt;</code> or <code class="highlighter-rouge">!!/rmwlu &lt;user_ID&gt; &lt;site_name&gt;</code> — Removes a user from the whitelist.</li>
 </ul>
