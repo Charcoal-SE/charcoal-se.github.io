@@ -91,7 +91,7 @@ echo
 
 rm -r _site/assets # remove old assets
 
-export PAGES_ENV=dotcom # GitHub.com
+export PAGES_ENV=dotcom PAGES_REPO_NWO="$GITHUB_REPOSITORY"
 
 if [ -n "$DEPLOY" ]; then
   export JEKYLL_ENV=production
