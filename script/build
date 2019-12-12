@@ -5,7 +5,7 @@ if [[ "$TRAVIS_PULL_REQUEST" =~ ^[0-9]+$ ]]; then
   echo "Building pull request #$TRAVIS_PULL_REQUEST, will skip deploy" >&2
 
   NO_DEPLOY=true
-  unset GH_TOKEN TRAVIS_GITHUB_TOKEN
+  unset GITHUB_TOKEN GH_TOKEN TRAVIS_GITHUB_TOKEN
 fi
 
 unset DEPLOY # should not appear in environment
@@ -31,15 +31,21 @@ function force-fetch {
   fi
 }
 
-: "${TRAVIS_REPO_SLUG:=Charcoal-SE/charcoal-se.github.io}"
+: "${GITHUB_REPOSITORY:=${TRAVIS_REPO_SLUG:-Charcoal-SE/charcoal-se.github.io}}"
 if [ -z "$DEPLOY" ]; then
   echo "Not in deploy mode, not pushing changes."
-  force-fetch _site "https://github.com/${TRAVIS_REPO_SLUG}" &
-elif [ -z "$GH_TOKEN" ]; then
-  echo "No token provided. Cannot push changes."
-  force-fetch _site "https://github.com/${TRAVIS_REPO_SLUG}" &
+  force-fetch _site "https://github.com/${GITHUB_REPOSITORY}" &
 else
-  force-fetch _site "https://$GH_TOKEN@github.com/${TRAVIS_REPO_SLUG}" &
+  if [ -n "$GITHUB_ACTOR" -a -n "$GITHUB_TOKEN" ]; then
+    echo "GitHub Actions environment detected."
+    force-fetch _site "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/${GITHUB_REPOSITORY}" &
+  elif [ -n "$GH_TOKEN" ]; then
+    echo "\$GH_TOKEN found, use as personal access token."
+    force-fetch _site "https://$GH_TOKEN@github.com/${GITHUB_REPOSITORY}" &
+  else
+    echo "No token provided. Cannot push changes."
+    force-fetch _site "https://github.com/${GITHUB_REPOSITORY}" &
+  fi
 fi
 force-fetch ms "https://github.com/Charcoal-SE/metasmoke.wiki" &
 force-fetch smokey "https://github.com/Charcoal-SE/SmokeDetector.wiki" &
@@ -120,6 +126,12 @@ if [ -n "$DEPLOY" ]; then
     git -c user.name=SmokeDetector -c user.email=smokey@erwaysoftware.com \
       commit --allow-empty -q \
       -m "Auto deploy from Travis CI build ${TRAVIS_BUILD_NUMBER:-<unknown>}" \
+      -m "Changed: ${COMMIT_INFO}"
+    git push -q
+  elif [ -n "$GITHUB_ACTIONS" ]; then
+    git -c user.name=SmokeDetector -c user.email=smokey@erwaysoftware.com \
+      commit --allow-empty -q \
+      -m "Auto deploy from GitHub Actions ${GITHUB_ACTION:-<unknown>}" \
       -m "Changed: ${COMMIT_INFO}"
     git push -q
   else
