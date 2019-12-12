@@ -25,4 +25,5 @@ jobs:
       - name: Build
         run: bash script/build --deploy
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
