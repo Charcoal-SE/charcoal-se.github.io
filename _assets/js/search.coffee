@@ -10,8 +10,8 @@ index = ->
   _index
 
 getHeader = (ob) ->
-  for i in [6..1]
-    return ob["h#{i}"] if ob["h#{i}"]
+  headings = ob?.headings
+  headings[headings.length - 1] if headings
 
 escapeHTML = (text) ->
   autocomplete.escapeHighlightedString(
