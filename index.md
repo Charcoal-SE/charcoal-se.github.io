@@ -91,11 +91,12 @@ and observe.
 Get yourself familiar with what goes on there;
 chat to some of the regulars about the system,
 and you'll figure out how to get involved.
+See further [Introduction to participating](https://charcoal-se.org/training/).
 
 Eventually, when you're familiar with the system,
 you'll need to ask to be added to the privilege whitelist
 so that you can interact with SmokeDetector.
-There's a [wiki page](https://github.com/Charcoal-SE/SmokeDetector/wiki/Privileges)
+There's a [wiki page](https://charcoal-se.org/smokey/Privileges.html)
 about that you should read before you ask;
 it'll give you some guidance about what we need from you and what you need to do.
 There's also a page with [who to ping](https://charcoal-se.org/pings/)
