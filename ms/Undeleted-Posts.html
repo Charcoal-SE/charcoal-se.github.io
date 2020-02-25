@@ -77,22 +77,22 @@
 
 <h3 id="route-url">Route URL</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/api/posts/undeleted
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/api/posts/undeleted
 </code></pre></div></div>
 
 <h3 id="description--usage">Description &amp; Usage</h3>
 
-<p>This route provides a list of posts that have not been recorded as being deleted. (Technically, this means posts that don’t have a <code class="highlighter-rouge">DeletionLog</code> record associated with them.) <strong>Be aware:</strong> being listed on this route does not necessarily mean that the post is not deleted, only that we didn’t record a deletion. Due to system design limitations, we don’t always record a post being deleted. You should also check for deletion by attempting to fetch the post from Stack Exchange.</p>
+<p>This route provides a list of posts that have not been recorded as being deleted. (Technically, this means posts that don’t have a <code class="language-plaintext highlighter-rouge">DeletionLog</code> record associated with them.) <strong>Be aware:</strong> being listed on this route does not necessarily mean that the post is not deleted, only that we didn’t record a deletion. Due to system design limitations, we don’t always record a post being deleted. You should also check for deletion by attempting to fetch the post from Stack Exchange.</p>
 
 <h3 id="example">Example</h3>
 <p><strong>Request:</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /api/posts/undeleted HTTP/1.1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /api/posts/undeleted HTTP/1.1
 </code></pre></div></div>
 
 <p><strong>Response:</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "id": 88844,
     "title": "Should I switch/rollover my IRA to a Gold IRA at Regal Assets?",
     "body": "&lt;truncated&gt;",
@@ -173,7 +173,7 @@
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>

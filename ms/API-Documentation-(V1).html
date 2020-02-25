@@ -79,7 +79,7 @@
 <h2 id="getting-started">Getting Started</h2>
 <p>To get started, you’ll need an API key. No application can use the API without a key - you’ll get a 403 response. To get a key, ping a metasmoke admin in chat - they’ll be able to register one for you. Have a name in mind for your app - a name is necessary to register a key. You can edit it later, so it doesn’t have to be final. Also make sure that you have an active metasmoke account - this allows the registering admin to tie the key to your account, giving you control of your app.</p>
 
-<p>Once you have your key, you should include it as the <code class="highlighter-rouge">key</code> query string parameter on <strong>all requests</strong> to the API.</p>
+<p>Once you have your key, you should include it as the <code class="language-plaintext highlighter-rouge">key</code> query string parameter on <strong>all requests</strong> to the API.</p>
 
 <h4 id="filters">Filters</h4>
 <p>The metasmoke API supports parameter-based filters (like the Stack Exchange API) so that you can filter a response down to only the fields you want.</p>
@@ -90,54 +90,54 @@
   <p><strong>N.B.:</strong> You <em>can</em> calculate filters yourself if you really want to, but you should have a thorough understanding of how to do so first. Ask ArtOfCode if you’re unsure.</p>
 </blockquote>
 
-<p>Once you’ve got your filter, include it as the <code class="highlighter-rouge">filter</code> parameter on requests to the API that use it.</p>
+<p>Once you’ve got your filter, include it as the <code class="language-plaintext highlighter-rouge">filter</code> parameter on requests to the API that use it.</p>
 
-<p>You may sometimes need to pass a blank filter (by appending <code class="highlighter-rouge">?filter=</code> to the the URL) for all fields to be displayed.</p>
+<p>You may sometimes need to pass a blank filter (by appending <code class="language-plaintext highlighter-rouge">?filter=</code> to the the URL) for all fields to be displayed.</p>
 
 <h4 id="results">Results</h4>
 
-<p>You can use the <code class="highlighter-rouge">per_page</code> query string parameter to adjust how many results you get, up to a maximum of 100.</p>
+<p>You can use the <code class="language-plaintext highlighter-rouge">per_page</code> query string parameter to adjust how many results you get, up to a maximum of 100.</p>
 
-<p>The <code class="highlighter-rouge">has_more</code> field in the response indicates if there are more results available than have been returned in this result set; use the <code class="highlighter-rouge">page</code> query string parameter to get the next page of results. <code class="highlighter-rouge">?page=1</code> will return the first page; <code class="highlighter-rouge">?page=2</code> the second, and so on.</p>
+<p>The <code class="language-plaintext highlighter-rouge">has_more</code> field in the response indicates if there are more results available than have been returned in this result set; use the <code class="language-plaintext highlighter-rouge">page</code> query string parameter to get the next page of results. <code class="language-plaintext highlighter-rouge">?page=1</code> will return the first page; <code class="language-plaintext highlighter-rouge">?page=2</code> the second, and so on.</p>
 
 <h4 id="write-methods">Write Methods</h4>
 <p>Write methods additionally require you to go through OAuth to get hold of a <em>write token</em>, which can be used to authorize the write request. You should follow this flow:</p>
 
 <ul>
-  <li>Send your user to <code class="highlighter-rouge">https://metasmoke.erwaysoftware.com/oauth/request?key=YOUR_KEY_HERE</code></li>
+  <li>Send your user to <code class="language-plaintext highlighter-rouge">https://metasmoke.erwaysoftware.com/oauth/request?key=YOUR_KEY_HERE</code></li>
   <li>If the user authorizes your app, they’ll be given a code to provide you. Ask them to enter that code, then:</li>
-  <li>Send an HTTP GET request to <code class="highlighter-rouge">https://metasmoke.erwaysoftware.com/oauth/token?key=YOUR_KEY_HERE&amp;code=THEIR_CODE_HERE</code>. The response is a JSON object containing one key, <code class="highlighter-rouge">token</code>, the value of which is your write token.</li>
+  <li>Send an HTTP GET request to <code class="language-plaintext highlighter-rouge">https://metasmoke.erwaysoftware.com/oauth/token?key=YOUR_KEY_HERE&amp;code=THEIR_CODE_HERE</code>. The response is a JSON object containing one key, <code class="language-plaintext highlighter-rouge">token</code>, the value of which is your write token.</li>
 </ul>
 
 <p>Write tokens do not expire and can be used to authorize as many requests as you need. If you get a 401 Unauthorized response when you included a write token, that token has likely been revoked by an administrator or by the user, and you need to go through OAuth again.</p>
 
 <h2 id="api-read-routes">API Read Routes</h2>
 <ul>
-  <li><a href="Domain-Tags">Domain Tags</a>: <code class="highlighter-rouge">/api/domains/:id/tags</code></li>
-  <li><a href="Post-Domains">Post Domains</a>: <code class="highlighter-rouge">/api/post/:id/domains</code></li>
-  <li><a href="Post-Feedback">Post Feedback</a>: <code class="highlighter-rouge">/api/post/:id/feedback</code></li>
-  <li><a href="Post-Reasons">Post Reasons</a>: <code class="highlighter-rouge">/api/post/:id/reasons</code></li>
-  <li><a href="Posts-by-Date-Range">Posts by Date Range</a>: <code class="highlighter-rouge">/api/posts/between</code></li>
-  <li><a href="Posts-by-Feedback">Posts by Feedback</a>: <code class="highlighter-rouge">/api/posts/feedback</code></li>
-  <li><a href="Posts-by-ID">Posts by ID</a>: <code class="highlighter-rouge">/api/posts/:ids</code></li>
-  <li><a href="Posts-by-Site">Posts by Site</a>: <code class="highlighter-rouge">/api/posts/site</code></li>
-  <li><a href="Posts-by-URLs">Posts by URLs</a>: <code class="highlighter-rouge">/api/posts/url</code></li>
-  <li><a href="Posts-caught-by-reason">Posts caught by reason</a>: <code class="highlighter-rouge">/api/reason/:id/posts</code></li>
-  <li><a href="Reasons-by-ID">Reasons by ID</a>: <code class="highlighter-rouge">/api/reasons/:ids</code></li>
-  <li><a href="Search-Posts">Search Posts</a>: <code class="highlighter-rouge">/api/posts/search</code></li>
-  <li><a href="Undeleted-Posts">Undeleted Posts</a>: <code class="highlighter-rouge">/api/posts/undeleted</code></li>
-  <li><a href="Users">Users</a>: <code class="highlighter-rouge">/api/users</code></li>
-  <li><a href="Valid-Feedback-Types">Valid Feedback Types</a>: <code class="highlighter-rouge">/api/post/:id/valid_feedback</code></li>
-  <li><a href="Smoke-Detectors">Smoke Detectors</a>: <code class="highlighter-rouge">/api/smoke_detectors</code></li>
-  <li><a href="Spam-Last-Week">Spam Last Week</a>: <code class="highlighter-rouge">/api/stats/last_week</code></li>
-  <li><a href="Detailed-Time-to-Deletion">Detailed Time to Deletion</a>: <code class="highlighter-rouge">api/stats/detailed_ttd</code></li>
+  <li><a href="Domain-Tags">Domain Tags</a>: <code class="language-plaintext highlighter-rouge">/api/domains/:id/tags</code></li>
+  <li><a href="Post-Domains">Post Domains</a>: <code class="language-plaintext highlighter-rouge">/api/post/:id/domains</code></li>
+  <li><a href="Post-Feedback">Post Feedback</a>: <code class="language-plaintext highlighter-rouge">/api/post/:id/feedback</code></li>
+  <li><a href="Post-Reasons">Post Reasons</a>: <code class="language-plaintext highlighter-rouge">/api/post/:id/reasons</code></li>
+  <li><a href="Posts-by-Date-Range">Posts by Date Range</a>: <code class="language-plaintext highlighter-rouge">/api/posts/between</code></li>
+  <li><a href="Posts-by-Feedback">Posts by Feedback</a>: <code class="language-plaintext highlighter-rouge">/api/posts/feedback</code></li>
+  <li><a href="Posts-by-ID">Posts by ID</a>: <code class="language-plaintext highlighter-rouge">/api/posts/:ids</code></li>
+  <li><a href="Posts-by-Site">Posts by Site</a>: <code class="language-plaintext highlighter-rouge">/api/posts/site</code></li>
+  <li><a href="Posts-by-URLs">Posts by URLs</a>: <code class="language-plaintext highlighter-rouge">/api/posts/url</code></li>
+  <li><a href="Posts-caught-by-reason">Posts caught by reason</a>: <code class="language-plaintext highlighter-rouge">/api/reason/:id/posts</code></li>
+  <li><a href="Reasons-by-ID">Reasons by ID</a>: <code class="language-plaintext highlighter-rouge">/api/reasons/:ids</code></li>
+  <li><a href="Search-Posts">Search Posts</a>: <code class="language-plaintext highlighter-rouge">/api/posts/search</code></li>
+  <li><a href="Undeleted-Posts">Undeleted Posts</a>: <code class="language-plaintext highlighter-rouge">/api/posts/undeleted</code></li>
+  <li><a href="Users">Users</a>: <code class="language-plaintext highlighter-rouge">/api/users</code></li>
+  <li><a href="Valid-Feedback-Types">Valid Feedback Types</a>: <code class="language-plaintext highlighter-rouge">/api/post/:id/valid_feedback</code></li>
+  <li><a href="Smoke-Detectors">Smoke Detectors</a>: <code class="language-plaintext highlighter-rouge">/api/smoke_detectors</code></li>
+  <li><a href="Spam-Last-Week">Spam Last Week</a>: <code class="language-plaintext highlighter-rouge">/api/stats/last_week</code></li>
+  <li><a href="Detailed-Time-to-Deletion">Detailed Time to Deletion</a>: <code class="language-plaintext highlighter-rouge">api/stats/detailed_ttd</code></li>
 </ul>
 
 <h2 id="api-write-routes">API Write Routes</h2>
 <ul>
-  <li><a href="Add-Domain-Tag">Add Domain Tag</a>: <code class="highlighter-rouge">POST /api/w/domains/:id/add_tag</code></li>
-  <li><a href="Create-Feedback">Create Feedback</a>: <code class="highlighter-rouge">POST /api/w/post/:id/feedback</code></li>
-  <li><a href="Report-Post">Report Post</a>: <code class="highlighter-rouge">POST /api/w/post/report</code></li>
+  <li><a href="Add-Domain-Tag">Add Domain Tag</a>: <code class="language-plaintext highlighter-rouge">POST /api/w/domains/:id/add_tag</code></li>
+  <li><a href="Create-Feedback">Create Feedback</a>: <code class="language-plaintext highlighter-rouge">POST /api/w/post/:id/feedback</code></li>
+  <li><a href="Report-Post">Report Post</a>: <code class="language-plaintext highlighter-rouge">POST /api/w/post/report</code></li>
 </ul>
 
 
@@ -203,7 +203,7 @@
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>

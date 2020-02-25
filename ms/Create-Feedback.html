@@ -77,14 +77,14 @@
 
 <h3 id="route-url">Route URL</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /api/w/post/:id/feedback
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /api/w/post/:id/feedback
 </code></pre></div></div>
 
 <h3 id="description--usage">Description &amp; Usage</h3>
 
-<p>This route allows an app to submit feedback through the API. Your app must have passed through the OAuth flow for write routes (see <a href="https://github.com/Charcoal-SE/metasmoke/wiki/API-Documentation">API documentation home</a>) and must have a valid write token; this token should be passed in the <code class="highlighter-rouge">token</code> query string parameter.</p>
+<p>This route allows an app to submit feedback through the API. Your app must have passed through the OAuth flow for write routes (see <a href="https://github.com/Charcoal-SE/metasmoke/wiki/API-Documentation">API documentation home</a>) and must have a valid write token; this token should be passed in the <code class="language-plaintext highlighter-rouge">token</code> query string parameter.</p>
 
-<p>Specify the feedback type being added by using the <code class="highlighter-rouge">type</code> parameter. The <code class="highlighter-rouge">:id</code> parameter in the URL should be replaced with the metasmoke ID of the post; use the <a href="https://github.com/Charcoal-SE/metasmoke/wiki/Posts-by-URL">posts by URL</a> route to get the metasmoke ID if you don’t already have it.</p>
+<p>Specify the feedback type being added by using the <code class="language-plaintext highlighter-rouge">type</code> parameter. The <code class="language-plaintext highlighter-rouge">:id</code> parameter in the URL should be replaced with the metasmoke ID of the post; use the <a href="https://github.com/Charcoal-SE/metasmoke/wiki/Posts-by-URL">posts by URL</a> route to get the metasmoke ID if you don’t already have it.</p>
 
 <blockquote>
   <p><strong>Heads up:</strong> sending <em>any</em> type of positive feedback using this route will additionally blacklist the user with SmokeDetector.</p>
@@ -95,12 +95,12 @@
 <h3 id="example">Example</h3>
 <p><strong>Request</strong> (key and token omitted):</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 POST /api/w/post/20191/feedback?type=tpu-
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 POST /api/w/post/20191/feedback?type=tpu-
 </code></pre></div></div>
 
 <p><strong>Response:</strong></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[
     {
         "id":16657,
         "message_link":null,
@@ -146,8 +146,8 @@
 <p>This route also makes use of the metasmoke-Smokey websocket to communicate feedback back to SmokeDetector. Specifically, these cases cause a websocket message to be sent:</p>
 
 <ul>
-  <li><em>any</em> type of true positive feedback will send a blacklist request (like <code class="highlighter-rouge">tpu-</code> with Smokey; the user will be blacklisted and all posts reported)</li>
-  <li><code class="highlighter-rouge">naa</code> feedback gets sent back to Smokey to avoid the post being escalated to the Tavern for feedback</li>
+  <li><em>any</em> type of true positive feedback will send a blacklist request (like <code class="language-plaintext highlighter-rouge">tpu-</code> with Smokey; the user will be blacklisted and all posts reported)</li>
+  <li><code class="language-plaintext highlighter-rouge">naa</code> feedback gets sent back to Smokey to avoid the post being escalated to the Tavern for feedback</li>
 </ul>
 
 
@@ -213,7 +213,7 @@
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>

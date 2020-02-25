@@ -94,13 +94,13 @@
 
 <h3 id="mac">Mac:</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install mysql
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew install mysql
 brew services start mysql
 </code></pre></div></div>
 
 <h3 id="linux">Linux:</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt update
 sudo apt install git mysql-client mysql-server libmysqlclient-dev libsqlite3-dev yarn
@@ -108,7 +108,7 @@ sudo apt install git mysql-client mysql-server libmysqlclient-dev libsqlite3-dev
 
 <h2 id="install-nodejs-no-macos-instructions-yet">Install NodeJS (no macOS instructions yet)</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - 
     sudo apt-get install nodejs 
 </code></pre></div></div>
 
@@ -116,7 +116,7 @@ sudo apt install git mysql-client mysql-server libmysqlclient-dev libsqlite3-dev
 
 <p>The easiest way to install Ruby is with <a href="https://rvm.io">RVM</a>. To install Ruby 2.5 (other ruby versions may work, but metasmoke runs on 2.5.0 as of 3/9/2018):</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 $ curl -sSL https://get.rvm.io | bash -s stable
 $ source ~/.rvm/scripts/rvm
 $ rvm install 2.5.0
@@ -124,37 +124,37 @@ $ rvm install 2.5.0
 
 <p>You can also use a less popular alternative, <a href="https://github.com/rbenv/rbenv#basic-github-checkout">rbenv</a> with <a href="https://github.com/rbenv/ruby-build#installation">ruby-build</a>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 $ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' &gt;&gt; ~/.bash_profile
 $ ~/.rbenv/bin/rbenv init
 </code></pre></div></div>
 
-<p>Now follow the instructions. They will typically involve appending something to your <code class="highlighter-rouge">.bash_profile</code> or other shell config file. Then, install ruby build with:</p>
+<p>Now follow the instructions. They will typically involve appending something to your <code class="language-plaintext highlighter-rouge">.bash_profile</code> or other shell config file. Then, install ruby build with:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir -p "$(rbenv root)"/plugins
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir -p "$(rbenv root)"/plugins
 $ git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 </code></pre></div></div>
 
 <p>Then actually install ruby:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rbenv install 2.5.0
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rbenv install 2.5.0
 </code></pre></div></div>
 
 <h1 id="clone-metasmoke">Clone metasmoke</h1>
 
 <p>To clone using HTTPS:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/Charcoal-SE/metasmoke
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/Charcoal-SE/metasmoke
 </code></pre></div></div>
 
 <p>To clone using SSH:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone git@github.com:Charcoal-SE/metasmoke
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone git@github.com:Charcoal-SE/metasmoke
 </code></pre></div></div>
 
 <h1 id="install-metasmoke-dependencies">Install metasmoke dependencies</h1>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd metasmoke
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd metasmoke
 $ gem install bundler
 $ bundle install
 $ yarn install
@@ -162,46 +162,46 @@ $ yarn install
 
 <p>If there are any errors with the previous step, you will need to correct those before proceeding. The most common one is with MySQL and is usually solved by running and then repeating the previous step</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install libmysqlclient-dev
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install libmysqlclient-dev
 gem uninstall mysql2
 gem install mysql2
 </code></pre></div></div>
 
 <h1 id="set-up-redis">Set up redis</h1>
 
-<p>Since most package managers have old versions, you’ll need to maually build redis from git. Fear not, there are no dependencies, and it usually builds in under 5 minutes. You’ll want to be in the <code class="highlighter-rouge">metasmoke</code> directory, which you should already be in from the last step (if not, <code class="highlighter-rouge">cd metasmoke</code>):</p>
+<p>Since most package managers have old versions, you’ll need to maually build redis from git. Fear not, there are no dependencies, and it usually builds in under 5 minutes. You’ll want to be in the <code class="language-plaintext highlighter-rouge">metasmoke</code> directory, which you should already be in from the last step (if not, <code class="language-plaintext highlighter-rouge">cd metasmoke</code>):</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/antirez/redis redis-git
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/antirez/redis redis-git
 $ cd redis-git
 $ make
 </code></pre></div></div>
 
 <p>And, if you feel extra careful</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make test
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make test
 </code></pre></div></div>
 
-<p>Then, you’ll need to build our redis module. You’ll want to be in the <code class="highlighter-rouge">metasmoke</code> directory, so if you’re continuing from the last step, <code class="highlighter-rouge">cd ..</code>:</p>
+<p>Then, you’ll need to build our redis module. You’ll want to be in the <code class="language-plaintext highlighter-rouge">metasmoke</code> directory, so if you’re continuing from the last step, <code class="language-plaintext highlighter-rouge">cd ..</code>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/Charcoal-SE/redis-zhregex zhregex
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git clone https://github.com/Charcoal-SE/redis-zhregex zhregex
 $ cd zhregex
 </code></pre></div></div>
 
 <p>The module depends on the c pcre library, which can be installed on macOS with:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew install pcre
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew install pcre
 </code></pre></div></div>
 
 <p>or on ubuntu with</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ apt-get install libpcre3-dev
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ apt-get install libpcre3-dev
 </code></pre></div></div>
 
 <p>On other platforms, you’ll need to figure out some way to get it installed.</p>
 
 <p>Then, build the module:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ make
 </code></pre></div></div>
 
 <p>Now you’ve built everything you’ll need for redis. We’ll come back to run it in a later step.</p>
@@ -210,22 +210,22 @@ $ cd zhregex
 
 <p>This step is technically optional, but metasmoke will not work correctly without it. You really should use both a database dump and a redis dump when getting a metasmoke instance set up.</p>
 
-<p>Download a redis dump from https://metasmoke.erwaysoftware.com/dumps, and unzip it to <code class="highlighter-rouge">"#{Rails.root}/dump.rdb"</code>. That’s where redis will look for it, in the root of your rails app with the name “dump.rdb”.</p>
+<p>Download a redis dump from https://metasmoke.erwaysoftware.com/dumps, and unzip it to <code class="language-plaintext highlighter-rouge">"#{Rails.root}/dump.rdb"</code>. That’s where redis will look for it, in the root of your rails app with the name “dump.rdb”.</p>
 
 <h2 id="adding-redis-to-path-optional">Adding redis to PATH (optional)</h2>
 
-<p>You may want to add <code class="highlighter-rouge">redis-git/src/redis-cli</code> and <code class="highlighter-rouge">redis-git/src/redis-server</code> to your PATH variable so that you can run the correct version of the CLI/server without prefixing it with all that mess. This step is fully optional, just makes your life easier if you’re working closely with redis.</p>
+<p>You may want to add <code class="language-plaintext highlighter-rouge">redis-git/src/redis-cli</code> and <code class="language-plaintext highlighter-rouge">redis-git/src/redis-server</code> to your PATH variable so that you can run the correct version of the CLI/server without prefixing it with all that mess. This step is fully optional, just makes your life easier if you’re working closely with redis.</p>
 
 <h1 id="set-up-a-database">Set up a database</h1>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mysql -u root -p
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mysql -u root -p
 </code></pre></div></div>
 
 <p>You will be prompted for your MySQL root password; this should be the same password you entered during installation. (When I tried it, MySQL refused to authenticate me; <a href="https://stackoverflow.com/a/46908573/3476191">this Stack Overflow answer</a> fixed it for me).</p>
 
 <p>In the MySQL command line:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt; CREATE DATABASE metasmoke;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt; CREATE DATABASE metasmoke;
 mysql&gt; CREATE DATABASE metasmoke_test;
 mysql&gt; CREATE DATABASE metasmoke_production;
 mysql&gt; CREATE USER metasmoke@localhost IDENTIFIED BY '&lt;password to set for the metasmoke database&gt;';
@@ -235,18 +235,18 @@ mysql&gt; GRANT ALL PRIVILEGES ON metasmoke_production.* TO metasmoke@localhost;
 mysql&gt; FLUSH PRIVILEGES;
 </code></pre></div></div>
 
-<p>Now exit the MySQL command line using ^D or <code class="highlighter-rouge">exit</code>.</p>
+<p>Now exit the MySQL command line using ^D or <code class="language-plaintext highlighter-rouge">exit</code>.</p>
 
 <h1 id="configure-metasmoke-to-use-the-newly-created-database">Configure metasmoke to use the newly-created database</h1>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd config
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd config
 $ cp config.sample.yml config.yml
 $ cp database.sample.yml database.yml
 </code></pre></div></div>
 
-<p>Now edit <code class="highlighter-rouge">database.yml</code>, and change it to the following:</p>
+<p>Now edit <code class="language-plaintext highlighter-rouge">database.yml</code>, and change it to the following:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>default: &amp;default
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>default: &amp;default
   adapter: mysql2
   database: metasmoke
   encoding: utf8
@@ -270,27 +270,27 @@ production:
   database: metasmoke_production
 </code></pre></div></div>
 
-<p>Change the <code class="highlighter-rouge">default</code> section to have the same contents as well.</p>
+<p>Change the <code class="language-plaintext highlighter-rouge">default</code> section to have the same contents as well.</p>
 
-<p>If you want integrations to work, you will need to update <code class="highlighter-rouge">config.yml</code> with real credentials for SES, Github, and/or StackExchange. The redirect URLs in the Stack Exchange settings should point back to your instance. This is not necessary, unless you’re trying to work on a feature which requires them (almost never).</p>
+<p>If you want integrations to work, you will need to update <code class="language-plaintext highlighter-rouge">config.yml</code> with real credentials for SES, Github, and/or StackExchange. The redirect URLs in the Stack Exchange settings should point back to your instance. This is not necessary, unless you’re trying to work on a feature which requires them (almost never).</p>
 
-<p>Now <code class="highlighter-rouge">cd</code> back up out of <code class="highlighter-rouge">config</code> and run:</p>
+<p>Now <code class="language-plaintext highlighter-rouge">cd</code> back up out of <code class="language-plaintext highlighter-rouge">config</code> and run:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails db:create
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails db:create
 $ rails db:schema:load
 $ rails db:migrate # in case the schema is out of date. it shouldn't be, but you never no.
 $ rails db:seed
 </code></pre></div></div>
 
-<p>If this fails, run <code class="highlighter-rouge">rails db:drop</code> and then run the previous commands again.</p>
+<p>If this fails, run <code class="language-plaintext highlighter-rouge">rails db:drop</code> and then run the previous commands again.</p>
 
 <hr />
 
-<p>At this point, you should be good to go! Run <code class="highlighter-rouge">rails c</code> to get a REPL, and <code class="highlighter-rouge">foreman start</code> to launch a server on <code class="highlighter-rouge">localhost:5000</code>.</p>
+<p>At this point, you should be good to go! Run <code class="language-plaintext highlighter-rouge">rails c</code> to get a REPL, and <code class="language-plaintext highlighter-rouge">foreman start</code> to launch a server on <code class="language-plaintext highlighter-rouge">localhost:5000</code>.</p>
 
-<p>To create an account, start the server, and click “sign up” in the top bar.  Email doesn’t matter, pick a username, and pick a password (security doesn’t really matter). To give yourself admin privileges, open a console with <code class="highlighter-rouge">rails c</code> and run:</p>
+<p>To create an account, start the server, and click “sign up” in the top bar.  Email doesn’t matter, pick a username, and pick a password (security doesn’t really matter). To give yourself admin privileges, open a console with <code class="language-plaintext highlighter-rouge">rails c</code> and run:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User.where(username: "&lt;the username you picked&gt;").first.add_role :developer
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User.where(username: "&lt;the username you picked&gt;").first.add_role :developer
 User.where(username: "&lt;the username you picked&gt;").first.add_role :admin
 </code></pre></div></div>
 
@@ -305,7 +305,7 @@ User.where(username: "&lt;the username you picked&gt;").first.add_role :admin
   <li>WSL: Windows &gt;= 16170 (<a href="https://github.com/Microsoft/WSL/issues/2245#issuecomment-310546134">mdns</a>)</li>
   <li>This is obviously only an issue if you are actually using WSL to provide a Linux-compatible platform on Windows</li>
   <li>Ruby: &gt;= 2.3 (<a href="http://mitrev.net/ruby/2015/11/13/the-operator-in-ruby/">SNO</a>)</li>
-  <li>MySQL: &gt;= 5.7.6 (<a href="https://stackoverflow.com/a/16592722/3160466"><code class="highlighter-rouge">CREATE USER IF NOT EXISTS</code></a>)</li>
+  <li>MySQL: &gt;= 5.7.6 (<a href="https://stackoverflow.com/a/16592722/3160466"><code class="language-plaintext highlighter-rouge">CREATE USER IF NOT EXISTS</code></a>)</li>
 </ul>
 
 <hr />
@@ -374,7 +374,7 @@ User.where(username: "&lt;the username you picked&gt;").first.add_role :admin
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>

@@ -73,43 +73,43 @@
 <h1 id="creating-new-commands">Creating new commands</h1>
 
 <blockquote>
-  <p>This document covers how to create a new command, which basically means that is it a guide on <code class="highlighter-rouge">chatcommands.py</code>.</p>
+  <p>This document covers how to create a new command, which basically means that is it a guide on <code class="language-plaintext highlighter-rouge">chatcommands.py</code>.</p>
 </blockquote>
 
 <h2 id="1-the-perfect-function">1. The perfect function</h2>
 
-<p>Define a function that is the same name as the command you want. If you want a command called <code class="highlighter-rouge">!!/createcommand</code>, you would write a function like this:</p>
+<p>Define a function that is the same name as the command you want. If you want a command called <code class="language-plaintext highlighter-rouge">!!/createcommand</code>, you would write a function like this:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@command</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">command</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">createcommand</span><span class="p">():</span>
     <span class="k">return</span> <span class="bp">None</span>
 </code></pre></div></div>
 
-<p>This command will do nothing. The function returns a string or <code class="highlighter-rouge">None</code>. If a string is returned, the string will be posted to chat. If <code class="highlighter-rouge">None</code> is returned, nothing will be posted to chat. You can put anything (read: the thing you want to do with this command) inside the function body.</p>
+<p>This command will do nothing. The function returns a string or <code class="language-plaintext highlighter-rouge">None</code>. If a string is returned, the string will be posted to chat. If <code class="language-plaintext highlighter-rouge">None</code> is returned, nothing will be posted to chat. You can put anything (read: the thing you want to do with this command) inside the function body.</p>
 
-<h2 id="2-configuration-of-the-command">2. Configuration of the <code class="highlighter-rouge">@command()</code></h2>
+<h2 id="2-configuration-of-the-command">2. Configuration of the <code class="language-plaintext highlighter-rouge">@command()</code></h2>
 
 <p>Supported arguments:</p>
 
 <p><strong>command</strong>(<em>privileged=False</em>, <em>whole_msg=False</em>, <em>arity=None</em>, <em>aliases=[]</em>, <em>give_name=False</em>, <em>reply=False</em>)</p>
 
-<p>To tweak the settings of your command, you have to edit the parameters inside <code class="highlighter-rouge">@command()</code></p>
+<p>To tweak the settings of your command, you have to edit the parameters inside <code class="language-plaintext highlighter-rouge">@command()</code></p>
 
 <ul>
   <li>
-    <p><code class="highlighter-rouge">whole_msg</code> - <code class="highlighter-rouge">True</code> or <code class="highlighter-rouge">False</code>: If <code class="highlighter-rouge">True</code>, you can include a parameter <code class="highlighter-rouge">msg</code> in your function. <code class="highlighter-rouge">msg</code> is a <a href="https://github.com/Manishearth/ChatExchange">ChatExchange</a> message object. The default is <code class="highlighter-rouge">False</code>. The <code class="highlighter-rouge">msg</code> argument will always come first, if there is any other argument.</p>
+    <p><code class="language-plaintext highlighter-rouge">whole_msg</code> - <code class="language-plaintext highlighter-rouge">True</code> or <code class="language-plaintext highlighter-rouge">False</code>: If <code class="language-plaintext highlighter-rouge">True</code>, you can include a parameter <code class="language-plaintext highlighter-rouge">msg</code> in your function. <code class="language-plaintext highlighter-rouge">msg</code> is a <a href="https://github.com/Manishearth/ChatExchange">ChatExchange</a> message object. The default is <code class="language-plaintext highlighter-rouge">False</code>. The <code class="language-plaintext highlighter-rouge">msg</code> argument will always come first, if there is any other argument.</p>
 
     <p>Example:</p>
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@command</span><span class="p">(</span><span class="n">whole_msg</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">command</span><span class="p">(</span><span class="n">whole_msg</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">createcommand</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
     <span class="k">return</span> <span class="bp">None</span>
 </code></pre></div>    </div>
   </li>
   <li>
-    <p><code class="highlighter-rouge">privileged</code> - <code class="highlighter-rouge">True</code> or <code class="highlighter-rouge">False</code>: If <code class="highlighter-rouge">True</code>, the user has to have <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/Privileges#smokedetector-privileges-sd">SD privileges</a> to execute the command. The default is <code class="highlighter-rouge">False</code>.</p>
+    <p><code class="language-plaintext highlighter-rouge">privileged</code> - <code class="language-plaintext highlighter-rouge">True</code> or <code class="language-plaintext highlighter-rouge">False</code>: If <code class="language-plaintext highlighter-rouge">True</code>, the user has to have <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/Privileges#smokedetector-privileges-sd">SD privileges</a> to execute the command. The default is <code class="language-plaintext highlighter-rouge">False</code>.</p>
 
     <p>Example:</p>
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@command</span><span class="p">(</span><span class="n">privileged</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">command</span><span class="p">(</span><span class="n">privileged</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">createcommand</span><span class="p">():</span>
     <span class="k">return</span> <span class="bp">None</span>
 </code></pre></div>    </div>
@@ -124,57 +124,57 @@ def createcommand(msg):
   return “Hello”</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">aliases</code> - an array of strings: In addition to the function name, the function will be executed if the command is equal to the alias.</p>
+    <p><code class="language-plaintext highlighter-rouge">aliases</code> - an array of strings: In addition to the function name, the function will be executed if the command is equal to the alias.</p>
 
     <p>Example:</p>
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@command</span><span class="p">(</span><span class="n">aliases</span><span class="o">=</span><span class="p">[</span><span class="s">'create-command'</span><span class="p">,</span> <span class="s">'create_command'</span><span class="p">])</span>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">command</span><span class="p">(</span><span class="n">aliases</span><span class="o">=</span><span class="p">[</span><span class="s">'create-command'</span><span class="p">,</span> <span class="s">'create_command'</span><span class="p">])</span>
 <span class="k">def</span> <span class="nf">createcommand</span><span class="p">():</span>
     <span class="k">return</span> <span class="bp">None</span>
 </code></pre></div>    </div>
-    <p>The function will be executed with <code class="highlighter-rouge">!!/create-command</code>, <code class="highlighter-rouge">!!/create_command</code> or<code class="highlighter-rouge">!!/createcommand</code>.</p>
+    <p>The function will be executed with <code class="language-plaintext highlighter-rouge">!!/create-command</code>, <code class="language-plaintext highlighter-rouge">!!/create_command</code> or<code class="language-plaintext highlighter-rouge">!!/createcommand</code>.</p>
   </li>
   <li>
-    <p>Command arguments - Type (<code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">str</code> etc): The arguments of the command and the type, So <code class="highlighter-rouge">!!/foo bar</code> would translate to <code class="highlighter-rouge">@command(str)</code> and <code class="highlighter-rouge">!!/foo 1 bar</code> would be <code class="highlighter-rouge">@command(int, str)</code>.</p>
+    <p>Command arguments - Type (<code class="language-plaintext highlighter-rouge">int</code>, <code class="language-plaintext highlighter-rouge">str</code> etc): The arguments of the command and the type, So <code class="language-plaintext highlighter-rouge">!!/foo bar</code> would translate to <code class="language-plaintext highlighter-rouge">@command(str)</code> and <code class="language-plaintext highlighter-rouge">!!/foo 1 bar</code> would be <code class="language-plaintext highlighter-rouge">@command(int, str)</code>.</p>
 
     <p>Example:</p>
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@command</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">command</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">createcommand</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
     <span class="k">return</span> <span class="bp">None</span>
 </code></pre></div>    </div>
     <p>The command type will translate to an argument.</p>
 
-    <p><strong>NOTE</strong>: When mixing with <code class="highlighter-rouge">whole_msg</code>, the <code class="highlighter-rouge">msg</code> argument will come first while the <code class="highlighter-rouge">whole_msg</code> argument will come after the command arguments, like</p>
+    <p><strong>NOTE</strong>: When mixing with <code class="language-plaintext highlighter-rouge">whole_msg</code>, the <code class="language-plaintext highlighter-rouge">msg</code> argument will come first while the <code class="language-plaintext highlighter-rouge">whole_msg</code> argument will come after the command arguments, like</p>
 
-    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@command</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">whole_msg</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">command</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">whole_msg</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">createcommand</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
     <span class="k">return</span> <span class="bp">None</span>
 </code></pre></div>    </div>
   </li>
   <li>
-    <p><code class="highlighter-rouge">give_name</code> - <code class="highlighter-rouge">True</code> or <code class="highlighter-rouge">False</code>: When <code class="highlighter-rouge">True</code>, a parameter called <code class="highlighter-rouge">alias_used</code> can be added, which shows which alias was used. See <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/3fae27a1f1a2fc5053c438047a55359f963eb013/chatcommands.py#L287">L287 of <code class="highlighter-rouge">chatcommands.py</code></a>. This parameter will be supplied as a keyword argument.</p>
+    <p><code class="language-plaintext highlighter-rouge">give_name</code> - <code class="language-plaintext highlighter-rouge">True</code> or <code class="language-plaintext highlighter-rouge">False</code>: When <code class="language-plaintext highlighter-rouge">True</code>, a parameter called <code class="language-plaintext highlighter-rouge">alias_used</code> can be added, which shows which alias was used. See <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/3fae27a1f1a2fc5053c438047a55359f963eb013/chatcommands.py#L287">L287 of <code class="language-plaintext highlighter-rouge">chatcommands.py</code></a>. This parameter will be supplied as a keyword argument.</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">arity</code> - tuple of <code class="highlighter-rouge">int</code>s: Allows the number of command argument to be in the range. (eg <code class="highlighter-rouge">arity=(0,2)</code>) allows the command to have 0, 1 or 2 arguments. Absent values will be provided as <code class="highlighter-rouge">None</code>.</p>
+    <p><code class="language-plaintext highlighter-rouge">arity</code> - tuple of <code class="language-plaintext highlighter-rouge">int</code>s: Allows the number of command argument to be in the range. (eg <code class="language-plaintext highlighter-rouge">arity=(0,2)</code>) allows the command to have 0, 1 or 2 arguments. Absent values will be provided as <code class="language-plaintext highlighter-rouge">None</code>.</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">reply</code> - <code class="highlighter-rouge">True</code> or <code class="highlighter-rouge">False</code>: Defaults to <code class="highlighter-rouge">False</code>. If <code class="highlighter-rouge">True</code>, the command will only execute if it is a reply or by <code class="highlighter-rouge">sd</code> feedback, not <code class="highlighter-rouge">!!/</code>. If <code class="highlighter-rouge">False</code>, the command will only execute if <code class="highlighter-rouge">!!/</code> is used.</p>
+    <p><code class="language-plaintext highlighter-rouge">reply</code> - <code class="language-plaintext highlighter-rouge">True</code> or <code class="language-plaintext highlighter-rouge">False</code>: Defaults to <code class="language-plaintext highlighter-rouge">False</code>. If <code class="language-plaintext highlighter-rouge">True</code>, the command will only execute if it is a reply or by <code class="language-plaintext highlighter-rouge">sd</code> feedback, not <code class="language-plaintext highlighter-rouge">!!/</code>. If <code class="language-plaintext highlighter-rouge">False</code>, the command will only execute if <code class="language-plaintext highlighter-rouge">!!/</code> is used.</p>
   </li>
 </ul>
 
 <h2 id="3-post-something">3. Post something</h2>
 
-<p>To post data that is what you expected, simply execute <code class="highlighter-rouge">return "some message"</code></p>
+<p>To post data that is what you expected, simply execute <code class="language-plaintext highlighter-rouge">return "some message"</code></p>
 
-<p>If you encounter an error, you can raise a <code class="highlighter-rouge">CmdException</code> with a string as the error message. The string will be sent to chat. The difference is that with <code class="highlighter-rouge">return</code>, the response can be suppressed if the command is issued in “silent mode” (ends with an additional hyphen, e.g. <code class="highlighter-rouge">!!/command-</code>). With <code class="highlighter-rouge">raise CmdException</code>, the response suppression will be ignored and Smokey will always response with the string in the exception.</p>
+<p>If you encounter an error, you can raise a <code class="language-plaintext highlighter-rouge">CmdException</code> with a string as the error message. The string will be sent to chat. The difference is that with <code class="language-plaintext highlighter-rouge">return</code>, the response can be suppressed if the command is issued in “silent mode” (ends with an additional hyphen, e.g. <code class="language-plaintext highlighter-rouge">!!/command-</code>). With <code class="language-plaintext highlighter-rouge">raise CmdException</code>, the response suppression will be ignored and Smokey will always response with the string in the exception.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@command</span><span class="p">()</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">command</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">somerandomcommand</span><span class="p">():</span>
     <span class="k">if</span> <span class="bp">True</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">CmdException</span><span class="p">(</span><span class="s">"Error: this error will be fixed in 6 to 8 weeks! HAHA"</span><span class="p">)</span>
     <span class="k">return</span> <span class="bp">None</span>
 </code></pre></div></div>
 
-<p>If you want to send a message to all the rooms that Smokey is running in, use <code class="highlighter-rouge">tell_rooms</code>:</p>
+<p>If you want to send a message to all the rooms that Smokey is running in, use <code class="language-plaintext highlighter-rouge">tell_rooms</code>:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tell_rooms</span><span class="p">(</span><span class="s">"A message"</span><span class="p">)</span>
 </code></pre></div></div>
@@ -184,12 +184,12 @@ def createcommand(msg):
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tell_rooms</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="p">(</span><span class="n">roles</span> <span class="n">to</span> <span class="n">have</span><span class="o">...</span><span class="p">),</span> <span class="p">(</span><span class="n">roles</span> <span class="ow">not</span> <span class="n">to</span> <span class="n">have</span><span class="o">...</span><span class="p">))</span>
 </code></pre></div></div>
 
-<p>It’s recommended that you send messages to rooms that are interested in debug messages, instead of spamming all rooms. You can use <code class="highlighter-rouge">tell_rooms_with</code>:</p>
+<p>It’s recommended that you send messages to rooms that are interested in debug messages, instead of spamming all rooms. You can use <code class="language-plaintext highlighter-rouge">tell_rooms_with</code>:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tell_rooms_with</span><span class="p">(</span><span class="s">'debug'</span><span class="p">,</span> <span class="s">"A debug message"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>You can also use <code class="highlighter-rouge">tell_rooms_without</code> to post to all rooms without a specific role:</p>
+<p>You can also use <code class="language-plaintext highlighter-rouge">tell_rooms_without</code> to post to all rooms without a specific role:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tell_rooms_without</span><span class="p">(</span><span class="s">"metatavern"</span><span class="p">,</span> <span class="s">"Tavern on the Meta sucks"</span><span class="p">)</span>
 </code></pre></div></div>
@@ -262,7 +262,7 @@ def createcommand(msg):
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>

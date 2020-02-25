@@ -81,12 +81,12 @@
   <li>Do something with data that another instance has sent</li>
 </ul>
 
-<p>These are, respectively, covered by the <code class="highlighter-rouge">send</code> and <code class="highlighter-rouge">register</code> methods.</p>
+<p>These are, respectively, covered by the <code class="language-plaintext highlighter-rouge">send</code> and <code class="language-plaintext highlighter-rouge">register</code> methods.</p>
 
 <h2 id="send-some-data">Send some data</h2>
-<p>In short: call <code class="highlighter-rouge">SocketScience.send(payload)</code>.</p>
+<p>In short: call <code class="language-plaintext highlighter-rouge">SocketScience.send(payload)</code>.</p>
 
-<p><code class="highlighter-rouge">payload</code> should be a <code class="highlighter-rouge">dict</code>. The keys of this dict are <em>message types</em> - for example, you might have one message type for metasmoke up/down reports (<code class="highlighter-rouge">metasmoke_state</code>), and another for Smokey pings (<code class="highlighter-rouge">ping</code>). Do not use top-level dict keys for properties of your message; instead, assign another dict to the key for the relevant message type in the top level dictionary.</p>
+<p><code class="language-plaintext highlighter-rouge">payload</code> should be a <code class="language-plaintext highlighter-rouge">dict</code>. The keys of this dict are <em>message types</em> - for example, you might have one message type for metasmoke up/down reports (<code class="language-plaintext highlighter-rouge">metasmoke_state</code>), and another for Smokey pings (<code class="language-plaintext highlighter-rouge">ping</code>). Do not use top-level dict keys for properties of your message; instead, assign another dict to the key for the relevant message type in the top level dictionary.</p>
 
 <p><strong>Bad:</strong></p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SocketScience</span><span class="o">.</span><span class="n">send</span><span class="p">({</span><span class="s">'location'</span><span class="p">:</span> <span class="n">GlobalVars</span><span class="o">.</span><span class="n">location</span><span class="p">,</span> <span class="s">'time'</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()})</span>
@@ -99,12 +99,12 @@
 <p>This construct is important, because it’s what the receiving end relies on to work.</p>
 
 <h2 id="receive-some-data">Receive some data</h2>
-<p>When SmokeDetector starts, you should register a callback with SocketScience for the message type you want to respond to. To do this, call <code class="highlighter-rouge">SocketScience.register(prop, cb)</code> - <code class="highlighter-rouge">prop</code> is the relevant message type, and <code class="highlighter-rouge">cb</code> is a method that SocketScience will call when a message of that type is received.</p>
+<p>When SmokeDetector starts, you should register a callback with SocketScience for the message type you want to respond to. To do this, call <code class="language-plaintext highlighter-rouge">SocketScience.register(prop, cb)</code> - <code class="language-plaintext highlighter-rouge">prop</code> is the relevant message type, and <code class="language-plaintext highlighter-rouge">cb</code> is a method that SocketScience will call when a message of that type is received.</p>
 
 <p>For example, if you want to respond to ping events by telling Charcoal HQ which instance pinged and when (this is a terrible idea and I will hunt you down if you do it, but it serves as an example):</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">handle_ping</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="n">chatcommunicate</span><span class="o">.</span><span class="n">tell_rooms_with</span><span class="p">(</span><span class="s">'debug'</span><span class="p">,</span> <span class="s">'{} pinged at {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'location'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">'time'</span><span class="p">]))</span>
+    <span class="n">chatcommunicate</span><span class="o">.</span><span class="n">tell_rooms_with</span><span class="p">(</span><span class="s">'debug'</span><span class="p">,</span> <span class="s">'{} pinged at {}'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'location'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">'time'</span><span class="p">]))</span>
 
 <span class="n">SocketScience</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s">'ping'</span><span class="p">,</span> <span class="n">handle_ping</span><span class="p">)</span>
 </code></pre></div></div>
@@ -112,26 +112,26 @@
 <p>As that example indicates, your callback will be passed a single parameter, containing the contents of the data dict for <em>that message type only</em>.</p>
 
 <h2 id="full-example">Full example</h2>
-<p>Say you want to create a new message type <code class="highlighter-rouge">beverages</code> that makes every instance serve a user a <code class="highlighter-rouge">!!/coffee</code> or <code class="highlighter-rouge">!!/tea</code> instead of just one (this is also a terrible idea).</p>
+<p>Say you want to create a new message type <code class="language-plaintext highlighter-rouge">beverages</code> that makes every instance serve a user a <code class="language-plaintext highlighter-rouge">!!/coffee</code> or <code class="language-plaintext highlighter-rouge">!!/tea</code> instead of just one (this is also a terrible idea).</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ws.py (most of file omitted)</span>
-<span class="k">def</span> <span class="nf">serve_beverage</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="n">chatcommunicate</span><span class="o">.</span><span class="n">tell_rooms_with</span><span class="p">(</span><span class="s">'debug'</span><span class="p">,</span> <span class="s">':{} *serves another {}*'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'message_id'</span><span class="p">],</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># ws.py (most of file omitted)
+</span><span class="k">def</span> <span class="nf">serve_beverage</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">chatcommunicate</span><span class="o">.</span><span class="n">tell_rooms_with</span><span class="p">(</span><span class="s">'debug'</span><span class="p">,</span> <span class="s">':{} *serves another {}*'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'message_id'</span><span class="p">],</span>
                                                                               <span class="n">data</span><span class="p">[</span><span class="s">'beverage_type'</span><span class="p">]))</span>
 
 <span class="n">SocketScience</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s">'beverage'</span><span class="p">,</span> <span class="n">serve_beverage</span><span class="p">)</span>
 </code></pre></div></div>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># chatcommands.py (relevant sections only)</span>
-<span class="nd">@command</span><span class="p">(</span><span class="n">whole_msg</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># chatcommands.py (relevant sections only)
+</span><span class="o">@</span><span class="n">command</span><span class="p">(</span><span class="n">whole_msg</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">coffee</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
-    <span class="c"># rest of command omitted</span>
-    <span class="n">SocketScience</span><span class="o">.</span><span class="n">send</span><span class="p">({</span><span class="s">'beverage'</span><span class="p">:</span> <span class="p">{</span><span class="s">'message_id'</span><span class="p">:</span> <span class="n">msg</span><span class="o">.</span><span class="nb">id</span><span class="p">,</span> <span class="s">'beverage_type'</span><span class="p">:</span> <span class="s">'coffee'</span><span class="p">}})</span>
+    <span class="c1"># rest of command omitted
+</span>    <span class="n">SocketScience</span><span class="o">.</span><span class="n">send</span><span class="p">({</span><span class="s">'beverage'</span><span class="p">:</span> <span class="p">{</span><span class="s">'message_id'</span><span class="p">:</span> <span class="n">msg</span><span class="o">.</span><span class="nb">id</span><span class="p">,</span> <span class="s">'beverage_type'</span><span class="p">:</span> <span class="s">'coffee'</span><span class="p">}})</span>
 
-<span class="nd">@command</span><span class="p">(</span><span class="n">whole_msg</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="o">@</span><span class="n">command</span><span class="p">(</span><span class="n">whole_msg</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">tea</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
-    <span class="c"># rest of command omitted</span>
-    <span class="n">SocketScience</span><span class="o">.</span><span class="n">send</span><span class="p">({</span><span class="s">'beverage'</span><span class="p">:</span> <span class="p">{</span><span class="s">'message_id'</span><span class="p">:</span> <span class="n">msg</span><span class="o">.</span><span class="nb">id</span><span class="p">,</span> <span class="s">'beverage_type'</span><span class="p">:</span> <span class="s">'tea'</span><span class="p">}})</span>
+    <span class="c1"># rest of command omitted
+</span>    <span class="n">SocketScience</span><span class="o">.</span><span class="n">send</span><span class="p">({</span><span class="s">'beverage'</span><span class="p">:</span> <span class="p">{</span><span class="s">'message_id'</span><span class="p">:</span> <span class="n">msg</span><span class="o">.</span><span class="nb">id</span><span class="p">,</span> <span class="s">'beverage_type'</span><span class="p">:</span> <span class="s">'tea'</span><span class="p">}})</span>
 </code></pre></div></div>
 
 
@@ -201,7 +201,7 @@
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>

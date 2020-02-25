@@ -73,15 +73,15 @@
 <h1 id="creating-new-spam-checks">Creating new spam checks</h1>
 
 <blockquote>
-  <p>This document covers how to create a new spam check, which essentially turns out to be a guide on <code class="highlighter-rouge">findspam.py</code>.</p>
+  <p>This document covers how to create a new spam check, which essentially turns out to be a guide on <code class="language-plaintext highlighter-rouge">findspam.py</code>.</p>
 </blockquote>
 
-<h2 id="1-the-bareear-necessities">1. The <code class="highlighter-rouge">B(are|ear)</code> Necessities</h2>
+<h2 id="1-the-bareear-necessities">1. The <code class="language-plaintext highlighter-rouge">B(are|ear)</code> Necessities</h2>
 <p>The <em>very first</em> thing you need to do before creating a new spam check is test if it’s actually necessary.</p>
 
 <ul>
   <li>What is your proposed check designed to catch?</li>
-  <li>Is it something that’s caught by existing checks? This includes regex-based pattern checks, blacklists, and check methods. Use the various <code class="highlighter-rouge">!!/test</code> commands to check this.</li>
+  <li>Is it something that’s caught by existing checks? This includes regex-based pattern checks, blacklists, and check methods. Use the various <code class="language-plaintext highlighter-rouge">!!/test</code> commands to check this.</li>
   <li>Is it something <em>we want to catch</em>? Remember that Smokey is designed to catch spam and/or abuse — anything else (low quality posts, not-an-answers, etc) is out of scope. There are plenty more moderation bots around the network that might want that kind of check, though.</li>
 </ul>
 
@@ -90,11 +90,11 @@
 
 <p>If you’ve determined that a new check is necessary, now you need to actually write it. The preferred way of doing this is a regex — these are (usually) simpler and easier to maintain than the alternatives. Writing a regex check is pretty easy: just write the regex. You can use regex-checking websites like <a href="http://regex101.com">regex101</a> to check if you’ve written it right — doing this is encouraged, because regex is not an easy language to speak.</p>
 
-<p>The alternative, which should only be used if a regex doesn’t do the job, is to write a check method. This is done by writing a new method in <code class="highlighter-rouge">findspam.py</code>, which takes two parameters: <code class="highlighter-rouge">s</code> and <code class="highlighter-rouge">site</code>. <code class="highlighter-rouge">s</code> is a string of stuff that you need to check (like the title, username, or post body), and <code class="highlighter-rouge">site</code> is the site that the post is on. Give your method a descriptive name, so that its purpose can be judged at a glance.</p>
+<p>The alternative, which should only be used if a regex doesn’t do the job, is to write a check method. This is done by writing a new method in <code class="language-plaintext highlighter-rouge">findspam.py</code>, which takes two parameters: <code class="language-plaintext highlighter-rouge">s</code> and <code class="language-plaintext highlighter-rouge">site</code>. <code class="language-plaintext highlighter-rouge">s</code> is a string of stuff that you need to check (like the title, username, or post body), and <code class="language-plaintext highlighter-rouge">site</code> is the site that the post is on. Give your method a descriptive name, so that its purpose can be judged at a glance.</p>
 
-<p>Your method should return a pair of values. The first is a boolean, indicating whether or not you think the post is spam. The second is a string, the <code class="highlighter-rouge">why</code> data for the post. It should be a short descriptive text that describes why you think it’s spam, e.g. <em>Contains keyword *male-enhancement*</em>. See the text box under the reasons list of <a href="https://m.erwaysoftware.com/post/130809">a metasmoke record</a> for an example.</p>
+<p>Your method should return a pair of values. The first is a boolean, indicating whether or not you think the post is spam. The second is a string, the <code class="language-plaintext highlighter-rouge">why</code> data for the post. It should be a short descriptive text that describes why you think it’s spam, e.g. <em>Contains keyword *male-enhancement*</em>. See the text box under the reasons list of <a href="https://m.erwaysoftware.com/post/130809">a metasmoke record</a> for an example.</p>
 
-<p>Here’s an example check method. This method will say that any <code class="highlighter-rouge">s</code> longer than 3 characters is spam.</p>
+<p>Here’s an example check method. This method will say that any <code class="language-plaintext highlighter-rouge">s</code> longer than 3 characters is spam.</p>
 
 <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">ridiculous_spam_check</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">site</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
@@ -108,24 +108,24 @@
 <h2 id="3-endless-lists">3. Endless Lists</h2>
 <p>Checks are our ammunition against spam; now you need a gun to fire it from. In our case, it’s a GLoCK — a Giant List of Checks and Keywords.</p>
 
-<p>Read the code of the existing checks in <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/findspam.py"><code class="highlighter-rouge">findspam.py</code></a>, there are two kinds of them:</p>
+<p>Read the code of the existing checks in <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/findspam.py"><code class="language-plaintext highlighter-rouge">findspam.py</code></a>, there are two kinds of them:</p>
 
 <ul>
   <li>
-    <p>RegEx-based checks are created and registered into the GLoCK with a call to <code class="highlighter-rouge">create_rule</code>:</p>
+    <p>RegEx-based checks are created and registered into the GLoCK with a call to <code class="language-plaintext highlighter-rouge">create_rule</code>:</p>
 
     <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">create_rule</span><span class="p">(</span><span class="s">"bad keyword in post"</span><span class="p">,</span> <span class="s">r"male\W?enhancement"</span><span class="p">,</span> <span class="n">max_rep</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">max_score</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>Functional checks are created by using <code class="highlighter-rouge">create_rule</code> as a decorator (<a href="https://www.python.org/dev/peps/pep-0318/">PEP 318</a>):</p>
+    <p>Functional checks are created by using <code class="language-plaintext highlighter-rouge">create_rule</code> as a decorator (<a href="https://www.python.org/dev/peps/pep-0318/">PEP 318</a>):</p>
 
-    <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@create_rule</span><span class="p">(</span><span class="s">"spam answer"</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">create_rule</span><span class="p">(</span><span class="s">"spam answer"</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">ridiculous_check</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">site</span><span class="p">):</span>
     <span class="k">return</span> <span class="bp">True</span><span class="p">,</span> <span class="s">"All answers are spam"</span>
 </code></pre></div>    </div>
 
-    <p>This way, the function <code class="highlighter-rouge">ridiculous_check</code> is wrapped into a <code class="highlighter-rouge">Rule</code> object and registered to the GLoCK.</p>
+    <p>This way, the function <code class="language-plaintext highlighter-rouge">ridiculous_check</code> is wrapped into a <code class="language-plaintext highlighter-rouge">Rule</code> object and registered to the GLoCK.</p>
   </li>
 </ul>
 
@@ -140,13 +140,13 @@
 <p>Accepted keyword arguments are:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">title</code>, <code class="highlighter-rouge">username</code>, <code class="highlighter-rouge">body</code>, <code class="highlighter-rouge">body_summary</code>: These are the different parts of a post. Set them to <em>True</em> if your check should be performed against these aspects</li>
-  <li><code class="highlighter-rouge">all</code> and <code class="highlighter-rouge">sites</code>: <code class="highlighter-rouge">all</code> defines whether the check should apply on all sites, and <code class="highlighter-rouge">sites</code> define exception sites. If <code class="highlighter-rouge">all=True</code>, then posts <em>not</em> from a site in <code class="highlighter-rouge">sites</code> will be checked (whitelisted). If <code class="highlighter-rouge">all=False</code>, then only posts on <code class="highlighter-rouge">sites</code> will be checked.</li>
-  <li><code class="highlighter-rouge">max_rep</code>, <code class="highlighter-rouge">max_score</code>: Upper limits of owner reputation and post score. Generally, if the owner has more reputation or the post has a high score, it’s unlikely that it will be spam.</li>
-  <li><code class="highlighter-rouge">question</code>, <code class="highlighter-rouge">answer</code>: Whether the check is designed for questions and answers. For example, you probably want to specify <code class="highlighter-rouge">answer=False</code> for a “bad question” check. Note that they’re in the singular form.</li>
-  <li><code class="highlighter-rouge">stripcodeblocks</code>: Whether code blocks <code class="highlighter-rouge">like this</code> should be stripped before running the check.</li>
-  <li><code class="highlighter-rouge">whole_post</code>: See below</li>
-  <li><code class="highlighter-rouge">disabled</code>: Just a neat way to create a rule without putting it into production 😃.</li>
+  <li><code class="language-plaintext highlighter-rouge">title</code>, <code class="language-plaintext highlighter-rouge">username</code>, <code class="language-plaintext highlighter-rouge">body</code>, <code class="language-plaintext highlighter-rouge">body_summary</code>: These are the different parts of a post. Set them to <em>True</em> if your check should be performed against these aspects</li>
+  <li><code class="language-plaintext highlighter-rouge">all</code> and <code class="language-plaintext highlighter-rouge">sites</code>: <code class="language-plaintext highlighter-rouge">all</code> defines whether the check should apply on all sites, and <code class="language-plaintext highlighter-rouge">sites</code> define exception sites. If <code class="language-plaintext highlighter-rouge">all=True</code>, then posts <em>not</em> from a site in <code class="language-plaintext highlighter-rouge">sites</code> will be checked (whitelisted). If <code class="language-plaintext highlighter-rouge">all=False</code>, then only posts on <code class="language-plaintext highlighter-rouge">sites</code> will be checked.</li>
+  <li><code class="language-plaintext highlighter-rouge">max_rep</code>, <code class="language-plaintext highlighter-rouge">max_score</code>: Upper limits of owner reputation and post score. Generally, if the owner has more reputation or the post has a high score, it’s unlikely that it will be spam.</li>
+  <li><code class="language-plaintext highlighter-rouge">question</code>, <code class="language-plaintext highlighter-rouge">answer</code>: Whether the check is designed for questions and answers. For example, you probably want to specify <code class="language-plaintext highlighter-rouge">answer=False</code> for a “bad question” check. Note that they’re in the singular form.</li>
+  <li><code class="language-plaintext highlighter-rouge">stripcodeblocks</code>: Whether code blocks <code class="language-plaintext highlighter-rouge">like this</code> should be stripped before running the check.</li>
+  <li><code class="language-plaintext highlighter-rouge">whole_post</code>: See below</li>
+  <li><code class="language-plaintext highlighter-rouge">disabled</code>: Just a neat way to create a rule without putting it into production 😃.</li>
 </ul>
 
 <p>The default values for those options are:</p>
@@ -168,7 +168,7 @@
 <span class="p">)</span>
 </code></pre></div></div>
 
-<p>Implementation details: <code class="highlighter-rouge">create_rule</code> takes an optional <code class="highlighter-rouge">regex</code> argument. If it’s provided, then it creates a regular expression check. If no regex is provided, it returns a decorator that can be used to decorate a function-based check. This is how it works in two ways.</p>
+<p>Implementation details: <code class="language-plaintext highlighter-rouge">create_rule</code> takes an optional <code class="language-plaintext highlighter-rouge">regex</code> argument. If it’s provided, then it creates a regular expression check. If no regex is provided, it returns a decorator that can be used to decorate a function-based check. This is how it works in two ways.</p>
 
 <h2 id="4-other-neat-things">4. Other neat things</h2>
 
@@ -176,34 +176,34 @@
 
 <p>If a check is designed to check multiple aspects of a post individually, you may want separate reasons for the aspects checked. For example, <em>bad keyword in title</em>, <em>bad keyword in body</em> and <em>bad keyword in username</em> are three reasons.</p>
 
-<p>To keep things minimal, you can use a pair of curly brackets in the reason, which will be replaced by one of <code class="highlighter-rouge">title</code>, <code class="highlighter-rouge">body</code> and <code class="highlighter-rouge">username</code>, if the corresponding part of the post is caught as spam. So you can write this as a reason:</p>
+<p>To keep things minimal, you can use a pair of curly brackets in the reason, which will be replaced by one of <code class="language-plaintext highlighter-rouge">title</code>, <code class="language-plaintext highlighter-rouge">body</code> and <code class="language-plaintext highlighter-rouge">username</code>, if the corresponding part of the post is caught as spam. So you can write this as a reason:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">create_rule</span><span class="p">(</span><span class="s">"bad keyword in {}"</span><span class="p">,</span> <span class="s">"male</span><span class="err">\</span><span class="s">W?enhancement"</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p>Note: We’re currently using <code class="highlighter-rouge">str.replace()</code> to insert the post aspect instead of using <code class="highlighter-rouge">.format()</code>, so only bare braces are supported.</p>
+<p>Note: We’re currently using <code class="language-plaintext highlighter-rouge">str.replace()</code> to insert the post aspect instead of using <code class="language-plaintext highlighter-rouge">.format()</code>, so only bare braces are supported.</p>
 
-<h4 id="whole_post-check"><code class="highlighter-rouge">whole_post</code> check</h4>
+<h4 id="whole_post-check"><code class="language-plaintext highlighter-rouge">whole_post</code> check</h4>
 
 <p>If you need multiple pieces of information from a post, instead of checking title, body and username separately, you can define a method like this (<a href="https://github.com/Charcoal-SE/SmokeDetector/blob/5374e226dabb574a974bdebd826d8c9a9921fc93/findspam.py#L607">example</a>):</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@create_rule</span><span class="p">(</span><span class="s">"this is a reason"</span><span class="p">,</span> <span class="n">whole_post</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">create_rule</span><span class="p">(</span><span class="s">"this is a reason"</span><span class="p">,</span> <span class="n">whole_post</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">another_ridiculous_check</span><span class="p">(</span><span class="n">post</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">post</span><span class="o">.</span><span class="n">user_name</span> <span class="ow">in</span> <span class="n">post</span><span class="o">.</span><span class="n">body</span> <span class="ow">and</span> <span class="n">post</span><span class="o">.</span><span class="n">user_name</span> <span class="ow">in</span> <span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span> <span class="s">"Username in both title and body"</span>
     <span class="k">return</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="s">""</span>
 </code></pre></div></div>
 
-<p>The method should take one <code class="highlighter-rouge">post</code> object. You can find its available properties starting from <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/5374e226dabb574a974bdebd826d8c9a9921fc93/classes/_Post.py#L180">here</a>. Then you can perform the check with the information provided in the object.</p>
+<p>The method should take one <code class="language-plaintext highlighter-rouge">post</code> object. You can find its available properties starting from <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/5374e226dabb574a974bdebd826d8c9a9921fc93/classes/_Post.py#L180">here</a>. Then you can perform the check with the information provided in the object.</p>
 
-<p>The return value is also a bit different from a standard check. A <code class="highlighter-rouge">whole_post</code> check should return 4 values, the format of which would be</p>
+<p>The return value is also a bit different from a standard check. A <code class="language-plaintext highlighter-rouge">whole_post</code> check should return 4 values, the format of which would be</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="n">title_is_spam</span><span class="p">,</span> <span class="n">username_is_spam</span><span class="p">,</span> <span class="n">body_is_spam</span><span class="p">,</span> <span class="n">why</span>
 </code></pre></div></div>
 
-<p>The first three boolean values indicate whether you think the title, the username or the post body is spam. The last value is <code class="highlighter-rouge">why</code> data, which is identical to the <code class="highlighter-rouge">why</code> data mentioned above.</p>
+<p>The first three boolean values indicate whether you think the title, the username or the post body is spam. The last value is <code class="language-plaintext highlighter-rouge">why</code> data, which is identical to the <code class="language-plaintext highlighter-rouge">why</code> data mentioned above.</p>
 
-<p>When defining the entry for your check, you need to add <code class="highlighter-rouge">whole_post=True</code> to the rule creator, so that the check dispatcher can provide the post object to your method, instead of <code class="highlighter-rouge">s, site</code>.</p>
+<p>When defining the entry for your check, you need to add <code class="language-plaintext highlighter-rouge">whole_post=True</code> to the rule creator, so that the check dispatcher can provide the post object to your method, instead of <code class="language-plaintext highlighter-rouge">s, site</code>.</p>
 
 
 <div class="sidebar">
@@ -272,7 +272,7 @@
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>

@@ -77,14 +77,14 @@
 
 <p>To set up SmokeDetector (SD), please execute the following commands:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/Charcoal-SE/SmokeDetector.git
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/Charcoal-SE/SmokeDetector.git
 cd SmokeDetector
 git checkout deploy
 sudo pip3 install -r requirements.txt --upgrade
 pip3 install --user -r user_requirements.txt --upgrade
 </code></pre></div></div>
 
-<p>Next, copy <code class="highlighter-rouge">config.sample</code> to a new file called <code class="highlighter-rouge">config</code>, and edit the values required. If you are going to be running this SmokeDetector instance as a normal SD instance with metasmoke, see <a href="#user-content-the-config-file">the “config” file with MS</a> below.</p>
+<p>Next, copy <code class="language-plaintext highlighter-rouge">config.sample</code> to a new file called <code class="language-plaintext highlighter-rouge">config</code>, and edit the values required. If you are going to be running this SmokeDetector instance as a normal SD instance with metasmoke, see <a href="#user-content-the-config-file">the “config” file with MS</a> below.</p>
 
 <p>You should now be able to <a href="#user-content-running-smokedetector">run SmokeDetector</a>.</p>
 
@@ -94,12 +94,12 @@ pip3 install --user -r user_requirements.txt --upgrade
 <h4 id="the-config-file-with-ms">The “config” file with MS</h4>
 <p>In the files section for the keybase “charcoal” channel, there is a “config” file. You should use that config file as a basis for the “config” file you use in your “SmokeDetector” directory.</p>
 <ul>
-  <li>Set <code class="highlighter-rouge">location</code> to the name you choose for your SD instance. This should be your username, followed by a slash and an identifier that’s unique among all your Smokey instances. This is the name that your instance will display in messages in chat and what will be displayed on MS for status.</li>
-  <li>Set <code class="highlighter-rouge">metasmoke_key</code>
+  <li>Set <code class="language-plaintext highlighter-rouge">location</code> to the name you choose for your SD instance. This should be your username, followed by a slash and an identifier that’s unique among all your Smokey instances. This is the name that your instance will display in messages in chat and what will be displayed on MS for status.</li>
+  <li>Set <code class="language-plaintext highlighter-rouge">metasmoke_key</code>
     <ul>
       <li>On metasmoke in the dropdown for your username, select “My SmokeDetectors”.</li>
-      <li>Click on “create a new key” and enter the name you used for <code class="highlighter-rouge">location</code> above.</li>
-      <li>Once you complete the dialog, your SD instance will be listed and you can copy the “Key” to <code class="highlighter-rouge">metasmoke_key</code>.</li>
+      <li>Click on “create a new key” and enter the name you used for <code class="language-plaintext highlighter-rouge">location</code> above.</li>
+      <li>Once you complete the dialog, your SD instance will be listed and you can copy the “Key” to <code class="language-plaintext highlighter-rouge">metasmoke_key</code>.</li>
     </ul>
   </li>
   <li>Save the “config” file, as those are the only changes you need.</li>
@@ -119,14 +119,14 @@ pip3 install --user -r user_requirements.txt --upgrade
       <li>Click “Launch Instance -&gt;”</li>
       <li>Click “Select” for “Amazon Linux AMI 2018.03.0 (HVM), SSD Volume Type - ami-0cd3dfa4e37921605” (the first one in the Amazon Machine Image (AMI) list)
         <ul>
-          <li>You can pick any flavor of Linux you’re familiar with, just remember to substitute installation commands for the correct package manager. For example, the above version of Linux uses <code class="highlighter-rouge">yum</code>. Other versions may use <code class="highlighter-rouge">apt-get</code>, <code class="highlighter-rouge">rpm</code>, or <code class="highlighter-rouge">pacman</code> etc. In addition, other versions of Linux may already have versions of some of the packages installed in the commands below, or may be missing yet other packages. The commands listed below were only tested in the AMI mentioned above. <!-- Other than being the first AMI in the list and a very basic Linux install, there's really nothing special about the AMI selected above. It is the one with which the commands below have been tested, so if you change this choice, then please test and/or change the commands listed below. If you do change the AMI mentioned above, it's a good idea to keep it to one that's eligible for the AWS Free Tier and one that permits per-second billing, rather than per-hour billing.--></li>
+          <li>You can pick any flavor of Linux you’re familiar with, just remember to substitute installation commands for the correct package manager. For example, the above version of Linux uses <code class="language-plaintext highlighter-rouge">yum</code>. Other versions may use <code class="language-plaintext highlighter-rouge">apt-get</code>, <code class="language-plaintext highlighter-rouge">rpm</code>, or <code class="language-plaintext highlighter-rouge">pacman</code> etc. In addition, other versions of Linux may already have versions of some of the packages installed in the commands below, or may be missing yet other packages. The commands listed below were only tested in the AMI mentioned above. <!-- Other than being the first AMI in the list and a very basic Linux install, there's really nothing special about the AMI selected above. It is the one with which the commands below have been tested, so if you change this choice, then please test and/or change the commands listed below. If you do change the AMI mentioned above, it's a good idea to keep it to one that's eligible for the AWS Free Tier and one that permits per-second billing, rather than per-hour billing.--></li>
         </ul>
       </li>
       <li>Click “Review and Launch”</li>
       <li>Click “Launch”</li>
       <li>Create a public key pair, or use one you’ve previously created.
         <ul>
-          <li>If creating a new public key pair, download the private key to somewhere on your system from which you can run <code class="highlighter-rouge">ssh</code>.</li>
+          <li>If creating a new public key pair, download the private key to somewhere on your system from which you can run <code class="language-plaintext highlighter-rouge">ssh</code>.</li>
         </ul>
       </li>
       <li>Click “View Instances”</li>
@@ -143,7 +143,7 @@ pip3 install --user -r user_requirements.txt --upgrade
     <p>Execute the following commands. You can copy-&amp;-paste all of them at one time. The commands above the blank line get your EC2 instance to where SmokeDetector can be installed (only tested in the AMI mentioned above). The commands below the blank line clone SmokeDetector from GitHub and install its Python dependencies (the commands below the blank line are a duplicate of those at the top of this page, but are included below to make copy-&amp;-pasting easier):
 <!--If you change the following commands, please *test* them in the AMI (the Linux version) that's mentioned in the instructions above. We're literally telling people that they can copy-&-paste these, so we should be sure they just work. --></p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum -y update
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum -y update
 sudo yum -y install gcc
 sudo yum -y install git
 sudo yum -y install python36
@@ -162,24 +162,24 @@ pip3 install --user -r user_requirements.txt --upgrade
   <li>Create the “config” file
     <ul>
       <li>See <a href="#user-content-the-config-file">The “config” file with MS</a> above if you are going to use this SD instance with metasmoke.</li>
-      <li>If you are not going to run this SD instance with metasmoke, then copy <code class="highlighter-rouge">config.sample</code> to a new file called <code class="highlighter-rouge">config</code>, and edit the values required.</li>
+      <li>If you are not going to run this SD instance with metasmoke, then copy <code class="language-plaintext highlighter-rouge">config.sample</code> to a new file called <code class="language-plaintext highlighter-rouge">config</code>, and edit the values required.</li>
     </ul>
   </li>
 </ul>
 
 <h2 id="running-smokedetector">Running SmokeDetector</h2>
-<p>To run, use <code class="highlighter-rouge">python3 nocrash.py</code>, or <code class="highlighter-rouge">python3 nocrash.py standby</code> (preferably in a daemon-able mode, like a <code class="highlighter-rouge">screen</code> session).
-You can also use <code class="highlighter-rouge">python3 ws.py</code>, but then SmokeDetector will be shut down after 6 hours;
-when running from <code class="highlighter-rouge">nocrash.py</code>, <code class="highlighter-rouge">ws.py</code> will automatically be restarted.
+<p>To run, use <code class="language-plaintext highlighter-rouge">python3 nocrash.py</code>, or <code class="language-plaintext highlighter-rouge">python3 nocrash.py standby</code> (preferably in a daemon-able mode, like a <code class="language-plaintext highlighter-rouge">screen</code> session).
+You can also use <code class="language-plaintext highlighter-rouge">python3 ws.py</code>, but then SmokeDetector will be shut down after 6 hours;
+when running from <code class="language-plaintext highlighter-rouge">nocrash.py</code>, <code class="language-plaintext highlighter-rouge">ws.py</code> will automatically be restarted.
 (This is to be sure that closed WebSockets, if any, are reopened.)</p>
 
-<h4 id="nocrashpy"><code class="highlighter-rouge">nocrash.py</code></h4>
-<p><code class="highlighter-rouge">nocrash.py</code> is the controlling Python code for SmokeDetector. It runs <code class="highlighter-rouge">ws.py</code>, which is the SD instance, in a subprocess and restarts the SD instance when it stops. <code class="highlighter-rouge">ws.py</code> may stop as the result of various chat <code class="highlighter-rouge">!!/</code> commands, or do to errors. The syntax for <code class="highlighter-rouge">nocrash.py</code> is:</p>
+<h4 id="nocrashpy"><code class="language-plaintext highlighter-rouge">nocrash.py</code></h4>
+<p><code class="language-plaintext highlighter-rouge">nocrash.py</code> is the controlling Python code for SmokeDetector. It runs <code class="language-plaintext highlighter-rouge">ws.py</code>, which is the SD instance, in a subprocess and restarts the SD instance when it stops. <code class="language-plaintext highlighter-rouge">ws.py</code> may stop as the result of various chat <code class="language-plaintext highlighter-rouge">!!/</code> commands, or do to errors. The syntax for <code class="language-plaintext highlighter-rouge">nocrash.py</code> is:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nocrash.py [standby] [--loglevel=(debug|info|warning|error)]
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nocrash.py [standby] [--loglevel=(debug|info|warning|error)]
 </code></pre></div></div>
 
-<p>The <code class="highlighter-rouge">standby</code> option starts the SD instance in <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/SmokeDetector-Statuses#standby-mode">standby mode</a>.</p>
+<p>The <code class="language-plaintext highlighter-rouge">standby</code> option starts the SD instance in <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/SmokeDetector-Statuses#standby-mode">standby mode</a>.</p>
 
 <p><sub>Portions of this page were taken from <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/README.md">README.md</a>.</sub></p>
 
@@ -250,7 +250,7 @@ when running from <code class="highlighter-rouge">nocrash.py</code>, <code class
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>

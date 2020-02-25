@@ -86,7 +86,7 @@
 
 <p>Every time a post is reported, it triggers a <a href="https://metasmoke.erwaysoftware.com/dashboard">variety of different reasons</a> for being reported (such as bad keyword, blacklisted website, etc). Each of these reasons (also known as “heuristics”) contributes to the post’s weight. The formula that determines how much weight each reason contributes is as follows:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Number of True Positives caught by reason] / [Total posts caught by the reason] * 100
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Number of True Positives caught by reason] / [Total posts caught by the reason] * 100
 </code></pre></div></div>
 
 <p>In our current preliminary testing, the threshold that was set for posts to be flagged automatically is at a weight of 280. In our database of over 50,000 records, this score threshold has a predictive accuracy of 99.98% (meaning of all posts hitting 280 score caught by Smokey, 99.98% were true positives).</p>
@@ -103,7 +103,7 @@
 
 <p>Once <a href="https://metasmoke.erwaysoftware.com/flagging/preferences">your flagging status</a> shows as active (the button stays checked if you navigate away from the page and come back again) and your conditions are met, you are eligible to be drawn randomly when a flag is about to be raised.  This is a random selection out of the list of users whose conditions allow flagging at the given weight on the given site.</p>
 
-<p>You can review the flags cast on your behalf at a URL like <code class="highlighter-rouge">https://metasmoke.erwaysoftware.com/flagging/users/XX/logs</code> (for example, <a href="https://metasmoke.erwaysoftware.com/flagging/users/1/logs">Undo’s log</a>).  There is a number of other useful links on the personal flagging dashboard where you can tweak conditions or turn off autoflagging.</p>
+<p>You can review the flags cast on your behalf at a URL like <code class="language-plaintext highlighter-rouge">https://metasmoke.erwaysoftware.com/flagging/users/XX/logs</code> (for example, <a href="https://metasmoke.erwaysoftware.com/flagging/users/1/logs">Undo’s log</a>).  There is a number of other useful links on the personal flagging dashboard where you can tweak conditions or turn off autoflagging.</p>
 
 
 <div class="sidebar">
@@ -172,7 +172,7 @@
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>

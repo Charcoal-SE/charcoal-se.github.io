@@ -89,12 +89,12 @@ to commands.</p>
 <p>If the main Smokey fails to respond to status pings for a few minutes, metasmoke will automatically choose a standby instance to failover. Any instance can also be manually failovered from the <a href="https://metasmoke.erwaysoftware.com/status">status page</a> (note: code admin privileges required). The failovered instance will then begin to take over the normal duties of the main SmokeDetector.</p>
 
 <blockquote>
-  <p>SmokeDetector host note: you can run <code class="highlighter-rouge">python3 nocrash.py standby</code> to start Smokey directly into Standby mode.</p>
+  <p>SmokeDetector host note: you can run <code class="language-plaintext highlighter-rouge">python3 nocrash.py standby</code> to start Smokey directly into Standby mode.</p>
 </blockquote>
 
 <h2 id="reverted-mode">Reverted Mode</h2>
 
-<p>SmokeDetector switches to Reverted Mode when it detects that errors occur in the running version: it goes back to a previous version. When SmokeDetector is in reverted mode, any privileged user can switch back to the master branch using the <code class="highlighter-rouge">!!/master</code> command when that’s necessary.</p>
+<p>SmokeDetector switches to Reverted Mode when it detects that errors occur in the running version: it goes back to a previous version. When SmokeDetector is in reverted mode, any privileged user can switch back to the master branch using the <code class="language-plaintext highlighter-rouge">!!/master</code> command when that’s necessary.</p>
 
 
 <div class="sidebar">
@@ -163,7 +163,7 @@ to commands.</p>
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>

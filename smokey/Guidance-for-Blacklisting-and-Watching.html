@@ -86,13 +86,13 @@
 
 <p>The keyword blacklist consists of a list of phrases which are frequently seen in spam, and rarely outside of spam posts.</p>
 
-<p>Blacklisting a “keyword” (which can actually be a regular expression matching a phrase or a more-complex expression with alternatives, like <code class="highlighter-rouge">find (true )?love</code> which matches either of “find love” or “find true love”) causes any post which matches it to be reported as probable spam by SmokeDetector.  Matches are not reported in the middle of a word; the keyword expression “dog” does not match “doggone” or “endogenous”.</p>
+<p>Blacklisting a “keyword” (which can actually be a regular expression matching a phrase or a more-complex expression with alternatives, like <code class="language-plaintext highlighter-rouge">find (true )?love</code> which matches either of “find love” or “find true love”) causes any post which matches it to be reported as probable spam by SmokeDetector.  Matches are not reported in the middle of a word; the keyword expression “dog” does not match “doggone” or “endogenous”.</p>
 
 <p>The keyword blacklist is maintained in the <a href="https://github.com/Charcoal-SE/SmokeDetector">SmokeDetector GitHub repository</a>, specifically in the file <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/bad_keywords.txt">bad_keywords.txt</a>.</p>
 
 <h2 id="watch-expressions">Watch Expressions</h2>
 
-<p>“Watching” an expression causes SmokeDetector to report it just like a blacklist expression, but the rule weight is kept low, so as to prevent matches from triggering autoflagging. Posts which only match watched expressions and no other rules are not reported in other chat rooms, just in Charcoal. That means you can use <code class="highlighter-rouge">!!/watch</code> to try out different patterns experimentally, just to get an idea of what sorts of posts match a particular expression.</p>
+<p>“Watching” an expression causes SmokeDetector to report it just like a blacklist expression, but the rule weight is kept low, so as to prevent matches from triggering autoflagging. Posts which only match watched expressions and no other rules are not reported in other chat rooms, just in Charcoal. That means you can use <code class="language-plaintext highlighter-rouge">!!/watch</code> to try out different patterns experimentally, just to get an idea of what sorts of posts match a particular expression.</p>
 
 <p>The list of watched expressions is maintained in the <a href="https://github.com/Charcoal-SE/SmokeDetector">SmokeDetector GitHub repository</a>, specifically in the file <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/watched_keywords.txt">watched_keywords.txt</a>.  The format is slightly different from the other similar files; each entry is a tab-delimited record which includes a date stamp (expressed as Unix epoch, i.e. seconds since midnight Jan 1 1970 UTC) and the user name of the person who added the expression.</p>
 
@@ -131,9 +131,9 @@
 
 <p>You will want to test that the expression you want to blacklist or watch isn’t already covered by one of the existing patterns.</p>
 
-<p>You can test this by using the <code class="highlighter-rouge">!!/test &lt;string to test&gt;</code> command (or <code class="highlighter-rouge">!!/test-a &lt;string to test&gt;</code> to test as an answer).</p>
+<p>You can test this by using the <code class="language-plaintext highlighter-rouge">!!/test &lt;string to test&gt;</code> command (or <code class="language-plaintext highlighter-rouge">!!/test-a &lt;string to test&gt;</code> to test as an answer).</p>
 
-<p>Everyone with SmokeDetector privileges (if you don’t have those and would like them, read up on <a href="Privileges">how to get them</a>) can blacklist a website, though this will need to be approved by someone with code privileges if you don’t already have them. Additions to the blacklist must be valid regular expressions (regex). In reality that means for largely exact matches (like the website blacklist) that you ensure that special characters (like <code class="highlighter-rouge">.</code>) are escaped. (Example: <code class="highlighter-rouge">thisisspam\.com</code>)</p>
+<p>Everyone with SmokeDetector privileges (if you don’t have those and would like them, read up on <a href="Privileges">how to get them</a>) can blacklist a website, though this will need to be approved by someone with code privileges if you don’t already have them. Additions to the blacklist must be valid regular expressions (regex). In reality that means for largely exact matches (like the website blacklist) that you ensure that special characters (like <code class="language-plaintext highlighter-rouge">.</code>) are escaped. (Example: <code class="language-plaintext highlighter-rouge">thisisspam\.com</code>)</p>
 
 <p>There are two methods to add a website to a watch list or blacklist:</p>
 
@@ -144,14 +144,14 @@
   <li>
     <p>Use the pertinent chat command in any of the Smoke Detector chatrooms. This will create a pull request containing your change for you.</p>
     <ul>
-      <li><code class="highlighter-rouge">!!/blacklist-website &lt;regex&gt;</code> to blacklist a web site</li>
-      <li><code class="highlighter-rouge">!!/blacklist-keyword &lt;regex&gt;</code> to blacklist a keyword expression</li>
-      <li><code class="highlighter-rouge">!!/watch &lt;regex&gt;</code> to add something to the watch list</li>
+      <li><code class="language-plaintext highlighter-rouge">!!/blacklist-website &lt;regex&gt;</code> to blacklist a web site</li>
+      <li><code class="language-plaintext highlighter-rouge">!!/blacklist-keyword &lt;regex&gt;</code> to blacklist a keyword expression</li>
+      <li><code class="language-plaintext highlighter-rouge">!!/watch &lt;regex&gt;</code> to add something to the watch list</li>
     </ul>
   </li>
 </ul>
 
-<p>If you’re blacklisting or watching a complex regex to match a whole bunch of different stuff, it’s probably better off in the pattern-matching section of <code class="highlighter-rouge">findspam.py</code>. You’ll need to propose a change to the file on GitHub for this; ask for help if you’re unsure what to do.</p>
+<p>If you’re blacklisting or watching a complex regex to match a whole bunch of different stuff, it’s probably better off in the pattern-matching section of <code class="language-plaintext highlighter-rouge">findspam.py</code>. You’ll need to propose a change to the file on GitHub for this; ask for help if you’re unsure what to do.</p>
 
 
 <div class="sidebar">
@@ -220,7 +220,7 @@
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>

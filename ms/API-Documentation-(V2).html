@@ -89,26 +89,26 @@ Scroll down for docs.
 
 <p>For write authentication, the same flow applies as for v1:</p>
 <ul>
-  <li>Send your user to <code class="highlighter-rouge">https://metasmoke.erwaysoftware.com/oauth/request?key=YOUR_KEY_HERE</code>.</li>
+  <li>Send your user to <code class="language-plaintext highlighter-rouge">https://metasmoke.erwaysoftware.com/oauth/request?key=YOUR_KEY_HERE</code>.</li>
   <li>If the user authorizes your app, they will be given a code to provide you. Ask them to enter this code, then:</li>
-  <li>Send a HTTP GET request to <code class="highlighter-rouge">https://metasmoke.erwaysoftware.com/oauth/token?key=YOUR_KEY_HERE&amp;code=THEIR_CODE_HERE</code>. The response is a JSON object containing one key, <code class="highlighter-rouge">token</code>, the value of which is your write token. Include this as the <code class="highlighter-rouge">token</code> parameter on any requests that require it.</li>
+  <li>Send a HTTP GET request to <code class="language-plaintext highlighter-rouge">https://metasmoke.erwaysoftware.com/oauth/token?key=YOUR_KEY_HERE&amp;code=THEIR_CODE_HERE</code>. The response is a JSON object containing one key, <code class="language-plaintext highlighter-rouge">token</code>, the value of which is your write token. Include this as the <code class="language-plaintext highlighter-rouge">token</code> parameter on any requests that require it.</li>
 </ul>
 
 <h3 id="filters">Filters</h3>
-<p>Filters have been totally reworked in V2 of the API; they really were that terrible in v1. Again, visit <a href="https://metasmoke.erwaysoftware.com/api/filters">https://metasmoke.erwaysoftware.com/api/filters</a> to create a filter, and include it as the <code class="highlighter-rouge">filter</code> parameter on any requests you need it for.</p>
+<p>Filters have been totally reworked in V2 of the API; they really were that terrible in v1. Again, visit <a href="https://metasmoke.erwaysoftware.com/api/filters">https://metasmoke.erwaysoftware.com/api/filters</a> to create a filter, and include it as the <code class="language-plaintext highlighter-rouge">filter</code> parameter on any requests you need it for.</p>
 
 <p>Filters are <em>not quite</em> immutable. If the server configuration remains the same, then the same filter will always represent the same fields. However, if the server configuration changes - such as to add a new field to the API - then filters will also change. If you’re getting an SQL error on your requests, this is probably the cause - go recalculate your filters.</p>
 
-<p>You can calculate filters programmatically if you wish: send a POST request to <code class="highlighter-rouge">https://metasmoke.erwaysoftware.com/api/filters</code> with the <code class="highlighter-rouge">fields</code> parameter set to an array of field names that you want to include (i.e. <code class="highlighter-rouge">['announcements.id', 'announcements.text', 'announcements.expiry']</code>), and you will get back a JSON object containing the filter.</p>
+<p>You can calculate filters programmatically if you wish: send a POST request to <code class="language-plaintext highlighter-rouge">https://metasmoke.erwaysoftware.com/api/filters</code> with the <code class="language-plaintext highlighter-rouge">fields</code> parameter set to an array of field names that you want to include (i.e. <code class="language-plaintext highlighter-rouge">['announcements.id', 'announcements.text', 'announcements.expiry']</code>), and you will get back a JSON object containing the filter.</p>
 
 <blockquote>
   <p><em>You</em> may <em>also include the filter-generation logic directly in your application if you really want; it’s less complex than v1’s, so that’s not too much of a liability. Bear in mind, however, that if the metasmoke implementation changes you will need to push out an update to your implementation to match.</em></p>
 </blockquote>
 
 <h3 id="pagination">Pagination</h3>
-<p>Responses from the API are paginated (that is, a long list of results will be split into pages and only the first page of results returned; further pages may be fetched by additional requests specifying a page number). The <code class="highlighter-rouge">has_more</code> field in the response indicates whether or not more pages are available beyond the current page.</p>
+<p>Responses from the API are paginated (that is, a long list of results will be split into pages and only the first page of results returned; further pages may be fetched by additional requests specifying a page number). The <code class="language-plaintext highlighter-rouge">has_more</code> field in the response indicates whether or not more pages are available beyond the current page.</p>
 
-<p>The default page size is 10 items; you can control this using the <code class="highlighter-rouge">per_page</code> parameter. To fetch pages beyond 1, specify the requested page number in the <code class="highlighter-rouge">page</code> parameter.</p>
+<p>The default page size is 10 items; you can control this using the <code class="language-plaintext highlighter-rouge">per_page</code> parameter. To fetch pages beyond 1, specify the requested page number in the <code class="language-plaintext highlighter-rouge">page</code> parameter.</p>
 
 <h2 id="routes">Routes</h2>
 <p>Routes marked with [W] are write routes; you must use a POST request and present a write token for these routes.</p>
@@ -761,7 +761,7 @@ Output format:</p>
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>

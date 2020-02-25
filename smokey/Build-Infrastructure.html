@@ -92,9 +92,9 @@
 <p>We use two CI services, Travis and Circle. Semaphore also watches the repo, but Smokey doesn’t use Semaphore to check commit validity. When someone makes a commit, GitHub fires a webhook event to all registered CI services to alert them to start testing on the new commit. Each CI service runs its test process, and reports back to GitHub by creating a commit status.</p>
 
 <h3 id="metasmoke">metasmoke</h3>
-<p>GitHub <code class="highlighter-rouge">POST</code>s the commit status to metasmoke (<a href="https://github.com/Charcoal-SE/metasmoke/blob/master/app/controllers/github_controller.rb#L12">handler code</a>). The status gets saved into metasmoke’s database, and forwarded to Smokey via the MS-Smokey websocket.</p>
+<p>GitHub <code class="language-plaintext highlighter-rouge">POST</code>s the commit status to metasmoke (<a href="https://github.com/Charcoal-SE/metasmoke/blob/master/app/controllers/github_controller.rb#L12">handler code</a>). The status gets saved into metasmoke’s database, and forwarded to Smokey via the MS-Smokey websocket.</p>
 
-<p>GitHub <em>also</em> <code class="highlighter-rouge">POST</code>s the commit event itself to metasmoke, and metasmoke uses Octokit to update the <code class="highlighter-rouge">deploy</code> branch to the same commit as <code class="highlighter-rouge">master</code>. This is why all commits should be made on master rather than deploy, and also why commits to deploy break things. The exception to this is for PR commits, which don’t update deploy until they’re merged.</p>
+<p>GitHub <em>also</em> <code class="language-plaintext highlighter-rouge">POST</code>s the commit event itself to metasmoke, and metasmoke uses Octokit to update the <code class="language-plaintext highlighter-rouge">deploy</code> branch to the same commit as <code class="language-plaintext highlighter-rouge">master</code>. This is why all commits should be made on master rather than deploy, and also why commits to deploy break things. The exception to this is for PR commits, which don’t update deploy until they’re merged.</p>
 
 <h3 id="smokey">Smokey</h3>
 <p>Smokey <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/metasmoke.py#L159">receives the websocket message for processing</a>. If the tests failed, then Smokey simply posts that in CHQ and takes no further action. If, however, it was successful, then Smokey further checks if the commit message contains “autopull”, and automatically pulls in the changes if it does; if not, it posts a CI success message in CHQ.</p>
@@ -110,9 +110,9 @@
 <p>Additionally, GitHub forwards these PR statuses to metasmoke. For the most part, metasmoke ignores them. However, if a pull request is authored by SmokeDetector, as is the case with blacklist commands from non-code privileged users, then metasmoke checks the status. If it’s a successful status from PullApprove, then metasmoke automatically merges the pull request.</p>
 
 <h2 id="fixing-erroneous-commits">Fixing Erroneous Commits</h2>
-<p>If someone has accidentally committed to the <code class="highlighter-rouge">deploy</code> branch instead of <code class="highlighter-rouge">master</code>, someone with git privileges will need to set this right before things return to normal. This isn’t difficult:</p>
+<p>If someone has accidentally committed to the <code class="language-plaintext highlighter-rouge">deploy</code> branch instead of <code class="language-plaintext highlighter-rouge">master</code>, someone with git privileges will need to set this right before things return to normal. This isn’t difficult:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aah@broken:~/Smokey$ git checkout master
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aah@broken:~/Smokey$ git checkout master
 aah@broken:~/Smokey$ git merge --rebase deploy
 aah@broken:~/Smokey$ git push origin master
 </code></pre></div></div>
@@ -188,7 +188,7 @@ aah@broken:~/Smokey$ git push origin master
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>

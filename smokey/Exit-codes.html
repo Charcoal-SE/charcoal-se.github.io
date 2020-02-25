@@ -72,9 +72,9 @@
 
 <h1 id="exit-codes">Exit codes</h1>
 
-<p>SmokeDetector is usually run via <code class="highlighter-rouge">nocrash.py</code>, which takes care of recovering when the bot crashes. It also handles various minor exceptional tasks between restarts based on the exit code returned from the program. These exit codes are documented here.</p>
+<p>SmokeDetector is usually run via <code class="language-plaintext highlighter-rouge">nocrash.py</code>, which takes care of recovering when the bot crashes. It also handles various minor exceptional tasks between restarts based on the exit code returned from the program. These exit codes are documented here.</p>
 
-<p>Only exit codes that have some special action attached to them are in this document. Unused exit codes incur a 5-second sleep followed by a restart - if you want to define a new exit code for some other purpose, you’ll need to add it to <code class="highlighter-rouge">nocrash.py</code>.</p>
+<p>Only exit codes that have some special action attached to them are in this document. Unused exit codes incur a 5-second sleep followed by a restart - if you want to define a new exit code for some other purpose, you’ll need to add it to <code class="language-plaintext highlighter-rouge">nocrash.py</code>.</p>
 
 <table>
   <thead>
@@ -86,7 +86,7 @@
   <tbody>
     <tr>
       <td>3</td>
-      <td><code class="highlighter-rouge">!!/pull</code> - runs <code class="highlighter-rouge">git checkout deploy</code>, <code class="highlighter-rouge">git pull</code>, and <code class="highlighter-rouge">git submodule update</code>, in that order. Does nothing on Windows.</td>
+      <td><code class="language-plaintext highlighter-rouge">!!/pull</code> - runs <code class="language-plaintext highlighter-rouge">git checkout deploy</code>, <code class="language-plaintext highlighter-rouge">git pull</code>, and <code class="language-plaintext highlighter-rouge">git submodule update</code>, in that order. Does nothing on Windows.</td>
     </tr>
     <tr>
       <td>4</td>
@@ -102,11 +102,11 @@
     </tr>
     <tr>
       <td>7</td>
-      <td>Standby - adds <code class="highlighter-rouge">standby</code> to the persistent argument list, and restarts Smokey in standby mode.</td>
+      <td>Standby - adds <code class="language-plaintext highlighter-rouge">standby</code> to the persistent argument list, and restarts Smokey in standby mode.</td>
     </tr>
     <tr>
       <td>8</td>
-      <td><code class="highlighter-rouge">!!/master</code> - runs <code class="highlighter-rouge">git checkout deploy</code> and resets restart and crash counter before rebooting Smokey.</td>
+      <td><code class="language-plaintext highlighter-rouge">!!/master</code> - runs <code class="language-plaintext highlighter-rouge">git checkout deploy</code> and resets restart and crash counter before rebooting Smokey.</td>
     </tr>
     <tr>
       <td>10</td>
@@ -182,7 +182,7 @@
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>
