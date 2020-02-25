@@ -12,8 +12,4 @@ while [ $# -ne 0 ]; do
   shift
 done
 
-#if [[ $DEPLOY ]]; then
-#  bundle install --deployment
-#else
-  bundle install
-#fi
+bundle install --path=vendor/bundle
