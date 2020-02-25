@@ -6,7 +6,7 @@ When an organisation such as Charcoal is maintaining several large projects with
 
 ### In general - who has access to what {#general}
 
-If you're not sure who has access to which systems, the general rule is this: our six [admins](/people) have the vast majority of access to the vast majority of systems; you'll probably do well to ping one of them. If they don't know, they'll certainly know who to pass it on to. Beyond that, our four metasmoke developers (Undo, ArtOfCode, thesecretmaster, and Makyen) have even higher accesses to metasmoke systems, and Undo runs the system and has total control.
+If you're not sure who has access to which systems, the general rule is this: our six [admins](/people) have the vast majority of access to the vast majority of systems; you'll probably do well to ping one of them. If they don't know, they'll certainly know who to pass it on to. Beyond that, our four metasmoke developers (Undo, ArtOfCode, thesecretmaster, and Makyen) have even higher accesses to metasmoke systems, and both Undo and Thomas Ward run the system and have total control.
 </section>
 <section>
 
@@ -83,6 +83,8 @@ First of all, check that Smokey isn't responding to any commands (e.g. `!!/locat
 If all else fails, please ping one of the people with a **bold name** on [this list](/people), they will be able to start a backup instance of SmokeDetector, or reboot metasmoke.
 
 If even that fails, panicking is acceptable (but of course, you know where your towel is and will remain calm). Ping ArtOfCode or Undo - they have a few extra tools in metasmoke that may yet be able to resolve the issue.
+
+If Metasmoke is not responding, check with Undo or Thomas Ward, they will be able to determine if there's something hindering Metasmoke's availability.
 </section>
 <section>
 
