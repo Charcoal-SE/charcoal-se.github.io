@@ -89,8 +89,6 @@ echo "$ms_wiki_info"
 echo "$smokey_wiki_info"
 echo
 
-rm -r _site/assets # remove old assets
-
 export PAGES_ENV=dotcom PAGES_REPO_NWO="$GITHUB_REPOSITORY"
 
 if [ -n "$DEPLOY" ]; then

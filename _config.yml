@@ -1,4 +1,7 @@
 title: Charcoal
+url: https://charcoal-se.org/
+baseurl: ''
+repository: Charcoal-SE/charcoal-se.github.io
 exclude:
   - .git
   - Gemfile
@@ -25,8 +28,6 @@ assets:
 plugins:
   - jekyll-redirect-from
   - jekyll-avatar
-baseurl: ''
-url: https://charcoal-se.org/
 permalink: none
 algolia:
   search_key: c63c2f79258f929439376cfb88862440
