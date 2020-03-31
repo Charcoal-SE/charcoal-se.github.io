@@ -24,11 +24,6 @@ and anti-abuse rules that the network community as a collective have established
 
   [1]: https://stackoverflow.blog/2009/05/18/a-theory-of-moderation/
 
-Stack Exchange also has a reputation system which gives users more control
-over moderation tools as they earn the trust of their peers.
-For example, an anonymous visitor or a new user can't flag posts
-or participate in chat.
-
 On a typical day, we process on the order of a hundred spam reports across the network.
 Identified spam is deleted when enough users click a button to flag it as spam;
 we expedite and to some extent
@@ -40,6 +35,13 @@ Reported posts
 are archived in a back-end system called
 [metasmoke](https://metasmoke.erwaysoftware.com/)
 where you can search for posts and see various metrics we collect.
+
+If you are a new visitor, notice that
+Stack Exchange has a reputation system which gives users 
+access to more features and more control
+over moderation tools as they earn the trust of their peers.
+For example, an anonymous visitor or a new user can't flag posts
+or participate in chat.
 
 If you are a registered user on the Stack Exchange network
 and have earned the [privileges to participate in chat,](https://stackoverflow.com/help/privileges/chat)
