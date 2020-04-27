@@ -514,7 +514,8 @@ Output format:</p>
 }
 </code></pre>
 </details></td></tr>
-<tr><td><code>/api/v2.0/posts/report </code></td><td><details><summary> [W] Report a post.</summary><p><strong>Write route</strong>. Requires a POST request, valid write token, and parameters: <code>url</code> (the post URL to report).<br /> Available tables: N/A. No database information is returned from this request.<br />
+<tr><td><code>/api/v2.0/posts/report </code></td><td><details><summary> [W] Report a post.</summary><p><strong>Write route</strong>. Requires a POST request, valid write token, and parameters: <code>url</code> (the post URL to report).<br />
+Available tables: N/A. No database information is returned from this request.<br />
 All requests to this route will be met with a 202 Accepted status; metasmoke does not know the status of reports as it just forwards them to Smokey.<br />
 Output format:</p>
 
@@ -692,6 +693,20 @@ Output format:</p>
         }
     ],
     &quot;has_more&quot;: true
+}
+</code></pre>
+</details></td></tr>
+<tr><td><code>/api/v2.0/users/current-roles </code></td><td><details><summary> Get roles for the current user</summary><p>Available tables: <code>roles</code>.<br />
+Output format:</p>
+
+<pre><code>{
+    &quot;items&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;admin&quot;
+        }
+    ],
+    &quot;has_more&quot;: false
 }
 </code></pre>
 </details></td></tr>

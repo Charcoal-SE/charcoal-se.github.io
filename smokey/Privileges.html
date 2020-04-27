@@ -111,6 +111,10 @@ If your request for privileges is supported by a regular of one of the <a href="
 
 <p>There are multiple privilege levels on SmokeDetector and metasmoke, each giving you access to different commands, tools, etc. There isn’t any exact threshold that you have to meet in order to be eligible for many of these privileges; rather the admins will grant them to you at their own discretion. If you think that you should have some of these privileges but you don’t, please contact <a href="https://charcoal-se.org/people#admins">an admin</a>.</p>
 
+<p>This is not a strict hierarchy; if you have special needs, you might need a specific privilege.
+This exposition roughly outlines a typical progression from newcomer to trusted project admin.
+(Obviously, most users never want or need to become project administrators.)</p>
+
 <p>(SD) refers to privileges set in the code of SmokeDetector in <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/users.yml"><code class="language-plaintext highlighter-rouge">users.yml</code></a> and <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/rooms.yml"><code class="language-plaintext highlighter-rouge">rooms.yml</code></a>, (MS) refers to privileges set from within metasmoke (the admin would then add you using the form on <a href="https://metasmoke.erwaysoftware.com/admin/permissions">this page</a>), and (GH) refers to privileges set on GitHub.</p>
 
 <h3 id="smokedetector-privileges-sd">SmokeDetector privileges (SD)</h3>
@@ -145,6 +149,16 @@ If your request for privileges is supported by a regular of one of the <a href="
   <li>Allows you to set up your account so that it will be used for autoflagging</li>
 </ul>
 
+<h3 id="blacklist-manager-aka-code-admin-or-blacklister-ms">Blacklist manager a.k.a. code admin or blacklister (MS)</h3>
+
+<ul>
+  <li>Can <code class="language-plaintext highlighter-rouge">!!/watch</code> and <code class="language-plaintext highlighter-rouge">!!/blacklist</code> without approval. Please make sure that you read the <a href="https://charcoal-se.org/smokey/Guidance-for-Blacklisting-and-Watching">blacklisting guidelines</a> before using these commands.</li>
+  <li>Can approve other users’ watches and blacklists on GitHub. Simply use the <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/Commands#user-content-detection-blacklists-and-watchlist"><code class="language-plaintext highlighter-rouge">!!/approve &lt;PR number&gt;</code></a> command from chat and Smokey will handle the rest. You should also be able to approve such watch and blacklist PRs, but not other PRs, by adding a comment on the auto-generated PR containing the text <code class="language-plaintext highlighter-rouge">!!/approve</code>, and metasmoke will handle the rest. However, merging PRs with such comments is not working at this time. In order for the GitHub-commenting method of approving other user’s <code class="language-plaintext highlighter-rouge">!!/watch</code> and <code class="language-plaintext highlighter-rouge">!!/blacklist-*</code> PRs to work, you will need a GitHub account that is known to us. Ping an admin and they will set you up.</li>
+  <li>Can failover standby instances from the <a href="https://metasmoke.erwaysoftware.com/status">status</a> page. Normally metasmoke handles this automatically if an instance goes down for more than 3 minutes, but you can use this if Smokey isn’t working properly. Make sure that you follow the <a href="https://charcoal-se.org/pings/#dead">troubleshooting guidelines</a> first.</li>
+</ul>
+
+<p><em>[<strong>Note to admins adding a Blacklister:</strong> In addition to adding the Blacklist Manager role to the user’s MS account, the user’s GitHub account must be added to the <a href="https://github.com/orgs/Charcoal-SE/teams/oaps/members">Other Awesome People (OAPs) team on GitHub</a> (only visible to Charcoal-SE members). If the user is not already a member of the <a href="https://github.com/Charcoal-SE">Charcoal-SE GitHub organization</a>, they will need to be invited to join Charcoal-SE and accept the invitation; hint: you can <a href="https://github.com/orgs/Charcoal-SE/teams/oaps/members">invite them to Charcoal-SE and add them to OAPs at the same time</a>. Only after they are a member of Charcoal-SE, they need to be added to the <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/.pullapprove.yml">.pullapprove.yml</a> file. Once they’ve been added to the .pullapprove.yml file, you need to press the ‘sync everything’ button <a href="https://pullapprove.com/Charcoal-SE/SmokeDetector/settings/">on this PullApprove page</a> (near the bottom of the page). After clicking on PullApprove’s ‘sync everything’ button, the error that shows at the top of the PullApprove page should go away. After all that is done, or at least the after the Blacklist Manager role is granted on MS, the user (or someone) will need to run <code class="language-plaintext highlighter-rouge">!!/amicodeprivileged</code> to have SD update its cached list of Blacklisters.]</em></p>
+
 <h3 id="core-ms">Core (MS)</h3>
 <p>Given to people who have contributed to Charcoal in a significant way. This signals that you are a core member of our team.</p>
 
@@ -159,16 +173,6 @@ If your request for privileges is supported by a regular of one of the <a href="
 </ul>
 
 <p><sup>* Although downloading database dumps is restricted to core users, you’re welcome to distribute them onwards to other people who ask for them too.</sup></p>
-
-<h3 id="blacklist-manager-aka-code-admin-or-blacklister-ms">Blacklist manager a.k.a. code admin or blacklister (MS)</h3>
-
-<ul>
-  <li>Can <code class="language-plaintext highlighter-rouge">!!/watch</code> and <code class="language-plaintext highlighter-rouge">!!/blacklist</code> without approval. Please make sure that you read the <a href="https://charcoal-se.org/smokey/Guidance-for-Blacklisting-and-Watching">blacklisting guidelines</a> before using these commands.</li>
-  <li>Can approve other users’ watches and blacklists on GitHub. Simply use the <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/Commands#user-content-detection-blacklists-and-watchlist"><code class="language-plaintext highlighter-rouge">!!/approve &lt;PR number&gt;</code></a> command from chat and Smokey will handle the rest. You should also be able to approve such watch and blacklist PRs, but not other PRs, by adding a comment on the auto-generated PR containing the text <code class="language-plaintext highlighter-rouge">!!/approve</code>, and metasmoke will handle the rest. However, merging PRs with such comments is not working at this time. In order for the GitHub-commenting method of approving other user’s <code class="language-plaintext highlighter-rouge">!!/watch</code> and <code class="language-plaintext highlighter-rouge">!!/blacklist-*</code> PRs to work, you will need a GitHub account that is known to us. Ping an admin and they will set you up.</li>
-  <li>Can failover standby instances from the <a href="https://metasmoke.erwaysoftware.com/status">status</a> page. Normally metasmoke handles this automatically if an instance goes down for more than 3 minutes, but you can use this if Smokey isn’t working properly. Make sure that you follow the <a href="https://charcoal-se.org/pings/#dead">troubleshooting guidelines</a> first.</li>
-</ul>
-
-<p><em>[Note to admins: In addition to adding the Blacklist Manager role to the user’s MS account, the GitHub user must be added to the <a href="https://github.com/orgs/Charcoal-SE/teams/oaps/members">Other Awesome People (OAPs) team on GitHub</a> (only visible to Charcoal-SE members). If the user is not already a member of the <a href="https://github.com/Charcoal-SE">Charcoal-SE GitHub organization</a>, they will need to be invited to join Charcoal-SE and accept the invitation; you can <a href="https://github.com/orgs/Charcoal-SE/teams/oaps/members">invite them and add them to OAPs at the same time</a>. After they are a member of Charcoal-SE, they need to be added to <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/.pullapprove.yml">.pullapprove.yml</a>, and you need to press the ‘sync everything’ button <a href="https://pullapprove.com/Charcoal-SE/SmokeDetector/settings/">here</a> (near the bottom of the page).]</em></p>
 
 <h3 id="github-push-privileges-aka-proper-code-admin-gh">GitHub push privileges a.k.a. proper code admin (GH)</h3>
 
