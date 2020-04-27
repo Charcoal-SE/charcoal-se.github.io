@@ -1,7 +1,7 @@
 ---
 ---
 
-# 6. Further Privileges: Core
+# 7. Further Privileges: Core
 When you've been working within Charcoal for a while, there are further levels of privileges
 that you may be interested in getting. For most people, the first of these is Core.
 
@@ -18,8 +18,6 @@ appropriate, based on the person's contributions to the project. While admins ca
 the Core role, it's rarely done, even if the person takes a hiatus from the project.
 
 -----
-
-[Next: Further Privileges: Blacklister][7]
 
 [Return to Introduction Index][8]
 

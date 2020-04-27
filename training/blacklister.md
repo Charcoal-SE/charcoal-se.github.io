@@ -1,7 +1,7 @@
 ---
 ---
 
-# 7. Further Privileges: Blacklister
+# 6. Further Privileges: Blacklister
 When you've been working within Charcoal for a while, there are further levels of privileges
 that you may be interested in getting. One of these is blacklister (formerly known as "code admin"),
 which deals with our blacklisting systems.
@@ -38,6 +38,8 @@ for false positives. Searching for spam amongst a dataset of spam (i.e. on metas
 than likely going to get some hits, but a Stack Exchange search indicates probable false positives.
 
 -----
+
+[Next: Further Privileges: Core][7]
 
 [Return to Introduction Index][8]
 

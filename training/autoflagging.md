@@ -45,7 +45,7 @@ Congrats, you're done! The next two pages in the training guide give some detail
 further privileges you can earn through contribution to Charcoal. Feel free to read those if
 you want to, but they're not essential.
 
-[Next: Further Privileges: Core][6]
+[Next: Further Privileges: Blacklister][6]
 
 [Return to Introduction Index][8]
 
@@ -54,5 +54,5 @@ you want to, but they're not essential.
 [ms-auth]: https://metasmoke.erwaysoftware.com/authentication/status
 [ms-wiz]: https://metasmoke.erwaysoftware.com/flagging/ocs
 [ms-fd]: https://metasmoke.erwaysoftware.com/flagging
-[6]: /training/core
+[6]: /training/blacklister
 [8]: /training/index
