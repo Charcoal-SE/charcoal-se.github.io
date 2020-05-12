@@ -82,8 +82,6 @@
   <li><code class="language-plaintext highlighter-rouge">!!/alive</code> or <code class="language-plaintext highlighter-rouge">!!/live</code> — Replies a random message taken from a list so you can see that SmokeDetector is still running.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/status</code> — Shows the UTC date when SmokeDetector started running.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/ms-status</code> — Shows the status of metasmoke. If SmokeDetector is unable to communicate with metasmoke, then SmokeDetector will assume that metasmoke is down and continue processing posts and reporting them into chat without attempting to communicate with metasmoke.</li>
-  <li><code class="language-plaintext highlighter-rouge">!!/ms-up</code> — Instructs SmokeDetector that metasmoke is up. SmokeDetector will attempt to communicate with metasmoke. This is the normal, default state.</li>
-  <li><code class="language-plaintext highlighter-rouge">!!/ms-down</code> — Instructs SmokeDetector that metasmoke is down. SmokeDetector will not attempt to communicate with metasmoke.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/rev</code> or <code class="language-plaintext highlighter-rouge">!!/ver</code> — Shows the running Git revision.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/help</code>, <code class="language-plaintext highlighter-rouge">!!/info</code>, <code class="language-plaintext highlighter-rouge">!!/commands</code> — Shows a small help message about SmokeDetector.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/apiquota</code> — Shows the remaining API quota of SmokeDetector.</li>
@@ -144,6 +142,8 @@ Note that <code class="language-plaintext highlighter-rouge">why</code> data is 
   <li><code class="language-plaintext highlighter-rouge">!!/unblock</code> — Unblock SmokeDetector manually, resetting global block only.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/unblock &lt;room_id&gt;</code> — Unblock SmokeDetector manually in the specific room.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/invite &lt;room_id&gt; &lt;roles separated by commas...&gt;</code> - Temporarily invites SmokeDetector to the given room on the current site. Roles are the same as in <code class="language-plaintext highlighter-rouge">rooms.yml</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">!!/ms-up</code> — Instructs SmokeDetector that metasmoke is up. SmokeDetector will attempt to communicate with metasmoke. This is the normal, default state.</li>
+  <li><code class="language-plaintext highlighter-rouge">!!/ms-down</code> — Instructs SmokeDetector that metasmoke is down. SmokeDetector will not attempt to communicate with metasmoke.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/stopflagging</code> - An emergency measure to immediately disable all autoflagging. Once disabled, autoflagging can only be re-enabled by an Admin.</li>
 </ul>
 
