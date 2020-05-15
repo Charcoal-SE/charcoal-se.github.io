@@ -45,4 +45,5 @@ than likely going to get some hits, but a Stack Exchange search indicates probab
 
 [search-SE]: https://stackexchange.com/search
 [search-MS]: https://m.erwaysoftware.com/search
+[7]: /training/core
 [8]: /training/index
