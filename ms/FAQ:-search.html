@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>
-    Code | Charcoal
+    FAQ: search | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="/assets/application-246c1429bdd26544d97cac0305ef38e82170d25f6012981a46fe9d1901d56911.css">
@@ -67,20 +67,17 @@
       </nav>
     </div>
     <div class="body">
-      <p>Website built from:</p>
+      <h1 id="faq-search">FAQ: search</h1>
 
-<ul>
-  <li>commit <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/commit/596918520cddad737703e690283eb85f296463f3" title="596918520cddad737703e690283eb85f296463f3"><code class="language-plaintext highlighter-rouge">5969185</code></a> on <a href="https://github.com/Charcoal-SE/charcoal-se.github.io">Charcoal-SE/charcoal-se.github.io</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/_compare/a9d913100aa6ca1c407584602506ef7594ecd1d3" title="a9d913100aa6ca1c407584602506ef7594ecd1d3"><code class="language-plaintext highlighter-rouge">a9d9131</code></a> on the <a href="//github.com/Charcoal-SE/SmokeDetector/wiki">Charcoal-SE/SmokeDetector wiki</a></li>
-  <li>commit <a href="https://github.com/Charcoal-SE/metasmoke/wiki/_compare/1af245edf127f4219370d2e1f41dff5724e62cc6" title="1af245edf127f4219370d2e1f41dff5724e62cc6"><code class="language-plaintext highlighter-rouge">1af245e</code></a> on the <a href="//github.com/Charcoal-SE/metasmoke/wiki">Charcoal-SE/metasmoke wiki</a></li>
-</ul>
+<h2 id="q-why-is-search-broken">Q: Why is search broken?</h2>
+<p><strong>A: It’s not.</strong></p>
 
-<p><a href="https://travis-ci.org/Charcoal-SE/charcoal-se.github.io">Live build logs on Travis CI</a></p>
+<p>You’re probably here because you’re wondering why you got results that didn’t include the search term you used. This is a limitation of MySQL. A significant proportion of our corpus of posts include special characters, non-ASCII text, and in particular CJK (Chinese, Japanese, Korean) text. <a href="https://dev.mysql.com/doc/refman/8.0/en/fulltext-restrictions.html">MySQL is unable to parse these in a FULLTEXT index</a>, which is what search uses for the body field by default.</p>
 
-<p>This site is powered by <a href="https://jekyllrb.com">Jekyll</a> <a href="https://github.com/jekyll/jekyll/releases/v3.8.5">v3.8.5</a></p>
+<h2 id="q-whats-the-like-checkbox-for">Q: What’s the LIKE checkbox for?</h2>
+<p><strong>A: see above.</strong></p>
 
-<p><img src="/assets/name-5de9a71538fc786fdf76e741ab91a156a34d0ff6c4b23b01cc1ddd0c9378449e.svg" height="1" width="" alt="name.svg" /><br />
-<img src="/assets/charcoal-888c6d37bc302c2fce9de890f351cfd3354bd3455d2315d7752c3bdfe30504e6.svg" height="1" width="" alt="charcoal.svg" /></p>
+<p>The LIKE checkbox is there for cases in which you’re not convinced you got the correct results from a default search. You can use this to ask MySQL to use a LIKE operator instead of searching by FULLTEXT index. Bear in mind that your search query will perform <em>significantly</em> slower.</p>
 
     </div>
     <div class="footer text-center">
@@ -111,7 +108,7 @@
       
         <p>
           <a href="/code">More gory details</a>
-          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/code.md" title="code.md">Edit on GitHub</a>
+          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/ms/FAQ:-search.md" title="ms/FAQ:-search.md">Edit on GitHub</a>
           • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/new/site">New Page</a>
         </p>
       
