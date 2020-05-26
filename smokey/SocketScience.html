@@ -89,11 +89,11 @@
 <p><code class="language-plaintext highlighter-rouge">payload</code> should be a <code class="language-plaintext highlighter-rouge">dict</code>. The keys of this dict are <em>message types</em> - for example, you might have one message type for metasmoke up/down reports (<code class="language-plaintext highlighter-rouge">metasmoke_state</code>), and another for Smokey pings (<code class="language-plaintext highlighter-rouge">ping</code>). Do not use top-level dict keys for properties of your message; instead, assign another dict to the key for the relevant message type in the top level dictionary.</p>
 
 <p><strong>Bad:</strong></p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SocketScience</span><span class="o">.</span><span class="n">send</span><span class="p">({</span><span class="s">'location'</span><span class="p">:</span> <span class="n">GlobalVars</span><span class="o">.</span><span class="n">location</span><span class="p">,</span> <span class="s">'time'</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()})</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SocketScience</span><span class="p">.</span><span class="n">send</span><span class="p">({</span><span class="s">'location'</span><span class="p">:</span> <span class="n">GlobalVars</span><span class="p">.</span><span class="n">location</span><span class="p">,</span> <span class="s">'time'</span><span class="p">:</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()})</span>
 </code></pre></div></div>
 
 <p><strong>Good:</strong></p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SocketScience</span><span class="o">.</span><span class="n">send</span><span class="p">({</span><span class="s">'ping'</span><span class="p">:</span> <span class="p">{</span><span class="s">'location'</span><span class="p">:</span> <span class="n">GlobalVars</span><span class="o">.</span><span class="n">location</span><span class="p">,</span> <span class="s">'time'</span><span class="p">:</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()}})</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SocketScience</span><span class="p">.</span><span class="n">send</span><span class="p">({</span><span class="s">'ping'</span><span class="p">:</span> <span class="p">{</span><span class="s">'location'</span><span class="p">:</span> <span class="n">GlobalVars</span><span class="p">.</span><span class="n">location</span><span class="p">,</span> <span class="s">'time'</span><span class="p">:</span> <span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">()}})</span>
 </code></pre></div></div>
 
 <p>This construct is important, because it’s what the receiving end relies on to work.</p>
@@ -104,9 +104,9 @@
 <p>For example, if you want to respond to ping events by telling Charcoal HQ which instance pinged and when (this is a terrible idea and I will hunt you down if you do it, but it serves as an example):</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">handle_ping</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="n">chatcommunicate</span><span class="o">.</span><span class="n">tell_rooms_with</span><span class="p">(</span><span class="s">'debug'</span><span class="p">,</span> <span class="s">'{} pinged at {}'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'location'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">'time'</span><span class="p">]))</span>
+    <span class="n">chatcommunicate</span><span class="p">.</span><span class="n">tell_rooms_with</span><span class="p">(</span><span class="s">'debug'</span><span class="p">,</span> <span class="s">'{} pinged at {}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'location'</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">'time'</span><span class="p">]))</span>
 
-<span class="n">SocketScience</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s">'ping'</span><span class="p">,</span> <span class="n">handle_ping</span><span class="p">)</span>
+<span class="n">SocketScience</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="s">'ping'</span><span class="p">,</span> <span class="n">handle_ping</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>As that example indicates, your callback will be passed a single parameter, containing the contents of the data dict for <em>that message type only</em>.</p>
@@ -116,22 +116,22 @@
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># ws.py (most of file omitted)
 </span><span class="k">def</span> <span class="nf">serve_beverage</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="n">chatcommunicate</span><span class="o">.</span><span class="n">tell_rooms_with</span><span class="p">(</span><span class="s">'debug'</span><span class="p">,</span> <span class="s">':{} *serves another {}*'</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'message_id'</span><span class="p">],</span>
+    <span class="n">chatcommunicate</span><span class="p">.</span><span class="n">tell_rooms_with</span><span class="p">(</span><span class="s">'debug'</span><span class="p">,</span> <span class="s">':{} *serves another {}*'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s">'message_id'</span><span class="p">],</span>
                                                                               <span class="n">data</span><span class="p">[</span><span class="s">'beverage_type'</span><span class="p">]))</span>
 
-<span class="n">SocketScience</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="s">'beverage'</span><span class="p">,</span> <span class="n">serve_beverage</span><span class="p">)</span>
+<span class="n">SocketScience</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="s">'beverage'</span><span class="p">,</span> <span class="n">serve_beverage</span><span class="p">)</span>
 </code></pre></div></div>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># chatcommands.py (relevant sections only)
 </span><span class="o">@</span><span class="n">command</span><span class="p">(</span><span class="n">whole_msg</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">coffee</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
     <span class="c1"># rest of command omitted
-</span>    <span class="n">SocketScience</span><span class="o">.</span><span class="n">send</span><span class="p">({</span><span class="s">'beverage'</span><span class="p">:</span> <span class="p">{</span><span class="s">'message_id'</span><span class="p">:</span> <span class="n">msg</span><span class="o">.</span><span class="nb">id</span><span class="p">,</span> <span class="s">'beverage_type'</span><span class="p">:</span> <span class="s">'coffee'</span><span class="p">}})</span>
+</span>    <span class="n">SocketScience</span><span class="p">.</span><span class="n">send</span><span class="p">({</span><span class="s">'beverage'</span><span class="p">:</span> <span class="p">{</span><span class="s">'message_id'</span><span class="p">:</span> <span class="n">msg</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span> <span class="s">'beverage_type'</span><span class="p">:</span> <span class="s">'coffee'</span><span class="p">}})</span>
 
 <span class="o">@</span><span class="n">command</span><span class="p">(</span><span class="n">whole_msg</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">tea</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
     <span class="c1"># rest of command omitted
-</span>    <span class="n">SocketScience</span><span class="o">.</span><span class="n">send</span><span class="p">({</span><span class="s">'beverage'</span><span class="p">:</span> <span class="p">{</span><span class="s">'message_id'</span><span class="p">:</span> <span class="n">msg</span><span class="o">.</span><span class="nb">id</span><span class="p">,</span> <span class="s">'beverage_type'</span><span class="p">:</span> <span class="s">'tea'</span><span class="p">}})</span>
+</span>    <span class="n">SocketScience</span><span class="p">.</span><span class="n">send</span><span class="p">({</span><span class="s">'beverage'</span><span class="p">:</span> <span class="p">{</span><span class="s">'message_id'</span><span class="p">:</span> <span class="n">msg</span><span class="p">.</span><span class="nb">id</span><span class="p">,</span> <span class="s">'beverage_type'</span><span class="p">:</span> <span class="s">'tea'</span><span class="p">}})</span>
 </code></pre></div></div>
 
 

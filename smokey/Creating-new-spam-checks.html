@@ -178,7 +178,7 @@
 
 <p>To keep things minimal, you can use a pair of curly brackets in the reason, which will be replaced by one of <code class="language-plaintext highlighter-rouge">title</code>, <code class="language-plaintext highlighter-rouge">body</code> and <code class="language-plaintext highlighter-rouge">username</code>, if the corresponding part of the post is caught as spam. So you can write this as a reason:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">create_rule</span><span class="p">(</span><span class="s">"bad keyword in {}"</span><span class="p">,</span> <span class="s">"male</span><span class="err">\</span><span class="s">W?enhancement"</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">create_rule</span><span class="p">(</span><span class="s">"bad keyword in {}"</span><span class="p">,</span> <span class="s">"male\W?enhancement"</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>Note: We’re currently using <code class="language-plaintext highlighter-rouge">str.replace()</code> to insert the post aspect instead of using <code class="language-plaintext highlighter-rouge">.format()</code>, so only bare braces are supported.</p>
@@ -189,7 +189,7 @@
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">create_rule</span><span class="p">(</span><span class="s">"this is a reason"</span><span class="p">,</span> <span class="n">whole_post</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">another_ridiculous_check</span><span class="p">(</span><span class="n">post</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">post</span><span class="o">.</span><span class="n">user_name</span> <span class="ow">in</span> <span class="n">post</span><span class="o">.</span><span class="n">body</span> <span class="ow">and</span> <span class="n">post</span><span class="o">.</span><span class="n">user_name</span> <span class="ow">in</span> <span class="n">post</span><span class="o">.</span><span class="n">title</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">post</span><span class="p">.</span><span class="n">user_name</span> <span class="ow">in</span> <span class="n">post</span><span class="p">.</span><span class="n">body</span> <span class="ow">and</span> <span class="n">post</span><span class="p">.</span><span class="n">user_name</span> <span class="ow">in</span> <span class="n">post</span><span class="p">.</span><span class="n">title</span><span class="p">:</span>
         <span class="k">return</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="bp">False</span> <span class="s">"Username in both title and body"</span>
     <span class="k">return</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="s">""</span>
 </code></pre></div></div>
