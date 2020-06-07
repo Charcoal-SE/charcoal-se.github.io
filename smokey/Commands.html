@@ -81,7 +81,11 @@
 <ul>
   <li><code class="language-plaintext highlighter-rouge">!!/alive</code> or <code class="language-plaintext highlighter-rouge">!!/live</code> — Replies a random message taken from a list so you can see that SmokeDetector is still running.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/status</code> — Shows the UTC date when SmokeDetector started running.</li>
-  <li><code class="language-plaintext highlighter-rouge">!!/ms-status</code> — Shows the status of metasmoke. If SmokeDetector is unable to communicate with metasmoke, then SmokeDetector will assume that metasmoke is down and continue processing posts and reporting them into chat without attempting to communicate with metasmoke.</li>
+  <li><code class="language-plaintext highlighter-rouge">!!/ms-status</code> — Shows the status of metasmoke. If SmokeDetector is unable to communicate with metasmoke, then SmokeDetector will assume that metasmoke is down and continue processing posts and reporting them into chat without attempting to communicate with metasmoke.
+    <ul>
+      <li>Note that the failure count provided by <code class="language-plaintext highlighter-rouge">!!/ms-status</code> is not the same as that used in auto status switch. The former counts all consecutive metasmoke connection failures, and will become zero upon success. The latter, however, only counts metasmoke status ping successes/failures, which is performed once per minute, and goes both positive and negative, while a negative value indicates consecutive successes. There is currently no way to get the value of the latter counter. If there are good reasons this should be implemented, complain in chat.</li>
+    </ul>
+  </li>
   <li><code class="language-plaintext highlighter-rouge">!!/rev</code> or <code class="language-plaintext highlighter-rouge">!!/ver</code> — Shows the running Git revision.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/help</code>, <code class="language-plaintext highlighter-rouge">!!/info</code>, <code class="language-plaintext highlighter-rouge">!!/commands</code> — Shows a small help message about SmokeDetector.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/apiquota</code> — Shows the remaining API quota of SmokeDetector.</li>
