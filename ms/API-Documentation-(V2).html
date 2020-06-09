@@ -111,7 +111,8 @@ Scroll down for docs.
 <p>The default page size is 10 items; you can control this using the <code class="language-plaintext highlighter-rouge">per_page</code> parameter. To fetch pages beyond 1, specify the requested page number in the <code class="language-plaintext highlighter-rouge">page</code> parameter.</p>
 
 <h2 id="routes">Routes</h2>
-<p>Routes marked with [W] are write routes; you must use a POST request and present a write token for these routes.</p>
+<p>Routes marked with [W] are write routes; you must use a POST request and present a write token for these routes.
+One must present a metasmoke key for all routes. For GET routes, the key need to be in the query string. For POST routes, the key can be either in the body or in the query string.</p>
 
 <table>
 <thead>
