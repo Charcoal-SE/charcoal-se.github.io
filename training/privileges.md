@@ -2,15 +2,15 @@
 ---
 
 # 3. Privileges
-SmokeDetector has a limited number of commands that are available for anyone to use. However,
+SmokeDetector has a limited number of [commands that are available for anyone to use][commandsNonPriv]. However,
 all its major functionality requires additional "privileges" to use. Being a privileged user
 means your user ID has been added to a list in SmokeDetector's code, which entitles you to
 use privileged functionality.
 
 ## What do they let you do?
-They let you use privileged functionality. That includes running privileged
-commands and providing feedback on SmokeDetector reports.
-We have a full list of privileges available [in the wiki][commands]. More detail on [feedback][4]
+They let you use privileged functionality. That includes running [privileged
+commands][commandsPriv] and providing feedback on SmokeDetector reports.
+We have a [full list of privileges][Privileges] available in the wiki. More detail on [feedback][4]
 is provided in the next section. You can
 follow along with reports from SmokeDetector and flag spam without privileges, but if you want to 
 interact with SmokeDetector or the wider system, you'll need to be given privileges.
@@ -45,7 +45,9 @@ so if we've missed one, reporting it is good.
 
 [Return to Introduction Index][8]
 
-[commands]: https://charcoal-se.org/smokey/Commands#privileged-commands
+[commandsNonPriv]: https://github.com/Charcoal-SE/SmokeDetector/wiki/Commands#commands-for-everyone
+[commandsPriv]: https://github.com/Charcoal-SE/SmokeDetector/wiki/Commands#privileged-commands
+[Privileges]: /smokey/Privileges
 [wiki]: https://charcoal-se.org/smokey/Privileges
 [4]: /training/reports
 [8]: /training/index
