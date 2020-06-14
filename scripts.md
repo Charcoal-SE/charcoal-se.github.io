@@ -16,6 +16,7 @@ redirect_from:
 * [AdvancedFlagging](https://raw.githubusercontent.com/SOBotics/AdvancedFlagging/master/dist/AdvancedFlagging.user.js)
 * [Stack Exchange Global Flag Summary](https://raw.githubusercontent.com/Floern/stackoverflow/master/userscripts/SE_global_flag_summary.user.js) ([Stack Apps post](https://stackapps.com/q/7173/34727))
 * [AutoReviewComments](https://raw.github.com/Benjol/SE-AutoReviewComments/master/dist/autoreviewcomments.user.js) ([Stack Apps post](https://stackapps.com/q/2116/34727)) (Enter `https://charcoal-se.org/userscripts/charcoal-autocomments/comments.js` into the remote dialog box)
+* [Magic™ Editor](https://raw.githubusercontent.com/SO-Close-Vote-Reviewers/UserScripts/master/Magic%E2%84%A2Editor.user.js)
 
 ## Userstyles
 
