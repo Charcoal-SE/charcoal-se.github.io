@@ -18,6 +18,8 @@ These people get pinged a lot. They all have administrative access on metasmoke 
 *   [**angussidney**](https://chat.stackexchange.com/users/145827/angussidney) (RO)
 *   [**tripleee**](https://chat.stackexchange.com/users/62118/tripleee) (RO)
 *   [**Makyen**](https://chat.stackexchange.com/users/156050/makyen) (RO)
+*   [**thesecretmaster**](https://chat.stackexchange.com/users/162795/thesecretmaster) (RO)
+*   [**Thomas Ward**](https://chat.stackexchange.com/users/10145/thomas-ward) (RO)
 </section>
 <section>
 ## Developers {#devs}
