@@ -6,7 +6,7 @@ When an organisation such as Charcoal is maintaining several large projects with
 
 ### In general - who has access to what {#general}
 
-If you're not sure who has access to which systems, the general rule is this: our six [admins](/people) have the vast majority of access to the vast majority of systems; you'll probably do well to ping one of them. If they don't know, they'll certainly know who to pass it on to. Beyond that, our four metasmoke developers (Undo, ArtOfCode, thesecretmaster, and Makyen) have even higher accesses to metasmoke systems, and both Undo and Thomas Ward run the system and have total control.
+If you're not sure who has access to which systems, the general rule is this: our eight [admins](/people) have the vast majority of access to the vast majority of systems; you'll probably do well to ping one of them. If they don't know, they'll certainly know who to pass it on to. Beyond that, our four metasmoke developers (Undo, ArtOfCode, thesecretmaster, and Makyen) have even higher accesses to metasmoke systems, and both Undo and Thomas Ward run the system and have total control.
 </section>
 <section>
 
