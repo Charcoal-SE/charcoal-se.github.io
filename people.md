@@ -82,6 +82,7 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [WELZ](https://chat.stackexchange.com/users/210948/welz)
 *   [Yvette Colomb](https://chat.stackexchange.com/users/178825/yvette-colomb) (emeritus)
 *   [Zoe the transgirl](https://chat.stackexchange.com/users/165415/zoe-the-transgirl)
+*   [Daniil](https://chat.stackexchange.com/users/435118/daniil)
 </section>
 <section>
 ## Team Members {#members}
