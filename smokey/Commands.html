@@ -89,7 +89,7 @@
   <li><code class="language-plaintext highlighter-rouge">!!/apiquota</code> — Shows the remaining API quota of SmokeDetector.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/queuestatus</code> — Shows the queue status of BodyFetcher.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/blame</code> — Chooses randomly from a list of people who have talked recently in the room.</li>
-  <li><code class="language-plaintext highlighter-rouge">!!/lick</code>, <code class="language-plaintext highlighter-rouge">!!/wut</code>, <code class="language-plaintext highlighter-rouge">!!/coffee</code>, <code class="language-plaintext highlighter-rouge">!!/tea</code>, and <code class="language-plaintext highlighter-rouge">!!/brownie</code> — better versions of <code class="language-plaintext highlighter-rouge">!!/alive</code>, aka ‘fun’ commands.</li>
+  <li><code class="language-plaintext highlighter-rouge">!!/lick</code>, <code class="language-plaintext highlighter-rouge">!!/wut</code>, <code class="language-plaintext highlighter-rouge">!!/coffee</code>, <code class="language-plaintext highlighter-rouge">!!/tea</code>, and <code class="language-plaintext highlighter-rouge">!!/brownie</code> — better versions of <code class="language-plaintext highlighter-rouge">!!/alive</code>, aka “fun” commands.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/location</code> — Replies with the current location, as set in the <code class="language-plaintext highlighter-rouge">config</code> file.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/test site=&lt;site_domain&gt; &lt;string&gt;</code> — Runs <code class="language-plaintext highlighter-rouge">&lt;string&gt;</code> against the filter as if it appeared in a question title, body, or username. To test specifically, use <code class="language-plaintext highlighter-rouge">!!/test-a</code> for answer, <code class="language-plaintext highlighter-rouge">!!/test-q</code> for question body, <code class="language-plaintext highlighter-rouge">!!/test-t</code> for title, or <code class="language-plaintext highlighter-rouge">!!/test-u</code> for username. Note that the site is optional. If site is present, the command will use filters for that site.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/isblu</code>, <code class="language-plaintext highlighter-rouge">!!/iswlu</code> — Checks if a user is blacklisted/whitelisted. Two formats are accepted: <code class="language-plaintext highlighter-rouge">&lt;profile_URL&gt;</code> or <code class="language-plaintext highlighter-rouge">&lt;user_ID&gt; &lt;site_name&gt;</code></li>
@@ -150,8 +150,10 @@ Note that <code class="language-plaintext highlighter-rouge">why</code> data is 
 </ul>
 
 <h3 id="blacklists-watchlists-and-the-user-whitelist">Blacklists, watchlists, and the user-whitelist</h3>
+
 <h4 id="user-blacklist-and-user-whitelist">User-blacklist and user-whitelist</h4>
 <p>The user-blacklist and user-whitelist are maintained <em>per SmokeDetector instance</em>. The SmokeDetector instances do not share these lists between themselves. Thus, if the SmokeDetector instance is switched, the new instance will only have a record of the entries on these lists which were added/removed while that instance was active.</p>
+
 <h5 id="user-blacklist">User-blacklist</h5>
 <p>The user-blacklist is a dynamic list of users which will have any post of theirs reported by SmokeDetector anytime one of their posts is scanned. Users are primarily added to the user-blacklist when someone gives <code>tp<b>u</b></code> feedback to a post the user has authored. Users are automatically removed from the user-blacklist when <code class="language-plaintext highlighter-rouge">fp</code> feedback is given for a post they have authored. Users can also be explicitly added or removed with the following commands:</p>
 <ul>
@@ -202,7 +204,11 @@ Note that <code class="language-plaintext highlighter-rouge">why</code> data is 
   <li><code class="language-plaintext highlighter-rouge">!!/unwatch &lt;regex&gt;</code> or <code class="language-plaintext highlighter-rouge">!!/unwatch &lt;number text&gt;</code> - Removes a previously-added regular expression from the watchlist and/or a number from the number watchlist. Only blacklisters can use this command; it will only accept an exact match to a regular expression in the watchlist and/or an exact match to a number in the number watchlist.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/unblacklist &lt;regex&gt;</code> or <code class="language-plaintext highlighter-rouge">!!/unblacklist &lt;number text&gt;</code> - Similar to <code class="language-plaintext highlighter-rouge">unwatch</code>, removes a previously-added regular expression from the blacklists and/or a number from the number blacklist. Only blacklisters can use this command. It will only accept an exact match to a regular expression in the blacklists and/or an exact match to a number in the number blacklist.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/approve &lt;PR number&gt;</code> - Only blacklisters can use this command. It allows you to approve without leaving the chat a pull request which was automatically created for watches/blacklists by non-blacklisters users.</li>
-  <li><code class="language-plaintext highlighter-rouge">!!/bisect &lt;text&gt;</code> - Test the text against all of the blacklist and watchlist entries and report which entries match.</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">!!/bisect &lt;text&gt;</code> - Test the text against all of the blacklist and watchlist entries and report which entries match.</p>
+
+    <p>Additionally, you can clone this project locally and use the command <code class="language-plaintext highlighter-rouge">./util.py bisect "&lt;string&gt;"</code> for local testing.</p>
+  </li>
 </ul>
 
 <h2 id="privileged-commands-as-reply">Privileged commands as reply</h2>
@@ -396,7 +402,7 @@ mode (like tp-) or just don’t reply by default (like delete).</p>
           
           and
           <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
-            17 more</a>
+            18 more</a>
         
           • <a href="/code">More gory details</a>
         
