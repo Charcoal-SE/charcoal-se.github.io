@@ -22,7 +22,7 @@ These people get pinged a lot. They all have administrative access on metasmoke 
 <section>
 ## Developers {#devs}
 
-These people have at some point contributed code of some variety, whether it be to Smokey, MS or a userscript. If you're wondering why you're not on the list, there's a threshold at play here to stop the list getting too long.
+These people have at some point contributed code of some variety, whether it be to Smokey, MS, or a userscript. If you're wondering why you're not on the list, there's a threshold at play here to stop the list getting too long.
 
 *   [hichris123](https://chat.stackexchange.com/users/103081/hichris123) (admin emeritus)
 *   [zaq](https://chat.stackexchange.com/users/117490/zaq)
