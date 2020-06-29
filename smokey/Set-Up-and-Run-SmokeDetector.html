@@ -176,10 +176,12 @@ when running from <code class="language-plaintext highlighter-rouge">nocrash.py<
 <h4 id="nocrashpy"><code class="language-plaintext highlighter-rouge">nocrash.py</code></h4>
 <p><code class="language-plaintext highlighter-rouge">nocrash.py</code> is the controlling Python code for SmokeDetector. It runs <code class="language-plaintext highlighter-rouge">ws.py</code>, which is the SD instance, in a subprocess and restarts the SD instance when it stops. <code class="language-plaintext highlighter-rouge">ws.py</code> may stop as the result of various chat <code class="language-plaintext highlighter-rouge">!!/</code> commands, or do to errors. The syntax for <code class="language-plaintext highlighter-rouge">nocrash.py</code> is:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nocrash.py [standby] [--loglevel=(debug|info|warning|error)]
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nocrash.py [standby] [--loglevel=(debug|info|warning|error)] [no_se_activity_scan]
 </code></pre></div></div>
 
 <p>The <code class="language-plaintext highlighter-rouge">standby</code> option starts the SD instance in <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/SmokeDetector-Statuses#standby-mode">standby mode</a>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">no_se_activity_scan</code> option causes the SD instance not to watch the SE WebSocket for new posts, even when the instance is active. This gives you an SD instance which will listen for commands in chat, but won’t be scanning for new posts, other than ones you <code class="language-plaintext highlighter-rouge">!!/scan</code> or <code class="language-plaintext highlighter-rouge">!!/report</code>.</p>
 
 <p><sub>Portions of this page were taken from <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/README.md">README.md</a>.</sub></p>
 
