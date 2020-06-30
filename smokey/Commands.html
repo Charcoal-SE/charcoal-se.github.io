@@ -74,6 +74,15 @@
 
 <p>This wiki page contains a list of commands and their explanation.</p>
 
+<h2 id="executing-commands-and-giving-feedback">Executing commands and giving feedback</h2>
+<p>SmokeDetector commands and feedback are provided to SmokeDetector as chat messages in one of the rooms in which SmokeDetector is listening for commands (see the <a href="https://charcoal-se.org/smokey/Chat-Rooms">list of chat rooms</a>). Feedback can be given either as a <a href="#user-content-privileged-commands-as-reply">reply to a post</a>, or using <a href="#user-content-shortcut-commands">the <code class="language-plaintext highlighter-rouge">sd</code> prefix</a> in a message which is not a reply. Commands are in the format <code class="language-plaintext highlighter-rouge">!!/&lt;command text&gt;</code> or <code class="language-plaintext highlighter-rouge">sdc &lt;command text&gt;</code>, which are entered in new chat messages, not as replies.</p>
+
+<p>In order to keep this list of commands more concise, SmokeDetector commands are listed here in their <code class="language-plaintext highlighter-rouge">!!/&lt;command text&gt;</code> form, but all of them are able to be used with the <code class="language-plaintext highlighter-rouge">sdc &lt;command text&gt;</code> syntax.</p>
+
+<p>As an example, the following two commands are equivalent:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>!!/alive
+sdc alive
+</code></pre></div></div>
 <h2 id="commands-for-everyone">Commands for everyone</h2>
 
 <p>These commands can be executed by everyone.</p>
@@ -349,12 +358,6 @@ mode (like tp-) or just don’t reply by default (like delete).</p>
   <li><code class="language-plaintext highlighter-rouge">sd 2tpu 3fpu</code> = <code class="language-plaintext highlighter-rouge">sd tpu tpu fpu fpu fpu</code></li>
   <li><code class="language-plaintext highlighter-rouge">sd 2- fp</code> = <code class="language-plaintext highlighter-rouge">sd - - fp</code></li>
 </ul>
-
-<p>You can also use shortcut commands for standard commands starting with <code class="language-plaintext highlighter-rouge">!!/</code>
-by prefixing it with <code class="language-plaintext highlighter-rouge">sdc </code>.</p>
-
-<p>Example:<br />
-<code class="language-plaintext highlighter-rouge">sdc alive</code></p>
 
 
 <div class="sidebar">
