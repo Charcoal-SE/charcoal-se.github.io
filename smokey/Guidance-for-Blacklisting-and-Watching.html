@@ -84,17 +84,17 @@
 
 <h2 id="the-keyword-blacklist">The Keyword Blacklist</h2>
 
-<p>The keyword blacklist consists of a list of phrases which are frequently seen in spam, and rarely outside of spam posts.</p>
+<p>The keyword blacklist consists of a list of regular expressions which are frequently seen in spam, and only very rarely outside of spam posts.</p>
 
-<p>Blacklisting a “keyword” (which can actually be a regular expression matching a phrase or a more-complex expression with alternatives, like <code class="language-plaintext highlighter-rouge">find (true )?love</code> which matches either of “find love” or “find true love”) causes any post which matches it to be reported as probable spam by SmokeDetector.  Matches are not reported in the middle of a word; the keyword expression “dog” does not match “doggone” or “endogenous”.</p>
+<p>Blacklisting a “keyword” (which can actually be a regular expression matching a phrase or a more-complex expression with alternatives, like <code class="language-plaintext highlighter-rouge">find (?:true )?love</code> which matches either of “find love” or “find true love”) causes any post which matches it to be reported as probable spam by SmokeDetector.  Matches are not reported in the middle of a word; the keyword expression “dog” does not match “doggone” or “endogenous”.</p>
 
 <p>The keyword blacklist is maintained in the <a href="https://github.com/Charcoal-SE/SmokeDetector">SmokeDetector GitHub repository</a>, specifically in the file <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/bad_keywords.txt">bad_keywords.txt</a>.</p>
 
 <h2 id="watch-expressions">Watch Expressions</h2>
 
-<p>“Watching” an expression causes SmokeDetector to report it just like a blacklist expression, but the rule weight is kept low, so as to prevent matches from triggering autoflagging. Posts which only match watched expressions and no other rules are not reported in other chat rooms, just in Charcoal. That means you can use <code class="language-plaintext highlighter-rouge">!!/watch</code> to try out different patterns experimentally, just to get an idea of what sorts of posts match a particular expression.</p>
+<p>“Watching” an expression causes SmokeDetector to report it just like a blacklist expression, but the rule weight is kept at one, in order to prevent matches from triggering autoflagging. The watchlist is considered an “experimental” detection reason. Posts which are detected for only “experimental” reasons are reported into only a limited set of chat rooms, because each room has to opt-in to receiving reports with only experimental detections. All reports are always sent to Charcoal HQ. That means you can use <code class="language-plaintext highlighter-rouge">!!/watch</code> to try out different patterns experimentally, just to get an idea of what sorts of posts match a particular expression.</p>
 
-<p>The list of watched expressions is maintained in the <a href="https://github.com/Charcoal-SE/SmokeDetector">SmokeDetector GitHub repository</a>, specifically in the file <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/watched_keywords.txt">watched_keywords.txt</a>.  The format is slightly different from the other similar files; each entry is a tab-delimited record which includes a date stamp (expressed as Unix epoch, i.e. seconds since midnight Jan 1 1970 UTC) and the user name of the person who added the expression.</p>
+<p>The list of watched expressions is maintained in the <a href="https://github.com/Charcoal-SE/SmokeDetector">SmokeDetector GitHub repository</a>, specifically in the file <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/watched_keywords.txt">watched_keywords.txt</a>.  The format is slightly different from the other similar files; each entry is a tab-delimited record which includes a date stamp (expressed as Unix epoch, i.e. seconds since midnight Jan 1 1970 UTC), the user name of the person who added the expression, and the regular expression to watch for.</p>
 
 <h2 id="rules-for-blacklisting-and-watching">Rules for Blacklisting and Watching</h2>
 
@@ -103,15 +103,15 @@
 <ul>
   <li><strong>Blacklisted websites:</strong> reserved for sites which we are highly confident that are used only in spam. You may add a site to this list if <em>one of</em> the following is true.
     <ul>
-      <li>The site has at least five hits in Metasmoke, with no false positives, and at least one of them is below the default autoflagging threshold (currently, 280) and no older than six months.</li>
-      <li>The site has at least three hits in Metasmoke, with no false positives, and it is part of an ongoing campaign. (See below.)</li>
+      <li>The site has at least five hits in metasmoke, with no false positives, and at least one of them is below the default autoflagging threshold (currently, 280) and no older than six months.</li>
+      <li>The site has at least three hits in metasmoke, with no false positives, <em>and</em> it is part of a preexisting campaign. (See below.)</li>
       <li>There are more than twenty hits in the last six months, and no false positives.</li>
       <li>There are recent hits, and more than 30 hits overall, and no false positives.</li>
     </ul>
   </li>
   <li><strong>Blacklisted keywords:</strong> reserved for phrases which we are highly confident that are used only in spam.  You may add a phrase to this list if the following is true.
     <ul>
-      <li>The phrase has been used repeatedly in recent spam and has no false positives in Metasmoke, and searching on Stack Exchange indicates that it is not a common phrase on any site in the network.</li>
+      <li>The phrase has been used repeatedly in recent spam, has no false positives in metasmoke, and searching on Stack Exchange indicates that it is not a common phrase on any site in the network. When searching on Stack Exchange, you need to search <a href="https://stackexchange.com/search">in text</a>, <a href="https://stackexchange.com/search?q=url%3A">in URLs</a>, and <a href="https://stackexchange.com/search?q=code%3A">in code</a>.</li>
     </ul>
   </li>
   <li><strong>Watched keywords:</strong> anything is game, but be prepared to have it removed if circumstances require it.
@@ -123,15 +123,15 @@
   </li>
 </ul>
 
-<h3 id="ongoing-campaign">Ongoing Campaign</h3>
+<h3 id="preexisting-campaign">Preexisting Campaign</h3>
 
-<p>The blacklisting guidance relaxes the criteria for blacklisting a web site when it is promoted in a spam post which we identify as being part of an “ongoing campaign”. This basically means that the spam incident is substantially similar to a number of other recent spam posts which already fulfill the stricter blacklisting criteria.  In practice, this helps us trigger blacklisting early for sites which are clearly part of an ongoing promotion, where we can be reasonably sure that the only purpose of the site is to have a different URL than the other sites used in the campaign. (This is called “snowshoe spamming” – the tactic is to spread your footprint across many sites so as to evade trivial duplicate detection.)</p>
+<p>The criteria for blacklisting a web site is relaxed when the site is promoted in spam posts which we identify as being part of a “preexisting campaign”. This means the spam posts containing the web site can be directly tied to other recent spam posts which contain campaign-specific blacklisted web sites which already fulfill the stricter blacklisting criteria (i.e. not just generic blacklisted terms like “keto”).  In practice, this helps us trigger blacklisting early for sites which are clearly part of a series of spam from the same, or closely associated, spammers, where we can be reasonably sure that the only purpose of the site is to have a different URL than the other sites used in the preexisting campaign. (This is called “snowshoe spamming” – the tactic is to spread your footprint across many sites so as to evade trivial duplicate detection.)</p>
 
 <h2 id="how-to-blacklist-or-watch-something">How to Blacklist or Watch Something</h2>
 
 <p>You will want to test that the expression you want to blacklist or watch isn’t already covered by one of the existing patterns.</p>
 
-<p>You can test this by using the <code class="language-plaintext highlighter-rouge">!!/test &lt;string to test&gt;</code> command (or <code class="language-plaintext highlighter-rouge">!!/test-a &lt;string to test&gt;</code> to test as an answer).</p>
+<p>You can use <code class="language-plaintext highlighter-rouge">!!/bisect &lt;string to test&gt;</code> to test to see if the text is matched by an existing watch or blacklist entry, and find out what that entry is. <code class="language-plaintext highlighter-rouge">!!/bisect</code> only tests against the patterns contained in the lists maintained with the <code class="language-plaintext highlighter-rouge">!!/watch</code> and <code class="language-plaintext highlighter-rouge">!!/blacklist-*</code> commands. You can test the string for matching all detections by using the <code class="language-plaintext highlighter-rouge">!!/test &lt;string to test&gt;</code> command (or <code class="language-plaintext highlighter-rouge">!!/test-a &lt;string to test&gt;</code> to test as an answer). The <code class="language-plaintext highlighter-rouge">!!/test</code> commands will also test against some blacklist and watchlist entries which are contained in findspam.py.</p>
 
 <p>Everyone with SmokeDetector privileges (if you don’t have those and would like them, read up on <a href="Privileges">how to get them</a>) can blacklist a website, though this will need to be approved by someone with code privileges if you don’t already have them. Additions to the blacklist must be valid regular expressions (regex). In reality that means for largely exact matches (like the website blacklist) that you ensure that special characters (like <code class="language-plaintext highlighter-rouge">.</code>) are escaped. (Example: <code class="language-plaintext highlighter-rouge">thisisspam\.com</code>)</p>
 
@@ -146,12 +146,14 @@
     <ul>
       <li><code class="language-plaintext highlighter-rouge">!!/blacklist-website &lt;regex&gt;</code> to blacklist a web site</li>
       <li><code class="language-plaintext highlighter-rouge">!!/blacklist-keyword &lt;regex&gt;</code> to blacklist a keyword expression</li>
+      <li><code class="language-plaintext highlighter-rouge">!!/blacklist-number &lt;number&gt;</code> to blacklist a phone number (not things like URL path fragments, which can’t be obfuscated; use !!/blacklist-keyword for those)</li>
       <li><code class="language-plaintext highlighter-rouge">!!/watch &lt;regex&gt;</code> to add something to the watch list</li>
+      <li><code class="language-plaintext highlighter-rouge">!!/watch-number &lt;number&gt;</code> to add a phone number to the watch list (not things like URL path fragments, which can’t be obfuscated; use !!/watch for those)</li>
     </ul>
   </li>
 </ul>
 
-<p>If you’re blacklisting or watching a complex regex to match a whole bunch of different stuff, it’s probably better off in the pattern-matching section of <code class="language-plaintext highlighter-rouge">findspam.py</code>. You’ll need to propose a change to the file on GitHub for this; ask for help if you’re unsure what to do.</p>
+<p>If you’re blacklisting or watching a complex regex to match a whole bunch of different stuff, it’s probably better off in the pattern-matching section of <code class="language-plaintext highlighter-rouge">findspam.py</code>. You’ll need to propose a change to the file on GitHub for this; ask for help if you’re unsure what to do. However, if you thing something might be appropriate for the pattern-matching section of <code class="language-plaintext highlighter-rouge">findspam.py</code>, it’s reasonable to put it on the watchlist first, so we can collect data as to how accurate it is, without giving extra weight to something that might catch a lot of false positive posts.</p>
 
 
 <div class="sidebar">
