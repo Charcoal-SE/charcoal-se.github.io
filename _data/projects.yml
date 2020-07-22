@@ -2,8 +2,6 @@
   link: https://metasmoke.erwaysoftware.com/
 - name: metasmoke URL converter
   link: https://charcoal-se.org/ms-urls
-- name: Farmhouse (Flovis)
-  link: https://flovis.charcoal-se.org/
 - name: Blaze
   link: https://charcoal-se.org/blaze
   link_extra: data-turbolinks="false"
