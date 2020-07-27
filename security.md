@@ -13,5 +13,6 @@ If you'd like to encrypt your email, you can find our PGP key here: <https://met
 ## Acknowledgements
 We'd like to extend special thanks to these people, who have helped us out by reporting security vulnerabilities to us.
 
+ - [teward](https://stackoverflow.com/users/603346/thomas-ward) - improper SQL dump sanitization and handling
  - [NobodyNada](https://stackoverflow.com/users/3476191/nobodynada) - server memory dump disclosure
  - [user12986714](https://stackoverflow.com/users/12986714/user12986714) - SQL injection vulnerability
