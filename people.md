@@ -53,10 +53,11 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [bwDraco](https://chat.stackexchange.com/users/11606/bwdraco)
 *   [Byte Commander](https://chat.stackexchange.com/users/137665/byte-commander)
 *   [CalvT](https://chat.stackexchange.com/users/64521/calvt)
-*   [DavidPostill](https://chat.stackexchange.com/users/133966/davidpostill)
+*   [Daniil](https://chat.stackexchange.com/users/435118/daniil)
 *   [doppelgreener](https://chat.stackexchange.com/users/2562/doppelgreener)
 *   [dorukayhan](https://chat.stackexchange.com/users/209140/dorukayhan) (emeritus)
 *   [double-beep](https://chat.stackexchange.com/users/387151/double-beep)
+*   [DavidPostill](https://chat.stackexchange.com/users/133966/davidpostill)
 *   [Erik the Outgolfer](https://chat.stackexchange.com/users/80316/erik-the-outgolfer)
 *   [Ferrybig](https://chat.stackexchange.com/users/58529/ferrybig) (RO)
 *   [Glorfindel](https://chat.stackexchange.com/users/164318/glorfindel) (RO)
@@ -73,14 +74,12 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [paper1111](https://chat.stackexchange.com/users/281674/paper1111)
 *   [Paul Stenne](https://chat.stackexchange.com/users/172397/kyll)
 *   [ProgramFOX](https://chat.stackexchange.com/users/88521/programfox) (RO)
-*   [Shree](https://chat.stackexchange.com/users/340148/shree)
 *   [Suraj Rao](https://chat.stackexchange.com/users/262693/suraj-rao)
 *   [Tetsuya Yamamoto](https://chat.stackexchange.com/users/279119/tetsuya-yamamoto)
 *   [**Thomas Ward**](https://chat.stackexchange.com/users/10145/thomas-ward) (RO)
 *   [WELZ](https://chat.stackexchange.com/users/210948/welz)
 *   [Yvette Colomb](https://chat.stackexchange.com/users/178825/yvette-colomb) (emeritus)
 *   [Zoe the transgirl](https://chat.stackexchange.com/users/165415/zoe-the-transgirl)
-*   [Daniil](https://chat.stackexchange.com/users/435118/daniil)
 </section>
 <section>
 ## Team Members {#members}
