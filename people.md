@@ -74,6 +74,7 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [paper1111](https://chat.stackexchange.com/users/281674/paper1111)
 *   [Paul Stenne](https://chat.stackexchange.com/users/172397/kyll)
 *   [ProgramFOX](https://chat.stackexchange.com/users/88521/programfox) (RO)
+*   [Shree](https://chat.stackexchange.com/users/340148/shree) (emeritus)
 *   [Suraj Rao](https://chat.stackexchange.com/users/262693/suraj-rao)
 *   [Tetsuya Yamamoto](https://chat.stackexchange.com/users/279119/tetsuya-yamamoto)
 *   [**Thomas Ward**](https://chat.stackexchange.com/users/10145/thomas-ward) (RO)
