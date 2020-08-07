@@ -116,7 +116,7 @@
     <ul>
       <li>We will be removing patterns periodically; you can reduce the risk of having useful patterns removed by proactively removing patterns you no longer are interested in, or which produce very uncertain value.</li>
       <li>Autoflagging weight for this reason is technically forced to stay at 1.</li>
-      <li>Smoke Detector will regard these rules as “experimental”; it will not alert in other rooms than Charcoal HQ if there are hits solely from this set of rules.</li>
+      <li>SmokeDetector will regard these rules as “experimental”; it will not alert in rooms other than Charcoal HQ and rooms that have specifically opted to receive reports for “experimental” reasons, if there are hits solely from this set of rules.</li>
     </ul>
   </li>
 </ul>
@@ -145,7 +145,8 @@
       <li><code class="language-plaintext highlighter-rouge">!!/blacklist-website &lt;regex&gt;</code> to blacklist a web site</li>
       <li><code class="language-plaintext highlighter-rouge">!!/blacklist-keyword &lt;regex&gt;</code> to blacklist a keyword expression</li>
       <li><code class="language-plaintext highlighter-rouge">!!/blacklist-number &lt;number&gt;</code> to blacklist a phone number (not things like URL path fragments, which can’t be obfuscated; use !!/blacklist-keyword for those)</li>
-      <li><code class="language-plaintext highlighter-rouge">!!/watch &lt;regex&gt;</code> to add something to the watch list</li>
+      <li><code class="language-plaintext highlighter-rouge">!!/blacklist-username &lt;regex&gt;</code> to blacklist a username (display name)</li>
+      <li><code class="language-plaintext highlighter-rouge">!!/watch &lt;regex&gt;</code> to add something to the watch list (keywords, web sites, and usernames)</li>
       <li><code class="language-plaintext highlighter-rouge">!!/watch-number &lt;number&gt;</code> to add a phone number to the watch list (not things like URL path fragments, which can’t be obfuscated; use !!/watch for those)</li>
     </ul>
   </li>
