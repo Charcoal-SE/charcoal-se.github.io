@@ -79,7 +79,7 @@
   <li>Provide translations of foreign language posts</li>
 </ul>
 
-<p>Comments can be created in two ways: directly on metasmoke, and via SmokeDetector:</p>
+<p>Comments can be created in three ways: directly on metasmoke, via replies to SmokeDetector, and via custom reasons on manual reports:</p>
 
 <h2 id="adding-comments-to-a-post-on-metasmoke">Adding comments to a post on metasmoke</h2>
 
@@ -89,7 +89,7 @@
 
 <p><img src="https://i.stack.imgur.com/v6YUB.png" alt="+ Add Comment" /></p>
 
-<h2 id="adding-comments-via-chat">Adding comments via chat</h2>
+<h2 id="adding-comments-via-replies-to-smokedetector">Adding comments via replies to SmokeDetector</h2>
 
 <p>Note: <a href="https://charcoal-se.org/smokey/Privileges#smokedetector-privileges-sd">SmokeDetector review privileges</a> required, and your metasmoke account must be linked to your chat profile.</p>
 
@@ -111,6 +111,18 @@
 <p>Note that you must reply to the report itself, not the feedback message.</p>
 
 <p><img src="https://i.stack.imgur.com/ZQO7S.png" alt="" /></p>
+
+<h2 id="adding-comments-via-reporting-reasons">Adding comments via reporting reasons</h2>
+
+<p>Note: <a href="https://charcoal-se.org/smokey/Privileges#smokedetector-privileges-sd">SmokeDetector reporting privileges</a> required, and your metasmoke account must be linked to your chat profile.</p>
+
+<p>When manually reporting posts with the <code class="language-plaintext highlighter-rouge">!!/report</code> command, the command has an option to supply a reason for reporting, so it’s clear to others why you’re reporting a given post or set of posts. The command works like this: <code class="language-plaintext highlighter-rouge">!!/report [post links] "reason in quotes"</code>.</p>
+
+<p>If you supply a reason using this option, it will also be posted as a comment on the resulting report (in addition to being placed in the <code class="language-plaintext highlighter-rouge">why</code> reason).</p>
+
+<p>Note that this does <em>not</em> work if the bot responds that the post has already been recently reported. In that case, your reason will be discarded, and you must use one of the above two methods to place your comment.</p>
+
+<p>This also works with the <code class="language-plaintext highlighter-rouge">!!/scan</code> command, which scans posts to see if they meet any of the spam checks: if you use the same syntax above to provide a reason for scanning, and the scan results in a report (i.e. the post triggers one or more spam checks), your reason will be posted as a comment on the resulting report.</p>
 
 <h2 id="viewing-comments">Viewing comments</h2>
 
