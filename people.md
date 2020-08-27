@@ -38,7 +38,7 @@ These people have at some point contributed code of some variety, whether it be 
 *   [a spaghetto](https://chat.stackexchange.com/users/167070/a-spaghetto) (RO)
 *   [**Henders**](https://chat.stackexchange.com/users/211021/henders)
 *   [**iBug**](https://chat.stackexchange.com/users/275329/ibug) (RO)
-*   [**thesecretmaster**](https://chat.stackexchange.com/users/162795/thesecretmaster) (RO)
+*   [thesecretmaster](https://chat.stackexchange.com/users/162795/thesecretmaster) (RO)
 
 </section>
 <section>
@@ -68,7 +68,7 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [Machavity](https://chat.stackexchange.com/users/185195/machavity)
 *   [mag](https://chat.stackexchange.com/users/171054/mag)
 *   [micsthepick](https://chat.stackexchange.com/users/269502/micsthepick)
-*   [**Mithical**](https://chat.stackexchange.com/users/133031/mithical) 
+*   [**Mithical**](https://chat.stackexchange.com/users/133031/mithical) (RO)
 *   [Nisse Engström](https://chat.stackexchange.com/users/155243/nisse-engstrom)
 *   [**NobodyNada**](https://chat.stackexchange.com/users/139423/nobodynada) (RO)
 *   [paper1111](https://chat.stackexchange.com/users/281674/paper1111)
