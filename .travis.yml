@@ -11,6 +11,9 @@ cache:
     - ms
     - .asset-cache
 
+before_install:
+  - nvm install 'lts/*'
+  - nvm use 'lts/*'
 install: script/install --deploy
 script: script/build --deploy
 
