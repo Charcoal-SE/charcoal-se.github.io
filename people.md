@@ -53,7 +53,6 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [bwDraco](https://chat.stackexchange.com/users/11606/bwdraco)
 *   [Byte Commander](https://chat.stackexchange.com/users/137665/byte-commander)
 *   [CalvT](https://chat.stackexchange.com/users/64521/calvt)
-*   [Daniil](https://chat.stackexchange.com/users/435118/daniil)
 *   [DavidPostill](https://chat.stackexchange.com/users/133966/davidpostill)
 *   [doppelgreener](https://chat.stackexchange.com/users/2562/doppelgreener)
 *   [dorukayhan](https://chat.stackexchange.com/users/209140/dorukayhan) (emeritus)
