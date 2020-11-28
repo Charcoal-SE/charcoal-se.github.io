@@ -25,7 +25,7 @@ These people get pinged a lot. They all have administrative access on metasmoke 
 These people have at some point contributed code of some variety, whether it be to Smokey, MS, or a userscript. If you're wondering why you're not on the list, there's a threshold at play here to stop the list getting too long.
 
 *   [hichris123](https://chat.stackexchange.com/users/103081/hichris123) (admin emeritus)
-*   [zaq](https://chat.stackexchange.com/users/117490/zaq)
+*   [zaq](https://chat.stackexchange.com/users/117490/zaq) (emeritus)
 *   [ProgramFOX](https://chat.stackexchange.com/users/88521/programfox) (RO)
 *   [ManishEarth](https://chat.stackexchange.com/users/31768/manishearth) (RO)
 *   [Ferrybig](https://chat.stackexchange.com/users/58529/ferrybig) (RO)
@@ -60,12 +60,13 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [Erik the Outgolfer](https://chat.stackexchange.com/users/80316/erik-the-outgolfer)
 *   [Ferrybig](https://chat.stackexchange.com/users/58529/ferrybig) (RO)
 *   [Glorfindel](https://chat.stackexchange.com/users/164318/glorfindel) (RO)
+*   [gparyani](https://chat.stackexchange.com/users/78973/gparyani)
 *   [**Henders**](https://chat.stackexchange.com/users/211021/henders)
 *   [**iBug**](https://chat.stackexchange.com/users/275329/ibug) (RO)
 *   [John Dvorak](https://chat.stackexchange.com/users/56166/john-dvorak)
 *   [K.Davis](https://chat.stackexchange.com/users/223524/k-ds)
 *   [Machavity](https://chat.stackexchange.com/users/185195/machavity)
-*   [mag](https://chat.stackexchange.com/users/171054/mag)
+*   [Magisch](https://chat.stackexchange.com/users/171054/magisch)
 *   [micsthepick](https://chat.stackexchange.com/users/269502/micsthepick)
 *   [**Mithical**](https://chat.stackexchange.com/users/133031/mithical) (RO)
 *   [Nisse Engström](https://chat.stackexchange.com/users/155243/nisse-engstrom)
@@ -79,7 +80,7 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [**Thomas Ward**](https://chat.stackexchange.com/users/10145/thomas-ward) (RO)
 *   [WELZ](https://chat.stackexchange.com/users/210948/welz)
 *   [Yvette Colomb](https://chat.stackexchange.com/users/178825/yvette-colomb) (emeritus)
-*   [Zoe the transgirl](https://chat.stackexchange.com/users/165415/zoe-the-transgirl)
+*   [Zoe](https://chat.stackexchange.com/users/165415/zoe)
 </section>
 <section>
 ## Team Members {#members}
@@ -93,7 +94,7 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [bummi](https://chat.stackexchange.com/users/54902/bummi)
 *   [JoErNanO](https://chat.stackexchange.com/users/130836/joernano)
 *   [Federico](https://chat.stackexchange.com/users/109603/federico)
-*   [Catija](https://chat.stackexchange.com/users/139041/catija)
+*   [Catija](https://chat.stackexchange.com/users/139041/catija) (CM)
 *   [Videonauth](https://chat.stackexchange.com/users/205533/videonauth)
 *   [Rob](https://chat.stackexchange.com/users/158742/rob)
 *   [Mego](https://chat.stackexchange.com/users/169713/mego)
@@ -101,4 +102,5 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Nog Shine](https://chat.stackexchange.com/users/202339/nog-shine)
 *   [Tinkeringbell](https://chat.stackexchange.com/users/305737/Tinkeringbell)
 *   [Frenzy Li](https://chat.stackexchange.com/users/40662/frenzy-li)
+*   [Nick Craver](https://chat.stackexchange.com/users/128/nick-craver) (SE dev)
 </section>
