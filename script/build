@@ -129,7 +129,7 @@ if [ -n "$DEPLOY" ]; then
   elif [ -n "$GITHUB_ACTIONS" ]; then
     git -c user.name=SmokeDetector -c user.email=smokey@erwaysoftware.com \
       commit --allow-empty -q \
-      -m "Auto deploy from GitHub Actions ${GITHUB_ACTION:-<unknown>}" \
+      -m "Auto deploy from GitHub Actions build ${GITHUB_RUN_NUMBER:-<unknown>}" \
       -m "Changed: ${COMMIT_INFO}"
     git push -q
   else
