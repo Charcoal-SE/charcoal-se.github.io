@@ -125,6 +125,27 @@
 
 <p>The criteria for blacklisting a web site is relaxed when the site is promoted in spam posts which we identify as being part of a “preexisting campaign”. This means the spam posts containing the web site can be directly tied to other recent spam posts which contain campaign-specific blacklisted web sites which already fulfill the stricter blacklisting criteria (i.e. not just generic blacklisted terms like “keto”).  In practice, this helps us trigger blacklisting early for sites which are clearly part of a series of spam from the same, or closely associated, spammers, where we can be reasonably sure that the only purpose of the site is to have a different URL than the other sites used in the preexisting campaign. (This is called “snowshoe spamming” – the tactic is to spread your footprint across many sites so as to evade trivial duplicate detection.)</p>
 
+<p>Some common criteria for establishing a campaign include:</p>
+
+<ul>
+  <li>The same product name has been promoted recently by a known spammer.
+    <ul>
+      <li>Obviously, generic promotions for common products are not sufficient.
+But e.g. a product which was unknown until recently and is now visible in posts from several accounts qualify.</li>
+    </ul>
+  </li>
+  <li>The same IP address is connected exclusively to spam domains.
+    <ul>
+      <li>Note that some IP addresses (e.g. Shopify, AWS) are shared between a large number of domains;
+it is not sufficient that a few of those are also spam domains.
+But a common spam hosting pattern is that a single IP address is only seen in spam posts with several different domain names.</li>
+    </ul>
+  </li>
+  <li>The same spam post (or user account on Stack Exchange, or etc) also links to an already blacklisted domain name.</li>
+</ul>
+
+<p>The intent is to enable us to fast-track blacklisting when there is clear evidence that the new domain name (or product name, etc) is a sock puppet of an already known spammer, i.e. we can reasonably establish that it was basically created to evade any blacklisting or other negative reputation associated with another account.</p>
+
 <h2 id="how-to-blacklist-or-watch-something">How to Blacklist or Watch Something</h2>
 
 <p>You will want to test that the expression you want to blacklist or watch isn’t already covered by one of the existing patterns.</p>
