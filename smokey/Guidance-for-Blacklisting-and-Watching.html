@@ -101,7 +101,7 @@
 <ul>
   <li><strong>Blacklisted websites:</strong> reserved for sites which we are highly confident that are used only in spam. You may add a site to this list if <em>one of</em> the following is true.
     <ul>
-      <li>The site has at least five hits in metasmoke, with no false positives, and at least one of them is below the default autoflagging threshold (currently, 280) and no older than six months.</li>
+      <li>The site has at least five true positive hits in metasmoke, with no false positive hits; and at least one of those true positive hits is both below the default autoflagging threshold weight (currently, 280) and is not older than six months.</li>
       <li>The site has at least three hits in metasmoke, with no false positives, <em>and</em> it is part of a preexisting campaign. (See below.)</li>
       <li>There are more than twenty hits in the last six months, and no false positives.</li>
       <li>There are recent hits, and more than 30 hits overall, and no false positives.</li>
@@ -242,7 +242,7 @@ But a common spam hosting pattern is that a single IP address is only seen in sp
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>
