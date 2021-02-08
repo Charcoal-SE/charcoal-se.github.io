@@ -23,8 +23,7 @@ If you're looking for someone who speaks a particular language, please check thi
 * **Swedish**: [Nisse Engström](https://stackexchange.com/users/4252138/nisse-engström) and [tripleee](https://stackexchange.com/users/468289/tripleee)
 * **Turkish**: [M.A.R.](https://stackexchange.com/users/3841881/m-a-r)
 
-If you're not on this list, please ping `@JF` or another website maintainer in chat
-to get yourself added. 
+If you're not on this list and want to be, feel free to use the "Edit on GitHub" link at the bottom of the page to edit and submit a PR which adds yourself. Alternately, ping [an admin](https://charcoal-se.org/people#admins) in [Charcoal HQ](https://chat.stackexchange.com/rooms/11540/charcoal-hq). 
 
 > **Warning**: These people have **not** volunteered for random translation tasks.
 > Please **only** ask them for help with posts reported by Smokey
