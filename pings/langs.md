@@ -13,7 +13,7 @@ If you're looking for someone who speaks a particular language, please check thi
 * **French**: [Kyll](https://stackexchange.com/users/5221606/kyll), [Fabby](https://stackexchange.com/users/5269210/fabby), and [Xnero](https://stackexchange.com/users/17078244/xnero)
 * **German**: [Magisch](https://stackexchange.com/users/7034529/magisch), [Wrzlprmft](https://stackexchange.com/users/2437491/wrzlprmft), [Glorfindel](https://stackexchange.com/users/6085540/glorfindel), [Fabby](https://stackexchange.com/users/5269210/fabby), and [rene](https://stackexchange.com/users/281857/rene)
 * **Hebrew**: [Mithrandir](https://stackexchange.com/users/5129611/mithrandir)
-* **Hindi**: [A J](https://stackexchange.com/users/6132527/a-j), [Yatin](https://stackexchange.com/users/9533520/user134470)
+* **Hindi**: [A J](https://stackexchange.com/users/6132527/a-j), [Yatin](https://stackexchange.com/users/9533520/user134470), and [cigien](https://stackexchange.com/users/11421497/cigien)
 * **Indonesian**: [Andrew T.](https://stackexchange.com/users/3359942/andrew-t)
 * **Persian**: [M.A.R.](https://stackexchange.com/users/3841881/m-a-r)
 * **Polish**: [Michał Perłakowski](https://stackexchange.com/users/4768421/micha%c5%82-per%c5%82akowski)
