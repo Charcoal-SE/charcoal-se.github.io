@@ -166,7 +166,7 @@ Note: If you want SmokeDetector to make reports into a room, that’s best set u
 <p>The user-blacklist and user-whitelist are maintained <em>per SmokeDetector instance</em>. The SmokeDetector instances do not share these lists between themselves. Thus, if the SmokeDetector instance is switched, the new instance will only have a record of the entries on these lists which were added/removed while that instance was active.</p>
 
 <h5 id="user-blacklist">User-blacklist</h5>
-<p>The user-blacklist is a dynamic list of users which will have any post of theirs reported by SmokeDetector anytime one of their posts is scanned. Users are primarily added to the user-blacklist when someone gives <code>tp<b>u</b></code> feedback to a post the user has authored. Users are automatically removed from the user-blacklist when <code class="language-plaintext highlighter-rouge">fp</code> feedback is given for a post they have authored. Users can also be explicitly added, removed, or their blacklist status determined with the following commands:</p>
+<p>The user-blacklist is a dynamic list of users which will have any post of theirs reported by SmokeDetector anytime one of their posts is scanned. Users are primarily added to the user-blacklist when someone gives <code>tp<b>u</b></code> feedback to a post the user has authored, or when one of their posts is manually reported to SmokeDetector with <code class="language-plaintext highlighter-rouge">!!/report</code> and the post would not have otherwise been detected. Users are automatically removed from the user-blacklist when <code class="language-plaintext highlighter-rouge">fp</code> feedback is given for a post they have authored. Users can also be explicitly added, removed, or their blacklist status determined with the following commands:</p>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">!!/addblu &lt;profile_URL&gt;</code> or <code class="language-plaintext highlighter-rouge">!!/addblu &lt;user_ID&gt; &lt;site_name&gt;</code> — Adds a user to the user-blacklist (this means that any post by this user will be reported when scanned).</li>
   <li><code class="language-plaintext highlighter-rouge">!!/rmblu &lt;profile_URL&gt;</code> or <code class="language-plaintext highlighter-rouge">!!/rmblu &lt;user_ID&gt; &lt;site_name&gt;</code> — Removes a user from the user-blacklist.</li>
@@ -416,7 +416,7 @@ mode (like tp-) or just don’t reply by default (like delete).</p>
           
           and
           <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
-            20 more</a>
+            21 more</a>
         
           • <a href="/code">More gory details</a>
         
