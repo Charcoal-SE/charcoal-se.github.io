@@ -9,15 +9,15 @@ fail = -> console.error(arguments)
 decodeUTF8 = (b64) -> decodeURIComponent(atob(b64).split('').map((c) -> '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''))
 
 setTimeout (_f = ->
-  $.get 'https://img.shields.io/travis/Charcoal-SE/userscripts.json', (reply) -> $('.build span').text reply.value
+  $.get 'https://img.shields.io/github/workflow/status/Charcoal-SE/userscripts/build.json', (reply) -> $('.build span').text reply.value
   $.get
-    url: 'https://api.travis-ci.org/repos/Charcoal-SE/userscripts',
+    url: 'https://api.github.com/repos/Charcoal-SE/userscripts/actions/runs?branch=master&per_page=1',
     headers: {
-      Accept: 'application/vnd.travis-ci.2+json'
+      Accept: 'application/vnd.github.v3+json'
     }
-  .done ({ repo }) -> $('.build a').attr 'href', 'https://travis-ci.org/Charcoal-SE/userscripts/builds/' + repo.last_build_id
+  .done ({ workflow_runs }) -> $('.build a').attr 'href', workflow_runs[0].html_url
 
-  $.get("https://api.github.com/repos/charcoal-se/userscripts/git/trees/master?recursive=1", initUserscripts).fail ->
+  $.get("https://api.github.com/repos/Charcoal-SE/userscripts/git/trees/master?recursive=1", initUserscripts).fail ->
     setTimeout _f, 1000
     fail.apply this, arguments
 )

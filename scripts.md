@@ -5,10 +5,10 @@ redirect_from:
   - /userscripts.html
 ---
 
-# Userscripts <span>[{% img github.svg alt:"View on GitHub" title:"View on GitHub" %}](https://github.com/Charcoal-SE/Userscripts) [Build <span>status loading…</span>](//travis-ci.org/Charcoal-SE/userscripts){: .build}</span>
+# Userscripts <span>[{% img github.svg alt:"View on GitHub" title:"View on GitHub" %}](https://github.com/Charcoal-SE/Userscripts) [Build <span>status loading…</span>](https://github.com/Charcoal-SE/userscripts/actions){: .build}</span>
 
 <ul class="scripts">
-  Loading…
+  Loading&hellip;
 </ul>
 
 ## Other Userscripts
