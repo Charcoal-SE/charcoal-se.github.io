@@ -15,7 +15,7 @@ setTimeout (_f = ->
     headers: {
       Accept: 'application/vnd.github.v3+json'
     }
-  .done ({ workflow_runs }) -> $('.build a').attr 'href', workflow_runs[0].html_url
+  .done ({ workflow_runs }) -> $('a.build').attr 'href', workflow_runs[0].html_url
 
   $.get("https://api.github.com/repos/Charcoal-SE/userscripts/git/trees/master?recursive=1", initUserscripts).fail ->
     setTimeout _f, 1000
