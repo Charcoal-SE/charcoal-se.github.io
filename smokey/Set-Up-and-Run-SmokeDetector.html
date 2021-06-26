@@ -110,15 +110,15 @@ pip3 install --user -r user_requirements.txt --upgrade
 <p>At this point, you should be able to <a href="#running-smokedetector">run SmokeDetector using the instructions below</a>.</p>
 
 <h3 id="setting-up-an-aws-ec2-linux-instance-for-smokedetector">Setting up an AWS EC2 linux instance for SmokeDetector</h3>
-<p>Using a AWS EC2 instance can be a quick way to get an SD instance up and running. Based on reports from @iBug in chat, a t2.micro instance, what’s available from the AWS Free Tier for 12 months, doesn’t have enough CPU credits for the instance to be the active SD instance full-time. It’s expected that a t3.micro, which actually costs less than a t2.micro, once past the free period, should be sufficient for a full-time active SD instance. However, a t2.micro instance does appear to be enough for SD to run as a standby instance to fill in on an irregular basis.</p>
+<p>Using a AWS EC2 instance can be a quick way to get an SD instance up and running. Based on reports from @iBug in chat, a t2.micro instance, what’s available from the AWS Free Tier for 12 months, doesn’t have enough CPU credits, at 6/hour, for the instance to be the active SD instance full-time. Brief testing with a t3.micro, 12 CPU credits/hour, indicated that it’s not sufficient to run SD full time without additional CPU charges. It’s expected that a t3.small, 24 CPU credits/hour, should be sufficient for a full-time active SD instance. However, a t2.micro instance does appear to be enough for SD to run as a standby instance to fill in on an irregular basis. An additional note is that SD on the AWS Linux AMI described below did report some out of memory errors when running on a t3.micro (1GB) without any swap configured. On the other hand, SD functions on a AWS Lightsail instance with 512MB RAM and 2GB swap configured, but that lightsail instance doesn’t have enough CPU credits to operate SD for more than a few hours.</p>
 
-<p>To set-up a t2.micro instance for SD you can do the following:</p>
+<p>To set-up a AWS EC2 instance for SD you can do the following:</p>
 <ul>
   <li>Create the EC2 instance (<a href="https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/">launch a AWS instance tutorial</a>)
     <ul>
       <li>Create an AWS account (address, verifiable phone number, and credit card required) and Sign-in to the AWS console.</li>
       <li>Click “Launch Instance -&gt;”</li>
-      <li>Click “Select” for “Amazon Linux AMI 2018.03.0 (HVM), SSD Volume Type - ami-0cd3dfa4e37921605” (the first one in the Amazon Machine Image (AMI) list)
+      <li>Click “Select” for “Amazon Linux 2 AMI (HVM), SSD Volume Type - ami-0277b52859bac6f4b” (the first one in the Amazon Machine Image (AMI) list)
         <ul>
           <li>You can pick any flavor of Linux you’re familiar with, just remember to substitute installation commands for the correct package manager. For example, the above version of Linux uses <code class="language-plaintext highlighter-rouge">yum</code>. Other versions may use <code class="language-plaintext highlighter-rouge">apt-get</code>, <code class="language-plaintext highlighter-rouge">rpm</code>, or <code class="language-plaintext highlighter-rouge">pacman</code> etc. In addition, other versions of Linux may already have versions of some of the packages installed in the commands below, or may be missing yet other packages. The commands listed below were only tested in the AMI mentioned above. <!-- Other than being the first AMI in the list and a very basic Linux install, there's really nothing special about the AMI selected above. It is the one with which the commands below have been tested, so if you change this choice, then please test and/or change the commands listed below. If you do change the AMI mentioned above, it's a good idea to keep it to one that's eligible for the AWS Free Tier and one that permits per-second billing, rather than per-hour billing.--></li>
         </ul>
@@ -145,10 +145,15 @@ pip3 install --user -r user_requirements.txt --upgrade
 <!--If you change the following commands, please *test* them in the AMI (the Linux version) that's mentioned in the instructions above. We're literally telling people that they can copy-&-paste these, so we should be sure they just work. --></p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum -y update
+sudo fallocate -l 2G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+sudo sh -c 'echo "/swapfile swap swap defaults 0 0" &gt;&gt; /etc/fstab'
 sudo yum -y install gcc
 sudo yum -y install git
-sudo yum -y install python36
-sudo yum -y install python36-devel
+sudo yum -y install python37
+sudo yum -y install python3-devel
 sudo python3 -m pip install pip --upgrade
   
 git clone https://github.com/Charcoal-SE/SmokeDetector.git
