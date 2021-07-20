@@ -72,7 +72,9 @@
 
 <p>Blacklisting or watching a keyword or a web site address cause the spam detection bot SmokeDetector to trigger an alert whenever that keyword or web site address appears in a post.  In other words, it basically says that any post containing this expression is spam, or at least suspicious.</p>
 
-<h2 id="the-website-blacklist">The Website Blacklist</h2>
+<h2 id="blacklist-and-watchlist-types">Blacklist and watchlist types</h2>
+<h3 id="blacklists">Blacklists</h3>
+<h4 id="website-blacklist">Website Blacklist</h4>
 
 <p>The website blacklist consists of a list of websites associated with known spam that automatically raise suspicion when posted anywhere on Stack Exchange.</p>
 
@@ -80,7 +82,7 @@
 
 <p>The website blacklist is maintained in the <a href="https://github.com/Charcoal-SE/SmokeDetector">SmokeDetector GitHub repository</a>, specifically in the file <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/blacklisted_websites.txt">blacklisted_websites.txt</a>.</p>
 
-<h2 id="the-keyword-blacklist">The Keyword Blacklist</h2>
+<h4 id="keyword-blacklist">Keyword Blacklist</h4>
 
 <p>The keyword blacklist consists of a list of regular expressions which are frequently seen in spam, and only very rarely outside of spam posts.</p>
 
@@ -88,42 +90,97 @@
 
 <p>The keyword blacklist is maintained in the <a href="https://github.com/Charcoal-SE/SmokeDetector">SmokeDetector GitHub repository</a>, specifically in the file <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/bad_keywords.txt">bad_keywords.txt</a>.</p>
 
-<h2 id="watch-expressions">Watch Expressions</h2>
+<h4 id="numbers-blacklist">Numbers Blacklist</h4>
+<p>Similar to blacklisted keywords, but for numbers which the spammer intends to be interpreted by a human as a number (i.e. not for numbers used in URLs, where it is primarily interpreted by a machine). This list is primarily intended for phone numbers, but is not exclusive to only phone numbers. These are <em>not</em> regular expressions. They are just text. Entries are tested both verbatim and with a moderate amount of obfuscation intended to obfuscate numbers removed from the posts.</p>
+
+<h4 id="blacklisted-users">Blacklisted Users</h4>
+<p>Each SmokeDetector instance maintains a very dynamic list of users which are “blacklisted”. Users are added to the user blacklist when a post they created receives <code>tp<strong>u</strong></code> feedback. Users are removed from the user blacklist when a post they created is given <code class="language-plaintext highlighter-rouge">fp</code> feedback (not to be confused with <code class="language-plaintext highlighter-rouge">fpu</code> feedback which adds a user to the username whitelist). Users can also be manually added to the user blacklist with <code class="language-plaintext highlighter-rouge">!!/adblu</code>, or removed with <code class="language-plaintext highlighter-rouge">!!/rmblu</code>.</p>
+
+<p>A user being on the user blacklist causes any post they authored to be reported when it’s scanned, but they will be immediately removed from the user blacklist if one of those reports gets <code class="language-plaintext highlighter-rouge">fp</code> feedback. A user should be added to the user blacklist when it is substantially likely that posts by them which are scanned in the future will be true positive. In general, users should not be added to the user blacklist for vandalism.</p>
+
+<h3 id="watchlists">Watchlists</h3>
+<h4 id="watched-expressions">Watched Expressions</h4>
 
 <p>“Watching” an expression causes SmokeDetector to report it just like a blacklist expression, but the rule weight is kept at one, in order to prevent matches from triggering autoflagging. The watchlist is considered an “experimental” detection reason. Posts which are detected for only “experimental” reasons are reported into only a limited set of chat rooms, because each room has to opt-in to receiving reports with only experimental detections. All reports are always sent to Charcoal HQ. That means you can use <code class="language-plaintext highlighter-rouge">!!/watch</code> to try out different patterns experimentally, just to get an idea of what sorts of posts match a particular expression.</p>
 
 <p>The list of watched expressions is maintained in the <a href="https://github.com/Charcoal-SE/SmokeDetector">SmokeDetector GitHub repository</a>, specifically in the file <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/watched_keywords.txt">watched_keywords.txt</a>.  The format is slightly different from the other similar files; each entry is a tab-delimited record which includes a date stamp (expressed as Unix epoch, i.e. seconds since midnight Jan 1 1970 UTC), the user name of the person who added the expression, and the regular expression to watch for.</p>
 
+<h4 id="watched-numbers">Watched Numbers</h4>
+<p>Similar to watched expressions, but for numbers which the spammer intends to be interpreted by a human as a number (i.e. not for numbers used in URLs, where it is primarily interpreted by a machine). This list is primarily intended for phone numbers, but is not exclusive to only phone numbers. These are <em>not</em> regular expressions. They are just text. Entries are tested both verbatim and with a moderate amount of obfuscation intended to obfuscate numbers removed from the posts.</p>
+
 <h2 id="rules-for-blacklisting-and-watching">Rules for Blacklisting and Watching</h2>
 
 <p>We have established the following rules for watching and blacklisting.</p>
 
+<h3 id="general-true-positive-and-false-positive-requirements">General true positive and false positive requirements</h3>
+<p>A primary goal of the blacklists is to have a very high percentage of true positive (TP) detections. While it’s impossible to <em>know</em> what will happen in the future, the following general criteria for existing TP and false positive (FP) detections are used to make it much more likely that entries which are added to the blacklists will be seen only in TP posts in the future.</p>
 <ul>
-  <li><strong>Blacklisted websites:</strong> reserved for sites which we are highly confident that are used only in spam. You may add a site to this list if <em>one of</em> the following is true.
+  <li>At least <em>one of</em> the following for the entry is true:
     <ul>
-      <li>The site has at least five true positive hits in metasmoke, with no false positive hits; and at least one of those true positive hits is both below the default autoflagging threshold weight (currently, 280) and is not older than six months.</li>
-      <li>The site has at least three hits in metasmoke, with no false positives, <em>and</em> it is part of a preexisting campaign. (See below.)</li>
+      <li>There are at least five true positive hits in metasmoke, with no false positive hits; and at least one of those true positive hits is both below the default autoflagging threshold weight (currently, 280) and is not older than six months.</li>
+      <li>There are at least three hits in metasmoke, with no false positives, <em>and</em> it is part of a <a href="#preexisting-campaign">preexisting campaign</a>. (See below.)</li>
       <li>There are more than twenty hits in the last six months, and no false positives.</li>
       <li>There are recent hits, and more than 30 hits overall, and no false positives.</li>
     </ul>
   </li>
-  <li><strong>Blacklisted keywords:</strong> reserved for phrases which we are highly confident that are used only in spam.  You may add a phrase to this list if the following is true.
+</ul>
+
+<p>The general target for %TP is in 95%+ range (with some detection reasons below this). Existing blacklist entries which have a %TP rate notably below the overall %TP for the detection reason in which they are included should be either A) adjusted to improve their %TP (i.e. reject more FP posts), or B) moved to the watchlist.</p>
+
+<h3 id="requirements-for-specific-blacklists">Requirements for specific blacklists</h3>
+<h4 id="blacklisted-websites">Blacklisted websites:</h4>
+<ul>
+  <li>Reserved for sites which we are highly confident are used only in spam. You may add a site to this list if the following is true:
     <ul>
-      <li>The phrase has been used repeatedly in recent spam, has no false positives in metasmoke, and searching on Stack Exchange indicates that it is not a common phrase on any site in the network. When searching on Stack Exchange, you need to search <a href="https://stackexchange.com/search">in text</a>, <a href="https://stackexchange.com/search?q=url%3A">in URLs</a>, and <a href="https://stackexchange.com/search?q=code%3A">in code</a>. It must also meet similar true positive and false positive requirements as are in place for blacklisted websites.</li>
+      <li>The entry for the site must meet the general true positive and false positive requirements (<a href="#general-true-positive-and-false-positive-requirements">above</a>).</li>
     </ul>
   </li>
-  <li><strong>Watched keywords:</strong> anything is game, but be prepared to have it removed if circumstances require it.
+</ul>
+
+<h4 id="blacklisted-keywords">Blacklisted keywords:</h4>
+<ul>
+  <li>Reserved for phrases which we are highly confident are used only in spam.  You may add a phrase to this list if all the following are true:
+    <ul>
+      <li>The phrase has been used repeatedly in recent spam, has no false positives in metasmoke, and searching on Stack Exchange indicates that it is not a common phrase on any site in the network. When searching on Stack Exchange, you need to search <a href="https://stackexchange.com/search">in text</a>, <a href="https://stackexchange.com/search?q=url%3A">in URLs</a>, and <a href="https://stackexchange.com/search?q=code%3A">in code</a>.</li>
+      <li>The entry must meet the general true positive and false positive requirements (<a href="#general-true-positive-and-false-positive-requirements">above</a>).</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="blacklisted-numbers">Blacklisted numbers:</h4>
+<ul>
+  <li>Reserved for numbers which we are highly confident are used only in spam. You may add a number to this list if the following is true:
+    <ul>
+      <li>The entry for the number must meet the general true positive and false positive requirements (<a href="#general-true-positive-and-false-positive-requirements">above</a>).</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="blacklisted-usernames">Blacklisted usernames:</h4>
+<ul>
+  <li>Reserved for usernames which we are <em>highly</em> confident that are used only in spam.  You may add a username to this list if all the following are true:
+    <ul>
+      <li>The username has been used repeatedly in recent spam which use multiple accounts, or the same account on multiple SE sites, has no false positives in metasmoke, and <a href="https://data.stackexchange.com/stackoverflow/query/1242966/users-with-a-certain-name-across-the-network">searching on Stack Exchange</a> indicates there are not a notable number of users which use that name <em>and</em> it’s not likely to be used by new users (e.g. it’s not likely to be someone’s real name).</li>
+      <li>The entry for the username must <em>at least</em> meet the general true positive and false positive requirements (<a href="#general-true-positive-and-false-positive-requirements">above</a>). In general, username blacklist entries should substantially exceed these requirements.
+Blacklisting (or even watching) a username should be substantially more rare than adding entries for other types of content. It is quite harmful to innocent users if their posts are routinely detected just because of the username which they have chosen. When an entries targeting usernames gets a false positive, it should be reviewed to see if it can be adjusted to not detect the FP. If it can’t be adjusted, then the report should get <code class="language-plaintext highlighter-rouge">fpu</code> feedback in order to whitelist the user from username detections. However, <code class="language-plaintext highlighter-rouge">fpu</code> feedback does not fully exempt users from such detections. It only prevents reporting if the only thing the post was detected for were detections in the username.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="watched-keywords">Watched keywords:</h4>
+<ul>
+  <li>Anything is game, but be prepared to have it removed if circumstances require it.
     <ul>
       <li>We will be removing patterns periodically; you can reduce the risk of having useful patterns removed by proactively removing patterns you no longer are interested in, or which produce very uncertain value.</li>
       <li>Autoflagging weight for this reason is technically forced to stay at 1.</li>
-      <li>SmokeDetector will regard these rules as “experimental”; it will not alert in rooms other than Charcoal HQ and rooms that have specifically opted to receive reports for “experimental” reasons, if there are hits solely from this set of rules.</li>
+      <li>SmokeDetector will regard these rules as “experimental”. Reports which are only detected for “experimental” reasons will only be posted in rooms that have specifically opted-in to receive reports for “experimental” reasons. Charcoal HQ does receive “experimental” reports.</li>
     </ul>
   </li>
 </ul>
 
 <h3 id="preexisting-campaign">Preexisting Campaign</h3>
 
-<p>The criteria for blacklisting a web site is relaxed when the site is promoted in spam posts which we identify as being part of a “preexisting campaign”. This means the spam posts containing the web site can be directly tied to other recent spam posts which contain campaign-specific blacklisted web sites which already fulfill the stricter blacklisting criteria (i.e. not just generic blacklisted terms like “keto”).  In practice, this helps us trigger blacklisting early for sites which are clearly part of a series of spam from the same, or closely associated, spammers, where we can be reasonably sure that the only purpose of the site is to have a different URL than the other sites used in the preexisting campaign. (This is called “snowshoe spamming” – the tactic is to spread your footprint across many sites so as to evade trivial duplicate detection.)</p>
+<p>The criteria for blacklisting an entry is relaxed (see <a href="#general-true-positive-and-false-positive-requirements">above</a>) when the entry is promoted in spam posts which we identify as being part of a “preexisting campaign”. This means the spam posts containing the proposed new blacklist entry can be directly tied to other recent spam posts which contain <em>campaign-specific</em> blacklisted entries which already fulfill the stricter blacklisting criteria for at least one entry which is specific to that campaign (i.e. not just generic blacklisted terms like “keto”). In practice, this helps us trigger blacklisting early for sites or products which are clearly part of a series of spam from the same, or closely associated, spammers, where we can be reasonably sure that the only purpose of the entry is to have a different URL, or slightly different wording, than the other sites used in the preexisting campaign. Note that what is considered a “preexisting campaign” should be narrowly construed, and does not mean everything in an overall type of spam or spam which is for an overall type of product. (This is called “snowshoe spamming” – the tactic is to spread your footprint across many sites or slightly different keywords, so as to evade trivial duplicate detection.)</p>
 
 <p>Some common criteria for establishing a campaign include:</p>
 
@@ -131,20 +188,20 @@
   <li>The same product name has been promoted recently by a known spammer.
     <ul>
       <li>Obviously, generic promotions for common products are not sufficient.
-But e.g. a product which was unknown until recently and is now visible in posts from several accounts qualify.</li>
+But, for example a product which was unknown until recently and is now visible in posts from several accounts qualify.</li>
     </ul>
   </li>
   <li>The same IP address is connected exclusively to spam domains.
     <ul>
       <li>Note that some IP addresses (e.g. Shopify, AWS) are shared between a large number of domains;
 it is not sufficient that a few of those are also spam domains.
-But a common spam hosting pattern is that a single IP address is only seen in spam posts with several different domain names.</li>
+But, a common spam hosting pattern is that a single IP address is only seen in spam posts with several different domain names.</li>
     </ul>
   </li>
   <li>The same spam post (or user account on Stack Exchange, or etc) also links to an already blacklisted domain name.</li>
 </ul>
 
-<p>The intent is to enable us to fast-track blacklisting when there is clear evidence that the new domain name (or product name, etc) is a sock puppet of an already known spammer, i.e. we can reasonably establish that it was basically created to evade any blacklisting or other negative reputation associated with another account.</p>
+<p>The intent is to enable us to fast-track blacklisting when there is clear evidence that the new domain name (or product name, etc.) is a sockpuppet of an already known spammer, i.e. we can reasonably establish that it was basically created to evade any blacklisting or other negative reputation associated with another account.</p>
 
 <h2 id="how-to-blacklist-or-watch-something">How to Blacklist or Watch Something</h2>
 
