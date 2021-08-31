@@ -102,5 +102,5 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Nog Shine](https://chat.stackexchange.com/users/202339/nog-shine)
 *   [Tinkeringbell](https://chat.stackexchange.com/users/305737/Tinkeringbell)
 *   [Frenzy Li](https://chat.stackexchange.com/users/40662/frenzy-li)
-*   [Nick Craver](https://chat.stackexchange.com/users/128/nick-craver) (SE dev)
+*   [Nick Craver](https://chat.stackexchange.com/users/128/nick-craver) (SE dev emeritus)
 </section>
