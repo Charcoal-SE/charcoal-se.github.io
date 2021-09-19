@@ -42,7 +42,7 @@ If you come across something along those lines, it's most likely self-vandalism,
 post's author has removed a post's content in an effort to delete it. That's not something
 Stack Exchange allows, but it's not spam.
 
-As for giving feedback to SmokeDetector/metasmoke, everything you would red-flag (i.e. on which you'd raise a spam or rude/abusive flag) gets True Positive (TP) feedback, but so do some other things, such as the valndalism mentioned above (which, if flagged should be flagged with an "in need of moderator intervention" flag to explain what the problem is). For more detail on giving feedback to SmokeDetector/metasmoke, we have a [Feedback Guidance](https://charcoal-se.org/smokey/Feedback-Guidance) page.
+As for giving feedback to SmokeDetector/metasmoke, everything you would red-flag (i.e. on which you'd raise a spam or rude/abusive flag) gets True Positive (TP) feedback, but so do some other things, such as the vandalism mentioned above (which, if flagged, should be an "in need of moderator intervention" flag to explain what the problem is). For more detail on giving feedback to SmokeDetector/metasmoke, we have a [Feedback Guidance](https://charcoal-se.org/smokey/Feedback-Guidance) page.
 
 As always, use your best judgment, and ask if you're not sure.
 
