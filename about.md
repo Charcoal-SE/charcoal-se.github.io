@@ -10,10 +10,10 @@ Even if you are unfamiliar with the Stack Exchange network,
 you may have heard of or even participated on its flagship site for programming questions,
 [Stack Overflow](//stackoverflow.com/).
 The rest of the network contains hundreds of similar sites about various topics, including
-[law](//law.stackexchange.com/),
-[photography](//photography.stackexchange.com/), and
-[cooking](//cooking.stackexchange.com/),
-among others.
+[Law](//law.stackexchange.com/),
+[Photography](//photography.stackexchange.com/), and
+[Seasoned Advice (cooking)](//cooking.stackexchange.com/),
+among many others.
 
 The Stack Exchange network empowers and
 [strongly encourages its users to participate in quality assurance and moderation][1]
@@ -43,8 +43,11 @@ over moderation tools as they earn the trust of their peers.
 For example, an anonymous visitor or a new user can't flag posts
 or participate in chat.
 
+If you're interested in more information about participating in what we do,
+there's an [Introduction to Participating](/training/index) in Charcoal.
+
 If you are a registered user on the Stack Exchange network
-and have earned the [privileges to participate in chat,](https://stackoverflow.com/help/privileges/chat)
+and have earned the [privileges to participate in chat](https://stackoverflow.com/help/privileges/chat),
 please feel free to visit the
 [Charcoal HQ chat room](https://chat.stackexchange.com/rooms/11540/charcoal-hq)
 where most of our activity takes place.
