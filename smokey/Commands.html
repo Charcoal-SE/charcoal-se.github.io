@@ -116,6 +116,8 @@ Note 4: The notifications are appended as part of regular SmokeDetector reports.
   <li><code class="language-plaintext highlighter-rouge">!!/willbenotified &lt;chatroom_ID_number&gt; &lt;site_domain&gt;</code> — Reports whether you will be pinged, in the given room, about spam on the given site.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/allnotificationsites &lt;chatroom_ID_number&gt;</code> — Shows all sites that you will be pinged for in the given room.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/scan &lt;post URL 1&gt; [&lt;post URL 2&gt; [...&lt;post URL 5&gt;]] ["custom scan reason"]</code> — Directs SmokeDetector to scan a post. This is useful when you’re not sure if a post is spam and don’t want to report it. Smokey will go through all the usual processes of scanning a post and report it if it’s spam, and will tell you that it’s not spam otherwise. If you’re sure it’s spam but it isn’t being caught, use <code class="language-plaintext highlighter-rouge">!!/report</code> instead. A custom scan reason may be supplied. If you include a custom reason, it’s required to be enclosed in double quotation marks (e.g. <code class="language-plaintext highlighter-rouge">"custom scan reason"</code>).</li>
+  <li><code class="language-plaintext highlighter-rouge">!!/deobfuscate_number &lt;pattern&gt;</code> — Show the result of deobfuscating the number pattern.</li>
+  <li><code class="language-plaintext highlighter-rouge">!!/normalize_number &lt;pattern&gt;</code> — Show the number normalizations for a number pattern.</li>
 </ul>
 
 <h2 id="commands-as-reply-for-everyone">Commands as reply for everyone</h2>
@@ -221,12 +223,11 @@ Note: If you want SmokeDetector to make reports into a room, that’s best set u
   <li><code class="language-plaintext highlighter-rouge">!!/unblacklist &lt;regex&gt;</code> or <code class="language-plaintext highlighter-rouge">!!/unblacklist &lt;number text&gt;</code> - Similar to <code class="language-plaintext highlighter-rouge">unwatch</code>, removes a previously-added regular expression from the blacklists and/or a number from the number blacklist. Only blacklisters can use this command. It will only accept an exact match to a regular expression in the blacklists and/or an exact match to a number in the number blacklist.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/approve &lt;PR number&gt;</code> - Only blacklisters can use this command. It allows you to approve without leaving the chat a pull request which was automatically created for watches/blacklists by non-blacklisters users. It has an alias, <code class="language-plaintext highlighter-rouge">!!/accept</code>.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/reject &lt;PR number&gt; &lt;"reason"&gt;</code> - Reject/close a pull request which was automatically created by a <code class="language-plaintext highlighter-rouge">!!/watch*</code> or <code class="language-plaintext highlighter-rouge">!!/blacklist-*</code> command run by a non-blacklister user. The <code class="language-plaintext highlighter-rouge">reason</code> is to help the user who performed the command which created the PR learn from why the watch or blacklist addition was rejected. <em>If the <code class="language-plaintext highlighter-rouge">reason</code> is shorter than 20 characters, you will need to <code class="language-plaintext highlighter-rouge">-force</code> the rejection.</em> Only blacklisters can use this command. It has an alias, <code class="language-plaintext highlighter-rouge">!!/close</code>.</li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">!!/bisect &lt;text&gt;</code> - Test the text against all of the blacklist and watchlist regular expression based entries and report which entries match. Notably, <code class="language-plaintext highlighter-rouge">!!/bisect</code> does <em>not</em> test against the number watchlist and number blacklist.</p>
-
-    <p>Additionally, you can clone this project locally and use the command <code class="language-plaintext highlighter-rouge">./util.py bisect "&lt;string&gt;"</code> for local testing.</p>
-  </li>
+  <li><code class="language-plaintext highlighter-rouge">!!/bisect &lt;text&gt;</code> - Test the text against all of the entries on the blacklists and watchlists which are stored in the *.txt files and are manipulable using <code class="language-plaintext highlighter-rouge">!!/watch*</code>, <code class="language-plaintext highlighter-rouge">!!/unwatch</code>, <code class="language-plaintext highlighter-rouge">!!/blacklist*</code>, and <code class="language-plaintext highlighter-rouge">!!/unblacklist</code> commands. Notably, this does not include anything defined directly in findspam.py.</li>
+  <li><code class="language-plaintext highlighter-rouge">!!/bisect-number &lt;text&gt;</code> - Test the text against the number blacklist and watchlist entries. It does not test against the regular expressions. This is substantially less SmokeDetector CPU intensive than <code class="language-plaintext highlighter-rouge">!!/bisect</code>, so should be used if you’re focusing exclusively on numbers.</li>
 </ul>
+
+<p>Additionally, you can clone this project locally and use the command <code class="language-plaintext highlighter-rouge">./util.py bisect "&lt;string&gt;"</code> for local testing.</p>
 
 <h2 id="privileged-commands-as-reply">Privileged commands as reply</h2>
 
@@ -434,7 +435,7 @@ mode (like tp-) or just don’t reply by default (like delete).</p>
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/announcements": "https://charcoal-se.org//announcements/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>
