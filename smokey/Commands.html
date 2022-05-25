@@ -73,14 +73,23 @@
 <p>This wiki page contains a list of commands and their explanation.</p>
 
 <h2 id="executing-commands-and-giving-feedback">Executing commands and giving feedback</h2>
+
 <p>SmokeDetector commands and feedback are provided to SmokeDetector as chat messages in one of the rooms in which SmokeDetector is listening for commands (see the <a href="https://charcoal-se.org/smokey/Chat-Rooms">list of chat rooms</a>). Feedback can be given either as a <a href="#user-content-privileged-commands-as-reply">reply to a post</a>, or using <a href="#user-content-shortcut-commands">the <code class="language-plaintext highlighter-rouge">sd</code> prefix</a> in a message which is not a reply. Commands are in the format <code class="language-plaintext highlighter-rouge">!!/&lt;command text&gt;</code> or <code class="language-plaintext highlighter-rouge">sdc &lt;command text&gt;</code>, which are entered in new chat messages, not as replies.</p>
 
 <p>In order to keep this list of commands more concise, SmokeDetector commands are listed here in their <code class="language-plaintext highlighter-rouge">!!/&lt;command text&gt;</code> form, but all of them are able to be used with the <code class="language-plaintext highlighter-rouge">sdc &lt;command text&gt;</code> syntax.</p>
 
 <p>As an example, the following two commands are equivalent:</p>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>!!/alive
 sdc alive
 </code></pre></div></div>
+
+<h3 id="silent-mode">Silent mode</h3>
+
+<p>If you don’t want SmokeDetector to reply when executing a command, you can add a hyphen (<code class="language-plaintext highlighter-rouge">-</code>) at the end, like <code class="language-plaintext highlighter-rouge">fp-</code>. This is a good practice to cut down on chatroom clutter. Note that SmokeDetector will always report any errors, even if a trailing <code class="language-plaintext highlighter-rouge">-</code> is present. The hyphen can be placed after the command itself or after its parameters.</p>
+
+<p>All commands support the silent mode, though it’s more commonly used when replying to spam reports, managing black- and white-list, and managing chat notifications.</p>
+
 <h2 id="commands-for-everyone">Commands for everyone</h2>
 
 <p>These commands can be executed by everyone.</p>
@@ -89,15 +98,15 @@ sdc alive
   <li><code class="language-plaintext highlighter-rouge">!!/alive</code> or <code class="language-plaintext highlighter-rouge">!!/live</code> — Replies a random message taken from a list so you can see that SmokeDetector is still running.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/status</code> — Shows the UTC date when SmokeDetector started running.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/ms-status</code> — Shows the status of metasmoke. If SmokeDetector is unable to communicate with metasmoke, then SmokeDetector will assume that metasmoke is down and continue processing posts and reporting them into chat without attempting to communicate with metasmoke.</li>
-  <li><code class="language-plaintext highlighter-rouge">!!/ping-failure-counter</code>, <code class="language-plaintext highlighter-rouge">!!/ping-failure</code> <code class="language-plaintext highlighter-rouge">!!/internal-counter</code>, <code class="language-plaintext highlighter-rouge">!!/counter</code> - Shows the counter value used for metasmoke status auto switch. A negative value indicates consecutive successes while a positive value indicates consecutive failures. This is to be distinguished with the failure count shown by <code class="language-plaintext highlighter-rouge">!!/ms-status</code>.</li>
-  <li><code class="language-plaintext highlighter-rouge">!!/stat</code> - Shows post scanning statistics.</li>
+  <li><code class="language-plaintext highlighter-rouge">!!/ping-failure-counter</code>, <code class="language-plaintext highlighter-rouge">!!/ping-failure</code> <code class="language-plaintext highlighter-rouge">!!/internal-counter</code>, <code class="language-plaintext highlighter-rouge">!!/counter</code> — Shows the counter value used for metasmoke status auto switch. A negative value indicates consecutive successes while a positive value indicates consecutive failures. This is to be distinguished with the failure count shown by <code class="language-plaintext highlighter-rouge">!!/ms-status</code>.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/rev</code> or <code class="language-plaintext highlighter-rouge">!!/ver</code> — Shows the running Git revision.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/help</code>, <code class="language-plaintext highlighter-rouge">!!/info</code>, <code class="language-plaintext highlighter-rouge">!!/commands</code> — Shows a small help message about SmokeDetector.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/apiquota</code> — Shows the remaining API quota of SmokeDetector.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/queuestatus</code> — Shows the queue status of BodyFetcher.</li>
+  <li><code class="language-plaintext highlighter-rouge">!!/threads</code> — Returns a description of current threads, for debugging.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/blame</code> — Chooses randomly from a list of people who have talked recently in the room.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/lick</code>, <code class="language-plaintext highlighter-rouge">!!/wut</code>, <code class="language-plaintext highlighter-rouge">!!/coffee</code>, <code class="language-plaintext highlighter-rouge">!!/tea</code>, and <code class="language-plaintext highlighter-rouge">!!/brownie</code> — better versions of <code class="language-plaintext highlighter-rouge">!!/alive</code>, aka “fun” commands.</li>
-  <li><code class="language-plaintext highlighter-rouge">!!/location</code> — Replies with the current location, as set in the <code class="language-plaintext highlighter-rouge">config</code> file.</li>
+  <li><code class="language-plaintext highlighter-rouge">!!/location</code> — Replies with the current location, as set in the <code class="language-plaintext highlighter-rouge">config</code> file. Aliases for <code class="language-plaintext highlighter-rouge">location</code> include: <code class="language-plaintext highlighter-rouge">version</code>, <code class="language-plaintext highlighter-rouge">rev</code>, and <code class="language-plaintext highlighter-rouge">ver</code>.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/test site=&lt;site_domain&gt; &lt;string&gt;</code> — Runs <code class="language-plaintext highlighter-rouge">&lt;string&gt;</code> against the filter as if it appeared in a question title, body, or username. To test specifically, use <code class="language-plaintext highlighter-rouge">!!/test-a</code> for answer, <code class="language-plaintext highlighter-rouge">!!/test-q</code> for question body, <code class="language-plaintext highlighter-rouge">!!/test-t</code> for title, or <code class="language-plaintext highlighter-rouge">!!/test-u</code> for username. Note that the site is optional. If site is present, the command will use filters for that site.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/isblu</code>, <code class="language-plaintext highlighter-rouge">!!/iswlu</code> — Checks if a user is blacklisted/whitelisted. Two formats are accepted: <code class="language-plaintext highlighter-rouge">&lt;profile_URL&gt;</code> or <code class="language-plaintext highlighter-rouge">&lt;user_ID&gt; &lt;site_name&gt;</code></li>
   <li><code class="language-plaintext highlighter-rouge">!!/whoami</code> — Replies with the bot’s user id for that site</li>
@@ -105,13 +114,20 @@ sdc alive
   <li><code class="language-plaintext highlighter-rouge">!!/whois blacklister</code> — Replies with a list of blacklisters (and who’s currently in the room). Aliases for <code class="language-plaintext highlighter-rouge">blacklister</code> include: <code class="language-plaintext highlighter-rouge">blacklist_manager</code>, <code class="language-plaintext highlighter-rouge">blacklisters</code>, <code class="language-plaintext highlighter-rouge">code_admin</code>, and <code class="language-plaintext highlighter-rouge">codeadmins</code>.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/amiprivileged</code> — Lets you know if you are in the list of privileged users</li>
   <li><code class="language-plaintext highlighter-rouge">!!/amiblacklistprivileged</code> — Lets you know whether or not you have blacklist manager privileges (i.e. you can blacklist without approval)</li>
-  <li><code class="language-plaintext highlighter-rouge">!!/notify &lt;chatroom_ID_number&gt; &lt;site_domain&gt; [0|False]</code> — Tells SmokeDetector to ping you, in the given chatroom, when SD reports a post into that room where the SE post is on the specified <code class="language-plaintext highlighter-rouge">site_domain</code>. If “0” or “False” (requires a capital “F”) are supplied as a third argument, then the notifications are only added to reports when you are in the chat room for which you’re adding the notification. Please don’t use the “only notify when present in the room” feature in rooms where there’s a substantial volume of reports.<br />
-Example:  <code class="language-plaintext highlighter-rouge">!!/notify- 89 parenting.stackexchange.com</code><br />
-Note: Please use the squelch suffix (<code class="language-plaintext highlighter-rouge">-</code>) and avoid spamming the chat room with too many requests (i.e. <code class="language-plaintext highlighter-rouge">!!/notify-</code>). See <a href="http://chat.meta.stackexchange.com/transcript/message/4157790#4157790">this chat message</a> and the surrounding context.<br />
-Note 2: The list of who to notify is maintained separately by each SmokeDetector instance. This means that if the active instance is switched to a different one, you will need to run a <code class="language-plaintext highlighter-rouge">!!/notify-</code> command again, if you haven’t previously done so for the newly active SmokeDetector instance.<br />
-Note 3: Please also note that it is <strong>your responsibility</strong> to remain <code class="language-plaintext highlighter-rouge">@</code> pingable in the requested room. To be <code class="language-plaintext highlighter-rouge">@</code> pingable in a room, you need to either A) be present in that room at the time of the ping; or B) if you’ve posted a message in that room, then you are <code class="language-plaintext highlighter-rouge">@</code> pingable for 7 days after the last time you’ve entered that room. If you don’t meet those conditions, then an <code class="language-plaintext highlighter-rouge">@</code> ping will not work.<br />
-Note 4: The notifications are appended as part of regular SmokeDetector reports. SmokeDetector doesn’t post special messages just for the pings. If SmokeDetector is not already configured to report posts from the <code class="language-plaintext highlighter-rouge">&lt;site_domain&gt;</code> you’ve specified into the <code class="language-plaintext highlighter-rouge">&lt;chatroom_ID_number&gt;</code> room you’ve selected, then the <code class="language-plaintext highlighter-rouge">!!/notify</code> command won’t cause additional notification messages to be sent to that room. If you want SmokeDetector to make reports into a room, that’s best set up semi-permanently by modifying the <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/rooms.yml">rooms.yml file</a> (<a href="https://charcoal-se.org/smokey/Rooms-configuration">instructions</a>), but there are many options and changes potentially impact SmokeDetector performance, due to chat rate-limiting, so please ask/consult in <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a> before modifying that file or doing an <code class="language-plaintext highlighter-rouge">!!/invite</code> (see below). It’s also possible to temporarily invite SmokeDetector into a room with <code class="language-plaintext highlighter-rouge">!!/invite</code>, but it’s easy to get the syntax for that incorrect.</li>
-  <li><code class="language-plaintext highlighter-rouge">!!/unnotify &lt;chatroom_ID_number&gt; &lt;site_domain&gt;</code> — Cancels the previously set notification.  Also, accepts the silent mode suffix (<code class="language-plaintext highlighter-rouge">-</code>).</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">!!/notify &lt;chatroom_ID_number&gt; &lt;site_domain&gt; [0|False]</code> — Tells SmokeDetector to ping you, in the given chatroom, when SD reports a post into that room where the SE post is on the specified <code class="language-plaintext highlighter-rouge">site_domain</code>. If “0” or “False” (requires a capital “F”) are supplied as a third argument, then the notifications are only added to reports when you are in the chat room for which you’re adding the notification. Please don’t use the “only notify when present in the room” feature in rooms where there’s a substantial volume of reports.</p>
+
+    <p>Example:  <code class="language-plaintext highlighter-rouge">!!/notify- 89 parenting.stackexchange.com</code></p>
+
+    <p>Note: Please use the squelch suffix (<code class="language-plaintext highlighter-rouge">-</code>) and avoid spamming the chat room with too many requests (i.e. <code class="language-plaintext highlighter-rouge">!!/notify-</code>). See <a href="http://chat.meta.stackexchange.com/transcript/message/4157790#4157790">this chat message</a> and the surrounding context.</p>
+
+    <p>Note 2: The list of who to notify is maintained separately by each SmokeDetector instance. This means that if the active instance is switched to a different one, you will need to run a <code class="language-plaintext highlighter-rouge">!!/notify-</code> command again, if you haven’t previously done so for the newly active SmokeDetector instance.</p>
+
+    <p>Note 3: Please also note that it is <strong>your responsibility</strong> to remain <code class="language-plaintext highlighter-rouge">@</code> pingable in the requested room. To be <code class="language-plaintext highlighter-rouge">@</code> pingable in a room, you need to either A) be present in that room at the time of the ping; or B) if you’ve posted a message in that room, then you are <code class="language-plaintext highlighter-rouge">@</code> pingable for 7 days after the last time you’ve entered that room. If you don’t meet those conditions, then an <code class="language-plaintext highlighter-rouge">@</code> ping will not work.</p>
+
+    <p>Note 4: The notifications are appended as part of regular SmokeDetector reports. SmokeDetector doesn’t post special messages just for the pings. If SmokeDetector is not already configured to report posts from the <code class="language-plaintext highlighter-rouge">&lt;site_domain&gt;</code> you’ve specified into the <code class="language-plaintext highlighter-rouge">&lt;chatroom_ID_number&gt;</code> room you’ve selected, then the <code class="language-plaintext highlighter-rouge">!!/notify</code> command won’t cause additional notification messages to be sent to that room. If you want SmokeDetector to make reports into a room, that’s best set up semi-permanently by modifying the <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/rooms.yml"><code class="language-plaintext highlighter-rouge">rooms.yml</code> file</a> (<a href="https://charcoal-se.org/smokey/Rooms-configuration">instructions</a>), but there are many options and changes potentially impact SmokeDetector performance, due to chat rate-limiting, so please ask/consult in <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a> before modifying that file or doing an <code class="language-plaintext highlighter-rouge">!!/invite</code> (see below). It’s also possible to temporarily invite SmokeDetector into a room with <code class="language-plaintext highlighter-rouge">!!/invite</code>, but it’s easy to get the syntax for that incorrect.</p>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">!!/unnotify &lt;chatroom_ID_number&gt; &lt;site_domain&gt;</code> — Cancels the previously set notification.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/unnotify-all</code> - Removes all notifications.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/willbenotified &lt;chatroom_ID_number&gt; &lt;site_domain&gt;</code> — Reports whether you will be pinged, in the given room, about spam on the given site.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/allnotificationsites &lt;chatroom_ID_number&gt;</code> — Shows all sites that you will be pinged for in the given room.</li>
@@ -123,9 +139,14 @@ Note 4: The notifications are appended as part of regular SmokeDetector reports.
 <h2 id="commands-as-reply-for-everyone">Commands as reply for everyone</h2>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">why</code> — Shows the reason that SmokeDetector caught a post.<br />
-Note that <code class="language-plaintext highlighter-rouge">why</code> data is only kept for the last 50 reports. If you need to see older data, it can be found in the post record on Metasmoke.</li>
-  <li><code class="language-plaintext highlighter-rouge">autoflagged</code> — Returns if the post was autoflagged or not, and if so, what users were used.</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">why</code> — Shows the reason that SmokeDetector caught a post.</p>
+
+    <p>Note that <code class="language-plaintext highlighter-rouge">why</code> data is only kept for the last 50 reports. If you need to see older data, it can be found in the post record on Metasmoke.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">autoflagged</code> — Returns if the post was autoflagged or not, and if so, what users were used.</p>
+  </li>
 </ul>
 
 <h2 id="privileged-commands">Privileged commands</h2>
@@ -163,42 +184,53 @@ Note: If you want SmokeDetector to make reports into a room, that’s best set u
   <li><code class="language-plaintext highlighter-rouge">!!/stopflagging</code> - An emergency measure to immediately disable all autoflagging. Once disabled, autoflagging can only be re-enabled by an Admin.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/dump_data</code> - If a “dump” room is specified in rooms.yml, then the SD instance will output a chat message in that room which contains pickle formatted data that has been zlib compressed and base64 encoded. The data will include the blacklisted users list, whitelisted users list, list of ignored posts, and list of notifications. The resulting chat message can be used to transfer this data to another SD instance by using <code class="language-plaintext highlighter-rouge">!!/load_data &lt;chat message ID&gt;</code>.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/load_data &lt;chat message ID&gt;</code> - SD will read the data in the specified chat message and replace the lists it has for the values in that data. The chat message is expected to be in a format as generated by the <code class="language-plaintext highlighter-rouge">!!/dump_data</code> command.</li>
+  <li><code class="language-plaintext highlighter-rouge">!!/stats [operation] [from_stats_set] [to_stats_set]</code> — Shows and/or manipulates post scanning statistics. The available “operations” are: <code class="language-plaintext highlighter-rouge">clear</code>, <code class="language-plaintext highlighter-rouge">copy</code>, <code class="language-plaintext highlighter-rouge">create</code>, <code class="language-plaintext highlighter-rouge">delete</code>, <code class="language-plaintext highlighter-rouge">display</code>, <code class="language-plaintext highlighter-rouge">get</code>, <code class="language-plaintext highlighter-rouge">lock</code>, <code class="language-plaintext highlighter-rouge">list</code>, <code class="language-plaintext highlighter-rouge">reset</code>, <code class="language-plaintext highlighter-rouge">show</code>, and <code class="language-plaintext highlighter-rouge">unlock</code>. Further explanation is available in <a href="https://github.com/Charcoal-SE/SmokeDetector/pull/7004">PR #7004</a>, along with an <a href="https://github.com/Charcoal-SE/SmokeDetector/pull/7004#issuecomment-1133116441">explanation of what the stats output means</a>. For most of the the operations which receive a not permitted response, there’s a <code class="language-plaintext highlighter-rouge">!!/stats-force</code> version which will override that block. However, that block is generally there to prevent bad things from happening, so use care. The aliases for the command are <code class="language-plaintext highlighter-rouge">stat</code>, <code class="language-plaintext highlighter-rouge">scan-stat</code>, and <code class="language-plaintext highlighter-rouge">statistics</code>, along with their <code class="language-plaintext highlighter-rouge">-force</code> variations.</li>
 </ul>
 
-<h3 id="blacklists-watchlists-and-the-user-whitelist">Blacklists, watchlists, and the user-whitelist</h3>
+<h2 id="blacklists-watchlists-and-the-user-whitelist">Blacklists, watchlists, and the user-whitelist</h2>
 
-<h4 id="user-blacklist-and-user-whitelist">User-blacklist and user-whitelist</h4>
+<p>These commands manages the detection blacklists and whitelists. Except for the user-blacklist and user-whitelist, all commands require “blacklist manager”</p>
+
+<h3 id="user-blacklist-and-user-whitelist">User-blacklist and user-whitelist</h3>
+
 <p>The user-blacklist and user-whitelist are maintained <em>per SmokeDetector instance</em>. The SmokeDetector instances do not share these lists between themselves. Thus, if the SmokeDetector instance is switched, the new instance will only have a record of the entries on these lists which were added/removed while that instance was active.</p>
 
-<h5 id="user-blacklist">User-blacklist</h5>
-<p>The user-blacklist is a dynamic list of users which will have any post of theirs reported by SmokeDetector anytime one of their posts is scanned. Users are primarily added to the user-blacklist when someone gives <code>tp<b>u</b></code> feedback to a post the user has authored, or when one of their posts is manually reported to SmokeDetector with <code class="language-plaintext highlighter-rouge">!!/report</code> and the post would not have otherwise been detected. Users are automatically removed from the user-blacklist when <code class="language-plaintext highlighter-rouge">fp</code> feedback is given for a post they have authored. Users can also be explicitly added, removed, or their blacklist status determined with the following commands:</p>
+<p><strong>The user-blacklist</strong> is a dynamic list of users which will have any post of theirs reported by SmokeDetector anytime one of their posts is scanned. Users are primarily added to the user-blacklist when someone gives <code>tp<b>u</b></code> feedback to a post the user has authored, or when one of their posts is manually reported to SmokeDetector with <code class="language-plaintext highlighter-rouge">!!/report</code> and the post would not have otherwise been detected. Users are automatically removed from the user-blacklist when <code class="language-plaintext highlighter-rouge">fp</code> feedback is given for a post they have authored. Users can also be explicitly added, removed, or their blacklist status determined with the following commands:</p>
+
 <ul>
   <li><code class="language-plaintext highlighter-rouge">!!/addblu &lt;profile_URL&gt;</code> or <code class="language-plaintext highlighter-rouge">!!/addblu &lt;user_ID&gt; &lt;site_name&gt;</code> — Adds a user to the user-blacklist (this means that any post by this user will be reported when scanned).</li>
   <li><code class="language-plaintext highlighter-rouge">!!/rmblu &lt;profile_URL&gt;</code> or <code class="language-plaintext highlighter-rouge">!!/rmblu &lt;user_ID&gt; &lt;site_name&gt;</code> — Removes a user from the user-blacklist.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/isblu</code> Checks if a user is blacklisted. This command does not require privileges. Two formats are accepted: <code class="language-plaintext highlighter-rouge">!!/isblu &lt;profile_URL&gt;</code> or <code class="language-plaintext highlighter-rouge">!!/isblu &lt;user_ID&gt; &lt;site_name&gt;</code></li>
 </ul>
 
-<h5 id="user-whitelist">User-whitelist</h5>
-<p>The user-whitelist is a list of users for which posts will not be reported if the <em>only detections</em> of the post are on the user’s username. If there are other detections triggered, then the post will be reported with the username detections included. Users are added to the list if their post receives <code>fp<b>u</b></code> feedback. Users can also be explicitly added, removed, or their whitelist status determined with the following commands:</p>
+<p><strong>The user-whitelist</strong> is a list of users for which posts will not be reported if the <em>only detections</em> of the post are on the user’s username. If there are other detections triggered, then the post will be reported with the username detections included. Users are added to the list if their post receives <code>fp<b>u</b></code> feedback. Users can also be explicitly added, removed, or their whitelist status determined with the following commands:</p>
+
 <ul>
   <li><code class="language-plaintext highlighter-rouge">!!/addwlu &lt;profile_URL&gt;</code> or <code class="language-plaintext highlighter-rouge">!!/addwlu &lt;user_ID&gt; &lt;site_name&gt;</code> — Adds a user to the user-whitelist. For posts by this user, if the only detections triggered for the post are on the username, then those detections alone will not cause the post to be reported.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/rmwlu &lt;profile_URL&gt;</code> or <code class="language-plaintext highlighter-rouge">!!/rmwlu &lt;user_ID&gt; &lt;site_name&gt;</code> — Removes a user from the user-whitelist.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/iswlu</code> Checks if a user is whitelisted. This command does not require privileges. Two formats are accepted: <code class="language-plaintext highlighter-rouge">!!/iswlu &lt;profile_URL&gt;</code> or <code class="language-plaintext highlighter-rouge">!!/iswlu &lt;user_ID&gt; &lt;site_name&gt;</code></li>
 </ul>
 
-<h4 id="detection-blacklists-and-watchlists">Detection blacklists and watchlists</h4>
-<p>For all <code class="language-plaintext highlighter-rouge">!!/blacklist-*</code> and <code class="language-plaintext highlighter-rouge">!!/watch*</code> commands: If you are a <a href="https://charcoal-se.org/smokey/Privileges#code-admin-aka-blacklister-ms">blacklister</a> on metasmoke, your change will apply immediately, after brief checks by SmokeDetector or once CI passes, depending on the circumstances. If you are not a blacklister: A) a <a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests">pull request</a> (PR) will be created for your additions to the lists, so the changes can be reviewed. B) you will not be allowed to execute <code class="language-plaintext highlighter-rouge">!!/unwatch</code> or <code class="language-plaintext highlighter-rouge">!!/unblacklist</code> commands. You will need to ping a blacklister to perform those commands, or manually submit a PR that performs the change.</p>
+<h3 id="detection-blacklists-and-watchlists">Detection blacklists and watchlists</h3>
 
-<p>All commands which add entries to one of these lists run the new entry through a variety of checks. If some checks are not passed, then a chat reply message is posted detailing what didn’t pass. All such commands have a <code class="language-plaintext highlighter-rouge">-force</code> variant (i.e. append <code class="language-plaintext highlighter-rouge">-force</code> to the command; e.g. <code class="language-plaintext highlighter-rouge">!!/watch-force</code>), which will bypass these checks, except checks for actual duplicate entries, which are considered a hard error. You should not be in the habit of directly running the <code class="language-plaintext highlighter-rouge">-force</code> variant of the commands. Run the non <code class="language-plaintext highlighter-rouge">-force</code> version first to see what SmokeDetector says. If you have verified that you still want to add the entry, despite the issues SmokeDetector mentioned, then you can then edit your chat message to add <code class="language-plaintext highlighter-rouge">-force</code>, or post a new chat message with <code class="language-plaintext highlighter-rouge">-force</code>. Even very experienced users rarely go directly to using the <code class="language-plaintext highlighter-rouge">-force</code> version without running the command as a non- <code class="language-plaintext highlighter-rouge">-force</code> version first.</p>
+<p>For all <code class="language-plaintext highlighter-rouge">!!/blacklist-*</code> and <code class="language-plaintext highlighter-rouge">!!/watch*</code> commands:</p>
 
-<h5 id="non--number-blacklists-and-watchlist">Non <code class="language-plaintext highlighter-rouge">-number</code> blacklists and watchlist</h5>
+<ul>
+  <li>If you are a <a href="https://charcoal-se.org/smokey/Privileges#code-admin-aka-blacklister-ms">blacklister</a> on metasmoke, your change will apply immediately, after brief checks by SmokeDetector or once CI passes, depending on the circumstances.</li>
+  <li>If you are not a blacklister, a <a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests">pull request</a> (PR) will be created for your additions to the lists, so the changes can be reviewed. You will not be allowed to execute <code class="language-plaintext highlighter-rouge">!!/unwatch</code> or <code class="language-plaintext highlighter-rouge">!!/unblacklist</code> commands. You will need to ping a blacklister to perform those commands, or manually submit a PR that performs the removal.</li>
+</ul>
+
+<p>All commands that add entries to one of these lists run the new entry through a variety of checks. If some checks are not passed, then a chat reply message is posted detailing what didn’t pass. All such commands have a <code class="language-plaintext highlighter-rouge">-force</code> variant (i.e. append <code class="language-plaintext highlighter-rouge">-force</code> to the command; e.g. <code class="language-plaintext highlighter-rouge">!!/watch-force</code>), which will bypass these checks, except checks for actual duplicate entries, which are considered a hard error. You should not be in the habit of directly running the <code class="language-plaintext highlighter-rouge">-force</code> variant of the commands. Run the non <code class="language-plaintext highlighter-rouge">-force</code> version first to see what SmokeDetector says. If you have verified that you still want to add the entry, despite the issues SmokeDetector mentioned, then you can edit your chat message to add <code class="language-plaintext highlighter-rouge">-force</code>, or post a new chat message with <code class="language-plaintext highlighter-rouge">-force</code>. Even very experienced users rarely go directly to using the <code class="language-plaintext highlighter-rouge">-force</code> version without running the command as a non- <code class="language-plaintext highlighter-rouge">-force</code> version first.</p>
+
+<h4 id="non--number-blacklists-and-watchlist">Non <code class="language-plaintext highlighter-rouge">-number</code> blacklists and watchlist</h4>
+
 <p>The non <code class="language-plaintext highlighter-rouge">-number</code> blacklists and watchlist are lists of regular expressions (regexes) which are used to test some or all of post bodies, post titles, and usernames for matching text. See the description of the command for adding entries to each list for a statement as to what the entries on that list are tested against.</p>
 
-<p>Because these lists are regular expressions, make sure regex special characters are escaped (in particular, <code class="language-plaintext highlighter-rouge">.</code> characters should be escaped as <code class="language-plaintext highlighter-rouge">\.</code>) when not used as the special character. The regular expression variant that SmokeDetector uses is the <a href="https://pypi.org/project/regex/"><code class="language-plaintext highlighter-rouge">regex</code> package</a>.</p>
+<p>Because these lists are regular expressions, make sure regex special characters are escaped (in particular, <code class="language-plaintext highlighter-rouge">.</code> characters should be escaped as <code class="language-plaintext highlighter-rouge">\.</code>) when not used for the special meaning. The regular expression variant that SmokeDetector uses is the <a href="https://pypi.org/project/regex/"><code class="language-plaintext highlighter-rouge">regex</code> package</a>.</p>
 
-<p>When adding to the blacklists, any entry in the watchlists which exactly matches what you’re adding to the blacklist will be automatically removed from the watchlists. In other words, adding to the blacklist is assumed to be moving an entry from the watchlist to the blacklists, if it already existed on a watchlist.</p>
+<p>When adding to the blacklists, any entry in the watchlists which exactly matches what you’re adding to the blacklist will be automatically removed from the watchlists. In other words, adding to the blacklist is assumed to be moving an entry from the watchlist to the blacklists, if it already exists on a watchlist.</p>
 
-<p>The regexes for the keyword-blacklist and watchlist have <code class="language-plaintext highlighter-rouge">\b</code> prepended and appended to them prior to testing against post bodies, titles, and usernames. For both of those lists, the <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">s</code> flags are set (case insensitive and <code class="language-plaintext highlighter-rouge">.</code> matches anything). The other lists do not bookend the regexes with <code class="language-plaintext highlighter-rouge">\b</code> and only have the case insensitive flag, <code class="language-plaintext highlighter-rouge">i</code>, set. Note: the actual bookending begins the overall regex with <code class="language-plaintext highlighter-rouge">(?:^|\b|(?w:\b))</code> and ends it with <code class="language-plaintext highlighter-rouge">(?:\b|(?w:\b)|$)</code>. The documentation for the <a href="https://pypi.org/project/regex/"><code class="language-plaintext highlighter-rouge">regex</code> package</a> briefly describes what the <code class="language-plaintext highlighter-rouge">w</code> (word) flag in the bookending does. [See “Unicode line separators” in the linked regex package documentation.]</p>
+<p>The regexes for the keyword-blacklist and watchlist have <code class="language-plaintext highlighter-rouge">\b</code> prepended and appended to them prior to testing against post bodies, titles, and usernames. For both of those lists, the <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">s</code> flags are set (case insensitive and <code class="language-plaintext highlighter-rouge">.</code> matches newline). The other lists do not bookend the regexes with <code class="language-plaintext highlighter-rouge">\b</code> and only have the case insensitive flag, <code class="language-plaintext highlighter-rouge">i</code>, set. Note: the actual bookending begins the overall regex with <code class="language-plaintext highlighter-rouge">(?:^|\b|(?w:\b))</code> and ends it with <code class="language-plaintext highlighter-rouge">(?:\b|(?w:\b)|$)</code>. <a href="https://pypi.org/project/regex/#unicode-line-separators">The documentation</a> for the <code class="language-plaintext highlighter-rouge">regex</code> package briefly describes what the <code class="language-plaintext highlighter-rouge">w</code> (word) flag in the bookending does.</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">!!/blacklist</code> — <strong>This command has been deactivated.</strong> Use one of the four specialized blacklist commands instead, which are shown below. If run, this command will post a help message in chat.</li>
@@ -208,7 +240,8 @@ Note: If you want SmokeDetector to make reports into a room, that’s best set u
   <li><code class="language-plaintext highlighter-rouge">!!/watch &lt;regex&gt;</code> - Adds a regular expression pattern to the <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/watched_keywords.txt">watchlist</a> which is similar to the list of bad keywords (see <code class="language-plaintext highlighter-rouge">!!/blacklist-keyword</code> above), but with less strict criteria for what you can list.  The intent is that you can set up SmokeDetector to watch for something and be alerted when it actually happens.  Typical phrases to watch include domain names and phrases which occur in spam, but which have not been seen by metasmoke enough to actually blacklist (yet) or which don’t meet the high spam-detection-accuracy criteria required of blacklisted items. The long version of this command is <code class="language-plaintext highlighter-rouge">!!/watch-keyword &lt;regex&gt;</code>. Prior to being used by SmokeDetector to test posts, all regexes on this list automatically have <code class="language-plaintext highlighter-rouge">\b</code> added to the start and end of the regex. Regular expressions on this list are tested against post bodies, post titles, and usernames.</li>
 </ul>
 
-<h5 id="-number-blacklists-and-watchlist"><code class="language-plaintext highlighter-rouge">-number</code> blacklists and watchlist</h5>
+<h4 id="-number-blacklists-and-watchlist"><code class="language-plaintext highlighter-rouge">-number</code> blacklists and watchlist</h4>
+
 <p>The <code class="language-plaintext highlighter-rouge">-number</code> blacklist and watchlist are lists of numbers that are tested against post bodies, post titles, and usernames as text both verbatim and “normalized” (with everything but numbers removed).</p>
 
 <ul>
@@ -227,7 +260,11 @@ Note: If you want SmokeDetector to make reports into a room, that’s best set u
   <li><code class="language-plaintext highlighter-rouge">!!/bisect-number &lt;text&gt;</code> - Test the text against the number blacklist and watchlist entries. It does not test against the regular expressions. This is substantially less SmokeDetector CPU intensive than <code class="language-plaintext highlighter-rouge">!!/bisect</code>, so should be used if you’re focusing exclusively on numbers.</li>
 </ul>
 
-<p>Additionally, you can clone this project locally and use the command <code class="language-plaintext highlighter-rouge">./util.py bisect "&lt;string&gt;"</code> for local testing.</p>
+<p>Since <code class="language-plaintext highlighter-rouge">bisect</code> is computationally intensive, the <code class="language-plaintext highlighter-rouge">test</code> commands are preferred if you’re only interested in whether something would be caught. The <code class="language-plaintext highlighter-rouge">bisect</code> command should be reserved for when you need to know exactly which entry in the watch/blacklist would be responsible for the detection.</p>
+
+<p>Additionally, for offline testing, you can clone this repository locally and run the command <code class="language-plaintext highlighter-rouge">./util.py bisect "&lt;string&gt;"</code>.</p>
+
+<p>If your intention is merely to check whether something is already on a list with the intention of adding it if it is not, then just go ahead and issue the command to add it. SmokeDetector will automatically run the equivalent of the <code class="language-plaintext highlighter-rouge">test</code> command and reply to you with a warning if what you attempted to add would already be caught by an item on one of the lists. Otherwise, it will be added. In other words: don’t ask to add, just add.</p>
 
 <h2 id="privileged-commands-as-reply">Privileged commands as reply</h2>
 
@@ -236,7 +273,7 @@ Note: If you want SmokeDetector to make reports into a room, that’s best set u
 <p>User-friendly syntax:</p>
 
 <ul>
-  <li>use <code class="language-plaintext highlighter-rouge">spam</code> or <code class="language-plaintext highlighter-rouge">rude</code> or <code class="language-plaintext highlighter-rouge">abusive</code> or <code class="language-plaintext highlighter-rouge">offensive</code> for posts that should be flagged as such (equivalent to <code class="language-plaintext highlighter-rouge">tpu-</code>; see below)</li>
+  <li>use <code class="language-plaintext highlighter-rouge">spam</code>, <code class="language-plaintext highlighter-rouge">rude</code>, <code class="language-plaintext highlighter-rouge">abusive</code> or <code class="language-plaintext highlighter-rouge">offensive</code> for posts that should be flagged as such (equivalent to <code class="language-plaintext highlighter-rouge">tpu-</code>; see <a href="#Aliases">Aliases</a> below)</li>
   <li>use <code class="language-plaintext highlighter-rouge">v</code>, <code class="language-plaintext highlighter-rouge">vand</code> or <code class="language-plaintext highlighter-rouge">vandalism</code> for posts that have been vandalised and the vandalism edit should be rolled back (equivalent to <code class="language-plaintext highlighter-rouge">tp-</code>)</li>
   <li>use <code class="language-plaintext highlighter-rouge">notspam</code> if the post should not be flagged (equivalent to <code class="language-plaintext highlighter-rouge">fp-</code>)</li>
 </ul>
@@ -254,11 +291,9 @@ Note: If you want SmokeDetector to make reports into a room, that’s best set u
   <li><code class="language-plaintext highlighter-rouge">postgone</code> — Edits out the post link of a SmokeDetector report. If in CHQ, this should be used sparingly.</li>
 </ul>
 
-<h2 id="silent-mode-and-aliases">Silent mode and aliases</h2>
+<h3 id="aliases">Aliases</h3>
 
-<p>If you don’t want SmokeDetector to reply when executing a command add a <code class="language-plaintext highlighter-rouge">-</code> sign at the end, for example, <code class="language-plaintext highlighter-rouge">fp-</code>. This is a good practice to cut down on chatroom clutter.  Note that SmokeDetector will always report any errors, even if the <code class="language-plaintext highlighter-rouge">-</code> is present. The hyphen can be placed after the command itself or after its parameter. The following commands support silent mode: replying to spam reports, managing black- and white-list, and managing chat notifications.</p>
-
-<p>Also, some frequently used commands have one-letter aliases or convenient words that can be used instead:</p>
+<p>Some frequently used commands have one-letter aliases or convenient words that can be used instead:</p>
 
 <table>
   <thead>
@@ -315,7 +350,8 @@ Note: If you want SmokeDetector to make reports into a room, that’s best set u
   </tbody>
 </table>
 
-<h2 id="a-note-on-message-deletion">A note on message deletion</h2>
+<h3 id="a-note-on-message-deletion">A note on message deletion</h3>
+
 <p>Messages by SmokeDetector can be deleted within 2 minutes after they were posted by using the <code class="language-plaintext highlighter-rouge">del</code>, <code class="language-plaintext highlighter-rouge">remove</code>, or <code class="language-plaintext highlighter-rouge">gone</code> commands. After 2 minutes are up, SmokeDetector cannot delete its own messages in response to those commands, so any deletion after that window must be done by a moderator.</p>
 
 <p>Messages will also be deleted in <em>Tavern on the Meta</em> and <em>SO Close Vote Reviewers</em>, or <em>Raiders of the Lost Downboat</em> if the relevant post is deleted or marked as false positive before the 2-minute window is up.</p>
@@ -333,8 +369,7 @@ Note: If you want SmokeDetector to make reports into a room, that’s best set u
 
 <h2 id="shortcut-commands">Shortcut commands</h2>
 
-<p>You can now use a shortcut to post a reply to one, two or three messages
-at the same time, in this shape:</p>
+<p>You can now use a shortcut to post a reply to one, two or three messages at the same time, in this shape:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sd cmd1
 sd cmd1 cmd2
@@ -343,15 +378,11 @@ sd cmd1 cmd2 cmd3 cmd4
 sd cmd1 cmd2 cmd3 cmd4 cmd5
 </code></pre></div></div>
 
-<p>cmd1 will be invoked in the most recent message, cmd2 on the message
-before that and cmd3 on the message before that, and so on.</p>
+<p>cmd1 will be invoked in the most recent message, cmd2 on the message before that and cmd3 on the message before that, and so on.</p>
 
-<p>It’s also possible to skip a message. Replace a command with a <code class="language-plaintext highlighter-rouge">-</code> to skip a
-message. For example, <code class="language-plaintext highlighter-rouge">sd - delete</code> skips the most recent message and
-deletes the message before that one.</p>
+<p>It’s also possible to skip a message. Replace a command with a <code class="language-plaintext highlighter-rouge">-</code> to skip a message. For example, <code class="language-plaintext highlighter-rouge">sd - delete</code> skips the most recent message and deletes the message before that one.</p>
 
-<p>Smokey will reply to your shortcut command unless all commands have quiet
-mode (like tp-) or just don’t reply by default (like delete).</p>
+<p>Smokey will reply to your shortcut command unless all commands have quiet mode (like tp-) or just don’t reply by default (like delete).</p>
 
 <p>A few examples:</p>
 
