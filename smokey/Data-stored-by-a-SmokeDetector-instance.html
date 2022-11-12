@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    Data stored by a SmokeDetector instance | Charcoal
+    
+  </title>
+  <link type="text/css" rel="stylesheet" href="/assets/application-0af23b9271f4af0499f4e1c18c5c797afb37c9dcbba3a992a3e5e26a48b5cbc6.css">
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,fetch"></script>
+  <script>window.algoliaLogoHTML = '<img src="/assets/search-by-algolia-f11921c9ad37d8af1d526ce35d9994eb44ad34b8229c1714edbf5cef12f804dc.svg" height="16" alt="Search by Algolia" width="168">'</script>
+  <script type="text/javascript" src="/assets/application-678e5bc73276f2c4a030350cf70f2a32f496473871f3004a00e5ab64924f2670.js"></script>
+  <script type="text/javascript" src="/assets/vendor-ecc837bbd5d3e5dbfb38524f3faaf1406e7e5490330a1bd2b4728be17a5fffa7.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon"
+            type="image/png"
+            href="/assets/charcoal-fd5b673dc87bbcf444be78adbf43a1198e981d2133de0a3eab4810ca047efbb7.png" />
+</head>
+<body>
+  <div class="body-container">
+    
+    <div class="header">
+      <div class="header-icon text-center">
+        <a href="/">
+          <img src="/assets/charcoal-fd5b673dc87bbcf444be78adbf43a1198e981d2133de0a3eab4810ca047efbb7.png" height="64" width title="Charcoal: spam-crusaders of the Internet" alt="charcoal.png">
+          <span class="title">
+            <span>Charcoal</span>
+            <small>spam-crusaders of the Internet</small>
+          </span>
+        </a>
+        <label class="nav-toggle-icon fa fa-bars fa-lg" for="nav-toggle"></label>
+      </div>
+      <input type="checkbox" id="nav-toggle">
+      <nav class="text-center top-nav">
+        <div class="search-nav">
+          <i class="fa fa-search search-icon inline-icon fa-fw"></i>
+          <input type="text" placeholder="Search…" id="search-input">
+          <a href="#" id="search-close" class="inline-icon close-icon"><i class="fa fa-times fa-fw"></i></a>
+        </div>
+        <ul class="main-nav">
+          <li><a href="/"><i class="fa fa-home" title="Home"></i><span class="mobile-only"> Home</span></a></li>
+          <li><a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq"><i class="fa mobile-only fa-comments-o"></i> chat</a></li>
+          <li>
+            <label class="link" for="projects-toggle">
+              more projects <i class="fa fa-chevron-down"></i>
+            </label>
+            <input type="checkbox" id="projects-toggle">
+            <nav class="nav-dropdown">
+              <a href="https://metasmoke.erwaysoftware.com/" >metasmoke</a>
+            
+              <a href="https://charcoal-se.org/ms-urls" >metasmoke URL converter</a>
+            
+              <a href="https://charcoal-se.org/blaze" data-turbolinks="false">Blaze</a>
+            </nav>
+          </li>
+          <li><a href="/scripts"><i class="fa mobile-only fa-file-code-o"></i> userscripts</a></li>
+          <li><a href="/smokey/"><i class="fa mobile-only fa-file-text-o"></i> wiki</a></li>
+          <li>
+            <a href="/ms/API-Documentation-(V2)"><i class="fa mobile-only fa-book"></i> api</a>
+            (<a href="/ms/API-Documentation-(V1)">v1</a>)
+          </li>
+          <li><a href="https://github.com/Charcoal-SE" title="GitHub organization"><i class="fa fa-github"></i><span class="mobile-only"> GitHub</span></a></li>
+          <li><a href="#" class="search-link"><i class="fa fa-search" title="Search"></i><span class="mobile-only"> Search</span></a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="body">
+      
+
+
+<h1 id="data-stored-by-a-smokedetector-instance">Data stored by a SmokeDetector instance</h1>
+
+<p>Each SmokeDetector instance stores a number of data files within its repository directory. These are used to hold state between reboots and for debugging.</p>
+
+<h2 id="pickles"><a href="https://docs.python.org/3/library/pickle.html">Pickles</a></h2>
+<p>All pickles are stored in the “./pickles” directory.</p>
+
+<p>The <a href="https://docs.python.org/3/library/pickle.html#data-stream-format"><code class="language-plaintext highlighter-rouge">protocol</code></a> which is used is, currently, <a href="https://docs.python.org/3/library/pickle.html#pickle.HIGHEST_PROTOCOL"><code class="language-plaintext highlighter-rouge">pickle.HIGHEST_PROTOCOL</code></a>. Protocol 5 is only supported in Python &gt;= 3.8. We, currently, support Python 3.10 &lt;= X &lt;= 3.7. This means that SmokeDetector instances which are running in Python 3.7 will not be able to read pickle files created by SmokeDetector instances which are running with Python &gt;= 3.8. In the vast majority of cases, this shouldn’t be an issue, because the pickles are intended to be read by the instance which created them. This should be/will be changed to use the highest protocol which is supported by the lowest Python version we support, which, currently, means protocol 4.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pickle   File</th>
+      <th>Where is the code to dump/load the pickle</th>
+      <th>Contents</th>
+      <th>What</th>
+      <th>Notes</th>
+      <th>Should sync between SD instances</th>
+      <th>Is in <code class="language-plaintext highlighter-rouge">!!/dump</code> / <code class="language-plaintext highlighter-rouge">!!/load</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>apiCalls.p</td>
+      <td>datahandling.py</td>
+      <td><code class="language-plaintext highlighter-rouge">GlobalVars.api_calls_per_site</code></td>
+      <td>Count of the number of bodyfetcher.py scan API calls which were made for the site since the last time the API quota rolled over.</td>
+      <td>Currently, this is synchronously dumped after every scan API call. A) it should be done asynchronously as a task; B) we don’t need it to be dumped that often. It really should only be dumped periodically and/or upon reboot or crash.</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>autoIgnoredPosts.p</td>
+      <td>datahandling.py</td>
+      <td><code class="language-plaintext highlighter-rouge">GlobalVars.auto_ignored_posts</code></td>
+      <td>List of site/post which SD has auto-ignored, which is done for 7 days when detected for only one detection from a list: “all-caps title”, “repeating characters in {}”, and “repeating words in {}”.</td>
+      <td>Dumped synchronously when a post is added after scan. Filtered to 7 days max upon boot and dumped, synchronously.</td>
+      <td>Yes</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>blacklistedUsers.p</td>
+      <td>datahandling.py</td>
+      <td><code class="language-plaintext highlighter-rouge">GlobalVars.blacklisted_users</code></td>
+      <td>Dict of users who have been blacklisted and why</td>
+      <td>Dumped synchronously upon add and remove</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>bodyfetcherMaxIds.p</td>
+      <td>datahandling.py</td>
+      <td><code class="language-plaintext highlighter-rouge">GlobalVars.bodyfetcher.previous_max_ids</code></td>
+      <td>Dict by site of the most recent post fetched. Used for all sites other than SO.</td>
+      <td>Stored as a async task after every bodyfetcher scan, which allows only one dump task active at a time. Pickle will go away when scanning changed for all sites to fetching most recently active, rather than by specific ID.</td>
+      <td>Yes</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>bodyfetcherQueue.p</td>
+      <td>datahandling.py</td>
+      <td><code class="language-plaintext highlighter-rouge">GlobalVars.bodyfetcher.queue</code></td>
+      <td>Dict by site of the posts currently in the queue to be fetched and scanned.</td>
+      <td>Stored as a async task after every bodyfetcher scan, which allows only one dump task active at a time. How that works should be adjusted a bit. Instead of canceling the current task, a new task should just not be added if there’s an existing one.</td>
+      <td>Yes</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>codePrivileges.p</td>
+      <td>datahandling.py</td>
+      <td><code class="language-plaintext highlighter-rouge">GlobalVars.code_privileged_users</code></td>
+      <td>Set of (chat site, user ID) tuples obtained from MS of users who are code privileged.</td>
+      <td> </td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>cookies.p</td>
+      <td>datahandling.py</td>
+      <td><code class="language-plaintext highlighter-rouge">GlobalVars.cookies</code></td>
+      <td>Dict by SE Chat site of the cookies obtained for logging into Chat.</td>
+      <td> </td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>deletionIDs.p</td>
+      <td>deletionwatcher.py</td>
+      <td>dict of sites, each a list of post IDs</td>
+      <td>Posts which are currently being watched by DeletionWatcher</td>
+      <td>Dumped as Task upon subscribing</td>
+      <td>Yes</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>editActions.p</td>
+      <td>editwatcher.py</td>
+      <td>dict of sites, each a list of post IDs</td>
+      <td>Posts which are currently being watched by EditWatcher</td>
+      <td>Supposed to be dumped as Task upon subscribing. However, it appears there’s a bug in the code, because the pickle doesn’t exist on my instance or my test instance.</td>
+      <td>Yes</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>falsePositives.p</td>
+      <td>datahandling.py</td>
+      <td><code class="language-plaintext highlighter-rouge">GlobalVars.false_positives</code></td>
+      <td>List of tuple containing site/post ID. Is used to prevent re-reporting posts which have received FP feedback.</td>
+      <td>Dumped syncronously upon addition. There’s no way to remove a post once added.</td>
+      <td>Yes</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ignoredPosts.p</td>
+      <td>datahandling.py</td>
+      <td><code class="language-plaintext highlighter-rouge">GlobalVars.ignored_posts</code></td>
+      <td>List of tuple containing site/post ID. Is used to prevent re-reporting posts which have been ignored or received NAA feedback.</td>
+      <td>Dumped syncronously upon addition. There’s no way to remove a post once added.</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>messageData.p</td>
+      <td>chatcommunicate.py</td>
+      <td>chatcommunicate.py <code class="language-plaintext highlighter-rouge">_last_messages</code></td>
+      <td>The most recent 100 chat messages and 50 reports sent to chat.</td>
+      <td>Dumped async after every message or report sent to chat.</td>
+      <td>No<sup>1</sup></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>metasmokeCacheData.p</td>
+      <td>dumped in metasmoke_cache.py;<br />restored in ws.py</td>
+      <td><code class="language-plaintext highlighter-rouge">{'cache': MetasmokeCache._cache,   'expiries': MetasmokeCache._expiries}</code></td>
+      <td>Cache of some of the data received from the metasmoke API.</td>
+      <td>Dumped async after data fetched form MS.</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>metasmokePostIds.p</td>
+      <td>datahandling.py</td>
+      <td><code class="language-plaintext highlighter-rouge">GlobalVars.metasmoke_ids</code></td>
+      <td>Cache dict of MS post IDs by SE site API ident/ID tuple. Each contains the largest MS ID for the SE post which existed upon the entry creation.</td>
+      <td>Dumped sync upon addition. Entries only removed if not an int (i.e. invalid). Never updated, even if a newer MS post report is created.</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ms_ajax_queue.p</td>
+      <td>datahandling.py</td>
+      <td><code class="language-plaintext highlighter-rouge">metasmoke.Metasmoke.ms_ajax_queue</code></td>
+      <td>List of dict describing AJAX calls to MS which failed or were not tried because MS was declared down.</td>
+      <td>Dumped sync upon addtion. Intent is that these AJAX calls will be sent to MS once MS is back up/connection available. Code doesn’t exist to do anything with these, yet.</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>notifications.p</td>
+      <td>datahandling.py</td>
+      <td><code class="language-plaintext highlighter-rouge">GlobalVars.notifications</code></td>
+      <td>List of tuple: (int(user_id), chat_site, int(room_id), se_site, always_ping) describing the notifications requested by users.</td>
+      <td>Dumped sync upon change</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>postScanStats2.p</td>
+      <td>datahandling.py</td>
+      <td><code class="language-plaintext highlighter-rouge">GlobalVars.PostScanStat.stats</code></td>
+      <td>Dict by stat key of stats for bodyfetcher scanning by this instance.</td>
+      <td>Dumped sync upon call to helpers.exit_mode (i.e. upon exit)</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>reasonWeights.p</td>
+      <td>datahandling.py</td>
+      <td><code class="language-plaintext highlighter-rouge">GlobalVars.reason_weights</code></td>
+      <td>Cache dict of reason weights from MS</td>
+      <td>Dumped sync upon update from MS. Updated from MS upon !!/autoflagged or if &gt; 1 hour old.</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>recentlyScannedPosts.p</td>
+      <td>datahandling.py</td>
+      <td><code class="language-plaintext highlighter-rouge">GlobalVars.recently_scanned_posts</code></td>
+      <td>Dict by site/ID of posts which were recently scanned.</td>
+      <td>Dumped sync upon call to helpers.exit_mode (i.e. upon exit). Currently, the data structure is substantially larger than it needs to be, as it contains the post text. This is planned to change to a hash for the post body text and title, as well as potentially trimming some of the other data currently included.</td>
+      <td>Yes</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>seSiteIds.p</td>
+      <td>datahandling.py</td>
+      <td><code class="language-plaintext highlighter-rouge">(GlobalVars.site_id_dict_timestamp, GlobalVars.site_id_dict_issues_into_chat_timestamp, GlobalVars.site_id_dict)</code></td>
+      <td>Cache of SE site IDs obtained from SE. Used for WebSocket access to specific sites and/or posts. Refreshed every 24 hours, if possible (i.e. SE not down).</td>
+      <td>Dumped sync upon update from SE.</td>
+      <td>No</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>whitelistedUsers.p</td>
+      <td>datahandling.py</td>
+      <td><code class="language-plaintext highlighter-rouge">GlobalVars.whitelisted_users</code></td>
+      <td>Set of (user ID, SE site) tuples of those users who have been whitelisted.</td>
+      <td>Dumped sync when updated.</td>
+      <td>Yes</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>whyData.p</td>
+      <td>datahandling.py</td>
+      <td><code class="language-plaintext highlighter-rouge">GlobalVars.why_data</code></td>
+      <td>List of tuple (“site/post_id”, why text) kept to 50 entries max.</td>
+      <td>Dumped sync when added.</td>
+      <td>No<sup>1</sup></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<ol>
+  <li>But, not having it does limit some functions</li>
+</ol>
+
+<h2 id="text-files">Text files</h2>
+<p>| File (location) | What |
+|———-|—————|
+| bodyfetcherQueueTimings.txt (./pickles) | Historical timing data for each launch of a scan for a site. |
+| errorLogs.txt (./) | Some limited logs output when <code class="language-plaintext highlighter-rouge">helpers.log_file()</code> is called. Use is limited. |
+| errorLog.txt (./) | Errors logged by nocrash.py |</p>
+
+<h2 id="database">Database</h2>
+<p>| File (location) | What |
+|———-|—————|
+| errorLogs.db (./) | Errors which the SmokeDetector instance has encountered during operation other than in nocrash.py (i.e. while the SmokeDetector instance is running its primary code. |</p>
+
+
+<div class="sidebar">
+
+
+
+<p><strong><a href="//github.com/Charcoal-SE/SmokeDetector/wiki/Data-stored-by-a-SmokeDetector-instance/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+
+<div class="sidebar-content sidebar-content-smokey">
+
+  <p><strong><a href="Home">Home</a></strong></p>
+
+  <p><strong><a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a></strong></p>
+
+  <p><strong><a href="http://charcoal-se.org/">Charcoal Website</a></strong></p>
+
+  <p><strong><a href="https://metasmoke.erwaysoftware.com">metasmoke</a></strong></p>
+
+  <p><strong><a href="https://github.com/Charcoal-SE/userscripts">Userscripts</a></strong></p>
+
+</div>
+
+
+</div>
+
+
+<div class="footer footer-insert text-center">
+<p>Smokey is made with &lt;3 by the <a href="https://charcoal-se.org/people.html">Charcoal Team</a> and the other awesome <a href="https://github.com/Charcoal-SE/SmokeDetector/graphs/contributors">contributors</a> from <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a>.</p>
+</div>
+
+    </div>
+    <div class="footer text-center">
+      <p>Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.<br />
+        <a href="/security">Security</a> • <a href="/pings/">Contact</a>
+      </p>
+      <p>
+        <a href="https://github.com/Charcoal-SE/charcoal-se.github.io">Website Source</a>
+        • By
+          
+            <a href="https://github.com/j-f1" class="avatar-link">
+              <img class="avatar avatar-small" alt="j-f1" width="16" height="16" data-proofer-ignore="true" src="https://avatars2.githubusercontent.com/j-f1?v=3&s=16" srcset="https://avatars2.githubusercontent.com/j-f1?v=3&s=16 1x, https://avatars2.githubusercontent.com/j-f1?v=3&s=32 2x, https://avatars2.githubusercontent.com/j-f1?v=3&s=48 3x, https://avatars2.githubusercontent.com/j-f1?v=3&s=64 4x" />j-f1</a>,
+          
+            <a href="https://github.com/ArtOfCode-" class="avatar-link">
+              <img class="avatar avatar-small" alt="ArtOfCode-" width="16" height="16" data-proofer-ignore="true" src="https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=16" srcset="https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=16 1x, https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=32 2x, https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=48 3x, https://avatars2.githubusercontent.com/ArtOfCode-?v=3&s=64 4x" />ArtOfCode-</a>,
+          
+            <a href="https://github.com/iBug" class="avatar-link">
+              <img class="avatar avatar-small" alt="iBug" width="16" height="16" data-proofer-ignore="true" src="https://avatars0.githubusercontent.com/iBug?v=3&s=16" srcset="https://avatars0.githubusercontent.com/iBug?v=3&s=16 1x, https://avatars0.githubusercontent.com/iBug?v=3&s=32 2x, https://avatars0.githubusercontent.com/iBug?v=3&s=48 3x, https://avatars0.githubusercontent.com/iBug?v=3&s=64 4x" />iBug</a>,
+          
+            <a href="https://github.com/angussidney" class="avatar-link">
+              <img class="avatar avatar-small" alt="angussidney" width="16" height="16" data-proofer-ignore="true" src="https://avatars1.githubusercontent.com/angussidney?v=3&s=16" srcset="https://avatars1.githubusercontent.com/angussidney?v=3&s=16 1x, https://avatars1.githubusercontent.com/angussidney?v=3&s=32 2x, https://avatars1.githubusercontent.com/angussidney?v=3&s=48 3x, https://avatars1.githubusercontent.com/angussidney?v=3&s=64 4x" />angussidney</a>,
+          
+          and
+          <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
+            20 more</a>
+        
+          • <a href="/code">More gory details</a>
+        
+      </p>
+      
+    </div>
+  </div>
+  <script>
+    window.searchConfig = {
+      appId: 'TMPUB31BTZ',
+      key: 'c63c2f79258f929439376cfb88862440',
+      index: 'main-search',
+      baseUrl: '',
+    }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+  </script>
+  <!-- Hotjar Tracking Code for charcoal-se.org -->
+  <script>
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:771814,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</body>
+</html>
