@@ -85,7 +85,7 @@
       <th>Contents</th>
       <th>What</th>
       <th>Notes</th>
-      <th>Should sync between SD instances</th>
+      <th>Should sync between SD instances<sup>1</sup></th>
       <th>Is in <code class="language-plaintext highlighter-rouge">!!/dump</code> / <code class="language-plaintext highlighter-rouge">!!/load</code></th>
     </tr>
   </thead>
@@ -195,7 +195,7 @@
       <td>chatcommunicate.py <code class="language-plaintext highlighter-rouge">_last_messages</code></td>
       <td>The most recent 100 chat messages and 50 reports sent to chat.</td>
       <td>Dumped async after every message or report sent to chat.</td>
-      <td>No<sup>1</sup></td>
+      <td>No<sup>2</sup></td>
       <td> </td>
     </tr>
     <tr>
@@ -285,13 +285,14 @@
       <td><code class="language-plaintext highlighter-rouge">GlobalVars.why_data</code></td>
       <td>List of tuple (“site/post_id”, why text) kept to 50 entries max.</td>
       <td>Dumped sync when added.</td>
-      <td>No<sup>1</sup></td>
+      <td>No<sup>2</sup></td>
       <td> </td>
     </tr>
   </tbody>
 </table>
 
 <ol>
+  <li>Currently, SD instances do not sync these pickles without admin/runner intervention. This may change in the future.</li>
   <li>But, not having it does limit some functions</li>
 </ol>
 
