@@ -18,9 +18,8 @@ getUsers().then(users => {
   const sites = {}
   const modSites = {}
   for (const user of users) {
-    // HACK: Remove @Catija from the list since she’s a CM and therefore
-    // has a diamond on all sites.
-    if (user.stack_exchange_account_id === 3979517) continue
+    // Don't include CMs, which we recognize by them having lots of moderator_sites
+    if (user.moderator_sites.length >= 50) continue
     for (const site of user.moderator_sites) {
       sites[site.id] = site
       modSites[site.id] = modSites[site.id] || []
