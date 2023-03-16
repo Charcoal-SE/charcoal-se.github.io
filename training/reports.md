@@ -3,7 +3,7 @@
 
 # 4. Handling reports
 When a report comes into Charcoal HQ, there are two major things we need to do with it: flag
-and feed back.
+and feedback.
 
 ## Flagging
 This you should be familiar with, since you have experience on Stack Exchange. Follow the link to look 
@@ -31,11 +31,11 @@ should exercise judgment while dealing with self-promotion.
 
  - Take a look at the user's profile. If this is their first post, they almost certainly
    just aren't aware of the policy about disclosure. You can let it go without flagging.
- - On sites you're familiar with, many well-meaning users respond well a polite comment
+ - On sites you're familiar with, many well-meaning users respond well to a polite comment
    requesting the author to edit in disclosure. If the post content is good it's definitely
    preferred to have disclosure added by the author.
  - If you think it is worth a flag (perhaps because they've been doing this a lot),
-   consider using a custom moderator attention flag rather than a spam flag. Those will
+   consider using a custom moderator intervention flag rather than a spam flag. Those will
    take longer to be dealt with, but make it much easier for moderators to figure out _why_
    you flagged.
 
