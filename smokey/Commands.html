@@ -276,7 +276,7 @@ Note: If you want SmokeDetector to make reports into a room, that’s best set u
 <p>User-friendly syntax:</p>
 
 <ul>
-  <li>use <code class="language-plaintext highlighter-rouge">spam</code>, <code class="language-plaintext highlighter-rouge">rude</code>, <code class="language-plaintext highlighter-rouge">abusive</code> or <code class="language-plaintext highlighter-rouge">offensive</code> for posts that should be flagged as such (equivalent to <code class="language-plaintext highlighter-rouge">tpu-</code>; see <a href="#Aliases">Aliases</a> below)</li>
+  <li>use <code class="language-plaintext highlighter-rouge">spam</code>, <code class="language-plaintext highlighter-rouge">rude</code>, <code class="language-plaintext highlighter-rouge">abusive</code>, <code class="language-plaintext highlighter-rouge">offensive</code>, or <code class="language-plaintext highlighter-rouge">r/a</code> for posts that should be flagged as such (equivalent to <code class="language-plaintext highlighter-rouge">tpu-</code>; see <a href="#Aliases">Aliases</a> below)</li>
   <li>use <code class="language-plaintext highlighter-rouge">v</code>, <code class="language-plaintext highlighter-rouge">vand</code> or <code class="language-plaintext highlighter-rouge">vandalism</code> for posts that have been vandalised and the vandalism edit should be rolled back (equivalent to <code class="language-plaintext highlighter-rouge">tp-</code>)</li>
   <li>use <code class="language-plaintext highlighter-rouge">notspam</code> if the post should not be flagged (equivalent to <code class="language-plaintext highlighter-rouge">fp-</code>)</li>
 </ul>
@@ -339,7 +339,15 @@ Note: If you want SmokeDetector to make reports into a room, that’s best set u
       <td>tpu-</td>
     </tr>
     <tr>
+      <td style="text-align: right">r/a</td>
+      <td>tpu-</td>
+    </tr>
+    <tr>
       <td style="text-align: right">v</td>
+      <td>tp-</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">vand</td>
       <td>tp-</td>
     </tr>
     <tr>
@@ -454,7 +462,7 @@ sd cmd1 cmd2 cmd3 cmd4 cmd5
           
           and
           <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
-            21 more</a>
+            22 more</a>
         
           • <a href="/code">More gory details</a>
         
