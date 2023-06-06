@@ -5,7 +5,7 @@ search_title: Home
 
 {% img name.png height:"100" width class:"block-center" %}
 
-# <blockquote class="alert">Notice (June 2023): SmokeDetector has been shut down until further notice due to a [content moderation strike](https://openletter.mousetail.nl/).</blockquote>
+# Notice (June 2023): SmokeDetector has been shut down until further notice due to a [content moderation strike](https://openletter.mousetail.nl/).
 
 [Charcoal](https://chat.stackexchange.com/rooms/11540) are the people behind
 [SmokeDetector](https://github.com/Charcoal-SE/SmokeDetector),
