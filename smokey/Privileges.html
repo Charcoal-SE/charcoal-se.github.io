@@ -98,10 +98,12 @@ If your request for privileges is supported by a regular of one of the <a href="
 
 <p>These are all general guidelines, rather than hard limits. Really, we’re just checking to make sure that you’re a sane person who won’t abuse the system. We understand that there are cases of users who have little apparent activity who can be excellent at moderation; we’re also aware that the converse is true. Take note of what’s mentioned here, but also remember that requests are judged on a case-by-case basis.</p>
 
-<h4 id="for-moderators">For moderators</h4>
+<h4 id="for-stack-exchange-moderators-and-community-managers">For Stack Exchange moderators and Community Managers</h4>
 <p>If you’re a Stack Exchange network moderator, <strong>you’re automatically privileged</strong> with SmokeDetector in <a href="http://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a> by default (and in <a href="http://chat.stackoverflow.com/rooms/41570/so-close-vote-reviewers">SOCVR</a> if you are a Stack Overflow moderator). You don’t need to be added to the explicit privilege lists, as your diamond also gives you privileges with SmokeDetector. We assume that moderators are, on the whole, pretty good at moderation.</p>
 
 <p>Moderators can also see additional information on their <a href="https://metasmoke.erwaysoftware.com/sites/dash">site dashboard</a> in relation to spammers and autoflagging participants.</p>
+
+<p>Moderators and Community Managers are routinely given both the <a href="https://charcoal-se.org/smokey/Privileges#flagger-ms">Flagger</a> and <a href="https://charcoal-se.org/smokey/Privileges#reviewer-ms">Reviewer</a> roles on metasmoke. Granting those roles is, however, a manual process and mistakes or oversights happen. If you are a moderator or Community manager and don’t have those roles, please feel free to ping a <a href="https://charcoal-se.org/people#admins">metasmoke administrator</a> in the <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a> chat room.</p>
 
 <p><sup>Diamond-based privileges apply to any room you have a diamond in. This means, in effect, they extend across one entire chat server (two if you’re an SO or MSE mod; three if you’re an SO <em>and</em> MSE mod - looking at you, ChrisF). Diamond privileges <em>do not inherit</em> like normal privileges do - if your privileges in CHQ are based on your diamond, they will not inherit to Tavern on the Meta.</sup></p>
 
@@ -129,13 +131,14 @@ This exposition roughly outlines a typical progression from newcomer to trusted 
 <p>Technically, this privilege is granted in the Smoke Detector source code by adding the user’s numeric account ID to the <code class="language-plaintext highlighter-rouge">privileged_users</code> list for the room in question.  When this is in place, the <code class="language-plaintext highlighter-rouge">!!/amiprivileged</code> chat command will cause Smoke Detector to reply “✓ You are a privileged user”.</p>
 
 <h3 id="flagger-ms">Flagger (MS)</h3>
-<p>Everyone who signs up to metasmoke gets this by default (unless that’s turned off, which it usually isn’t).</p>
 <ul>
   <li>Allows you to set up your account so that it will be used for autoflagging</li>
 </ul>
 
+<p>Given the number of accounts which are set up by spammers and trolls, this role is usually granted manually. Accounts which are associated with a Stack Exchange account and are, potentially, able to participate in flagging across the network (i.e. has the association bonus) and which have been in existence for some time are generally given this role once a metasmoke admin becomes aware of the new account. There are, however, no hard requirements. Under normal circumstances, the creation of an account is automatically reported in <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a> chat room and acted upon to grant this role, or not, when a <a href="https://charcoal-se.org/smokey/Privileges#admin-ms">metasmoke admin</a> sees it. You are welcome to enter the <a href="https://chat.stackexchange.com/rooms/11540/charcoal-hq">Charcoal HQ</a> chat room  and request the role from a <a href="https://charcoal-se.org/people#admins">metasmoke administrator</a>.</p>
+
 <h3 id="reviewer-ms">Reviewer (MS)</h3>
-<p>Everyone who has SmokeDetector privileges is eligible to get the reviewer role. However, this process is not automatic, so you will need to <a href="https://metasmoke.erwaysoftware.com/users/sign_up">sign up for a metasmoke account</a> so that an admin can grant it to you.</p>
+<p>Everyone who has SmokeDetector privileges is eligible to get the reviewer role. However, this process is not automatic, so you will need to <a href="https://metasmoke.erwaysoftware.com/users/sign_up">sign up for a metasmoke account</a> so that an admin can grant it to you. Moderators on any site in the Stack Exchange Network and Stack Exchange Community Managers are routinely given this role without asking for it, but it’s a manual process, so might be missed when the account is first activated.</p>
 
 <p>This allows you to:</p>
 <ul>
@@ -299,7 +302,7 @@ This exposition roughly outlines a typical progression from newcomer to trusted 
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>
