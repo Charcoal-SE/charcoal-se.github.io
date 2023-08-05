@@ -5,8 +5,6 @@ search_title: Home
 
 {% img name.png height:"100" width class:"block-center" %}
 
-# Notice (June 2023): SmokeDetector has been shut down until further notice due to a [content moderation strike](https://openletter.mousetail.nl/).
-
 [Charcoal](https://chat.stackexchange.com/rooms/11540) are the people behind
 [SmokeDetector](https://github.com/Charcoal-SE/SmokeDetector),
 a community bot to detect spam on the
