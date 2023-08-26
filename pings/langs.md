@@ -10,7 +10,7 @@ If you're looking for someone who speaks a particular language, please check thi
 * **Czech**: [Martin Sleziak](https://stackexchange.com/users/267077/martin-sleziak)
 * **Dutch**: [Glorfindel](https://stackexchange.com/users/6085540/glorfindel), [Ferrybig](https://stackexchange.com/users/1677570/ferrybig), [rene](https://stackexchange.com/users/281857/rene), [Fabby](https://stackexchange.com/users/5269210/fabby), and [Mast](https://chat.stackexchange.com/users/128223/mast)
 * **Finnish**: [tripleee](https://stackexchange.com/users/468289/tripleee)
-* **French**: [Kyll](https://stackexchange.com/users/5221606/kyll), [Fabby](https://stackexchange.com/users/5269210/fabby), and [Xnero](https://stackexchange.com/users/17078244/xnero)
+* **French**: [Kyll](https://stackexchange.com/users/5221606/kyll), [Fabby](https://stackexchange.com/users/5269210/fabby), [Xnero](https://stackexchange.com/users/17078244/xnero), and [Gugu72](https://stackexchange.com/users/16785179/gugu72)
 * **German**: [Magisch](https://stackexchange.com/users/7034529/magisch), [Wrzlprmft](https://stackexchange.com/users/2437491/wrzlprmft), [Glorfindel](https://stackexchange.com/users/6085540/glorfindel), [Fabby](https://stackexchange.com/users/5269210/fabby), and [rene](https://stackexchange.com/users/281857/rene)
 * **Hebrew**: [Mithrandir](https://stackexchange.com/users/5129611/mithrandir)
 * **Hindi**: [A J](https://stackexchange.com/users/6132527/a-j), [Yatin](https://stackexchange.com/users/9533520/user134470), and [cigien](https://stackexchange.com/users/11421497/cigien)

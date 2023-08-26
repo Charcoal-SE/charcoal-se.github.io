@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>
-    API Documentation | Charcoal
+    API Documentation.mediawiki | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="/assets/application-0af23b9271f4af0499f4e1c18c5c797afb37c9dcbba3a992a3e5e26a48b5cbc6.css">
@@ -68,21 +68,19 @@
       
 
 
-<h1 id="api-documentation">API Documentation</h1>
+# API Documentation.mediawiki
 
-<p>We’ve got two versions of the API:</p>
+We’ve got two versions of the API:
 
-<ul>
-  <li><a href="API-Documentation-(V1)">Read the v1 docs</a></li>
-  <li><a href="API-Documentation-(V2)">Read the v2 docs</a></li>
-</ul>
+- [Read the v1 docs](API-Documentation-(V1))
+- [Read the v2 docs](API-Documentation-(V2))
 
 
 <div class="sidebar">
 
 
 
-<p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/API-Documentation/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
+<p><strong><a href="//github.com/Charcoal-SE/metasmoke/wiki/API-Documentation.mediawiki/_edit"><i class="fa fa-pencil"></i> Edit on GitHub</a></strong></p>
 
 <div class="sidebar-content sidebar-content-ms">
 
@@ -129,7 +127,7 @@
           
           and
           <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
-            23 more</a>
+            24 more</a>
         
           • <a href="/code">More gory details</a>
         
@@ -144,7 +142,7 @@
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>
