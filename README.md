@@ -1,4 +1,4 @@
-# [Charcoal website](https://charcoal-se.org/) [![Travis](https://img.shields.io/travis/Charcoal-SE/charcoal-se.github.io.svg?style=flat-square)](https://travis-ci.org/Charcoal-SE/charcoal-se.github.io)
+# [Charcoal website](https://charcoal-se.org/) [![build](https://github.com/Charcoal-SE/charcoal-se.github.io/actions/workflows/build.yml/badge.svg)](https://github.com/Charcoal-SE/charcoal-se.github.io/actions/workflows/build.yml)
 
 ## Setting up the Charcoal website locally
 
