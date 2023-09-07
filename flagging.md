@@ -74,11 +74,18 @@ If you'd like more information on the technical side of the system, drop into
 <section>
 ## What are spam waves? {#spam-waves}
 
-Spam waves are a tool that [metasmoke admins](https://charcoal-se.org/smokey/Privileges#admin-ms) have to set SmokeDetector to immediately cast any number of autoflags on detected posts matching pre-set criteria. That includes enough autoflags to immediately delete the post without requiring users to cast flags manually. This feature is separate from blacklisted/watched keywords - an admin must manually configure it in metasmoke.
+Spam waves are a tool that [metasmoke admins](https://charcoal-se.org/smokey/Privileges#admin-ms) have to set SmokeDetector
+to immediately cast any number of autoflags on detected posts matching pre-set criteria. That includes enough autoflags to
+immediately delete the post without requiring users to cast flags manually. This feature is separate from blacklisted/watched
+keywords - an admin must manually configure it in metasmoke.
 
-Additionally, SmokeDetector may use flags from _any_ user account with flagging enabled in metasmoke, regardless of the account’s autoflagging configuration (if any). At this time, it is not possible to opt out of this.
+Additionally, SmokeDetector may use flags from _any_ user account with flagging enabled in metasmoke, regardless of the
+account’s autoflagging configuration (if any). At this time, it is not possible to opt out of this.
 
-If you wish to suggest a new spam wave, ping Makyen or another metasmoke admin for further information on how to proceed. Note that approval from a CM is required for unilateral deletion of posts matching specific criteria. Approval from site moderators is also acceptable for raising flags above the "normal" baseline. This tool is reserved for situations involving a severe influx of spam or extremely abusive content.
+If you wish to suggest a new spam wave, ping Makyen or another metasmoke admin for further information on how to proceed.
+Note that approval from a CM is required for unilateral deletion of posts matching specific criteria. Approval from site
+moderators is also acceptable for raising flags above the "normal" baseline. This tool is reserved for situations involving
+a severe influx of spam or extremely abusive content.
 </section>
 
 <section>
