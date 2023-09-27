@@ -44,10 +44,19 @@ You should not leave comments under a post reported by SmokeDetector, unless you
 familiar with that Stack Exchange site. In general, that means you participate on the site for
 more than responding to SmokeDetector reports and/or viewing a few Hot Network Questions.
 Unfortunately, we've had a case or two where comments left by people responding to a SmokeDetector
-report were taken negatively by the user and moderators of the site.
+report were taken negatively by the post's author and moderators of the site.
 
-When you're not otherwise familiar with the Stack Exchange site, instead of leaving a comment, you
-can raise a custom moderator flag explaining what the issue is.
+When you're not otherwise familiar with the Stack Exchange site (i.e., you don't participate in the
+site regularly enough to know how the site culture differs from other SE sites), then instead of
+leaving a comment, it is recommended that you raise an "in need of moderator intervention" flag
+describing the issue and allow a site moderator to deal with it as they see fit.
+
+This [rule was established in 2018](https://chat.stackexchange.com/transcript/11540?m=43203660#43203660)
+after a multi-hour conversation in Charcoal HQ with a moderator on a site where a comment
+was posted by a Charcoal member on a reported post. While the comment was describing general
+network policy, it ended up causing considerable distuption and was of great concern to the
+moderator. Overall, it's better to be more conservative and just bring the issue to the
+local moderators' attention by flagging, unless you already actively participate on the site.
 
 Note: This isn't a restriction on leaving comments *on metasmoke* on post reports, just on the
 actual posts on Stack Exchange sites.
