@@ -66,17 +66,19 @@
     </div>
     <div class="body">
       <h1 id="2-whats-spam">2. What’s spam?</h1>
-<p>Stack Exchange uses a specific definition of spam that’s different from the definition used
-by many other sites. It’s most concisely detailed in the flag dialog:</p>
+<p>Stack Exchange uses a specific definition of spam that’s different from
+the definition used by many other sites.
+It’s most concisely detailed in the flag dialog:</p>
 
 <blockquote>
   <p>Exists only to promote a product or service, does not disclose the author’s affiliation.</p>
 </blockquote>
 
-<p>In other words: spam is the unsanctioned promotion of one’s own or a commercial product.</p>
+<p>In other words: spam is the unsanctioned promotion of one’s own
+or a commercial product.</p>
 
-<p>There’s an FAQ post on the topic of what spam is <a href="https://meta.stackexchange.com/q/58032">on Meta Stack Exchange</a>, if you’d
-like the full story.</p>
+<p>There’s an FAQ post on the topic of what spam is
+<a href="https://meta.stackexchange.com/q/58032">on Meta Stack Exchange</a>, if you’d like the full story.</p>
 
 <p>That means this is spam:</p>
 
@@ -112,11 +114,49 @@ I wrote about this in more detail on my blog (link).</p>
   <p>delete me delete me delete me delete me delete me</p>
 </blockquote>
 
-<p>If you come across something along those lines, it’s most likely self-vandalism, which is where a
-post’s author has removed a post’s content in an effort to delete it. That’s not something
-Stack Exchange allows, but it’s not spam.</p>
+<p>If you come across something along those lines,
+it’s most likely self-vandalism, which is where
+a post’s author has removed a post’s content in an effort to delete it.
+That’s not something Stack Exchange allows, but it’s not spam.</p>
 
-<p>As for giving feedback to SmokeDetector/metasmoke, everything you would red-flag (i.e. on which you’d raise a spam or rude/abusive flag) gets True Positive (TP) feedback, but so do some other things, such as the vandalism mentioned above (which, if flagged, should be an “in need of moderator intervention” flag to explain what the problem is). For more detail on giving feedback to SmokeDetector/metasmoke, we have a <a href="https://charcoal-se.org/smokey/Feedback-Guidance">Feedback Guidance</a> page.</p>
+<p>Another corner case are <strong>“spam seeds”,</strong> which are posts which
+<em>by themselves</em> are not spam, but whose sole purpose is to
+invite a spam reply.
+These can be tricky to identify sometimes.
+This example could be either/or:</p>
+
+<blockquote>
+  <p>How can I frobnicate the foobar API on example.com?</p>
+</blockquote>
+
+<p>In isolation, this seems innocuous; but if it is followed
+by an answer post which is clearly spam
+(sometimes from the same user)
+within a minute or two
+(i.e. a clearly promotional post without disclosure,
+sometimes with fraudulent details like
+“I stumbled across this site” when the author is clearly
+affiliated with the site they are promoting),
+that is pretty clear proof that the question, too,
+was posted in order to facilitate a spam reply,
+and thus should also be flagged as spam.</p>
+
+<p>(Often, these are more obvious; a post asking
+where to buy cheap makeup or car insurance
+on a site about linguistics or database administration
+is almost certainly a spam seed.)</p>
+
+<p>As for giving feedback to SmokeDetector/metasmoke,
+everything you would red-flag
+(i.e. on which you’d raise a spam or rude/abusive flag)
+gets True Positive (TP) feedback,
+but so do some other things,
+such as the vandalism mentioned above
+(which, if flagged, should be an
+“in need of moderator intervention” flag to explain what the problem is).
+For more detail on giving feedback to SmokeDetector/metasmoke, we have
+a <a href="https://charcoal-se.org/smokey/Feedback-Guidance">Feedback Guidance</a>
+page.</p>
 
 <p>As always, use your best judgment, and ask if you’re not sure.</p>
 
@@ -169,7 +209,7 @@ Stack Exchange allows, but it’s not spam.</p>
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>

@@ -198,20 +198,35 @@ Note: If you want SmokeDetector to make reports into a room, that’s best set u
 
 <p>The user-blacklist and user-whitelist are maintained <em>per SmokeDetector instance</em>. The SmokeDetector instances do not share these lists between themselves. Thus, if the SmokeDetector instance is switched, the new instance will only have a record of the entries on these lists which were added/removed while that instance was active.</p>
 
-<p><strong>The user-blacklist</strong> is a dynamic list of users which will have any post of theirs reported by SmokeDetector anytime one of their posts is scanned. Users are primarily added to the user-blacklist when someone gives <code>tp<b>u</b></code> feedback to a post the user has authored, or when one of their posts is manually reported to SmokeDetector with <code class="language-plaintext highlighter-rouge">!!/report</code> and the post would not have otherwise been detected. Users are automatically removed from the user-blacklist when <code class="language-plaintext highlighter-rouge">fp</code> feedback is given for a post they have authored. Users can also be explicitly added, removed, or their blacklist status determined with the following commands:</p>
+<h4 id="user-blacklist">User-blacklist</h4>
+<p>The user-blacklist is a dynamic list of users which will have any post of theirs reported by SmokeDetector anytime one of their posts is scanned. Users are primarily added to the user-blacklist when someone gives <code>tp<b>u</b></code> feedback to a post the user has authored, or when one of their posts is manually reported to SmokeDetector with <code class="language-plaintext highlighter-rouge">!!/report</code> and the post would not have otherwise been detected. Users are automatically removed from the user-blacklist when <code class="language-plaintext highlighter-rouge">fp</code> feedback is given for a post they have authored. Users can also be explicitly added, removed, or their blacklist status determined with the following commands:</p>
 
+<h5 id="commands-1">Commands</h5>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">!!/addblu &lt;profile_URL&gt;</code> or <code class="language-plaintext highlighter-rouge">!!/addblu &lt;user_ID&gt; &lt;site_name&gt;</code> — Adds a user to the user-blacklist (this means that any post by this user will be reported when scanned).</li>
   <li><code class="language-plaintext highlighter-rouge">!!/rmblu &lt;profile_URL&gt;</code> or <code class="language-plaintext highlighter-rouge">!!/rmblu &lt;user_ID&gt; &lt;site_name&gt;</code> — Removes a user from the user-blacklist.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/isblu</code> Checks if a user is blacklisted. This command does not require privileges. Two formats are accepted: <code class="language-plaintext highlighter-rouge">!!/isblu &lt;profile_URL&gt;</code> or <code class="language-plaintext highlighter-rouge">!!/isblu &lt;user_ID&gt; &lt;site_name&gt;</code></li>
 </ul>
 
-<p><strong>The user-whitelist</strong> is a list of users for which posts will not be reported if the <em>only detections</em> of the post are on the user’s username. If there are other detections triggered, then the post will be reported with the username detections included. Users are added to the list if their post receives <code>fp<b>u</b></code> feedback. Users can also be explicitly added, removed, or their whitelist status determined with the following commands:</p>
+<h5 id="feedback">Feedback</h5>
+<ul>
+  <li><code>tp<strong>u</strong></code> feedback adds the user to the user-blacklist. The addition of <code class="language-plaintext highlighter-rouge">u</code> to <code class="language-plaintext highlighter-rouge">tp</code> feedback indicates you desire to add the user the user-blacklist.</li>
+  <li><code class="language-plaintext highlighter-rouge">fp</code> feedback removes the user from the user-blacklist, if they are currently on the user-blacklist.</li>
+</ul>
 
+<h4 id="user-whitelist">User-whitelist</h4>
+<p>The user-whitelist is a list of users for which posts will not be reported if the <em>only detections</em> of the post are on the user’s username. If there are other detections triggered, then the post will be reported with the username detections included. Users are added to the list if their post receives <code>fp<b>u</b></code> feedback. Users can also be explicitly added, removed, or their whitelist status determined with the following commands:</p>
+
+<h5 id="commands-2">Commands</h5>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">!!/addwlu &lt;profile_URL&gt;</code> or <code class="language-plaintext highlighter-rouge">!!/addwlu &lt;user_ID&gt; &lt;site_name&gt;</code> — Adds a user to the user-whitelist. For posts by this user, if the only detections triggered for the post are on the username, then those detections alone will not cause the post to be reported.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/rmwlu &lt;profile_URL&gt;</code> or <code class="language-plaintext highlighter-rouge">!!/rmwlu &lt;user_ID&gt; &lt;site_name&gt;</code> — Removes a user from the user-whitelist.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/iswlu</code> Checks if a user is whitelisted. This command does not require privileges. Two formats are accepted: <code class="language-plaintext highlighter-rouge">!!/iswlu &lt;profile_URL&gt;</code> or <code class="language-plaintext highlighter-rouge">!!/iswlu &lt;user_ID&gt; &lt;site_name&gt;</code></li>
+</ul>
+
+<h5 id="feedback-1">Feedback</h5>
+<ul>
+  <li><code>fp<strong>u</strong></code> feedback adds the user to the user-whitelist. The addition of <code class="language-plaintext highlighter-rouge">u</code> to <code class="language-plaintext highlighter-rouge">fp</code> feedback indicates you desire to add the user the user-whitelist. Given that it’s also <code class="language-plaintext highlighter-rouge">fp</code> feedback, the user is also removed from the user-blacklist, if they were on that list.</li>
 </ul>
 
 <h3 id="detection-blacklists-and-watchlists">Detection blacklists and watchlists</h3>
@@ -235,6 +250,7 @@ Note: If you want SmokeDetector to make reports into a room, that’s best set u
 
 <p>The regexes for the keyword-blacklist and watchlist have <code class="language-plaintext highlighter-rouge">\b</code> prepended and appended to them prior to testing against post bodies, titles, and usernames. For both of those lists, the <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">s</code> flags are set (case insensitive and <code class="language-plaintext highlighter-rouge">.</code> matches newline). The other lists do not bookend the regexes with <code class="language-plaintext highlighter-rouge">\b</code> and only have the case insensitive flag, <code class="language-plaintext highlighter-rouge">i</code>, set. Note: the actual bookending begins the overall regex with <code class="language-plaintext highlighter-rouge">(?:^|\b|(?w:\b))</code> and ends it with <code class="language-plaintext highlighter-rouge">(?:\b|(?w:\b)|$)</code>. <a href="https://pypi.org/project/regex/#unicode-line-separators">The documentation</a> for the <code class="language-plaintext highlighter-rouge">regex</code> package briefly describes what the <code class="language-plaintext highlighter-rouge">w</code> (word) flag in the bookending does.</p>
 
+<h5 id="commands-3">Commands</h5>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">!!/blacklist</code> — <strong>This command has been deactivated.</strong> Use one of the four specialized blacklist commands instead, which are shown below. If run, this command will post a help message in chat.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/blacklist-keyword &lt;regex&gt;</code> — Adds a regular expression pattern to the <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/bad_keywords.txt">list of bad keywords</a>. Prior to being used, all regexes on this list automatically have <code class="language-plaintext highlighter-rouge">\b</code> added to the start and end of the regex. Regular expressions on this list are tested against post bodies, post titles, and usernames.</li>
@@ -245,14 +261,33 @@ Note: If you want SmokeDetector to make reports into a room, that’s best set u
 
 <h4 id="-number-blacklists-and-watchlist"><code class="language-plaintext highlighter-rouge">-number</code> blacklists and watchlist</h4>
 
-<p>The <code class="language-plaintext highlighter-rouge">-number</code> blacklist and watchlist are lists of numbers that are tested against post bodies, post titles, and usernames as text both verbatim and “normalized” (with everything but numbers removed).</p>
+<p>The <code class="language-plaintext highlighter-rouge">-number</code> blacklist and watchlist are lists of numbers that are tested against post bodies, post titles, and usernames as text both verbatim and “normalized” (with everything but numbers removed). The numbers lists are not based on regular expressions, but do support regex-like comments in the form of <code class="language-plaintext highlighter-rouge">(?#comment here)</code>. Comments are completely stripped from the entries prior to any checking. Number entries must have between 6 and 20 digits (inclusive).</p>
 
+<h5 id="north-american-numbering-plan-nanp-numbers">North American Numbering Plan (NANP) numbers</h5>
+<p>Numbers which are, potentially, <a href="https://en.wikipedia.org/wiki/North_American_Numbering_Plan">North American Numbering Plan (NANP)</a> numbers will be tested both with and without the leading “1” country code. When adding a number, if Smoke Detector cann’t determine that the number is very likely a NANP number or can’t be a NANP number, Smoke Detector will respond asking for clarification as to if the number is a NANP number or not, or for <code class="language-plaintext highlighter-rouge">-force</code> to be used to have Smoke Detector assume that it is a NANP number. For clarification to Smoke Detector, to indicate that the number is a NANP number you can:</p>
+<ul>
+  <li>Begin the number with a <code class="language-plaintext highlighter-rouge">1</code> or <code class="language-plaintext highlighter-rouge">+1</code> followed by the 10 digits of the NANP number.</li>
+  <li>For the 10 digit number, use the format 123-456-7890 where the numbers are a valid NANP number.</li>
+  <li>Add <code class="language-plaintext highlighter-rouge">(?#IS NorAm)</code> to the entry.
+To indicate that the number is NOT a NANP number, you can</li>
+  <li>Add <code class="language-plaintext highlighter-rouge">(?#NO NorAm)</code> to the entry.</li>
+</ul>
+
+<h5 id="how-are-number-entries-checked">How are number entries checked?</h5>
+<p>The number entries are checked for in the test text in three different ways:</p>
+<ol>
+  <li>An exact match. In order for a “number” to make an exact match, the pattern must begin with a digit or up to two of +,(,[, or { immediately followed by a digit. When adding new entries, they will be checked to verify that an exact match can be made. However, while it’s preferred that entries be in a format compatible with making an exact match, it’s not necessary for that to be the case, so you can use <code class="language-plaintext highlighter-rouge">-force</code> to add an entry which won’t be able to make an exact match.</li>
+  <li>Normalized. The entry is reduced to just numbers. The text being tested is reduced to just numbers with sequences between 6 and 20 digits (inclusive).</li>
+  <li>Deobfuscated. The entry is reduced to just numbers. The characters in the text being tested is translated from a substantial number of Unicode characters which are sometimes used to obfuscate the representation of numbers into numbers and then reduced to just number sequences with between 6 and 20 digits (inclusive).</li>
+</ol>
+
+<h5 id="commands-4">Commands</h5>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">!!/watch-number &lt;number text&gt;</code> - Adds a number to the <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/watched_numbers.txt">watched number list</a>. The text may contain non-number characters and is tested verbatim against potential spam. In addition, it’s tested “normalized”, which is with both the watched number text and the post reduced to numbers.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/blacklist-number &lt;number text&gt;</code> — Adds a number to the <a href="https://github.com/Charcoal-SE/SmokeDetector/blob/master/blacklisted_numbers.txt">number blacklist</a>. The text may contain non-number characters and is tested verbatim against potential spam. In addition, it’s tested “normalized”, which is with both the blacklisted number text and the post reduced to numbers.</li>
 </ul>
 
-<h5 id="commands-applicable-to-both--number-and-non---number-blacklists-and-watchlists-excluding-the-user-blacklist-and-user-whitelist-described-above">Commands applicable to both <code class="language-plaintext highlighter-rouge">-number</code> and non- <code class="language-plaintext highlighter-rouge">-number</code> blacklists and watchlists (excluding the user-blacklist and user-whitelist described above)</h5>
+<h4 id="commands-applicable-to-both--number-and-non---number-blacklists-and-watchlists-excluding-the-user-blacklist-and-user-whitelist-described-above">Commands applicable to both <code class="language-plaintext highlighter-rouge">-number</code> and non- <code class="language-plaintext highlighter-rouge">-number</code> blacklists and watchlists (excluding the user-blacklist and user-whitelist described above)</h4>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">!!/unwatch &lt;regex&gt;</code> or <code class="language-plaintext highlighter-rouge">!!/unwatch &lt;number text&gt;</code> - Removes a previously-added regular expression from the watchlist and/or a number from the number watchlist. Only blacklisters can use this command; it will only accept an exact match to a regular expression in the watchlist and/or an exact match to a number in the number watchlist.</li>
@@ -263,7 +298,7 @@ Note: If you want SmokeDetector to make reports into a room, that’s best set u
   <li><code class="language-plaintext highlighter-rouge">!!/bisect-number &lt;text&gt;</code> - Test the text against the number blacklist and watchlist entries. It does not test against the regular expressions. This is substantially less SmokeDetector CPU intensive than <code class="language-plaintext highlighter-rouge">!!/bisect</code>, so should be used if you’re focusing exclusively on numbers.</li>
 </ul>
 
-<p>Since <code class="language-plaintext highlighter-rouge">bisect</code> is computationally intensive, the <code class="language-plaintext highlighter-rouge">test</code> commands are preferred if you’re only interested in whether something would be caught. The <code class="language-plaintext highlighter-rouge">bisect</code> command should be reserved for when you need to know exactly which entry in the watch/blacklist would be responsible for the detection.</p>
+<p>Since the <code class="language-plaintext highlighter-rouge">!!/bisect</code> command is computationally intensive, the <code class="language-plaintext highlighter-rouge">test</code> commands are preferred if you’re only interested in whether something would be caught. The <code class="language-plaintext highlighter-rouge">bisect</code> command should be reserved for when you need to know exactly which entry in the watch/blacklist would be responsible for the detection. The <code class="language-plaintext highlighter-rouge">!!/bisect-number</code> command is not computationally intensive, so there isn’t the same concern.</p>
 
 <p>Additionally, for offline testing, you can clone this repository locally and run the command <code class="language-plaintext highlighter-rouge">./util.py bisect "&lt;string&gt;"</code>.</p>
 
@@ -477,7 +512,7 @@ sd cmd1 cmd2 cmd3 cmd4 cmd5
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>
