@@ -94,7 +94,7 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [bummi](https://chat.stackexchange.com/users/54902/bummi)
 *   [JoErNanO](https://chat.stackexchange.com/users/130836/joernano)
 *   [Federico](https://chat.stackexchange.com/users/109603/federico)
-*   [Catija](https://chat.stackexchange.com/users/139041/catija) (CM)
+*   [Catija](https://chat.stackexchange.com/users/139041/catija) (former CM)
 *   [Videonauth](https://chat.stackexchange.com/users/205533/videonauth)
 *   [Rob](https://chat.stackexchange.com/users/158742/rob)
 *   [Mego](https://chat.stackexchange.com/users/169713/mego)
