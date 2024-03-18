@@ -134,8 +134,8 @@ sdc alive
   <li><code class="language-plaintext highlighter-rouge">!!/willbenotified &lt;chatroom_ID_number&gt; &lt;site_domain&gt;</code> — Reports whether you will be pinged, in the given room, about spam on the given site.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/allnotificationsites &lt;chatroom_ID_number&gt;</code> — Shows all sites that you will be pinged for in the given room.</li>
   <li><code class="language-plaintext highlighter-rouge">!!/scan &lt;post URL 1&gt; [&lt;post URL 2&gt; [...&lt;post URL 5&gt;]] ["custom scan reason"]</code> — Directs SmokeDetector to scan a post. This is useful when you’re not sure if a post is spam and don’t want to report it. Smokey will go through all the usual processes of scanning a post and report it if it’s spam, and will tell you that it’s not spam otherwise. If you’re sure it’s spam but it isn’t being caught, use <code class="language-plaintext highlighter-rouge">!!/report</code> instead. A custom scan reason may be supplied. If you include a custom reason, it’s required to be enclosed in double quotation marks (e.g. <code class="language-plaintext highlighter-rouge">"custom scan reason"</code>).</li>
-  <li><code class="language-plaintext highlighter-rouge">!!/deobfuscate-number &lt;pattern&gt;</code> — Show the result of deobfuscating the number pattern.</li>
-  <li><code class="language-plaintext highlighter-rouge">!!/normalize-number &lt;pattern&gt;</code> — Show the number normalizations for a number pattern.</li>
+  <li><code class="language-plaintext highlighter-rouge">!!/deobfuscate-number &lt;pattern&gt;</code> — Show the result of homoglyph deobfuscating the number pattern. This returns the pattern after performing the homoglyph substitutions which SmokeDetector uses for testing numbers. Given that just the homoglyph substitutions is not what people are typically looking for, it also returns the pattern with fist homoglyph substitutions and then normalized, which is what SmokeDetector actually uses to test against for “deobfuscated” numbers.</li>
+  <li><code class="language-plaintext highlighter-rouge">!!/normalize-number &lt;pattern&gt;</code> — Show the number normalizations for a number pattern. This returns the pattern with all non-ASCII number characters removed (i.e., it removes <code class="language-plaintext highlighter-rouge">[^0-9]</code>).</li>
 </ul>
 
 <h2 id="commands-as-reply-for-everyone">Commands as reply for everyone</h2>
@@ -277,8 +277,8 @@ To indicate that the number is NOT a NANP number, you can</li>
 <p>The number entries are checked for in the test text in three different ways:</p>
 <ol>
   <li>An exact match. In order for a “number” to make an exact match, the pattern must begin with a digit or up to two of +,(,[, or { immediately followed by a digit. When adding new entries, they will be checked to verify that an exact match can be made. However, while it’s preferred that entries be in a format compatible with making an exact match, it’s not necessary for that to be the case, so you can use <code class="language-plaintext highlighter-rouge">-force</code> to add an entry which won’t be able to make an exact match.</li>
-  <li>Normalized. The entry is reduced to just numbers. The text being tested is reduced to just numbers with sequences between 6 and 20 digits (inclusive).</li>
-  <li>Deobfuscated. The entry is reduced to just numbers. The characters in the text being tested is translated from a substantial number of Unicode characters which are sometimes used to obfuscate the representation of numbers into numbers and then reduced to just number sequences with between 6 and 20 digits (inclusive).</li>
+  <li>Normalized. The entry itself is reduced to just ASCII numbers. The text being tested is reduced to just ASCII numbers with sequences between 6 and 20 digits (inclusive), where a “sequence” is all groups of ASCII-number characters separated by non-digit characters.</li>
+  <li>Deobfuscated. The entry itself is reduced to just ASCII numbers. The characters in the text being tested first are translated from a substantial number of Unicode characters which are sometimes used to obfuscate the representation of numbers into ASCII numbers (i.e., number homoglyphs are converted to their equivalent ASCII-number characters) and then that text is reduced to just number sequences with between 6 and 20 digits (inclusive), where a “sequence” is all groups of ASCII-number characters separated by the remaining non-digit characters.</li>
 </ol>
 
 <h5 id="commands-4">Commands</h5>
@@ -512,7 +512,7 @@ sd cmd1 cmd2 cmd3 cmd4 cmd5
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>

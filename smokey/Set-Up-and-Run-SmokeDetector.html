@@ -110,15 +110,22 @@ pip3 install --user -r user_requirements.txt --upgrade
 <p>At this point, you should be able to <a href="#running-smokedetector">run SmokeDetector using the instructions below</a>.</p>
 
 <h3 id="setting-up-an-aws-ec2-linux-instance-for-smokedetector">Setting up an AWS EC2 linux instance for SmokeDetector</h3>
-<p>Using a AWS EC2 instance can be a quick way to get an SD instance up and running. Based on reports from @iBug in chat, a T2.micro instance, what’s available from the AWS Free Tier for 12 months, doesn’t have enough CPU credits, at 6/hour, for the instance to be the active SD instance full-time. Brief testing with a T3.micro, 12 CPU credits/hour, indicated that it’s not sufficient to run SD full-time without additional CPU charges. It’s expected that a T3.small, 24 CPU credits/hour, should be sufficient for a full-time active SD instance. However, a T2.micro instance does appear to be enough for SD to run as a standby instance to fill in on an irregular basis without CPU charges, assuming it’s not running for more than a couple/few hours. An additional note is that SD on the AWS Linux AMI described below did report some out of memory errors when running on a T3.micro (1GB) without any swap configured. On the other hand, SD functions on a AWS Lightsail instance with 512MB RAM and 2GB swap configured, but that Lightsail instance doesn’t have enough CPU credits to operate SD for more than a few hours (and more <em>cannot</em> be purchased). On yet another hand, a t4g.nano, which has the same 512MB of RAM and 2GB of swap, but 2 vCPU compared to 1 vCPU for the low-end Lightsail, can be configured in unlimited modewith respect to CPU Credit usage, so can run SD indefinitely, just with <em>potential</em> substantial CPU credit charges if running full-time. The T4g.nano can also be significantly less expensive (~50%) than the lowest-end Lightsail, if run as a standby SD instance and the T4g.nano has been purchased as a reserved instance. [Note: the numbers for needed CPU credits mentioned above for T2 and T3 instances are old information. SD’s code changed in 2022-05 which should have notably lowered the overall CPU usage and the above comparisons for T2 and T3 have not been updated.]</p>
+<p>Using a AWS EC2 instance can be a quick way to get an SD instance up and running. A T2.micro instance, what’s available from the AWS Free Tier for 12 months, doesn’t have enough CPU credits, at 6/hour, for the instance to be the active SD instance full-time. Makyen ran a t4g.small instance for a couple of years as the standby SD instance. During that time, it was clear that a t4g.small didn’t earn enough CPU credits per hour, at 24/hour, to run SD full time. Running two t4g.small instances, for a cumulative 48 CPU credits per hour, and ping-ponging the active instance back-and forth as the available CPU credit ran out, indicated that 48 CPU credits per hour isn’t sufficient to run SD full time, as of late 2023.</p>
 
-<p>To set-up a AWS EC2 instance for SD you can do the following:</p>
+<p>However, a T2.micro instance does appear to be enough for SD to run as a standby instance to fill in on a very irregular basis without CPU charges, assuming it’s not running for more than a couple/few hours. An additional note is that SD on the AWS Linux AMI described below did report some out of memory errors when running on a T3.micro (1GB) without any swap configured. On the other hand, SD functions on a AWS Lightsail instance with 512MB RAM and 2GB swap configured, but that Lightsail instance doesn’t have enough CPU credits to operate SD for more than a few hours (and more <em>cannot</em> be purchased). On yet another hand, a t4g.nano, which has the same 512MB of RAM and 2GB of swap, but 2 vCPU compared to 1 vCPU for the low-end Lightsail, can be configured in unlimited mode with respect to CPU Credit usage, so can run SD indefinitely, just with <em>potential</em> substantial CPU credit charges if running full-time. The T4g.nano can also be significantly less expensive (~50%) than the lowest-end Lightsail, if run as a standby SD instance and the T4g.nano has been purchased as a reserved instance.</p>
+
+<h4 id="to-set-up-a-aws-ec2-instance-for-sd-you-can-do-the-following">To set-up a AWS EC2 instance for SD you can do the following:</h4>
+<p>Note: This installs Python 3.11, which has significant performance improvements over earlier versions. It’s expected that you will use the <code class="language-plaintext highlighter-rouge">python3.11</code> and <code class="language-plaintext highlighter-rouge">pip3.11</code> commands anywhere the <code class="language-plaintext highlighter-rouge">python3</code> and <code class="language-plaintext highlighter-rouge">pip3</code> commands are stated in other sections below. You can make that the default for the shell by adding the aliases:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>alias python3='python3.11'
+alias pip3='pip3.11'
+</code></pre></div></div>
+
 <ul>
   <li>Create the EC2 instance (<a href="https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/">launch a AWS instance tutorial</a>)
     <ul>
       <li>Create an AWS account (address, verifiable phone number, and credit card required) and Sign-in to the AWS console.</li>
       <li>Click “Launch Instance -&gt;”</li>
-      <li>Click “Select” for “Amazon Linux 2 AMI (HVM), SSD Volume Type - ami-0277b52859bac6f4b” (the first one in the Amazon Machine Image (AMI) list)
+      <li>Click “Select” for “Amazon Linux 2023 AMI - ami-06d4b7182ac3480fa (64-bit (x86)) / ami-0090be1905998682a (64-bit (Arm))”, which is the first one in the Amazon Machine Image (AMI) list.
         <ul>
           <li>You can pick any flavor of Linux you’re familiar with, just remember to substitute installation commands for the correct package manager. For example, the above version of Linux uses <code class="language-plaintext highlighter-rouge">yum</code>. Other versions may use <code class="language-plaintext highlighter-rouge">apt-get</code>, <code class="language-plaintext highlighter-rouge">rpm</code>, or <code class="language-plaintext highlighter-rouge">pacman</code> etc. In addition, other versions of Linux may already have versions of some of the packages installed in the commands below, or may be missing yet other packages. The commands listed below were only tested in the AMI mentioned above. <!-- Other than being the first AMI in the list and a very basic Linux install, there's really nothing special about the AMI selected above. It is the one with which the commands below have been tested, so if you change this choice, then please test and/or change the commands listed below. If you do change the AMI mentioned above, it's a good idea to keep it to one that's eligible for the AWS Free Tier and one that permits per-second billing, rather than per-hour billing.--></li>
         </ul>
@@ -152,17 +159,16 @@ sudo swapon /swapfile
 sudo sh -c 'echo "/swapfile swap swap defaults 0 0" &gt;&gt; /etc/fstab'
 sudo yum -y install gcc
 sudo yum -y install git
-sudo yum -y install python37
-sudo yum -y install python3-devel
-sudo python3 -m pip install pip --upgrade
+sudo yum -y install python3.11 python3.11-devel python3.11-pip python3.11-wheel
+sudo python3.11 -m pip install pip --upgrade
   
-git clone https://github.com/Charcoal-SE/SmokeDetector.git
+git clone --depth=100 --no-single-branch https://github.com/Charcoal-SE/SmokeDetector.git
 cd SmokeDetector
 git config user.email "smokey@erwaysoftware.com"
 git config user.name "SmokeDetector"
 git checkout deploy
-sudo /usr/local/bin/pip3 install -r requirements.txt --upgrade
-pip3 install --user -r user_requirements.txt --upgrade
+sudo /usr/local/bin/pip3.11 install -r requirements.txt --upgrade
+pip3.11 install --user -r user_requirements.txt --upgrade
 </code></pre></div>    </div>
   </li>
   <li>Create the “config” file
@@ -175,7 +181,7 @@ pip3 install --user -r user_requirements.txt --upgrade
 
 <h2 id="running-smokedetector">Running SmokeDetector</h2>
 <p>To run, use <code class="language-plaintext highlighter-rouge">python3 nocrash.py</code>, or <code class="language-plaintext highlighter-rouge">python3 nocrash.py standby</code> (preferably in a daemon-able mode, like a <code class="language-plaintext highlighter-rouge">screen</code> session).
-You can also use <code class="language-plaintext highlighter-rouge">python3 ws.py</code>, but then SmokeDetector will be shut down after 6 hours;
+You can also use <code class="language-plaintext highlighter-rouge">python3.11 ws.py</code>, but then SmokeDetector will be shut down after 6 hours;
 when running from <code class="language-plaintext highlighter-rouge">nocrash.py</code>, <code class="language-plaintext highlighter-rouge">ws.py</code> will automatically be restarted.
 (This is to be sure that closed WebSockets, if any, are reopened.)</p>
 
@@ -262,7 +268,7 @@ when running from <code class="language-plaintext highlighter-rouge">nocrash.py<
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>
