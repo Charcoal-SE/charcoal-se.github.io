@@ -58,7 +58,7 @@ This websocket provides us with the feed of posts to scan.
 
 Every time a post comes in, we grab the full details of the post from the
 [Stack Exchange API](https://api.stackexchange.com/docs).
-Requests are typically bundled up wher possible to save on
+Requests are typically bundled up where possible to save on
 API quota usage.
 Once we have the details, including the full text of the body,
 we run the post's body text, title, and owner's username through
