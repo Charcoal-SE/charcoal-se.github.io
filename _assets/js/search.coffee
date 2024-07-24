@@ -47,7 +47,7 @@ $(window).on 'turbolinks:load', ->
         subsection = ''
         header = getHeader(suggestion._highlightResult) || getHeader(suggestion)
         if header
-          subsection = "<small>\xA7 #{escapeHTML(header.value ? header)}</small>"
+          subsection = "<small>\xA7 #{header.value ? header}</small>"
 
 
         """
