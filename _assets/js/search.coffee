@@ -56,7 +56,7 @@ $(window).on 'turbolinks:load', ->
             #{suggestion._highlightResult.title?.value ? escapeHTML(suggestion.title ? 'Home')}
             #{subsection}
           </strong><br>
-          <small>#{suggestion._highlightResult.text?.value ? escapeHTML(suggestion.text)}</small><br>
+          #{if suggestion.excerpt_text then "<small>#{suggestion.excerpt_text}</small><br>" else ""}
             <small class="aa-link">#{resolve escapeHTML suggestion.url}</small>
         </p>
         """
