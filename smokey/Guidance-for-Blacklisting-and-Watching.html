@@ -93,6 +93,10 @@
 <h4 id="numbers-blacklist">Numbers Blacklist</h4>
 <p>Similar to blacklisted keywords, but for numbers which the spammer intends to be interpreted by a human as a number (i.e. not for numbers used in URLs, where it is primarily interpreted by a machine). This list is primarily intended for phone numbers, but is not exclusive to only phone numbers. These are <em>not</em> regular expressions. They are just text. Entries are tested both verbatim and with a moderate amount of obfuscation intended to obfuscate numbers removed from the posts.</p>
 
+<p>Searches on metasmoke in order to determine TP and FP should generally use the search that results from the <a href="https://chat.stackexchange.com/transcript/11540?m=64703283#64703283">Loose Number Search on MS bookmarklet</a>. However, that search is imperfect, so arguments can be made for including more results or excluding some of the results, if the results wouldn’t be detected by the numbers detection.</p>
+
+<p>Numbers which are substantially repetitive or which contain incrementing or decrementing patterns should not be added to this list, as they can result in too many FP. Such numbers should be added to the keyword lists in forms that are more restrictive than the numbers detection uses. The real-world examples we have of such problematic numbers are <code class="language-plaintext highlighter-rouge">222333444</code>,  <code class="language-plaintext highlighter-rouge">53535353</code>,  and <code class="language-plaintext highlighter-rouge">+91 123456789</code> which ended up being <a href="https://m.erwaysoftware.com/search?why_is_regex=1&amp;why=%28%3Fsi%29%5E%28%3F%3D.*%3FPotentially+bad+keyword+in+%28%3F%3Atitle%7Cusername%7Cbody%7Canswer%29%5B%5E%5Cn%5Cr%5D*%3F%5Cbfound%5Cs*%28%3F%3Averbatim%7Cnormalized%7Cobfuscated%29%29%28%3F%3D.*%3F%5Cb%28%3F%3A222333444%7C53535353%7C91123456789%7C91+123456789%29+found%29">31 Total / 3 TP (9.68% TP) / 28 FP / 0 NAA</a> compared to the <a href="//m.erwaysoftware.com/search?why_is_regex=1&amp;why=%28%3Fsi%29%5E%28%3F%3D.%2A%3FPotentially+bad+keyword+in+%28%3F%3Atitle%7Cusername%7Cbody%7Canswer%29%5B%5E%5Cn%5Cr%5D%2A%3F%5Cbfound%5Cs%2A%28%3F%3Averbatim%7Cnormalized%7Cobfuscated%29%29%28%3F%21.%2A%3F%5Cb%28%3F%3A222333444%7C53535353%7C91123456789%7C91+123456789%29+found%29">99.61% TP of all other entries that have been on the numbers watchlist</a>.</p>
+
 <h4 id="blacklisted-users">Blacklisted Users</h4>
 <p>Each SmokeDetector instance maintains a very dynamic list of users which are “blacklisted”. Users are added to the user blacklist when a post they created receives <code>tp<strong>u</strong></code> feedback. Users are removed from the user blacklist when a post they created is given <code class="language-plaintext highlighter-rouge">fp</code> feedback (not to be confused with <code class="language-plaintext highlighter-rouge">fpu</code> feedback which adds a user to the username whitelist). Users can also be manually added to the user blacklist with <code class="language-plaintext highlighter-rouge">!!/adblu</code>, or removed with <code class="language-plaintext highlighter-rouge">!!/rmblu</code>.</p>
 
@@ -108,6 +112,8 @@
 <h4 id="watched-numbers">Watched Numbers</h4>
 <p>Similar to watched expressions, but for numbers which the spammer intends to be interpreted by a human as a number (i.e. not for numbers used in URLs, where it is primarily interpreted by a machine). This list is primarily intended for phone numbers, but is not exclusive to only phone numbers. These are <em>not</em> regular expressions. They are just text. Entries are tested both verbatim and with a moderate amount of obfuscation intended to obfuscate numbers removed from the posts.</p>
 
+<p>See <a href="#numbers-blacklist">Numbers Blacklist</a> above for detailed information about searching on MS for these numbers and about the fact that numbers which are substantially repetitive or which contain incrementing or decrementing patterns should not be added to this list.</p>
+
 <h2 id="rules-for-blacklisting-and-watching">Rules for Blacklisting and Watching</h2>
 
 <p>We have established the following rules for watching and blacklisting.</p>
@@ -117,10 +123,10 @@
 <ul>
   <li>At least <em>one of</em> the following for the entry is true:
     <ul>
-      <li>There are at least five true positive hits in metasmoke, with no false positive hits; and at least one of those true positive hits is both below the default autoflagging threshold weight (currently, 280) and is not older than six months.</li>
-      <li>There are at least three hits in metasmoke, with no false positives, <em>and</em> it is part of a <a href="#preexisting-campaign">preexisting campaign</a>. (See below.)</li>
-      <li>There are more than twenty hits in the last six months, and no false positives.</li>
-      <li>There are recent hits, and more than 30 hits overall, and no false positives.</li>
+      <li>There are at least five true positive hits on metasmoke, with no false positive hits on metasmoke; and at least one of those true positive hits is both below the default autoflagging threshold weight (currently, 280) and is not older than six months.</li>
+      <li>There are at least three true positive hits on metasmoke, with no false positives on metasmoke, <em>and</em> it is part of a <a href="#preexisting-campaign">preexisting campaign</a>. (See below.)</li>
+      <li>There are more than twenty true positive hits on metasmoke in the last six months, and no false positives.</li>
+      <li>There are recent true positive hits on metasmoke, and more than 30 true positive hits on metasmoke overall, and no false positives on metasmoke.</li>
     </ul>
   </li>
 </ul>
@@ -149,9 +155,12 @@
 
 <h4 id="blacklisted-numbers">Blacklisted numbers:</h4>
 <ul>
-  <li>Reserved for numbers which we are highly confident are used only in spam. You may add a number to this list if the following is true:
+  <li>Reserved for human-interpreted numbers which we are highly confident are used only in spam. You may add a number to this list if it is not a repetitive pattern or an incrementing or decrementing sequence (see <a href="#numbers-blacklist">above</a> for examples) and at least one of the following is true:
     <ul>
-      <li>The entry for the number must meet the general true positive and false positive requirements (<a href="#general-true-positive-and-false-positive-requirements">above</a>).</li>
+      <li>The entry for the number meets the general true positive and false positive requirements (<a href="#general-true-positive-and-false-positive-requirements">above</a>).</li>
+      <li>The entry has at least two true positive hits on metasmoke, with no false positive hits on metasmoke; and at least one of those true positive hits is both below the default autoflagging threshold weight (currently, 280) and is not older than six months; and there is no occurrence of the number on Stack Exchange in reasonable searches.</li>
+      <li>There are more than five true positive hits on metasmoke in the last six months, and no false positives on metasmoke; and there is no occurrence of the number on Stack Exchange in reasonable searches.</li>
+      <li>Phone numbers used in posts which are part of an actual spam wave may be blacklisted upon first true positive occurrence, as long as there are no false positives on metasmoke; and there is no occurrence of the number on Stack Exchange in reasonable searches.</li>
     </ul>
   </li>
 </ul>
