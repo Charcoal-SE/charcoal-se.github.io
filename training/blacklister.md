@@ -1,7 +1,7 @@
 ---
 ---
 
-# 6. Further Privileges: Blacklister
+# 7. Further Privileges: Blacklister
 When you've been working within Charcoal for a while, there are further levels of privileges
 that you may be interested in getting. One of these is blacklister (formerly known as "code admin"),
 which deals with our blacklisting systems.
@@ -39,11 +39,8 @@ than likely going to get some hits, but a Stack Exchange search indicates probab
 
 -----
 
-[Next: Further Privileges: Core][7]
-
 [Return to Introduction Index][8]
 
 [search-SE]: https://stackexchange.com/search
 [search-MS]: https://m.erwaysoftware.com/search
-[7]: /training/core
 [8]: /training/index

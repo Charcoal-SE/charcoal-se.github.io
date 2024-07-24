@@ -26,8 +26,8 @@ This is a list of all the documents in this series. Start at the top and work yo
  - [Privileges][3]
  - [Handling reports][4]
  - [Autoflagging][5]
- - [Further privileges: Blacklister][6]
  - [Further privileges: Core][7]
+ - [Further privileges: Blacklister][6]
 
 [hq]: https://chat.stackexchange.com/rooms/11540/charcoal-hq
 [1]: /training/charcoal
