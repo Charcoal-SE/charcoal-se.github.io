@@ -69,9 +69,9 @@ $(window).on 'turbolinks:load', ->
     if @searchConfig.baseUrl
       url = @searchConfig.baseUrl + url
 
-    if css_selector[0] == '#'
+    if css_selector && css_selector[0] == '#'
       url += css_selector
-    else if css_selector_parent[0] == '#'
+    else if css_selector_parent && css_selector_parent[0] == '#'
       url += css_selector_parent
 
     Turbolinks.visit(url)
