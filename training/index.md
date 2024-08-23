@@ -23,17 +23,19 @@ This is a list of all the documents in this series. Start at the top and work yo
 
  - [What's Charcoal?][1]
  - [What's spam?][2]
- - [Privileges][3]
- - [Handling reports][4]
- - [Autoflagging][5]
+ - [When do you watch spam?][3]
+ - [Privileges][4]
+ - [Handling reports][5]
+ - [Autoflagging][6]
  - [Further privileges: Core][7]
- - [Further privileges: Blacklister][6]
+ - [Further privileges: Blacklister][8]
 
 [hq]: https://chat.stackexchange.com/rooms/11540/charcoal-hq
 [1]: /training/charcoal
 [2]: /training/spam
-[3]: /training/privileges
-[4]: /training/reports
-[5]: /training/autoflagging
-[6]: /training/blacklister
+[3]: /training/watch
+[4]: /training/privileges
+[5]: /training/reports
+[6]: /training/autoflagging
 [7]: /training/core
+[8]: /training/blacklister

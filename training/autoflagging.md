@@ -1,7 +1,7 @@
 ---
 ---
 
-# 5. Autoflagging
+# 6. Autoflagging
 In January 2017, we started [automatically flagging spam][meta] through metasmoke. This page
 details that system.
 
