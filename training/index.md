@@ -21,14 +21,14 @@ sure we're all doing it consistently.
 ## Introduction Index
 This is a list of all the documents in this series. Start at the top and work your way down.
 
- - [What's Charcoal?][1]
- - [What's spam?][2]
- - [When do you watch spam?][3]
- - [Privileges][4]
- - [Handling reports][5]
- - [Autoflagging][6]
- - [Further privileges: Core][7]
- - [Further privileges: Blacklister][8]
+1. [What's Charcoal?][1]
+2. [What's spam?][2]
+3. [When do you watch spam?][3]
+4. [Privileges][4]
+5. [Handling reports][5]
+6. [Autoflagging][6]
+7. [Further privileges: Core][7]
+8. [Further privileges: Blacklister][8]
 
 [hq]: https://chat.stackexchange.com/rooms/11540/charcoal-hq
 [1]: /training/charcoal
