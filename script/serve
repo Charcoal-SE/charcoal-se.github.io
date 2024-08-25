@@ -1,3 +1,3 @@
 #!/bin/sh
 
-bundle exec jekyll serve --incremental -L
+bundle exec jekyll serve --incremental -l
