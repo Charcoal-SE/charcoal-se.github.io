@@ -12,4 +12,5 @@ while [ $# -ne 0 ]; do
   shift
 done
 
-bundle install --path=vendor/bundle
+bundle config set --local path 'vendor/bundle'
+bundle install
