@@ -114,12 +114,12 @@
 
     <p>You can also manually return the non-privileged response if you want:</p>
 
-    <p>```python
-@command(whole_msg=True)
-def createcommand(msg):
-  if not is_privileged(msg.owner, msg.room):
-    raise CmdException(GlobalVars.not_privileged_warning)
-  return “Hello”</p>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">command</span><span class="p">(</span><span class="n">whole_msg</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">createcommand</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
+  <span class="k">if</span> <span class="ow">not</span> <span class="n">is_privileged</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">msg</span><span class="p">.</span><span class="n">room</span><span class="p">):</span>
+    <span class="k">raise</span> <span class="n">CmdException</span><span class="p">(</span><span class="n">GlobalVars</span><span class="p">.</span><span class="n">not_privileged_warning</span><span class="p">)</span>
+  <span class="k">return</span> <span class="s">"Hello"</span>
+</code></pre></div>    </div>
   </li>
   <li>
     <p><code class="language-plaintext highlighter-rouge">aliases</code> - an array of strings: In addition to the function name, the function will be executed if the command is equal to the alias.</p>
@@ -245,7 +245,7 @@ def createcommand(msg):
           
           and
           <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/graphs/contributors">
-            24 more</a>
+            25 more</a>
         
           • <a href="/code">More gory details</a>
         
@@ -260,7 +260,7 @@ def createcommand(msg):
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/announcements": "https://charcoal-se.org//announcements/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>
