@@ -39,8 +39,8 @@ bookmarklet. Depending on the version you choose to use, a new window will open 
 automatically do the search for you.
 
 A bookmarklet is just a normal browser bookmark, where you add javascript code to the URL field. This will
-then execute the code when you click the bookmark. When you copy the javascript code in the links below
-it's important to convert it first to one line so that it can be pasted into the URL field.
+then execute the code when you click the bookmark. Copy the javascript code in the links below and paste it
+into the URL field, then you should be good to go.
 
 List of bookmarklets:
  - **Makyen** [Link](https://chat.stackexchange.com/rooms/11540/conversation/bookmarklets-for-searching-ms-for-blacklisted-expressions)
