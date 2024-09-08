@@ -70,16 +70,16 @@
 <h2 id="q-why-is-search-broken">Q: Why is search broken?</h2>
 <p><strong>A: It’s not.</strong></p>
 
-<p>There is a change to the MS search, and consequently, the search now behaves differently.</p>
+<p>A change was made to the MS search, changing its behavior.</p>
 
-<p>In the past, if one search <code class="language-plaintext highlighter-rouge">aaa bbb</code>, MS will return posts containing exactly <code class="language-plaintext highlighter-rouge">aaa bbb</code>. However, now we are using fulltext index, and MS will return posts containing <em>word</em> <code class="language-plaintext highlighter-rouge">aaa</code> <strong>or</strong> <code class="language-plaintext highlighter-rouge">bbb</code>. Think of it like Google. When you google <code class="language-plaintext highlighter-rouge">best spam in stackexchange</code>, Google may return <code class="language-plaintext highlighter-rouge">best spam posted on stackexchange</code>. If a post only contains the <em>word</em> <code class="language-plaintext highlighter-rouge">aaab</code> but neither <code class="language-plaintext highlighter-rouge">aaa</code> nor <code class="language-plaintext highlighter-rouge">bbb</code>, it will not be returned, even though <code class="language-plaintext highlighter-rouge">aaab</code> contains <code class="language-plaintext highlighter-rouge">aaa</code>.</p>
+<p>In the past, if one searched <code class="language-plaintext highlighter-rouge">aaa bbb</code>, MS would return posts containing exactly <code class="language-plaintext highlighter-rouge">aaa bbb</code>. However, we are now using FULLTEXT index, and MS will return posts containing <em>word</em> <code class="language-plaintext highlighter-rouge">aaa</code> <strong>or</strong> <code class="language-plaintext highlighter-rouge">bbb</code>. Think of it like Google: When you Google <code class="language-plaintext highlighter-rouge">best spam in stackexchange</code>, Google may return <code class="language-plaintext highlighter-rouge">best spam posted on stackexchange</code>. If a post only contains the <em>word</em> <code class="language-plaintext highlighter-rouge">aaab</code> but neither <code class="language-plaintext highlighter-rouge">aaa</code> nor <code class="language-plaintext highlighter-rouge">bbb</code>, it will not be returned, even though <code class="language-plaintext highlighter-rouge">aaab</code> contains <code class="language-plaintext highlighter-rouge">aaa</code>.</p>
 
-<p>Further more, there is a limitation of MySQL. A significant proportion of our corpus of posts include special characters, non-ASCII text, and in particular CJK (Chinese, Japanese, Korean) text. <a href="https://dev.mysql.com/doc/refman/8.0/en/fulltext-restrictions.html">MySQL is unable to parse these in a FULLTEXT index</a>, which is what search uses for the body field by default.</p>
+<p>Furthermore, there is a limitation of MySQL. A significant proportion of our corpus of posts includes special characters and non-ASCII text (in particular, CJK [Chinese, Japanese, Korean] text). <a href="https://dev.mysql.com/doc/refman/8.0/en/fulltext-restrictions.html">MySQL is unable to parse these in a FULLTEXT index</a>, which is what search uses for the “body” field by default.</p>
 
 <h2 id="q-whats-the-like-checkbox-for">Q: What’s the LIKE checkbox for?</h2>
-<p><strong>A: see above.</strong></p>
+<p><strong>A: See above answer.</strong></p>
 
-<p>The LIKE checkbox is there if you want the old MS search behaviour back. You can use this to ask MySQL to use a LIKE operator instead of searching by FULLTEXT index. When you are validating a watch/blacklist rule, you should probably check this (or <code class="language-plaintext highlighter-rouge">regex</code> checkbox). Bear in mind that your search query will perform <em>significantly</em> slower.</p>
+<p>The LIKE checkbox is there if you want the old MS search behaviour back. You can use this to ask MySQL to use a <code class="language-plaintext highlighter-rouge">LIKE</code> operator instead of searching by FULLTEXT index. When you are validating a watch/blacklist rule, you should probably check this (or the “regex” checkbox). Bear in mind that your search query will execute <em>significantly</em> more slowly.</p>
 
     </div>
     <div class="footer text-center">
