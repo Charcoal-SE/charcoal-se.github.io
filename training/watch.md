@@ -42,7 +42,7 @@ A bookmarklet is just a normal browser bookmark, where you add javascript code t
 then execute the code when you click the bookmark. Copy the javascript code and paste it
 into the URL field and save it, then you should be good to go.
 
-[List of bookmarklets](https://charcoal-se.org/smokey/Bookmarklets).
+[List of bookmarklets](https://charcoal-se.org/bookmarklets/).
 
 -----
 
