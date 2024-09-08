@@ -36,19 +36,13 @@ or website you want SmokeDetector to watch, we recommend doing a bit of research
 To make life a bit easier, some users have made bookmarklets, that can do all the searching for you. Just
 select and mark the text you want to search for in a report from SmokeDetector and then click the
 bookmarklet. Depending on the version you choose to use, a new window will open in your browser and
-automatically do the search for you.
+automatically do the search for you (you might need to accept popups before the window open).
 
 A bookmarklet is just a normal browser bookmark, where you add javascript code to the URL field. This will
-then execute the code when you click the bookmark. Copy the javascript code in the links below and paste it
-into the URL field, then you should be good to go.
+then execute the code when you click the bookmark. Copy the javascript code and paste it
+into the URL field and save it, then you should be good to go.
 
-List of bookmarklets:
- - **Makyen** [Link](https://chat.stackexchange.com/rooms/11540/conversation/bookmarklets-for-searching-ms-for-blacklisted-expressions)
-   - The general bookmarklet for searching on metasmoke is the third one called **For blacklisted websites**.
- - **Ryan M** [Link](https://gist.github.com/ThatRyanPerson/c3d50439e41f5e19b2b4a51c5f8f88a9)
-   - This one will search both metasmoke, but will also open three additional windows that searches
-     Stack Exchange with all the proper keywords and formatting. It uses optimized regex for metasmoke
-     to minimize load.
+[List of bookmarklets](https://charcoal-se.org/smokey/Bookmarklets).
 
 -----
 
