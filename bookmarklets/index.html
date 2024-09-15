@@ -268,6 +268,249 @@
 <span class="p">})();</span>
 </code></pre></div></div>
 
+<h2 id="other-searching">Other searching</h2>
+
+<h3 id="search-for-text-in-charcoal-hq">Search for text in Charcoal HQ</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javascript:(function(){
+    /* The code to get the selected text on multiple platforms is from an [answer to "Get the Highlighted/Selected text"](https://stackoverflow.com/a/5379408) copyright by Tim Down and is under a [CC BY-SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/legalcode).*/
+    var text = "";
+    var activeEl = document.activeElement;
+    var activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
+    if ((activeElTagName == "textarea" || activeElTagName == "input") &amp;&amp; /^(?:text|textarea|search|password|tel|url)$/i.test(activeEl.type) &amp;&amp; (typeof activeEl.selectionStart == "number")) {
+        text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
+    } else if (window.getSelection) {
+        text = window.getSelection().toString();
+    }
+    text = `https://chat.stackexchange.com/search?q=${encodeURIComponent(text)}&amp;room=11540&amp;page=1&amp;pagesize=100&amp;sort=newest`;
+    window.open(text);
+})();
+</code></pre></div></div>
+
+<h3 id="search-for-a-domain-on-stack-exchange">Search for a domain on Stack Exchange</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javascript:(function(){
+    /* The code to get the selected text on multiple platforms is from an [answer to "Get the Highlighted/Selected text"](https://stackoverflow.com/a/5379408) copyright by Tim Down and is under a [CC BY-SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/legalcode).*/
+    var text = "";
+    var activeEl = document.activeElement;
+    var activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
+    if ((activeElTagName == "textarea" || activeElTagName == "input") &amp;&amp; /^(?:text|textarea|search|password|tel|url)$/i.test(activeEl.type) &amp;&amp; (typeof activeEl.selectionStart == "number")) {
+        text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
+    } else if (window.getSelection) {
+        text = window.getSelection().toString();
+    }
+    text = text.replaceAll('[\\W_]*+', ' ').replace(/\\/g, '').replace(/(?:https?:)?(?:\/\/)?((?:[a-z\d-]+\.)+[a-z\d-]+)(?:$|[\s"\/].*$)/, '$1').replace(/^www\./,'');
+    text = `https://stackexchange.com/search?pagesize=100&amp;q=url%3A"${encodeURIComponent(text)}"`;
+    window.open(text);
+})();
+</code></pre></div></div>
+
+<h3 id="search-for-text-on-stack-exchange">Search for text on Stack Exchange</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javascript:(function(){
+    /* The code to get the selected text on multiple platforms is from an [answer to "Get the Highlighted/Selected text"](https://stackoverflow.com/a/5379408) copyright by Tim Down and is under a [CC BY-SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/legalcode).*/
+    var text = "";
+    var activeEl = document.activeElement;
+    var activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
+    if ((activeElTagName == "textarea" || activeElTagName == "input") &amp;&amp; /^(?:text|textarea|search|password|tel|url)$/i.test(activeEl.type) &amp;&amp; (typeof activeEl.selectionStart == "number")) {
+        text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
+    } else if (window.getSelection) {
+        text = window.getSelection().toString();
+    }
+    text = `https://stackexchange.com/search?pagesize=100&amp;q="${encodeURIComponent(text.replaceAll('[\\W_]*+', ' '))}"`;
+    window.open(text);
+})();
+</code></pre></div></div>
+
+<h3 id="search-for-a-domain-on-stack-overflow">Search for a domain on Stack Overflow</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javascript:(function(){
+    /* The code to get the selected text on multiple platforms is from an [answer to "Get the Highlighted/Selected text"](https://stackoverflow.com/a/5379408) copyright by Tim Down and is under a [CC BY-SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/legalcode).*/
+    var text = "";
+    var activeEl = document.activeElement;
+    var activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
+    if ((activeElTagName == "textarea" || activeElTagName == "input") &amp;&amp; /^(?:text|textarea|search|password|tel|url)$/i.test(activeEl.type) &amp;&amp; (typeof activeEl.selectionStart == "number")) {
+        text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
+    } else if (window.getSelection) {
+        text = window.getSelection().toString();
+    }
+    text = text.replaceAll('[\\W_]*+', ' ').replace(/\\/g, '').replace(/(?:https?:)?(?:\/\/)?((?:[a-z\d-]+\.)+[a-z\d-]+)(?:$|[\s"\/].*$)/, '$1').replace(/^www\./,'');
+    text = `https://stackoverflow.com/search?pagesize=100&amp;q=url%3A"${encodeURIComponent(text)}"`;
+    window.open(text);
+})();
+</code></pre></div></div>
+
+<h3 id="search-for-text-on-stack-overflow">Search for text on Stack Overflow</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javascript:(function(){
+    /* The code to get the selected text on multiple platforms is from an [answer to "Get the Highlighted/Selected text"](https://stackoverflow.com/a/5379408) copyright by Tim Down and is under a [CC BY-SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/legalcode).*/
+    var text = "";
+    var activeEl = document.activeElement;
+    var activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
+    if ((activeElTagName == "textarea" || activeElTagName == "input") &amp;&amp; /^(?:text|textarea|search|password|tel|url)$/i.test(activeEl.type) &amp;&amp; (typeof activeEl.selectionStart == "number")) {
+        text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
+    } else if (window.getSelection) {
+        text = window.getSelection().toString();
+    }
+    text = `https://stackoverflow.com/search?pagesize=100&amp;q="${encodeURIComponent(text.replaceAll('[\\W_]*+', ' '))}"`;
+    window.open(text);
+})();
+</code></pre></div></div>
+
+<h3 id="username-on-sede-user-search-with-login-to-sede">Username on SEDE user search (with login to SEDE)</h3>
+<p>This will open a new tab with a search for SE account usernames which match the selected text. The search ignores upper/lowercase.</p>
+
+<p>SEDE typically doesn’t keep you logged in, so a CAPTCHA has to be filled out for each search. In order to avoid needing to fill out the CAPTCHA, this bookmarklet will first open another page on SEDE, which will cause you to be logged back in, if you were previously logged in. It will then open the SEDE username search with the selected text.</p>
+
+<p>It only looks at the username on the user’s SE account, which means if the user is using a matching username on a site, but not on their SE account, that will not be detected.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javascript:(function(){
+    /* The code to get the selected text on multiple platforms is from an [answer to "Get the Highlighted/Selected text"](https://stackoverflow.com/a/5379408) copyright by Tim Down and is under a [CC BY-SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/legalcode). It has been modified to use const instead of var. */
+    var text = "";
+    const activeEl = document.activeElement;
+    const activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
+    if ((activeElTagName == "textarea" || activeElTagName == "input") &amp;&amp; /^(?:text|textarea|search|password|tel|url)$/i.test(activeEl.type) &amp;&amp; (typeof activeEl.selectionStart == "number")) {
+        text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
+    } else if (window.getSelection) {
+        text = window.getSelection().toString();
+    }
+    const searchTerm = encodeURIComponent(text);
+    const searchUsername = `username=${searchTerm}`;
+    /*const url = `https://data.stackexchange.com/stackoverflow/query/1242966/users-with-a-certain-name-across-the-network?${searchUsername}`;*/
+    const url = `https://data.stackexchange.com/stackoverflow/query/1843461/users-with-a-certain-name-across-the-network-with-usernames?${searchUsername}`;
+    /* Authenticate; wait for authentication, then open search. */
+    const authenticateURL = `https://data.stackexchange.com/user/authenticate?oauth2url=https://stackoverflow.com/oauth&amp;openid=`;
+    const target=`makyen-SEDE-with-authenticate-${Date.now()}`;
+    window.open(authenticateURL, target);
+    setTimeout(() =&gt; window.open(url, target), 10000);
+})();
+</code></pre></div></div>
+
+<h3 id="like-username-on-sede-user-search-with-login-to-sede">LIKE username on SEDE user search (with login to SEDE)</h3>
+<p>This will open a new tab with a search for SE account usernames which more loosely match the selected text.</p>
+
+<p>SEDE typically doesn’t keep you logged in, so a CAPTCHA has to be filled out for each search. In order to avoid needing to fill out the CAPTCHA, this bookmarklet will first open another page on SEDE, which will cause you to be logged back in, if you were previously logged in. It will then open the SEDE LIKE username search with the selected text. Note that the search ignores upper/lowercase.</p>
+
+<p>It only looks at the username on the user’s SE account, which means if the user is using a matching username on a site, but not on their SE account, that will not be detected.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javascript:(function(){
+    /* The code to get the selected text on multiple platforms is from an [answer to "Get the Highlighted/Selected text"](https://stackoverflow.com/a/5379408) copyright by Tim Down and is under a [CC BY-SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/legalcode). It has been modified to use const instead of var. */
+    var text = "";
+    const activeEl = document.activeElement;
+    const activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
+    if ((activeElTagName == "textarea" || activeElTagName == "input") &amp;&amp; /^(?:text|textarea|search|password|tel|url)$/i.test(activeEl.type) &amp;&amp; (typeof activeEl.selectionStart == "number")) {
+        text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
+    } else if (window.getSelection) {
+        text = window.getSelection().toString();
+    }
+    const searchTerm = encodeURIComponent(text);
+    const searchUsername = `username=${searchTerm}`;
+    const url = `https://data.stackexchange.com/stackoverflow/query/1838818/users-like-a-certain-name-across-the-network?${searchUsername}`;
+    /* Authenticate; wait for authentication, then open search. */
+    const authenticateURL = `https://data.stackexchange.com/user/authenticate?oauth2url=https://stackoverflow.com/oauth&amp;openid=`;
+    const target=`makyen-SEDE-with-authenticate-${Date.now()}`;
+    window.open(authenticateURL, target);
+    setTimeout(() =&gt; window.open(url, target), 10000);
+})();
+</code></pre></div></div>
+
+<h3 id="user-on-so-user-search-change-the-code-to-the-site-youre-interested-in">User on SO user search (change the code to the site you’re interested in)</h3>
+<p>Opens a new tab with a search on Stack Overflow’s user search for the selected text</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javascript:(function(){
+    /* The code to get the selected text on multiple platforms is from an [answer to "Get the Highlighted/Selected text"](https://stackoverflow.com/a/5379408) copyright by Tim Down and is under a [CC BY-SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/legalcode). It has been modified to use const instead of var. */
+    var text = "";
+    const activeEl = document.activeElement;
+    const activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
+    if ((activeElTagName == "textarea" || activeElTagName == "input") &amp;&amp; /^(?:text|textarea|search|password|tel|url)$/i.test(activeEl.type) &amp;&amp; (typeof activeEl.selectionStart == "number")) {
+        text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
+    } else if (window.getSelection) {
+        text = window.getSelection().toString();
+    }
+    const searchTerm = encodeURIComponent(text);
+    const searchUsername = `&amp;search=${searchTerm}`;
+    const url = `https://stackoverflow.com/users?tab=Reputation&amp;filter=all${searchUsername}`;
+    window.open(url);
+})();
+</code></pre></div></div>
+
+<h2 id="various">Various</h2>
+
+<h3 id="toggle-display-of-smokedetector-and-metasmoke-in-charcoal-hq-or-other-chatse-room">Toggle display of SmokeDetector and metasmoke in Charcoal HQ, or other chat.SE room</h3>
+<p>The messages from the SmokeDetector and metasmoke accounts will be toggled between shown/not shown. Only works for a tab that’s actively viewing a chat room on chat.stackexchange.com.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javascript:(function(){
+    showHideForUser(478536, shouldShowUser(478536));
+    showHideForUser(120914, shouldShowUser(120914));
+})();
+</code></pre></div></div>
+
+<h3 id="create-sill-alive-message">Create “Sill alive” message</h3>
+<p>the following bookmarklet will create “still alive” messages.</p>
+
+<p>To use it, click “reply” to the SD message containing the report for the post you’re wanting to post a “still alive” message for and then activate the bookmarklet (i.e. activate the bookmarklet when there’s just the “:<chat message="">" text in the chat input area):</chat></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javascript:void((function() {
+    const input = $('#input');
+    function addStillAliveToInput(msHref, siteHref) {
+        if (msHref &amp;&amp; siteHref) {
+            const stillAliveText = `[Still alive](${siteHref}) \\[[MS](${msHref})]`;
+            input.val(currentInputValue + stillAliveText);
+        }
+    }
+    const currentInputValue = input.val();
+    const messageId = Number(currentInputValue.match(/\d+/)[0]);
+    if (messageId) {
+        const replyToContent = $(`#message-${messageId} .content`);
+        if (replyToContent.length) {
+            const msHref = replyToContent.find('a[href*="erwaysoftware"]').first().attr('href');
+            const siteHref = replyToContent.find('a[href*="/q/"],a[href*="/a/"],a[href*="/questions/"],a[href*="/answers/"]').first().attr('href');
+            addStillAliveToInput(msHref, siteHref);
+        } else {
+            $.get(`${window.location.origin}/message/${messageId}?plain=true`).done((response) =&gt; {
+                const [, msHref, siteHref] = response.match(/\(([^)]+?erwaysoftware[^)]+)\).*?\(([^)]+?\/(?:a(?:nswers)?|q(?:uestions)?)\/[^)]+)\)/);
+                addStillAliveToInput(msHref, siteHref);
+            });
+        }
+    }
+})())
+</code></pre></div></div>
+
+<h3 id="minimize-metasmoke-search-url-and-escape-characters">Minimize metasmoke search URL and escape characters</h3>
+<p>On a metasmoke search page, this will minimize the current page URL and escape the URL so it can be pasted into chat. The result will be copied to the clipboard.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javascript:void(function() {
+    const result = location.href
+        .replace(/(?:^https?:|&amp;\w+=(?=&amp;|$)|&amp;commit=Search|&amp;user_reputation=0\b|&amp;user_rep_direction=(?:&gt;|%3(?:E))%3(?:D))/g,'')
+        .replace(/\?utf8=%E(?:2%9)(?:C%9)(?:3&amp;)/,'?')
+        .replaceAll(')','\\)')
+        .replaceAll('(','\\(')
+        .replaceAll('[','\\[')
+        .replaceAll(']','\\]')
+        .replaceAll('"','\\"')
+        .replace(/^\/\/metasmoke/, '//m');
+    const resultInTextArea = '&lt;textarea&gt;' + result + '&lt;/textarea&gt;';
+    const textarea = $(resultInTextArea).appendTo(document.body);
+    try {
+        textarea[0].select();
+        success = document.execCommand('copy');
+        if (!success) throw 1;
+        confirm('Copied to clipboard:\n\n' + result);
+    } catch (e) {
+        alert('UNABLE TO COPY to clipboard:\n\n' + result);
+    }
+    textarea.remove();
+}())
+</code></pre></div></div>
+
+<h3 id="translate-selected-text-on-google-translate">Translate selected text on Google Translate</h3>
+<p>A new tab will be opened to translate the selected text on Google Translate. Note that this will put the untranslated text as part of a URL in your browser history.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javascript:(function(){
+    /* The code to get the selected text on multiple platforms is from an [answer to "Get the Highlighted/Selected text"](https://stackoverflow.com/a/5379408) copyright by Tim Down and is under a [CC BY-SA 3.0 license](https://creativecommons.org/licenses/by-sa/3.0/legalcode).*/
+    var text = "";
+    var activeEl = document.activeElement;
+    var activeElTagName = activeEl ? activeEl.tagName.toLowerCase() : null;
+    if ((activeElTagName == "textarea" || activeElTagName == "input") &amp;&amp;
+        /^(?:text|textarea|search|password|tel|url)$/i.test(activeEl.type) &amp;&amp;
+        (typeof activeEl.selectionStart == "number")
+    ) {
+        text = activeEl.value.slice(activeEl.selectionStart, activeEl.selectionEnd);
+    } else if (window.getSelection) {
+        text = window.getSelection().toString();
+    }
+    window.open('https://translate.google.com/#auto/en/' + text);
+})();
+</code></pre></div></div>
+
     </div>
     <div class="footer text-center">
       <p>Charcoal is not affiliated with or sponsored by Stack Exchange, Inc.<br />
