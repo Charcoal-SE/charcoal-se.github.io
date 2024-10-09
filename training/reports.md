@@ -1,7 +1,7 @@
 ---
 ---
 
-# 4. Handling reports
+# 5. Handling reports
 When a report comes into Charcoal HQ, there are two major things we need to do with it: flag
 and feedback.
 
