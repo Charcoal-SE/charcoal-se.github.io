@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>
-    Privileges | Charcoal
+    When do you watch spam? | Charcoal
     
   </title>
   <link type="text/css" rel="stylesheet" href="/assets/application-0af23b9271f4af0499f4e1c18c5c797afb37c9dcbba3a992a3e5e26a48b5cbc6.css">
@@ -65,49 +65,60 @@
       </nav>
     </div>
     <div class="body">
-      <h1 id="4-privileges">4. Privileges</h1>
-<p>SmokeDetector has a limited number of <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/Commands#commands-for-everyone">commands that are available for anyone to use</a>. However,
-all its major functionality requires additional “privileges” to use. Being a privileged user
-means your user ID has been added to a list in SmokeDetector’s code, which entitles you to
-use privileged functionality.</p>
+      <h1 id="3-when-do-you-watch-spam">3. When do you watch spam?</h1>
+<p>Adding websites and keywords to SmokeDetector’s watchlists is a big part of being a privileged
+user on Charcoal.</p>
 
-<h2 id="what-do-they-let-you-do">What do they let you do?</h2>
-<p>They let you use privileged functionality. That includes running <a href="https://github.com/Charcoal-SE/SmokeDetector/wiki/Commands#privileged-commands">privileged
-commands</a> and providing feedback on SmokeDetector reports.
-We have a <a href="/smokey/Privileges">full list of privileges</a> available in the wiki. More detail on <a href="/training/reports">feedback</a>
-is provided in the next section. You can
-follow along with reports from SmokeDetector and flag spam without privileges, but if you want to 
-interact with SmokeDetector or the wider system, you’ll need to be given privileges.</p>
-
-<h2 id="how-do-you-get-them">How do you get them?</h2>
-<p>Privileges are called that for a reason - they’re a privilege, not something everyone gets.
-We’re pretty free with who we give them out to, but there is a short list of guidelines
-to help your case. Those are detailed in full <a href="https://charcoal-se.org/smokey/Privileges">in the wiki</a>. The TL;DR version is that
-we want to make sure you’re sane and have at least some experience of Stack Exchange and
-community moderation. We expect everyone with privileges to be able to get along and act
-like an adult.</p>
-
-<p>As always, we’re not robots - common sense is applied when dealing out privileges, so give
-someone a ping when you want to be added and we’ll walk you through what comes next.</p>
-
-<h2 id="reporting">Reporting</h2>
-<p>One of the major things that privileges let you do is report posts to SmokeDetector as spam.
-Since there’s been some uncertainty in the past about what should and shouldn’t be reported,
-here it is in black and white:</p>
+<p>Unless a post is <strong><em>obvious</em></strong> spam, it can sometimes be a bit overwhelming to detect what is a 
+legit post and what is not. After you’ve checked a post, determined that it’s spam and found the text
+or website you want SmokeDetector to watch, we recommend doing a bit of research before adding it.</p>
 
 <ul>
-  <li><strong>Report</strong> posts that would be “red-flaggable” on the site. That is, if it could be
-spam- or abusive-flagged, you can report it to Smokey.</li>
-  <li><strong>Don’t report</strong>… well, anything else. In particular, don’t report NAAs (posts that
-are flaggable as Not An Answer), self-vandalism, or plagiarism.</li>
+  <li><strong>Search</strong> for the URL or keyword on <a href="https://stackexchange.com/">Stack Exchange</a>
+    <ul>
+      <li>Use <code class="language-plaintext highlighter-rouge">url:example.com</code> in the search bar to find all questions and answers that have that website
+in them. Check how many hits come up and if it’s only the spam and 2-3 other posts it will
+typically be OK to add it.</li>
+      <li>Keywords can be searched just like normal text, but multiple keywords should be enclosed in
+quotation marks. Example: <code class="language-plaintext highlighter-rouge">"key word"</code> and <code class="language-plaintext highlighter-rouge">"more words to search for"</code>. In this way it will
+only show results for the actual text you search for. Stack Exchange will otherwise show results
+for each searched word and this will typically return too many hits.
+You can also use <code class="language-plaintext highlighter-rouge">code:keyword</code> to search for text that is hidden in a code snippet.</li>
+    </ul>
+  </li>
+  <li><strong>Search</strong> <a href="https://metasmoke.erwaysoftware.com/search">metasmoke</a> to see if anything already exist.
+Maybe there’s a lot of false positives, which would mean, that it shouldn’t be added to the watchlist.
+Metasmoke can be a bit complicated, but it can also be the best tool to find posts reported by
+SmokeDetector. If you are good at regex it can be an advantage.
+    <ul>
+      <li>Select <code class="language-plaintext highlighter-rouge">regex</code> in title, body and username. Now select <code class="language-plaintext highlighter-rouge">Use OR for text search (uses AND by default)</code>.
+Enclose the text or URL you want to search for with <code class="language-plaintext highlighter-rouge">\b</code> and remember to escape functional regex
+characters (<code class="language-plaintext highlighter-rouge">.</code> <code class="language-plaintext highlighter-rouge">()</code> <code class="language-plaintext highlighter-rouge">[]</code> etc.). You need to exclude <code class="language-plaintext highlighter-rouge">www.</code> from any URLs.
+Example: Enter <code class="language-plaintext highlighter-rouge">\bsocket\.io\b</code> in title, body and username. It will now search for posts that
+contain <code class="language-plaintext highlighter-rouge">socket.io</code> in either one or all of those fields. This broad search will make sure it catches
+posts where spammers, for instance, have added a URL to only the title or maybe even in their username.</li>
+    </ul>
+  </li>
+  <li><strong>Check</strong> <a href="https://github.com/Charcoal-SE/SmokeDetector/pulls">open pull requests</a> on SmokeDetector
+Github. The watch you want to add might already be queued for approval. It’s always a good idea to
+check and make sure it’s not a duplicate.</li>
 </ul>
 
-<p>The general principle we work on is that we <em>want to</em> catch anything that’s red-flaggable,
-so if we’ve missed one, reporting it is good.</p>
+<h2 id="bookmarklets">Bookmarklets</h2>
+<p>To make life a bit easier, some users have made bookmarklets, that can do all the searching for you. Just
+select and mark the text you want to search for in a report from SmokeDetector and then click the
+bookmarklet. Depending on the version you choose to use, a new window will open in your browser and
+automatically do the search for you (you might need to accept popups before the window open).</p>
+
+<p>A bookmarklet is just a normal browser bookmark, where you add javascript code to the URL field. This will
+then execute the code when you click the bookmark. Copy the javascript code and paste it
+into the URL field and save it, then you should be good to go.</p>
+
+<p><a href="https://charcoal-se.org/bookmarklets/">List of bookmarklets</a>.</p>
 
 <hr />
 
-<p><a href="/training/reports">Next: Handling reports</a></p>
+<p><a href="/training/privileges">Next: Privileges</a></p>
 
 <p><a href="/training/index">Return to Introduction Index</a></p>
 
@@ -141,7 +152,7 @@ so if we’ve missed one, reporting it is good.</p>
       
         <p>
           <a href="/code">More gory details</a>
-          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/training/privileges.md" title="training/privileges.md">Edit on GitHub</a>
+          • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/edit/site/training/watch.md" title="training/watch.md">Edit on GitHub</a>
           • <a href="https://github.com/Charcoal-SE/charcoal-se.github.io/new/site">New Page</a>
         </p>
       
