@@ -1,7 +1,7 @@
 ---
 ---
 
-# 6. Further Privileges: Core
+# 7. Further Privileges: Core
 When you've been working within Charcoal for a while, there are further levels of privileges
 that you may be interested in getting. For most people, the first of these is Core.
 

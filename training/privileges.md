@@ -1,7 +1,7 @@
 ---
 ---
 
-# 3. Privileges
+# 4. Privileges
 SmokeDetector has a limited number of [commands that are available for anyone to use][commandsNonPriv]. However,
 all its major functionality requires additional "privileges" to use. Being a privileged user
 means your user ID has been added to a list in SmokeDetector's code, which entitles you to
