@@ -47,7 +47,7 @@ $(window).on 'turbolinks:load', ->
         subsection = ''
         header = getHeader(suggestion._highlightResult) || getHeader(suggestion)
         if header
-          subsection = "<small>\xA7 #{escapeHTML(header.value ? header)}</small>"
+          subsection = "<small>\xA7 #{header.value ? header}</small>"
 
 
         """
@@ -56,7 +56,7 @@ $(window).on 'turbolinks:load', ->
             #{suggestion._highlightResult.title?.value ? escapeHTML(suggestion.title ? 'Home')}
             #{subsection}
           </strong><br>
-          <small>#{suggestion._highlightResult.text?.value ? escapeHTML(suggestion.text)}</small><br>
+          #{if suggestion.excerpt_text then "<small>#{suggestion.excerpt_text}</small><br>" else ""}
             <small class="aa-link">#{resolve escapeHTML suggestion.url}</small>
         </p>
         """
@@ -69,9 +69,9 @@ $(window).on 'turbolinks:load', ->
     if @searchConfig.baseUrl
       url = @searchConfig.baseUrl + url
 
-    if css_selector[0] == '#'
+    if css_selector && css_selector[0] == '#'
       url += css_selector
-    else if css_selector_parent[0] == '#'
+    else if css_selector_parent && css_selector_parent[0] == '#'
       url += css_selector_parent
 
     Turbolinks.visit(url)
