@@ -69,12 +69,10 @@ You can find it, and all our other userscripts, on the [userscripts page][us].
 
 -----
 
-[Next: Autoflagging][5]
+[Next: When to watch spam?](/training/watch)
 
-[Return to Introduction Index][8]
+[Return to Introduction Index](/training/index)
 
 
 [wiki]: https://charcoal-se.org/smokey/Feedback-Guidance
 [us]: /scripts
-[5]: /training/autoflagging
-[8]: /training/index

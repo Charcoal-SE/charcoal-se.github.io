@@ -86,12 +86,10 @@ As always, use your best judgment, and ask if you're not sure.
 
 -----
 
-[Next: When to watch spam?][3]
+[Next: Autoflagging](/training/autoflagging)
 
-[Return to Introduction Index][8]
+[Return to Introduction Index](/training/index)
 
 
 [def]: https://meta.stackexchange.com/q/58032
 [post]: https://metasmoke.erwaysoftware.com/post/108626
-[3]: /training/watch
-[8]: /training/index

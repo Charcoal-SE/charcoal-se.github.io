@@ -1,7 +1,7 @@
 ---
 ---
 
-# 3. When do you watch spam?
+# 6. When do you watch spam?
 Adding websites and keywords to SmokeDetector's watchlists is a big part of being a privileged
 user on Charcoal.
 
@@ -46,9 +46,6 @@ into the URL field and save it, then you should be good to go.
 
 -----
 
-[Next: Privileges][3]
+[Next: Further Privileges: Core](/training/core)
 
-[Return to Introduction Index][8]
-
-[3]: /training/privileges
-[8]: /training/index
+[Return to Introduction Index](/training/privileges)

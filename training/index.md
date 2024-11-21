@@ -23,10 +23,10 @@ This is a list of all the documents in this series. Start at the top and work yo
 
 1. [What's Charcoal?](/training/charcoal)
 2. [What's spam?](/training/spam)
-3. [When do you watch spam?](/training/watch)
+3. [Autoflagging](/training/autoflagging)
 4. [Privileges](/training/privileges)
 5. [Handling reports](/training/reports)
-6. [Autoflagging](/training/autoflagging)
+6. [When do you watch spam?](/training/watch)
 7. [Further privileges: Core](/training/core)
 8. [Further privileges: Blacklister](/training/blacklister)
 

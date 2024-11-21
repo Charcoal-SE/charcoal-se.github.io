@@ -19,9 +19,6 @@ the Core role, it's rarely done, even if the person takes a hiatus from the proj
 
 -----
 
-[Next: Further Privileges: Blacklister][7]
+[Next: Further Privileges: Blacklister](/training/blacklister)
 
-[Return to Introduction Index][8]
-
-[7]: /training/blacklister
-[8]: /training/index
+[Return to Introduction Index](/training/index)

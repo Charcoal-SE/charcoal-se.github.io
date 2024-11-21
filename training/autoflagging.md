@@ -1,7 +1,7 @@
 ---
 ---
 
-# 6. Autoflagging
+# 3. Autoflagging
 In January 2017, we started [automatically flagging spam][meta] through metasmoke. This page
 details that system.
 
@@ -45,14 +45,12 @@ Congrats, you're done! The next two pages in the training guide give some detail
 further privileges you can earn through contribution to Charcoal. Feel free to read those if
 you want to, but they're not essential.
 
-[Next: Further Privileges: Core][7]
+[Next: Privileges](/training/privileges)
 
-[Return to Introduction Index][8]
+[Return to Introduction Index](/training/privileges)
 
 [meta]: https://meta.stackexchange.com/questions/291301
 [ms-su]: https://metasmoke.erwaysoftware.com/users/sign_up
 [ms-auth]: https://metasmoke.erwaysoftware.com/authentication/status
 [ms-wiz]: https://metasmoke.erwaysoftware.com/flagging/ocs
 [ms-fd]: https://metasmoke.erwaysoftware.com/flagging
-[7]: /training/core
-[8]: /training/index

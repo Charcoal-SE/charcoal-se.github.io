@@ -31,9 +31,9 @@ There are more people involved than that, of course - there's a
 
 -----
 
-[Next: What's spam?][2]
+[Next: What's spam?](/training/spam)
 
-[Return to Introduction Index][8]
+[Return to Introduction Index](/training/index)
 
 
 [people]: https://charcoal-se.org/people
@@ -46,5 +46,3 @@ There are more people involved than that, of course - there's a
 [Andy]: https://stackoverflow.com/u/189134
 [tripleee]: https://stackoverflow.com/u/874188
 [Makyen]: https://stackoverflow.com/users/3773011/makyen
-[2]: /training/spam
-[8]: /training/index

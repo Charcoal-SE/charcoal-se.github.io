@@ -41,13 +41,11 @@ so if we've missed one, reporting it is good.
 
 -----
 
-[Next: Handling reports][4]
+[Next: Handling reports](/training/reports)
 
-[Return to Introduction Index][8]
+[Return to Introduction Index](/training/index)
 
 [commandsNonPriv]: https://github.com/Charcoal-SE/SmokeDetector/wiki/Commands#commands-for-everyone
 [commandsPriv]: https://github.com/Charcoal-SE/SmokeDetector/wiki/Commands#privileged-commands
 [Privileges]: /smokey/Privileges
 [wiki]: https://charcoal-se.org/smokey/Privileges
-[4]: /training/reports
-[8]: /training/index

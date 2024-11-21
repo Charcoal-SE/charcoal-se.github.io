@@ -39,8 +39,7 @@ than likely going to get some hits, but a Stack Exchange search indicates probab
 
 -----
 
-[Return to Introduction Index][8]
+[Return to Introduction Index](/training/index)
 
 [search-SE]: https://stackexchange.com/search
 [search-MS]: https://m.erwaysoftware.com/search
-[8]: /training/index
