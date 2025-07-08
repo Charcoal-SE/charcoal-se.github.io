@@ -16,3 +16,4 @@ We'd like to extend special thanks to these people, who have helped us out by re
  - [teward](https://stackoverflow.com/users/603346/thomas-ward) - improper SQL dump sanitization and handling
  - [NobodyNada](https://stackoverflow.com/users/3476191/nobodynada) - server memory dump disclosure
  - [user12986714](https://stackoverflow.com/users/12986714/user12986714) - SQL injection vulnerability
+ - Anonymous User - Vulnerability to polyfill supply chain attack (previously un-noticed) in main Charcoal-SE.org site templates.
