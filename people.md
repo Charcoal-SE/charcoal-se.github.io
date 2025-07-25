@@ -121,4 +121,5 @@ These people contribute in other ways, such as flagging, giving feedback, making
 *   [Tinkeringbell](https://chat.stackexchange.com/users/305737/Tinkeringbell)
 *   [Frenzy Li](https://chat.stackexchange.com/users/40662/frenzy-li)
 *   [Nick Craver](https://chat.stackexchange.com/users/128/nick-craver) (SE dev emeritus)
+*   [Elements In Space](https://chat.stackexchange.com/users/54623/elements-in-space)
 </section>
