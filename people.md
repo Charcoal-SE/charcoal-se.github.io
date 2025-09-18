@@ -92,7 +92,7 @@ These people help out by adding to and maintaining the miles of regexes and blac
 *   [Robert Longson](https://chat.stackexchange.com/users/145208/robert-longson)
 *   [Ryan M](https://chat.stackexchange.com/users/443002/ryan-m)
 *   [Shree](https://chat.stackexchange.com/users/340148/shree)
-*   [Spevacus](https://chat.stackexchange.com/users/430906/spevacus)
+*   [Spevacus](https://chat.stackexchange.com/users/430906/spevacus) (CM)
 *   [Suraj Rao](https://chat.stackexchange.com/users/262693/suraj-rao)
 *   [Tetsuya Yamamoto](https://chat.stackexchange.com/users/279119/tetsuya-yamamoto)
 *   [**Thomas Ward**](https://chat.stackexchange.com/users/10145/thomas-ward) (RO)
