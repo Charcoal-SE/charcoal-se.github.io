@@ -69,8 +69,8 @@
 and feedback.</p>
 
 <h2 id="flagging">Flagging</h2>
-<p>This you should be familiar with, since you have experience on Stack Exchange. Follow the link to look 
-at the post, decide if it needs flagging, and flag it with the appropriate flag if so.</p>
+<p>You should be familiar with this since you have experience on Stack Exchange. Follow the link to look 
+at the post, decide if it needs flagging, and if so, flag it with the appropriate flag.</p>
 
 <h2 id="feedback">Feedback</h2>
 <p>The point of feedback is to record whether the post was correctly detected or not. Feedback
@@ -79,10 +79,10 @@ feedback: true positives, false positives, and NAA. You should feed back as foll
 
 <ul>
   <li>If the reported post is <strong>spam or abusive</strong>, it’s a true positive. Reply to the report
-message with <code class="language-plaintext highlighter-rouge">k</code>.</li>
-  <li>If the reported post is Not An Answer, reply to the report with <code class="language-plaintext highlighter-rouge">n</code>.</li>
-  <li>If the reported post is self-vandalism, reply to the report with <code class="language-plaintext highlighter-rouge">tp-</code>.</li>
-  <li>If the reported post is a legitimate post, reply to the report with <code class="language-plaintext highlighter-rouge">f</code>.</li>
+message with <code class="language-plaintext highlighter-rouge">tpu</code>.</li>
+  <li>If the reported post is Not An Answer, reply to the report with <code class="language-plaintext highlighter-rouge">naa</code>.</li>
+  <li>If the reported post is self-vandalism, reply to the report with <code class="language-plaintext highlighter-rouge">tp</code>.</li>
+  <li>If the reported post is a legitimate post, reply to the report with <code class="language-plaintext highlighter-rouge">fp</code>.</li>
 </ul>
 
 <p>If that list doesn’t cover the post you’re looking at, you can assume it’s a false positive
@@ -98,7 +98,7 @@ should exercise judgment while dealing with self-promotion.</p>
   <li>Take a look at the user’s profile. If this is their first post, they almost certainly
 just aren’t aware of the policy about disclosure. You can let it go without flagging.</li>
   <li>On sites you’re familiar with, many well-meaning users respond well to a polite comment
-requesting the author to edit in disclosure. If the post content is good it’s definitely
+requesting the author to edit in disclosure. If the post content is good, it’s definitely
 preferred to have disclosure added by the author.</li>
   <li>If you think it is worth a flag (perhaps because they’ve been doing this a lot),
 consider using a custom moderator intervention flag rather than a spam flag. Those will
@@ -107,21 +107,21 @@ you flagged.</li>
 </ul>
 
 <h2 id="comments-on-reported-posts">Comments on reported posts</h2>
-<p>You should not leave comments under a post reported by SmokeDetector, unless you are otherwise
-familiar with that Stack Exchange site. In general, that means you participate on the site for
+<p><strong>You should not leave comments under a post reported by SmokeDetector unless you are otherwise
+familiar with that Stack Exchange site.</strong> In general, that means you participate on the site for
 more than responding to SmokeDetector reports and/or viewing a few Hot Network Questions.
 Unfortunately, we’ve had a case or two where comments left by people responding to a SmokeDetector
 report were taken negatively by the post’s author and moderators of the site.</p>
 
 <p>When you’re not otherwise familiar with the Stack Exchange site (i.e., you don’t participate in the
 site regularly enough to know how the site culture differs from other SE sites), then instead of
-leaving a comment, it is recommended that you raise an “in need of moderator intervention” flag
+leaving a comment, it is recommended that you raise a “looked at by a moderator” flag
 describing the issue and allow a site moderator to deal with it as they see fit.</p>
 
-<p>This <a href="https://chat.stackexchange.com/transcript/11540?m=43203660#43203660">rule was established in 2018</a>
+<p>This rule was <a href="https://chat.stackexchange.com/transcript/11540?m=43203660#43203660">established in 2018</a>
 after a multi-hour conversation in Charcoal HQ with a moderator on a site where a comment
 was posted by a Charcoal member on a reported post. While the comment was describing general
-network policy, it ended up causing considerable distuption and was of great concern to the
+network policy, it ended up causing considerable disruption and was of great concern to the
 moderator. Overall, it’s better to be more conservative and just bring the issue to the
 local moderators’ attention by flagging, unless you already actively participate on the site.</p>
 
@@ -183,7 +183,7 @@ You can find it, and all our other userscripts, on the <a href="/scripts">usersc
       index: 'main-search',
       baseUrl: '',
     }
-    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/announcements": "https://charcoal-se.org//announcements/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
+    window.redirects = { "/channel": "https://stackoverflow.com/c/charcoal", "/m": "https://metasmoke.erwaysoftware.com", "/store": "https://www.zazzle.co.uk/charcoal_se/products", "/ms/Home": "https://charcoal-se.org//ms/", "/ms/Home": "https://charcoal-se.org//ms/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/smokey/Home": "https://charcoal-se.org//smokey/", "/announcements": "https://charcoal-se.org//announcements/", "/userscripts/": "https://charcoal-se.org//scripts.html", "/userscripts": "https://charcoal-se.org//scripts.html",  }
   </script>
   <!-- Hotjar Tracking Code for charcoal-se.org -->
   <script>
