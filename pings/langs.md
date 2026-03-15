@@ -17,6 +17,7 @@ If you're looking for someone who speaks a particular language, please check thi
 * **Indonesian**: [Andrew T.](https://stackexchange.com/users/3359942/andrew-t)
 * **Persian**: [M.A.R.](https://stackexchange.com/users/3841881/m-a-r)
 * **Polish**: [Michał Perłakowski](https://stackexchange.com/users/4768421/micha%c5%82-per%c5%82akowski)
+* **Portuguese**: [Dan Getz](https://stackexchange.com/users/3601683/dan-getz)
 * **Russian**: [D-side](https://stackexchange.com/users/2372500/d-side), [Nick Volynkin](https://stackexchange.com/users/3318283/nick-volynkin), and [Xnero](https://stackexchange.com/users/17078244/xnero)
 * **Slovak**: [Martin Sleziak](https://stackexchange.com/users/267077/martin-sleziak)
 * **Spanish**: [CalvT](https://stackexchange.com/users/1245478/calvt), [ArtOfCode](https://stackexchange.com/users/3457374/artofcode), and [Robert Columbia](https://stackexchange.com/users/8643622/robert-columbia)
